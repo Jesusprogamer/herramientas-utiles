@@ -16,6 +16,13 @@ let current = FALLBACK;
 let dict = {};
 let fallbackDict = {};
 
+/* Claves que han faltado en el idioma activo. Se avisa una sola vez de cada
+   una para no llenar la consola, y se pueden consultar con missingKeys(). */
+const missing = new Set();
+
+/** Claves que han tenido que caer al idioma de respaldo. */
+export function missingKeys() { return [...missing]; }
+
 /** Idioma efectivo: el elegido, o el del navegador si esta en "automatico". */
 export function resolveLanguage(pref = settings.get('language')) {
   if (AVAILABLE.includes(pref)) return pref;
@@ -48,6 +55,7 @@ export async function setLanguage(pref) {
   }
   dict = code === FALLBACK ? fallbackDict : await fetchDict(code);
   current = code;
+  missing.clear();
 
   document.documentElement.setAttribute('lang', code);
   const title = t('app.name');
@@ -78,9 +86,19 @@ function lookup(source, path) {
  */
 export function t(key, params) {
   let text = lookup(dict, key);
-  if (text === undefined) text = lookup(fallbackDict, key);
   if (text === undefined) {
-    console.warn(`[idiomas] falta la clave "${key}"`);
+    // Respaldo: lo que falte en un idioma se muestra en español.
+    text = lookup(fallbackDict, key);
+    if (text !== undefined && current !== FALLBACK && !missing.has(key)) {
+      missing.add(key);
+      console.warn(`[idiomas] "${key}" no esta en "${current}": se muestra en ${FALLBACK}`);
+    }
+  }
+  if (text === undefined) {
+    if (!missing.has(key)) {
+      missing.add(key);
+      console.warn(`[idiomas] falta la clave "${key}" en todos los idiomas`);
+    }
     return key;
   }
   if (params) {

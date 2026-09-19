@@ -2,7 +2,7 @@
 import { h, clear, downloadFile } from '../ui/dom.js';
 import { icon } from '../ui/icons.js';
 import {
-  button, iconButton, select, toggle, segmented, notice, settingRow, card, field
+  button, iconButton, select, toggle, segmented, notice, settingRow, card, field, slider
 } from '../ui/components.js';
 import { confirm } from '../ui/dialog.js';
 import { toast, toastOk, toastError } from '../ui/toast.js';
@@ -11,6 +11,10 @@ import * as storage from '../core/storage.js';
 import * as registry from '../core/registry.js';
 import * as pwa from '../core/pwa.js';
 import * as account from '../core/account.js';
+import { markSvg } from '../core/accents.js';
+import * as theme from '../core/theme.js';
+import * as audio from '../core/audio.js';
+import * as transitions from '../core/transitions.js';
 import * as i18n from '../core/i18n.js';
 import { t, tn } from '../core/i18n.js';
 import { APP_VERSION } from '../core/version.js';
@@ -100,6 +104,149 @@ function appearanceSection() {
     settingRow({ label: t('settings.appearance.textSize.label'), desc: t('settings.appearance.textSize.desc'), control: textSize, stacked: true }),
     settingRow({ label: t('settings.appearance.reduceMotion.label'), desc: t('settings.appearance.reduceMotion.desc'), control: motion })
   );
+}
+
+/* ---------------- Sonido y animaciones ---------------- */
+
+const SOUND_CUES = [
+  ['tap', 'settings.sound.cue.tap'],
+  ['toggle', 'settings.sound.cue.toggle'],
+  ['success', 'settings.sound.cue.success'],
+  ['error', 'settings.sound.cue.error'],
+  ['navigate', 'settings.sound.cue.navigate'],
+  ['dialog', 'settings.sound.cue.dialog']
+];
+
+function soundSection(rerender) {
+  const sound = settings.get('sound');
+  const rows = [];
+
+  const master = toggle({
+    label: t('settings.sound.enabled.label'),
+    checked: sound.enabled,
+    onChange: value => {
+      settings.update({ sound: { enabled: value } });
+      if (value) { audio.unlock(); audio.play('success', { force: true }); }
+      rerender();
+    }
+  });
+
+  const volume = slider({
+    label: t('settings.sound.volume.label'),
+    min: 0, max: 100, step: 5, value: sound.volume,
+    format: v => `${v} %`,
+    onInput: value => {
+      settings.update({ sound: { volume: value } });
+      audio.setVolume(value);
+    }
+  });
+  // Al soltar se oye cómo ha quedado.
+  volume.input.addEventListener('change', () => { audio.unlock(); audio.play('tap', { force: true }); });
+
+  const styleButtons = h('div.row');
+  for (const style of settings.SOUND_STYLES) {
+    styleButtons.appendChild(button(t(`settings.sound.style.${style}`), {
+      class: 'btn--sm',
+      onClick: () => { audio.unlock(); audio.preview(style); }
+    }));
+  }
+
+  const styleChooser = segmented({
+    label: t('settings.sound.style.label'),
+    value: sound.style,
+    options: settings.SOUND_STYLES.map(v => ({ value: v, label: t(`settings.sound.style.${v}`) })),
+    onChange: value => {
+      settings.update({ sound: { style: value } });
+      audio.unlock();
+      audio.preview(value);
+    }
+  });
+
+  rows.push(settingRow({
+    label: t('settings.sound.enabled.label'),
+    desc: t('settings.sound.enabled.desc'),
+    control: master
+  }));
+
+  if (sound.enabled) {
+    rows.push(
+      volume,
+      settingRow({
+        label: t('settings.sound.style.label'),
+        desc: t('settings.sound.style.desc'),
+        control: styleChooser,
+        stacked: true
+      }),
+      h('div.row', h('span.small.muted', { text: t('settings.sound.style.tryIt') }), styleButtons)
+    );
+
+    for (const [key, labelKey] of SOUND_CUES) {
+      rows.push(settingRow({
+        label: t(labelKey),
+        control: toggle({
+          label: t(labelKey),
+          checked: sound[key],
+          onChange: value => { settings.update({ sound: { [key]: value } }); }
+        })
+      }));
+    }
+
+    if (audio.supportsHoverSounds()) {
+      rows.push(settingRow({
+        label: t('settings.sound.hover.label'),
+        desc: t('settings.sound.hover.desc'),
+        control: toggle({
+          label: t('settings.sound.hover.label'),
+          checked: sound.hover,
+          onChange: value => { settings.update({ sound: { hover: value } }); }
+        })
+      }));
+    } else {
+      rows.push(h('p.field__hint', { text: t('settings.sound.hover.unavailable') }));
+    }
+  }
+
+  if (typeof navigator.vibrate === 'function') {
+    rows.push(settingRow({
+      label: t('settings.sound.vibrate.label'),
+      desc: t('settings.sound.vibrate.desc'),
+      control: toggle({
+        label: t('settings.sound.vibrate.label'),
+        checked: sound.vibrate,
+        onChange: value => {
+          settings.update({ sound: { vibrate: value } });
+          if (value) audio.vibrate([14, 40, 14]);
+        }
+      })
+    }));
+  } else {
+    rows.push(h('p.field__hint', { text: t('settings.sound.vibrate.unavailable') }));
+  }
+
+  /* --- Transiciones --- */
+  const reducido = transitions.effectiveMode() === 'ninguna' && settings.get('transitions') !== 'ninguna';
+
+  rows.push(
+    h('hr'),
+    settingRow({
+      label: t('settings.motion.transitions.label'),
+      desc: t('settings.motion.transitions.desc'),
+      control: segmented({
+        label: t('settings.motion.transitions.label'),
+        value: settings.get('transitions'),
+        options: settings.TRANSITIONS.map(v => ({ value: v, label: t(`settings.motion.transitions.${v}`) })),
+        onChange: value => { settings.update({ transitions: value }); rerender(); }
+      }),
+      stacked: true
+    })
+  );
+  if (reducido) {
+    rows.push(notice(t('settings.motion.reducedOverride'), { kind: 'info' }));
+  }
+
+  rows.push(notice(t('settings.sound.note'), { kind: 'info' }));
+
+  return sectionBlock('settings.sound.title', 'sliders', ...rows);
 }
 
 function languageSection() {
@@ -587,7 +734,19 @@ function aboutSection() {
     h('a.btn.btn--ghost', { href: '#/licencias', text: t('settings.about.licenses') })
   );
 
+  const logo = markSvg({ accent: settings.get('accent'), label: t('app.name') });
+  logo.classList.add('about-logo');
+  theme.registerMark(logo);
+
   return sectionBlock('settings.about.title', 'info',
+    h('div.row',
+      logo,
+      h('div.grow',
+        h('p', { text: t('app.name'), style: { fontWeight: '600' } }),
+        h('p.small.muted', { text: t('app.tagline') })
+      )
+    ),
+    h('p.field__hint', { text: t('settings.about.iconNote') }),
     h('div.kv',
       h('div.kv__row', h('span.kv__key', { text: t('settings.about.version') }), h('span.kv__val', { text: APP_VERSION })),
       h('div.kv__row', h('span.kv__key', { text: t('settings.about.storage') }),
@@ -610,6 +769,7 @@ export default function settingsView({ outlet }) {
   function render() {
     clear(container);
     container.appendChild(appearanceSection());
+    container.appendChild(soundSection(render));
     container.appendChild(languageSection());
     container.appendChild(regionSection());
     container.appendChild(toolsSection());

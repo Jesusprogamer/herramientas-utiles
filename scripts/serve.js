@@ -4,11 +4,13 @@
  *   node scripts/serve.js 5000       -> otro puerto
  * No hace falta para publicar: GitHub Pages sirve los archivos tal cual.
  */
-const http = require('node:http');
-const fs = require('node:fs');
-const path = require('node:path');
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT = path.resolve(__dirname, '..');
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(HERE, '..');
 const PORT = Number(process.argv[2]) || 4173;
 
 const TYPES = {

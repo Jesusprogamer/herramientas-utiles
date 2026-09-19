@@ -8,20 +8,26 @@
 import * as storage from './storage.js';
 import { emit } from './events.js';
 
+/**
+ * Categorias del inicio. El orden es el que se ve en los filtros.
+ * Sus nombres estan en los idiomas, bajo `categories.<id>`.
+ */
+export const CATEGORIES = ['calculo', 'tiempo', 'texto', 'azar', 'estudio'];
+
 /** `ready: false` = la herramienta aun no esta implementada (proximas fases). */
 export const TOOLS = [
-  { id: 'temporizador',   icon: 'timer',     ready: true  },
-  { id: 'listas',         icon: 'checklist', ready: true  },
-  { id: 'unidades',       icon: 'ruler',     ready: true  },
-  { id: 'contrasenas',    icon: 'key',       ready: true  },
-  { id: 'contador-texto', icon: 'wordcount', ready: true  },
-  { id: 'porcentajes',    icon: 'percent',   ready: true  },
-  { id: 'monedas',        icon: 'currency',  ready: true  },
-  { id: 'zonas-horarias', icon: 'clock',     ready: true  },
-  { id: 'azar',           icon: 'dice',      ready: true  },
-  { id: 'qr',             icon: 'qr',        ready: true  },
-  { id: 'colores',        icon: 'palette',   ready: true  },
-  { id: 'equipos',        icon: 'users',     ready: true  }
+  { id: 'temporizador',   icon: 'timer',     category: 'tiempo',  ready: true  },
+  { id: 'listas',         icon: 'checklist', category: 'texto',   ready: true  },
+  { id: 'unidades',       icon: 'ruler',     category: 'calculo', ready: true  },
+  { id: 'contrasenas',    icon: 'key',       category: 'azar',    ready: true  },
+  { id: 'contador-texto', icon: 'wordcount', category: 'texto',   ready: true  },
+  { id: 'porcentajes',    icon: 'percent',   category: 'calculo', ready: true  },
+  { id: 'monedas',        icon: 'currency',  category: 'calculo', ready: true  },
+  { id: 'zonas-horarias', icon: 'clock',     category: 'tiempo',  ready: true  },
+  { id: 'azar',           icon: 'dice',      category: 'azar',    ready: true  },
+  { id: 'qr',             icon: 'qr',        category: 'texto',   ready: true  },
+  { id: 'colores',        icon: 'palette',   category: 'texto',   ready: true  },
+  { id: 'equipos',        icon: 'users',     category: 'azar',    ready: true  }
 ];
 
 const IDS = TOOLS.map(tool => tool.id);

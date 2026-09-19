@@ -1,6 +1,7 @@
 /** Dialogos de confirmacion accesibles, basados en <dialog>. */
 import { h, clear, focusables } from './dom.js';
 import { t } from '../core/i18n.js';
+import * as audio from '../core/audio.js';
 
 function host() {
   return document.getElementById('dialogs') || document.body;
@@ -44,6 +45,7 @@ export function confirm({ title, message, confirmLabel, cancelLabel, danger = fa
     host().appendChild(dlg);
     if (typeof dlg.showModal === 'function') dlg.showModal();
     else dlg.setAttribute('open', '');
+    audio.play('dialog');
     (focusables(dlg)[danger ? 0 : 1] || confirmBtn).focus();
   });
 }
@@ -60,6 +62,7 @@ export function modal({ title, render }) {
   host().appendChild(dlg);
   if (typeof dlg.showModal === 'function') dlg.showModal();
   else dlg.setAttribute('open', '');
+  audio.play('dialog');
   focusables(dlg)[0]?.focus();
   return close;
 }

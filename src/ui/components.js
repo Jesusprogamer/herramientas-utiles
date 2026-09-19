@@ -110,6 +110,8 @@ export function segmented({ label, options, value, onChange }) {
     let next = null;
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (idx + 1) % buttons.length;
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (idx - 1 + buttons.length) % buttons.length;
+    if (e.key === 'Home') next = 0;
+    if (e.key === 'End') next = buttons.length - 1;
     if (next === null) return;
     e.preventDefault();
     buttons[next].focus();

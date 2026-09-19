@@ -5,6 +5,7 @@
  * Las vistas de herramienta se cargan con import() perezoso.
  */
 import { emit } from './events.js';
+import * as transitions from './transitions.js';
 
 const routes = new Map();
 let notFound = null;
@@ -53,25 +54,29 @@ export function current() { return currentPath; }
 async function render() {
   if (!outlet) return;
   const { path, query } = parse();
+  const previous = currentPath;
   currentPath = path;
-
-  if (typeof currentCleanup === 'function') {
-    try { currentCleanup(); } catch (err) { console.error('[router] limpieza', err); }
-  }
-  currentCleanup = null;
 
   const found = match(path) || (notFound ? { handler: notFound, params: {} } : null);
   if (!found) return;
 
-  while (outlet.firstChild) outlet.removeChild(outlet.firstChild);
+  // El cambio de DOM va dentro de la transicion; la animacion no bloquea nada.
+  await transitions.run(transitions.directionBetween(previous, path), async () => {
+    if (typeof currentCleanup === 'function') {
+      try { currentCleanup(); } catch (err) { console.error('[router] limpieza', err); }
+    }
+    currentCleanup = null;
 
-  try {
-    const cleanup = await found.handler({ outlet, params: found.params, query, path });
-    if (typeof cleanup === 'function') currentCleanup = cleanup;
-  } catch (err) {
-    console.error('[router] fallo al pintar la ruta', path, err);
-    emit('router:error', { path, error: err });
-  }
+    while (outlet.firstChild) outlet.removeChild(outlet.firstChild);
+
+    try {
+      const cleanup = await found.handler({ outlet, params: found.params, query, path });
+      if (typeof cleanup === 'function') currentCleanup = cleanup;
+    } catch (err) {
+      console.error('[router] fallo al pintar la ruta', path, err);
+      emit('router:error', { path, error: err });
+    }
+  });
 
   emit('router:change', { path });
 

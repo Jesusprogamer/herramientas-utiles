@@ -1,6 +1,7 @@
 /** Avisos breves (toasts). */
 import { h, clear } from './dom.js';
 import { icon } from './icons.js';
+import * as audio from '../core/audio.js';
 
 const HOST_ID = 'toasts';
 const ICON_BY_KIND = { success: 'check', error: 'alert', info: 'info' };
@@ -8,6 +9,9 @@ const ICON_BY_KIND = { success: 'check', error: 'alert', info: 'info' };
 export function toast(message, { kind = 'info', duration = 3200, action } = {}) {
   const host = document.getElementById(HOST_ID);
   if (!host) return;
+
+  // El sonido acompaña al aviso; nunca lo sustituye.
+  if (kind === 'success' || kind === 'error') audio.play(kind);
 
   const el = h(`div.toast.toast--${kind}`, { role: kind === 'error' ? 'alert' : undefined },
     h('span.toast__icon', icon(ICON_BY_KIND[kind] || 'info')),

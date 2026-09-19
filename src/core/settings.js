@@ -14,6 +14,8 @@ export const TIME_FORMATS = ['auto', '12', '24'];
 export const DATE_FORMATS = ['auto', 'dmy', 'mdy', 'ymd'];
 export const UNIT_SYSTEMS = ['metrico', 'imperial'];
 export const LANGUAGES = ['auto', 'es', 'en'];
+export const SOUND_STYLES = ['suave', 'retro', 'cristal'];
+export const TRANSITIONS = ['ninguna', 'suave', 'completa'];
 
 export const DEFAULTS = Object.freeze({
   // Apariencia
@@ -21,6 +23,7 @@ export const DEFAULTS = Object.freeze({
   accent: 'azul',
   textSize: 'normal',
   reduceMotion: false,
+  transitions: 'suave',
   // Idioma
   language: 'es',
   // Region y formato
@@ -29,6 +32,20 @@ export const DEFAULTS = Object.freeze({
   currency: 'ARS',
   units: 'metrico',
   // Herramientas
+  // Sonido y animaciones
+  sound: Object.freeze({
+    enabled: true,
+    volume: 30,
+    style: 'suave',
+    tap: true,
+    toggle: true,
+    success: true,
+    error: true,
+    navigate: true,
+    dialog: true,
+    hover: false,      // solo con raton, y desactivado de serie
+    vibrate: false     // solo donde el navegador lo permita
+  }),
   timer: Object.freeze({
     focusMinutes: 25,
     shortBreakMinutes: 5,
@@ -43,13 +60,14 @@ export const DEFAULTS = Object.freeze({
 const ALLOWED = {
   theme: THEMES, accent: ACCENTS, textSize: TEXT_SIZES,
   language: LANGUAGES, timeFormat: TIME_FORMATS,
-  dateFormat: DATE_FORMATS, units: UNIT_SYSTEMS
+  dateFormat: DATE_FORMATS, units: UNIT_SYSTEMS,
+  transitions: TRANSITIONS
 };
 
-let state = { ...DEFAULTS, timer: { ...DEFAULTS.timer } };
+let state = { ...DEFAULTS, sound: { ...DEFAULTS.sound }, timer: { ...DEFAULTS.timer } };
 
 function sanitize(input) {
-  const out = { ...DEFAULTS, timer: { ...DEFAULTS.timer } };
+  const out = { ...DEFAULTS, sound: { ...DEFAULTS.sound }, timer: { ...DEFAULTS.timer } };
   if (!input || typeof input !== 'object') return out;
 
   for (const [key, list] of Object.entries(ALLOWED)) {
@@ -59,6 +77,25 @@ function sanitize(input) {
   if (typeof input.currency === 'string' && /^[A-Za-z]{3}$/.test(input.currency)) {
     out.currency = input.currency.toUpperCase();
   }
+  if (input.sound && typeof input.sound === 'object') {
+    const snd = input.sound;
+    const flag = (v, def) => (typeof v === 'boolean' ? v : def);
+    out.sound = {
+      enabled: flag(snd.enabled, DEFAULTS.sound.enabled),
+      volume: (typeof snd.volume === 'number' && snd.volume >= 0 && snd.volume <= 100)
+        ? Math.round(snd.volume) : DEFAULTS.sound.volume,
+      style: SOUND_STYLES.includes(snd.style) ? snd.style : DEFAULTS.sound.style,
+      tap: flag(snd.tap, DEFAULTS.sound.tap),
+      toggle: flag(snd.toggle, DEFAULTS.sound.toggle),
+      success: flag(snd.success, DEFAULTS.sound.success),
+      error: flag(snd.error, DEFAULTS.sound.error),
+      navigate: flag(snd.navigate, DEFAULTS.sound.navigate),
+      dialog: flag(snd.dialog, DEFAULTS.sound.dialog),
+      hover: flag(snd.hover, DEFAULTS.sound.hover),
+      vibrate: flag(snd.vibrate, DEFAULTS.sound.vibrate)
+    };
+  }
+
   if (input.timer && typeof input.timer === 'object') {
     const t = input.timer;
     const num = (v, min, max, def) =>
@@ -92,6 +129,7 @@ export function get(key) {
 /** Cambia uno o varios ajustes, los guarda y avisa. */
 export function update(patch) {
   const merged = { ...state, ...patch };
+  if (patch.sound) merged.sound = { ...state.sound, ...patch.sound };
   if (patch.timer) merged.timer = { ...state.timer, ...patch.timer };
   const next = sanitize(merged);
 
@@ -105,7 +143,7 @@ export function update(patch) {
 }
 
 export function reset() {
-  state = { ...DEFAULTS, timer: { ...DEFAULTS.timer } };
+  state = { ...DEFAULTS, sound: { ...DEFAULTS.sound }, timer: { ...DEFAULTS.timer } };
   storage.set(KEY, state);
   emit('settings:change', { settings: state, changed: Object.keys(DEFAULTS) });
   return state;
