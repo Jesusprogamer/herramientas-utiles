@@ -247,7 +247,8 @@
           "desc": "Avisa aunque la app esté en segundo plano.",
           "unsupported": "Tu navegador no admite notificaciones.",
           "denied": "Has bloqueado las notificaciones en este navegador. Cámbialo en los permisos del sitio.",
-          "granted": "Notificaciones activadas"
+          "granted": "Notificaciones activadas",
+          "hint": "El navegador solo puede avisarte mientras la app siga abierta, aunque sea en segundo plano. Si la cierras del todo, no hay notificación."
         }
       }
     },
@@ -455,9 +456,11 @@
     "endsAt": "Termina a las {time}",
     "round": "Ronda {n}",
     "custom": {
-      "label": "Minutos personalizados",
       "action": "Poner",
-      "invalid": "Escribe un número de minutos entre 1 y 600"
+      "invalid": "Entre 0 y 599 minutos y entre 0 y 59 segundos, y que no sea cero.",
+      "title": "Tiempo a medida",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
     },
     "state": {
       "running": "En marcha",
@@ -477,7 +480,11 @@
     "pomodoro": {
       "config": "{focus} min de concentración · {short} min de descanso · {long} min de descanso largo cada {rounds} rondas. Se cambia en Ajustes."
     },
-    "hint": "Sigue contando aunque cambies de pantalla o cierres la app, y el aviso suena igual."
+    "hint": "Sigue contando aunque cambies de pantalla, y la alarma suena una y otra vez hasta que la detienes.",
+    "alarm": {
+      "stop": "Detener alarma",
+      "ringing": "Sonando: {phase}"
+    }
   },
   "listas": {
     "add": "Añadir",

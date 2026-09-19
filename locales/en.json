@@ -247,7 +247,8 @@
           "desc": "Alerts you even if the app is in the background.",
           "unsupported": "Your browser doesn't support notifications.",
           "denied": "Notifications are blocked for this site. Change it in your browser's site permissions.",
-          "granted": "Notifications are on"
+          "granted": "Notifications are on",
+          "hint": "Browsers can only alert you while the app is still open, even in the background. Close it completely and no notification arrives."
         }
       }
     },
@@ -455,9 +456,11 @@
     "endsAt": "Ends at {time}",
     "round": "Round {n}",
     "custom": {
-      "label": "Custom minutes",
       "action": "Set",
-      "invalid": "Enter a number of minutes between 1 and 600"
+      "invalid": "Between 0 and 599 minutes and 0 and 59 seconds, and not zero.",
+      "title": "Custom time",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
     },
     "state": {
       "running": "Running",
@@ -477,7 +480,11 @@
     "pomodoro": {
       "config": "{focus} min focus · {short} min break · {long} min long break every {rounds} rounds. Change it in Settings."
     },
-    "hint": "It keeps running if you switch screens or close the app, and the alert still fires."
+    "hint": "It keeps running if you switch screens, and the alarm repeats until you stop it.",
+    "alarm": {
+      "stop": "Stop alarm",
+      "ringing": "Alarm: {phase}"
+    }
   },
   "listas": {
     "add": "Add",

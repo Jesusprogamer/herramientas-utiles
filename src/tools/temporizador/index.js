@@ -31,9 +31,14 @@ const state = {
 };
 
 let alarmTimer = 0;        // dispara el aviso aunque no se este viendo la herramienta
+let ringTimer = 0;         // repeticion del aviso mientras nadie lo apaga
+let ringing = false;       // la alarma esta sonando ahora mismo
+let alarmBanner = null;    // barra global para apagarla desde cualquier pantalla
 let ticker = 0;            // refresco de pantalla, solo mientras esta montada
 let render = null;         // funcion de pintado actual (null si no esta montada)
 let restored = false;
+
+const RING_EVERY_MS = 3000;
 
 function save() {
   storage.set(KEY, {
@@ -109,23 +114,102 @@ function beep() {
   }
 }
 
-function fireAlarm() {
+/** Un ciclo de aviso: pitido y vibracion. Se repite hasta que se apaga. */
+function ring() {
   const cfg = settings.get('timer');
-  const label = t(`temporizador.phase.${state.phase}`);
-
   if (cfg.sound) beep();
   if (cfg.vibrate && typeof navigator.vibrate === 'function') {
     try { navigator.vibrate([220, 120, 220, 120, 320]); } catch { /* no compatible */ }
   }
-  if (cfg.notify && 'Notification' in window && Notification.permission === 'granted') {
-    try {
-      new Notification(t('temporizador.done.title'), {
-        body: t('temporizador.done.body', { phase: label }),
-        tag: 'amano-temporizador'
-      });
-    } catch { /* algunos navegadores solo permiten notificaciones desde el SW */ }
+}
+
+/**
+ * Notificacion del sistema. Se pide al service worker cuando se puede:
+ * aguanta mejor con la app en segundo plano y admite `vibrate` y acciones.
+ * Aun asi, una web solo puede avisar si la app sigue viva en alguna pestaña;
+ * si se cierra del todo, el navegador no la despierta.
+ */
+function notifySystem() {
+  const cfg = settings.get('timer');
+  if (!cfg.notify || !('Notification' in window) || Notification.permission !== 'granted') return;
+
+  const label = t(`temporizador.phase.${state.phase}`);
+  const options = {
+    body: t('temporizador.done.body', { phase: label }),
+    tag: 'amano-temporizador',
+    renotify: true,
+    requireInteraction: true,          // no se va sola: el aviso sigue sonando
+    icon: './assets/icons/icon-192.png',
+    badge: './assets/icons/icon-192.png',
+    vibrate: cfg.vibrate ? [220, 120, 220, 120, 320] : undefined
+  };
+
+  const fallback = () => {
+    try { new Notification(t('temporizador.done.title'), options); } catch { /* sin permiso */ }
+  };
+
+  if (navigator.serviceWorker?.ready) {
+    navigator.serviceWorker.ready
+      .then(reg => reg.showNotification(t('temporizador.done.title'), options))
+      .catch(fallback);
+  } else {
+    fallback();
   }
-  toast(t('temporizador.done.body', { phase: label }), { kind: 'success', duration: 6000 });
+}
+
+function closeSystemNotification() {
+  if (!navigator.serviceWorker?.ready) return;
+  navigator.serviceWorker.ready
+    .then(reg => reg.getNotifications({ tag: 'amano-temporizador' }))
+    .then(list => list.forEach(n => n.close()))
+    .catch(() => { /* nada que cerrar */ });
+}
+
+/** Barra fija para apagar la alarma aunque estes en otra pantalla. */
+function showAlarmBanner() {
+  if (alarmBanner) return;
+  alarmBanner = h('div.alarmbar', { role: 'alert' },
+    h('span.grow', {
+      text: t('temporizador.alarm.ringing', { phase: t(`temporizador.phase.${state.phase}`) })
+    }),
+    button(t('temporizador.alarm.stop'), { variant: 'primary', icon: 'x', onClick: stopAlarm })
+  );
+  document.body.appendChild(alarmBanner);
+  document.body.classList.add('alarm-on');
+}
+
+function hideAlarmBanner() {
+  alarmBanner?.remove();
+  alarmBanner = null;
+  document.body.classList.remove('alarm-on');
+}
+
+export function isRinging() { return ringing; }
+
+/** Arranca el aviso y lo repite hasta que la persona lo apaga. */
+function startAlarm() {
+  ringing = true;
+  ring();
+  notifySystem();
+  clearInterval(ringTimer);
+  ringTimer = setInterval(ring, RING_EVERY_MS);
+  showAlarmBanner();
+  toast(t('temporizador.done.body', { phase: t(`temporizador.phase.${state.phase}`) }), {
+    kind: 'success', duration: 6000
+  });
+  render?.();
+}
+
+/** Apaga el aviso. Lo llaman el boton, la barra y cualquier accion nueva. */
+function stopAlarm() {
+  if (!ringing) return;
+  ringing = false;
+  clearInterval(ringTimer);
+  ringTimer = 0;
+  try { navigator.vibrate?.(0); } catch { /* no compatible */ }
+  hideAlarmBanner();
+  closeSystemNotification();
+  render?.();
 }
 
 function scheduleAlarm() {
@@ -139,7 +223,7 @@ function onFinished() {
   state.running = false;
   state.remainingMs = 0;
   state.finished = true;
-  fireAlarm();
+  startAlarm();
 
   if (state.mode === 'pomodoro') advancePomodoro();
   save();
@@ -164,13 +248,20 @@ function advancePomodoro() {
 /* ---------------- Acciones ---------------- */
 
 function start() {
+  stopAlarm();
   if (leftMs() <= 0) return;
+  const cfg = settings.get('timer');
   // Un toque del usuario: buen momento para desbloquear el audio del navegador.
-  if (settings.get('timer').sound) {
+  if (cfg.sound) {
     try {
       audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
       audioCtx.resume?.();
     } catch { /* sin audio */ }
+  }
+  // Y tambien para pedir el permiso de notificaciones, que solo se concede
+  // a raiz de un gesto de la persona.
+  if (cfg.notify && 'Notification' in window && Notification.permission === 'default') {
+    Notification.requestPermission().catch(() => { /* lo decide el navegador */ });
   }
   // Ojo al orden: hay que leer lo que queda ANTES de marcarlo en marcha,
   // porque leftMs() cambia de fuente segun `running`.
@@ -193,6 +284,7 @@ function pause() {
 }
 
 function reset() {
+  stopAlarm();
   state.running = false;
   state.finished = false;
   clearTimeout(alarmTimer);
@@ -201,11 +293,13 @@ function reset() {
   render?.();
 }
 
-function setMinutes(min) {
+/** Fija la duracion en milisegundos (los atajos y el campo a medida pasan por aqui). */
+function setDuration(ms) {
+  stopAlarm();
   state.running = false;
   state.finished = false;
   clearTimeout(alarmTimer);
-  state.totalMs = Math.round(min * 60000);
+  state.totalMs = Math.max(1000, Math.round(ms));
   state.remainingMs = state.totalMs;
   save();
   render?.();
@@ -213,6 +307,7 @@ function setMinutes(min) {
 
 function switchMode(mode) {
   if (state.mode === mode) return;
+  stopAlarm();
   state.mode = mode;
   state.running = false;
   state.finished = false;
@@ -274,24 +369,52 @@ function buildPanel(panel) {
 
   const startBtn = button('', { variant: 'primary', icon: 'timer', onClick: () => (state.running ? pause() : start()) });
   const resetBtn = button('', { icon: 'refresh', onClick: reset });
-  const controls = h('div.row', { style: { justifyContent: 'center' } }, startBtn, resetBtn);
+  const stopAlarmBtn = button(t('temporizador.alarm.stop'), { variant: 'danger', icon: 'x', onClick: stopAlarm });
+  const controls = h('div.row', { style: { justifyContent: 'center' } }, stopAlarmBtn, startBtn, resetBtn);
 
   const presets = h('div.timer__presets');
-  const customInput = h('input.input', {
-    type: 'number', min: '1', max: '600', step: '1', inputmode: 'numeric',
-    'aria-label': t('temporizador.custom.label'),
-    placeholder: t('temporizador.custom.label'),
-    style: { maxWidth: '9rem' }
+
+  /* Tiempo a medida: minutos Y segundos, no solo atajos redondos. */
+  const totalSeconds = Math.round(state.totalMs / 1000);
+  const minInput = h('input.input.tnum', {
+    type: 'number', min: '0', max: '599', step: '1', inputmode: 'numeric',
+    id: 'timer-min', value: String(Math.floor(totalSeconds / 60)),
+    style: { maxWidth: '6rem' }
   });
-  const customRow = h('div.row', { style: { justifyContent: 'center' } },
-    customInput,
-    button(t('temporizador.custom.action'), {
-      onClick: () => {
-        const n = Number(customInput.value);
-        if (!Number.isFinite(n) || n < 1 || n > 600) { toast(t('temporizador.custom.invalid'), { kind: 'error' }); return; }
-        setMinutes(n);
-      }
-    })
+  const secInput = h('input.input.tnum', {
+    type: 'number', min: '0', max: '59', step: '1', inputmode: 'numeric',
+    id: 'timer-sec', value: String(totalSeconds % 60),
+    style: { maxWidth: '6rem' }
+  });
+  const customError = h('p.field__error', { hidden: true, role: 'alert' });
+
+  const applyCustom = () => {
+    const minutes = Number(minInput.value);
+    const seconds = Number(secInput.value);
+    const valid = Number.isInteger(minutes) && minutes >= 0 && minutes <= 599
+      && Number.isInteger(seconds) && seconds >= 0 && seconds <= 59
+      && (minutes * 60 + seconds) >= 1;
+    if (!valid) {
+      customError.hidden = false;
+      customError.textContent = t('temporizador.custom.invalid');
+      return;
+    }
+    customError.hidden = true;
+    setDuration((minutes * 60 + seconds) * 1000);
+  };
+
+  for (const input of [minInput, secInput]) {
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') applyCustom(); });
+  }
+
+  const customRow = h('div.stack',
+    h('p.field__label', { text: t('temporizador.custom.title') }),
+    h('div.row', { style: { justifyContent: 'center' } },
+      h('div.field', h('label.field__label', { for: 'timer-min', text: t('temporizador.custom.minutes') }), minInput),
+      h('div.field', h('label.field__label', { for: 'timer-sec', text: t('temporizador.custom.seconds') }), secInput),
+      button(t('temporizador.custom.action'), { variant: 'primary', onClick: applyCustom })
+    ),
+    customError
   );
 
   const configNote = h('p.small.muted');
@@ -307,7 +430,7 @@ function buildPanel(panel) {
       // Sin variante "ghost": estos atajos tienen que verse pulsables.
       presets.appendChild(button(t('temporizador.preset', { n: min }), {
         class: 'btn--sm',
-        onClick: () => setMinutes(min)
+        onClick: () => setDuration(min * 60000)
       }));
     }
   }
@@ -330,6 +453,14 @@ function buildPanel(panel) {
     startBtn.lastChild.textContent = state.running ? t('temporizador.pause') : t('temporizador.start');
     startBtn.disabled = ms <= 0 && !state.running;
     resetBtn.lastChild.textContent = t('temporizador.reset');
+    stopAlarmBtn.hidden = !ringing;
+
+    // Los campos a medida siguen al temporizador salvo mientras se escriben.
+    if (state.mode === 'cuenta' && document.activeElement !== minInput && document.activeElement !== secInput) {
+      const secs = Math.round(state.totalMs / 1000);
+      minInput.value = String(Math.floor(secs / 60));
+      secInput.value = String(secs % 60);
+    }
 
     endsAtLabel.textContent = state.running
       ? t('temporizador.endsAt', { time: formatTime(new Date(state.endsAt)) })
