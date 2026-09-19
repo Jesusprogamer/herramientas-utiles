@@ -2,7 +2,7 @@
    Alcance relativo: funciona igual en la raiz de un dominio que en
    https://usuario.github.io/repositorio/ */
 
-const APP_VERSION = '2.4.0';          // sincronizar con src/core/version.js
+const APP_VERSION = '2.5.0';          // sincronizar con src/core/version.js
 const CACHE_NAME = `amano-v${APP_VERSION}`;
 
 /* Esqueleto de la app: se guarda en la instalacion para que arranque
@@ -47,6 +47,9 @@ const PRECACHE = [
   './src/views/home.js',
   './src/views/settings.js',
   './src/views/info.js',
+  './src/lib/steps.js',
+  './src/lib/fraction.js',
+  './src/lib/expr.js',
   './src/tools/listas/rich.js',
   './src/tools/temporizador/index.js',
   './src/tools/temporizador/alarms.js',
