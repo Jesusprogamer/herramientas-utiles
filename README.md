@@ -33,14 +33,23 @@ introduce el resto de la división.
 
 ## Probar en local
 
-No hace falta instalar nada. Con Node ya instalado:
+No hay dependencias que instalar. Con Node ya instalado:
 
 ```bash
-node scripts/serve.js        # http://localhost:4173
+npm run serve            # http://localhost:4173
+npm test                 # pruebas de los motores de cálculo y de los datos
+npm run check-locales    # comprueba que todos los idiomas cuadran
+npm run icons            # regenera los iconos (solo si cambias el diseño)
 ```
 
 Se necesita un servidor (no vale abrir `index.html` con doble clic) porque la
 app usa módulos ES y un service worker.
+
+`package.json` no tiene dependencias: solo declara módulos ES y estos atajos.
+`npm run icons` sí necesita Playwright, pero los iconos ya están en el
+repositorio, así que no hace falta salvo que cambies el diseño.
+
+**Antes de cada commit** se ejecutan `npm run check-locales` y `npm test`.
 
 ## Publicar en GitHub Pages
 
@@ -56,30 +65,40 @@ para que funcione igual en la raíz de un dominio que en un subdirectorio.
 ## Estructura
 
 ```
-index.html              Punto de entrada, en la raíz.
-404.html, offline.html  Páginas autónomas, sin dependencias externas.
-manifest.json           Datos de instalación.
-sw.js                   Service worker: caché con versión y aviso de actualización.
-config.js               Datos de Supabase (vacío = modo invitado).
-assets/icons/           Iconos, incluidos los "maskable".
+index.html                 Punto de entrada, en la raíz.
+404.html, offline.html     Páginas autónomas, sin dependencias externas.
+manifest.json              Instalación con el acento por defecto.
+manifest-<acento>.json     Uno por acento; el JS cambia el <link rel=manifest>.
+sw.js                      Service worker: caché con versión y aviso de actualización.
+config.js                  Datos de Supabase (vacío = modo invitado).
+package.json               Sin dependencias: módulos ES y atajos npm.
+assets/icons/<acento>/     Iconos ya renderizados de cada acento (incl. maskable).
 styles/
-  tokens.css              variables base (espaciado, tipografía, radios…)
-  themes.css              temas oscuro y claro + 6 acentos
-  base.css                reset, foco visible, reducir movimiento
-  components.css          botones, tarjetas, campos, interruptores, avisos…
-  layout.css              estructura, rejilla de inicio, ajustes
-  tools.css               estilos de las herramientas (carga diferida)
-locales/                 Todo el texto de la interfaz (es.json, en.json).
+  tokens.css                 variables base (espaciado, tipografía, radios…)
+  themes.css                 temas oscuro y claro + 6 acentos
+  base.css                   reset, foco visible, reducir movimiento, transiciones
+  components.css             botones, tarjetas, campos, interruptores, avisos…
+  layout.css                 estructura, rejilla de inicio, ajustes
+  tools.css                  estilos de las herramientas (carga diferida)
+locales/                   Todo el texto de la interfaz (es.json, en.json).
 src/
-  main.js                 arranque, rutas y barra superior
-  core/                   almacenamiento, ajustes, idiomas, tema, registro,
-                          enrutador, eventos, PWA, azar, cuenta, versión
-  ui/                     dom, iconos, componentes, avisos, diálogos
-  views/                  inicio, ajustes, páginas informativas
-  tools/<id>/index.js     una carpeta por herramienta
-  standalone.js           textos de 404.html y offline.html
-vendor/                  Librerías de terceros, con su licencia.
-scripts/serve.js         Servidor estático de pruebas.
+  main.js                    arranque, rutas y barra superior
+  core/
+    accents.js                 degradados de la marca (fuente única)
+    audio.js                   sonidos de la interfaz, sintetizados
+    transitions.js             transiciones entre pantallas
+    storage.js, settings.js, i18n.js, theme.js, registry.js, router.js,
+    events.js, pwa.js, random.js, account.js, licenses.js, version.js
+  ui/                        dom, iconos, componentes, avisos, diálogos
+  views/                     inicio, ajustes, páginas informativas
+  tools/<id>/index.js        una carpeta por herramienta
+  standalone.js              textos de 404.html y offline.html
+vendor/                    Librerías de terceros, con su licencia.
+tests/                     Pruebas con `node --test`, sin dependencias.
+scripts/
+  serve.js                   servidor estático de pruebas
+  check-locales.js           compara las claves de todos los idiomas
+  build-icons.js             genera los iconos y manifest de cada acento
 ```
 
 ## Dónde se cambian las cosas
@@ -107,10 +126,14 @@ aparece el aviso «Hay una actualización disponible»).
    };
    ```
 
-2. Añadir la entrada en `src/core/registry.js` (`TOOLS`), con `ready: true`.
+2. Añadir la entrada en `src/core/registry.js` (`TOOLS`), con su `category`
+   (una de `CATEGORIES`) y `ready: true`.
 3. Añadir `tools.<id>.name` y `tools.<id>.desc` a **todos** los archivos de `locales/`.
 4. Añadir el archivo nuevo a la lista `PRECACHE` de `sw.js` y subir la versión.
+   Hay una prueba que falla si se olvida: sin eso la herramienta no funciona
+   sin conexión.
 5. Si hay que sincronizar sus datos, añadir su clave a `SYNC_KEYS` en `src/core/account.js`.
+6. Ejecutar `npm run check-locales` y `npm test`.
 
 Las herramientas con `ready: false` salen en el inicio con la etiqueta
 «Próximamente» y abren una pantalla explicativa.
@@ -120,8 +143,12 @@ Las herramientas con `ready: false` salen en el inicio con la etiqueta
 1. Copiar `locales/es.json` a `locales/<código>.json` y traducirlo.
 2. Añadir el código a `AVAILABLE` en `src/core/i18n.js`.
 3. Añadir el archivo a `PRECACHE` en `sw.js`.
+4. Ejecutar `npm run check-locales`, que falla si falta alguna clave, si
+   sobra, si cambia la forma o si se pierde un marcador como `{name}`.
 
 No hay texto fijo en el HTML ni en el JS: todo sale de esos archivos.
+El **español es el idioma de respaldo**: si a otro le falta una clave, se
+muestra en español en lugar de enseñar la clave cruda.
 
 ## Almacenamiento
 
@@ -274,8 +301,32 @@ web con el *redirect URI* que indica Supabase, y pegar el ID y el secreto en
 **Authentication → Providers → Google**. En el código sería añadir un botón que
 llame a `signInWithOAuth({ provider: 'google' })`. Dímelo y lo añado.
 
+## El icono y el color de acento
+
+Los dos tonos del degradado de cada acento viven **solo** en
+`src/core/accents.js`. De ahí salen el logo de la cabecera, la pantalla de
+carga, «Acerca de», el favicon, el apple-touch-icon y los iconos de
+instalación que genera `npm run icons`.
+
+Al cambiar de acento se actualizan el favicon, el apple-touch-icon y el
+`<link rel="manifest">`. **El icono de una app ya instalada lo fija el
+sistema al instalarla:** en Android puede tardar en actualizarse y en iPhone
+no se actualiza nunca. Para verlo cambiar hay que reinstalar la app.
+
+Los tonos no se eligen a ojo: el símbolo es blanco, así que ambos extremos
+del degradado deben quedar como mínimo a 3:1 de contraste con el blanco, o a
+tamaño de favicon el símbolo se pierde. Hay una prueba que lo comprueba.
+
+## Sonido
+
+`src/core/audio.js` sintetiza todos los avisos con la Web Audio API: no hay
+ni un archivo de audio. Un solo `AudioContext`, creado tras el primer gesto,
+límite de voces simultáneas y silencio total si la pestaña está oculta.
+El sonido **nunca es la única señal**: siempre acompaña a algo visible.
+
 ## Accesibilidad
 
 Navegación completa con teclado, foco visible, etiquetas aria, contraste AA
 comprobado en los dos temas y en los seis acentos, y respeto a
-«reducir movimiento» tanto del sistema como del ajuste propio.
+«reducir movimiento» tanto del sistema como del ajuste propio, que además
+desactiva las transiciones entre pantallas.
