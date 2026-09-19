@@ -249,6 +249,27 @@
           "denied": "Notifications are blocked for this site. Change it in your browser's site permissions.",
           "granted": "Notifications are on",
           "hint": "Browsers can only alert you while the app is still open, even in the background. Close it completely and no notification arrives."
+        },
+        "alarm": {
+          "focus": "Sound when focus ends",
+          "break": "Sound when the break ends",
+          "test": "Try it",
+          "volume": "Alarm volume",
+          "campana": "Bell",
+          "beep": "Classic beep",
+          "digital": "Digital",
+          "arpegio": "Soft arpeggio",
+          "timbre": "Doorbell",
+          "retro": "8-bit retro",
+          "gota": "Water drop",
+          "despertador": "Alarm clock",
+          "repeat": {
+            "label": "How many times it rings",
+            "desc": "“Until stopped” keeps ringing until you hit “Stop alarm”.",
+            "una": "Once",
+            "tres": "Three times",
+            "hasta": "Until stopped"
+          }
         }
       }
     },

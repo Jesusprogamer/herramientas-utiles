@@ -249,6 +249,27 @@
           "denied": "Has bloqueado las notificaciones en este navegador. Cámbialo en los permisos del sitio.",
           "granted": "Notificaciones activadas",
           "hint": "El navegador solo puede avisarte mientras la app siga abierta, aunque sea en segundo plano. Si la cierras del todo, no hay notificación."
+        },
+        "alarm": {
+          "focus": "Sonido al terminar el trabajo",
+          "break": "Sonido al terminar el descanso",
+          "test": "Probar",
+          "volume": "Volumen de la alarma",
+          "campana": "Campana",
+          "beep": "Beep clásico",
+          "digital": "Digital",
+          "arpegio": "Arpegio suave",
+          "timbre": "Timbre",
+          "retro": "Retro 8-bit",
+          "gota": "Gota de agua",
+          "despertador": "Despertador",
+          "repeat": {
+            "label": "Cuántas veces suena",
+            "desc": "«Hasta pararla» sigue sonando hasta que pulses «Detener alarma».",
+            "una": "Una vez",
+            "tres": "Tres veces",
+            "hasta": "Hasta pararla"
+          }
         }
       }
     },

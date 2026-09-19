@@ -394,6 +394,43 @@ function toolsSection() {
   const roundsF = numberField('rounds', 2, 12);
   roundsF.input.value = String(timer.roundsBeforeLongBreak);
 
+  /* --- Sonidos de alarma --- */
+  const alarmRow = (key, labelKey) => {
+    const current = settings.get('timer')[key];
+    const sel = select({
+      label: t(labelKey),
+      value: current,
+      options: settings.ALARM_SOUNDS.map(v => ({ value: v, label: t(`settings.tools.timer.alarm.${v}`) })),
+      onChange: async e => {
+        settings.update({ timer: { [key]: e.target.value } });
+        const mod = await import('../tools/temporizador/index.js');
+        mod.testAlarm(e.target.value);
+      }
+    });
+    const probar = button(t('settings.tools.timer.alarm.test'), {
+      class: 'btn--sm', icon: 'timer',
+      onClick: async () => {
+        const mod = await import('../tools/temporizador/index.js');
+        mod.testAlarm(sel.select.value);
+      }
+    });
+    return h('div.stack', sel, h('div.row', probar));
+  };
+
+  const alarmVolume = slider({
+    label: t('settings.tools.timer.alarm.volume'),
+    min: 0, max: 100, step: 5, value: settings.get('timer').alarmVolume,
+    format: v => `${v} %`,
+    onInput: v => settings.update({ timer: { alarmVolume: v } })
+  });
+
+  const repeatChooser = segmented({
+    label: t('settings.tools.timer.alarm.repeat.label'),
+    value: settings.get('timer').repeat,
+    options: settings.ALARM_REPEATS.map(v => ({ value: v, label: t(`settings.tools.timer.alarm.repeat.${v}`) })),
+    onChange: v => settings.update({ timer: { repeat: v } })
+  });
+
   const notifySupported = 'Notification' in window;
   const notifyState = h('p.field__hint');
   const notifyToggle = toggle({
@@ -431,6 +468,15 @@ function toolsSection() {
     h('hr'),
     h('h3', { text: t('settings.tools.timer.title') }),
     h('div.stack', focusF, shortF, longF, roundsF),
+    h('hr'),
+    alarmRow('alarmFocus', 'settings.tools.timer.alarm.focus'),
+    alarmRow('alarmBreak', 'settings.tools.timer.alarm.break'),
+    alarmVolume,
+    settingRow({
+      label: t('settings.tools.timer.alarm.repeat.label'),
+      desc: t('settings.tools.timer.alarm.repeat.desc'),
+      control: repeatChooser, stacked: true
+    }),
     settingRow({
       label: t('settings.tools.timer.sound.label'), desc: t('settings.tools.timer.sound.desc'),
       control: toggle({
