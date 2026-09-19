@@ -8,6 +8,7 @@ import * as registry from './core/registry.js';
 import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
 import * as account from './core/account.js';
+import * as audio from './core/audio.js';
 import { on } from './core/events.js';
 import { h, clear, $ } from './ui/dom.js';
 import { icon } from './ui/icons.js';
@@ -183,7 +184,7 @@ async function boot() {
   registerRoutes();
 
   on('i18n:change', () => { paintChrome(); });
-  on('router:change', ({ path }) => markCurrent(path));
+  on('router:change', ({ path }) => { markCurrent(path); audio.play('navigate'); });
   on('pwa:update', showUpdateBar);
 
   // Datos llegados de la nube: recargamos lo que la app tiene en memoria
@@ -208,6 +209,7 @@ async function boot() {
     setTimeout(() => splash.remove(), 350);
   }, wait);
 
+  audio.init();
   watchConnection();
   pwa.watchInstallPrompt();
   pwa.registerServiceWorker();

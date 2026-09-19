@@ -359,6 +359,43 @@
       "licenses": "Licences",
       "sourceLabel": "Built with plain HTML, CSS and JavaScript — no frameworks.",
       "iconNote": "The icon follows your accent colour. The icon of an already-installed app is fixed by the system at install time: reinstall the app to see it change. On iPhone and iPad it never updates."
+    },
+    "sound": {
+      "title": "Sound & motion",
+      "enabled": {
+        "label": "Interface sounds",
+        "desc": "Short cues when you tap, confirm or move between screens. They always accompany something visible, never replace it."
+      },
+      "volume": {
+        "label": "Volume"
+      },
+      "style": {
+        "label": "Sound style",
+        "desc": "How the cues sound.",
+        "suave": "Soft",
+        "retro": "Retro",
+        "cristal": "Crystal",
+        "tryIt": "Hear them:"
+      },
+      "cue": {
+        "tap": "Tapping a button",
+        "toggle": "Flipping a switch",
+        "success": "Something succeeds",
+        "error": "Something fails",
+        "navigate": "Changing screen",
+        "dialog": "Opening a dialog"
+      },
+      "hover": {
+        "label": "On mouse hover",
+        "desc": "A very short tick when the pointer enters a button. Mouse only, and never while you're scrolling.",
+        "unavailable": "Hover sounds only appear on devices with a mouse."
+      },
+      "vibrate": {
+        "label": "Vibrate on tap",
+        "desc": "A short buzz with every press.",
+        "unavailable": "This device doesn't support vibration."
+      },
+      "note": "Every sound is generated on the spot — no audio files are downloaded — and nothing plays while the tab is in the background."
     }
   },
   "update": {

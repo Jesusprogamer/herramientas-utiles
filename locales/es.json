@@ -359,6 +359,43 @@
       "licenses": "Licencias",
       "sourceLabel": "Hecho con HTML, CSS y JavaScript, sin frameworks.",
       "iconNote": "El icono cambia con el color de acento. El de la app ya instalada lo fija el sistema al instalarla: para verlo cambiar, vuelve a instalarla. En iPhone y iPad no se actualiza."
+    },
+    "sound": {
+      "title": "Sonido y animaciones",
+      "enabled": {
+        "label": "Sonidos de la interfaz",
+        "desc": "Avisos cortos al pulsar, confirmar o cambiar de pantalla. Siempre acompañan a algo visible, nunca lo sustituyen."
+      },
+      "volume": {
+        "label": "Volumen"
+      },
+      "style": {
+        "label": "Estilo de sonido",
+        "desc": "Cómo suenan los avisos.",
+        "suave": "Suave",
+        "retro": "Retro",
+        "cristal": "Cristal",
+        "tryIt": "Escúchalos:"
+      },
+      "cue": {
+        "tap": "Al pulsar un botón",
+        "toggle": "Al activar un interruptor",
+        "success": "Al confirmarse algo",
+        "error": "Al fallar algo",
+        "navigate": "Al cambiar de pantalla",
+        "dialog": "Al abrir un diálogo"
+      },
+      "hover": {
+        "label": "Al pasar el ratón por encima",
+        "desc": "Un tic muy corto al entrar en un botón. Solo con ratón, y nunca mientras te desplazas.",
+        "unavailable": "El sonido al pasar por encima solo aparece en dispositivos con ratón."
+      },
+      "vibrate": {
+        "label": "Vibrar al pulsar",
+        "desc": "Un toque corto en cada pulsación.",
+        "unavailable": "Este dispositivo no admite vibración."
+      },
+      "note": "Todos los sonidos se generan en el momento, sin descargar ningún archivo, y no suenan si la pestaña está en segundo plano."
     }
   },
   "update": {

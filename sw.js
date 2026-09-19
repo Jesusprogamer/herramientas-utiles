@@ -34,6 +34,7 @@ const PRECACHE = [
   './src/core/pwa.js',
   './src/core/random.js',
   './src/core/accents.js',
+  './src/core/audio.js',
   './src/core/account.js',
   './src/core/licenses.js',
   './config.js',
