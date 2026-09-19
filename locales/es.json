@@ -132,6 +132,10 @@
     "equipos": {
       "name": "Sorteo de equipos",
       "desc": "Reparte nombres en equipos equilibrados al azar."
+    },
+    "calculadora": {
+      "name": "Calculadora paso a paso",
+      "desc": "Científica, ecuaciones, fracciones, porcentajes y estadística, explicando cada paso."
     }
   },
   "settings": {
@@ -1185,6 +1189,209 @@
       "title": "Nada en esta categoría",
       "message": "Todas sus herramientas están ocultas desde Ajustes.",
       "action": "Ver todas"
+    }
+  },
+  "calc": {
+    "tab": {
+      "cientifica": "Científica",
+      "lineal": "1.er grado",
+      "cuadratica": "2.º grado",
+      "sistema": "Sistemas",
+      "fracciones": "Fracciones",
+      "mcd": "MCD y mcm",
+      "factorizar": "Factorizar",
+      "regla": "Regla de 3",
+      "porcentajes": "Porcentajes",
+      "potencias": "Potencias",
+      "estadistica": "Estadística"
+    },
+    "explicar": "Explicar paso a paso",
+    "explicarDesc": "Enseña cómo se llega al resultado, no solo el resultado.",
+    "nivel": {
+      "label": "Nivel de detalle",
+      "breve": "Breve",
+      "detallado": "Detallado"
+    },
+    "pasos": "Cómo se resuelve",
+    "pasosOcultos": "… {n} pasos intermedios ocultos (pon «Detallado» para verlos)",
+    "copyResult": "Copiar el resultado",
+    "copySteps": "Copiar la explicación",
+    "sinPasos": "No hay explicación que copiar",
+    "ejemplo": "Ejemplo",
+    "historial": "Últimos cálculos",
+    "nota": "Los cálculos se hacen con fracciones exactas y solo se pasan a decimal al final.",
+    "cientifica": {
+      "label": "Expresión",
+      "placeholder": "Por ejemplo: 2+3×4 o sqrt(16)",
+      "angulo": "Ángulos",
+      "grados": "Grados",
+      "radianes": "Radianes",
+      "borrar": "Borrar",
+      "limpiar": "Limpiar",
+      "guardar": "Guardar en el historial"
+    },
+    "lineal": {
+      "a": "a (coeficiente de x)",
+      "b": "b (término independiente)",
+      "c": "c (resultado)",
+      "infinitas": "Infinitas soluciones",
+      "ninguna": "Sin solución"
+    },
+    "cuadratica": {
+      "a": "a (coeficiente de x²)",
+      "b": "b (coeficiente de x)",
+      "c": "c (término independiente)",
+      "sinReales": "No hay soluciones reales",
+      "unaDoble": "Solución doble"
+    },
+    "sistema": {
+      "a1": "a₁",
+      "b1": "b₁",
+      "c1": "c₁",
+      "a2": "a₂",
+      "b2": "b₂",
+      "c2": "c₂",
+      "metodo": "Método",
+      "metodo.reduccion": "Reducción",
+      "metodo.sustitucion": "Sustitución",
+      "metodo.cramer": "Cramer",
+      "ninguna": "Sin solución",
+      "infinitas": "Infinitas soluciones"
+    },
+    "fracciones": {
+      "a": "Primera fracción",
+      "b": "Segunda fracción",
+      "formato": "Se escribe como 3/4, o también 0,75",
+      "op": "Operación",
+      "op.suma": "Sumar",
+      "op.resta": "Restar",
+      "op.multiplicacion": "Multiplicar",
+      "op.division": "Dividir"
+    },
+    "mcd": {
+      "a": "Primer número",
+      "b": "Segundo número"
+    },
+    "factor": {
+      "n": "Número",
+      "divisores": "{n} divisores: {lista}"
+    },
+    "regla": {
+      "a": "Si esto…",
+      "b": "…es esto",
+      "c": "¿Y esto?",
+      "tipo": "Tipo",
+      "tipo.directa": "Directa",
+      "tipo.inversa": "Inversa"
+    },
+    "pct": {
+      "tipo": "Qué calcular",
+      "tipo.deQue": "Cuánto es un % de…",
+      "tipo.queporcentaje": "Qué porcentaje es…",
+      "tipo.aumentar": "Aumentar un %",
+      "tipo.descontar": "Descontar un %",
+      "a": "Primer valor",
+      "b": "Segundo valor"
+    },
+    "pot": {
+      "base": "Base",
+      "exp": "Exponente",
+      "expHint": "Escribe «sqrt» como exponente para la raíz cuadrada"
+    },
+    "est": {
+      "datos": "Datos",
+      "placeholder": "4, 8, 15, 16, 23, 42",
+      "tipo": "Tipo de muestra",
+      "tipo.poblacional": "Población (n)",
+      "tipo.muestral": "Muestra (n−1)",
+      "resumen": "Media {media} · Mediana {mediana} · σ {desviacion}",
+      "detalle": "{n} datos · mín {min} · máx {max} · rango {rango} · moda {moda} · Q1 {q1} · Q3 {q3} · varianza {varianza}",
+      "sinModa": "sin moda"
+    },
+    "error": {
+      "entreCero": "No se puede dividir entre cero",
+      "ceros": "Los dos números no pueden ser cero",
+      "cero": "El número no puede ser cero",
+      "totalCero": "El total no puede ser cero",
+      "raizNegativa": "No hay raíz cuadrada real de un número negativo",
+      "sinDatos": "Escribe algún dato",
+      "general": "Revisa los datos"
+    },
+    "paso": {
+      "expr": "{paso}  →  {resto}",
+      "lineal.inicio": "Partimos de {a}x + ({b}) = {c}.",
+      "lineal.despeja": "Pasamos {b} al otro lado: {a}x = {resto}.",
+      "lineal.divide": "Dividimos entre {a}: x = {resto} ÷ {a} = {x}.",
+      "lineal.infinitas": "Los dos lados son iguales: cualquier valor de x vale.",
+      "lineal.ninguna": "Queda una igualdad falsa: no hay ninguna solución.",
+      "cuadratica.inicio": "Partimos de {a}x² + ({b})x + ({c}) = 0.",
+      "cuadratica.discriminante": "Discriminante: Δ = b² − 4ac = ({b})² − 4·({a})·({c}) = {d}.",
+      "cuadratica.doble": "Δ = 0, así que hay una única solución doble: x = {x}.",
+      "cuadratica.raizExacta": "√{d} = {raiz}, que es exacta.",
+      "cuadratica.raizSimplificada": "√{d} = {fuera}√{dentro}.",
+      "cuadratica.dos": "x = (−b ± √Δ) ÷ 2a da x₁ = {x1} y x₂ = {x2}.",
+      "cuadratica.dosDecimal": "x = (−b ± √Δ) ÷ 2a da x₁ ≈ {x1} y x₂ ≈ {x2}.",
+      "cuadratica.negativo": "Δ = {d} es negativo: no hay soluciones reales.",
+      "cuadratica.complejas": "Las soluciones son complejas: x = {re} ± {im}i.",
+      "sistema.inicio": "Sistema: {a1}x + {b1}y = {c1} y {a2}x + {b2}y = {c2}.",
+      "sistema.infinitas": "Las dos ecuaciones son la misma recta: hay infinitas soluciones.",
+      "sistema.ninguna": "Las dos rectas son paralelas: no hay solución.",
+      "sistema.cramerDet": "Determinante principal: Δ = {det}.",
+      "sistema.cramerX": "x = Δx ÷ Δ = {detX} ÷ {det} = {x}.",
+      "sistema.cramerY": "y = Δy ÷ Δ = {detY} ÷ {det} = {y}.",
+      "sistema.despejaX": "Despejamos x en la primera: x = ({c1} + {b1}y) ÷ {a1}.",
+      "sistema.sustituye": "Sustituimos esa x en la segunda ecuación.",
+      "sistema.multiplica": "Multiplicamos la primera por {m1} y la segunda por {m2} para igualar los coeficientes de x.",
+      "sistema.resta": "Restamos las dos ecuaciones para que desaparezca la x.",
+      "sistema.resultadoY": "Queda y = {y}.",
+      "sistema.resultadoX": "Y sustituyendo, x = {x}.",
+      "fracciones.inicio": "Operación: {a} {op} {b}.",
+      "fracciones.comun": "Denominador común: el mcm de los dos es {m}.",
+      "fracciones.igualadas": "Con ese denominador: {a} {op} {b}.",
+      "fracciones.operados": "Operamos los numeradores: {n}/{d}.",
+      "fracciones.multiplica": "Se multiplica arriba con arriba y abajo con abajo: ({n}) / ({d}).",
+      "fracciones.invierte": "Dividir entre {b} es multiplicar por {inv}.",
+      "fracciones.simplificada": "Simplificado: {r} (≈ {decimal}).",
+      "fracciones.simplificaInicio": "Partimos de {f}.",
+      "fracciones.divideAmbos": "Dividimos arriba y abajo entre su MCD, que es {g}.",
+      "fracciones.yaSimple": "Ya está simplificada del todo.",
+      "mcd.inicio": "Buscamos el MCD de {a} y {b} con el algoritmo de Euclides.",
+      "mcd.division": "{a} = {b} × {q} + {r}.",
+      "mcd.resultado": "El último resto distinto de cero da el MCD = {g}.",
+      "mcd.mcm": "Y el mcm sale de mcm = ({a} × {b}) ÷ MCD = {m}.",
+      "factor.inicio": "Descomponemos {n} dividiendo entre primos.",
+      "factor.divide": "{n} ÷ {p} = {r}.",
+      "factor.resultado": "{n} = {f}.",
+      "factor.esPrimo": "{n} solo se divide entre 1 y entre sí mismo: es primo.",
+      "factor.uno": "El 1 no tiene factores primos.",
+      "regla.inicioDirecta": "Regla de tres directa: si {a} corresponde a {b}, ¿a cuánto corresponde {c}?",
+      "regla.inicioInversa": "Regla de tres inversa: si {a} corresponde a {b}, ¿a cuánto corresponde {c}?",
+      "regla.formulaDirecta": "x = ({b} × {c}) ÷ {a} = {x}.",
+      "regla.formulaInversa": "x = ({a} × {b}) ÷ {c} = {x}.",
+      "regla.resultado": "Resultado: x = {x} (≈ {decimal}).",
+      "pct.deQueInicio": "Queremos el {p} % de {n}.",
+      "pct.deQuePaso": "{p} ÷ 100 × {n} = {r}.",
+      "pct.queInicio": "Queremos saber qué porcentaje es {a} de {b}.",
+      "pct.quePaso": "({a} ÷ {b}) × 100 = {r} %.",
+      "pct.aumentaInicio": "Aumentamos {n} un {p} %.",
+      "pct.aumentaPaso": "{n} × (100 + {p}) ÷ 100 = {r}.",
+      "pct.descuentaInicio": "Descontamos un {p} % de {n}.",
+      "pct.descuentaPaso": "{n} × (100 − {p}) ÷ 100 = {r}.",
+      "pct.resultado": "Resultado: {r}.",
+      "pot.inicio": "Calculamos {b} elevado a {e}.",
+      "pot.multiplica": "Multiplicamos {b} por sí mismo {e} veces.",
+      "pot.negativo": "El exponente negativo invierte la base: 1 ÷ ({b} elevado a {e}).",
+      "pot.decimal": "Exponente no entero: se calcula en decimal, {r}.",
+      "pot.resultado": "Resultado: {r} (≈ {decimal}).",
+      "pot.raizInicio": "Calculamos la raíz cuadrada de {n}.",
+      "pot.raizExacta": "√{n} = {r}, exacta.",
+      "pot.raizSimplifica": "√{n} = {fuera}√{dentro}.",
+      "pot.raizDecimal": "En decimal, ≈ {r}.",
+      "est.datos": "Tenemos {n} datos, ordenados: {lista}.",
+      "est.media": "Media = suma ÷ n = {suma} ÷ {n} = {media}.",
+      "est.mediana": "La mediana, el valor central, es {mediana}.",
+      "est.varianza": "Varianza = suma de (x − media)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
+      "est.desviacion": "Desviación típica = √{varianza} = {desviacion}."
     }
   }
 }

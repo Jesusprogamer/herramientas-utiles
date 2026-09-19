@@ -58,6 +58,7 @@ const PRECACHE = [
   './src/tools/contrasenas/index.js',
   './src/tools/contador-texto/index.js',
   './src/tools/porcentajes/index.js',
+  './src/tools/calculadora/index.js',
   './src/tools/monedas/index.js',
   './src/tools/zonas-horarias/index.js',
   './src/tools/azar/index.js',

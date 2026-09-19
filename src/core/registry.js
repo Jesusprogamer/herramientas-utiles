@@ -22,6 +22,7 @@ export const TOOLS = [
   { id: 'contrasenas',    icon: 'key',       category: 'azar',    ready: true  },
   { id: 'contador-texto', icon: 'wordcount', category: 'texto',   ready: true  },
   { id: 'porcentajes',    icon: 'percent',   category: 'calculo', ready: true  },
+  { id: 'calculadora',    icon: 'sliders',   category: 'calculo', ready: true  },
   { id: 'monedas',        icon: 'currency',  category: 'calculo', ready: true  },
   { id: 'zonas-horarias', icon: 'clock',     category: 'tiempo',  ready: true  },
   { id: 'azar',           icon: 'dice',      category: 'azar',    ready: true  },

@@ -132,6 +132,10 @@
     "equipos": {
       "name": "Team picker",
       "desc": "Split a list of names into fair, random teams."
+    },
+    "calculadora": {
+      "name": "Step-by-step calculator",
+      "desc": "Scientific, equations, fractions, percentages and statistics, showing every step."
     }
   },
   "settings": {
@@ -1185,6 +1189,209 @@
       "title": "Nothing in this category",
       "message": "All of its tools are hidden in Settings.",
       "action": "Show all"
+    }
+  },
+  "calc": {
+    "tab": {
+      "cientifica": "Scientific",
+      "lineal": "Linear",
+      "cuadratica": "Quadratic",
+      "sistema": "Systems",
+      "fracciones": "Fractions",
+      "mcd": "GCD & LCM",
+      "factorizar": "Factorise",
+      "regla": "Proportion",
+      "porcentajes": "Percentages",
+      "potencias": "Powers",
+      "estadistica": "Statistics"
+    },
+    "explicar": "Explain step by step",
+    "explicarDesc": "Shows how the answer is reached, not just the answer.",
+    "nivel": {
+      "label": "Level of detail",
+      "breve": "Brief",
+      "detallado": "Detailed"
+    },
+    "pasos": "How it's solved",
+    "pasosOcultos": "… {n} intermediate steps hidden (switch to “Detailed” to see them)",
+    "copyResult": "Copy the result",
+    "copySteps": "Copy the explanation",
+    "sinPasos": "There's no explanation to copy",
+    "ejemplo": "Example",
+    "historial": "Recent calculations",
+    "nota": "Everything is worked out with exact fractions and only turned into decimals at the end.",
+    "cientifica": {
+      "label": "Expression",
+      "placeholder": "For example: 2+3×4 or sqrt(16)",
+      "angulo": "Angles",
+      "grados": "Degrees",
+      "radianes": "Radians",
+      "borrar": "Delete",
+      "limpiar": "Clear",
+      "guardar": "Save to history"
+    },
+    "lineal": {
+      "a": "a (coefficient of x)",
+      "b": "b (constant)",
+      "c": "c (result)",
+      "infinitas": "Infinitely many solutions",
+      "ninguna": "No solution"
+    },
+    "cuadratica": {
+      "a": "a (coefficient of x²)",
+      "b": "b (coefficient of x)",
+      "c": "c (constant)",
+      "sinReales": "No real solutions",
+      "unaDoble": "Repeated solution"
+    },
+    "sistema": {
+      "a1": "a₁",
+      "b1": "b₁",
+      "c1": "c₁",
+      "a2": "a₂",
+      "b2": "b₂",
+      "c2": "c₂",
+      "metodo": "Method",
+      "metodo.reduccion": "Elimination",
+      "metodo.sustitucion": "Substitution",
+      "metodo.cramer": "Cramer",
+      "ninguna": "No solution",
+      "infinitas": "Infinitely many solutions"
+    },
+    "fracciones": {
+      "a": "First fraction",
+      "b": "Second fraction",
+      "formato": "Write it as 3/4, or as 0.75",
+      "op": "Operation",
+      "op.suma": "Add",
+      "op.resta": "Subtract",
+      "op.multiplicacion": "Multiply",
+      "op.division": "Divide"
+    },
+    "mcd": {
+      "a": "First number",
+      "b": "Second number"
+    },
+    "factor": {
+      "n": "Number",
+      "divisores": "{n} divisors: {lista}"
+    },
+    "regla": {
+      "a": "If this…",
+      "b": "…is this",
+      "c": "then this?",
+      "tipo": "Type",
+      "tipo.directa": "Direct",
+      "tipo.inversa": "Inverse"
+    },
+    "pct": {
+      "tipo": "What to work out",
+      "tipo.deQue": "What's X% of…",
+      "tipo.queporcentaje": "What percentage is…",
+      "tipo.aumentar": "Increase by X%",
+      "tipo.descontar": "Take X% off",
+      "a": "First value",
+      "b": "Second value"
+    },
+    "pot": {
+      "base": "Base",
+      "exp": "Exponent",
+      "expHint": "Type “sqrt” as the exponent for a square root"
+    },
+    "est": {
+      "datos": "Values",
+      "placeholder": "4, 8, 15, 16, 23, 42",
+      "tipo": "Sample type",
+      "tipo.poblacional": "Population (n)",
+      "tipo.muestral": "Sample (n−1)",
+      "resumen": "Mean {media} · Median {mediana} · σ {desviacion}",
+      "detalle": "{n} values · min {min} · max {max} · range {rango} · mode {moda} · Q1 {q1} · Q3 {q3} · variance {varianza}",
+      "sinModa": "no mode"
+    },
+    "error": {
+      "entreCero": "You can't divide by zero",
+      "ceros": "Both numbers can't be zero",
+      "cero": "The number can't be zero",
+      "totalCero": "The total can't be zero",
+      "raizNegativa": "A negative number has no real square root",
+      "sinDatos": "Type some values",
+      "general": "Check the values"
+    },
+    "paso": {
+      "expr": "{paso}  →  {resto}",
+      "lineal.inicio": "We start from {a}x + ({b}) = {c}.",
+      "lineal.despeja": "Move {b} to the other side: {a}x = {resto}.",
+      "lineal.divide": "Divide by {a}: x = {resto} ÷ {a} = {x}.",
+      "lineal.infinitas": "Both sides are identical: any value of x works.",
+      "lineal.ninguna": "We're left with a false statement: there's no solution.",
+      "cuadratica.inicio": "We start from {a}x² + ({b})x + ({c}) = 0.",
+      "cuadratica.discriminante": "Discriminant: Δ = b² − 4ac = ({b})² − 4·({a})·({c}) = {d}.",
+      "cuadratica.doble": "Δ = 0, so there's a single repeated solution: x = {x}.",
+      "cuadratica.raizExacta": "√{d} = {raiz}, which is exact.",
+      "cuadratica.raizSimplificada": "√{d} = {fuera}√{dentro}.",
+      "cuadratica.dos": "x = (−b ± √Δ) ÷ 2a gives x₁ = {x1} and x₂ = {x2}.",
+      "cuadratica.dosDecimal": "x = (−b ± √Δ) ÷ 2a gives x₁ ≈ {x1} and x₂ ≈ {x2}.",
+      "cuadratica.negativo": "Δ = {d} is negative: there are no real solutions.",
+      "cuadratica.complejas": "The solutions are complex: x = {re} ± {im}i.",
+      "sistema.inicio": "System: {a1}x + {b1}y = {c1} and {a2}x + {b2}y = {c2}.",
+      "sistema.infinitas": "Both equations are the same line: infinitely many solutions.",
+      "sistema.ninguna": "The two lines are parallel: no solution.",
+      "sistema.cramerDet": "Main determinant: Δ = {det}.",
+      "sistema.cramerX": "x = Δx ÷ Δ = {detX} ÷ {det} = {x}.",
+      "sistema.cramerY": "y = Δy ÷ Δ = {detY} ÷ {det} = {y}.",
+      "sistema.despejaX": "Solve the first for x: x = ({c1} + {b1}y) ÷ {a1}.",
+      "sistema.sustituye": "Substitute that x into the second equation.",
+      "sistema.multiplica": "Multiply the first by {m1} and the second by {m2} to match the x coefficients.",
+      "sistema.resta": "Subtract the two equations so x cancels out.",
+      "sistema.resultadoY": "That leaves y = {y}.",
+      "sistema.resultadoX": "And substituting back, x = {x}.",
+      "fracciones.inicio": "Operation: {a} {op} {b}.",
+      "fracciones.comun": "Common denominator: the LCM of the two is {m}.",
+      "fracciones.igualadas": "With that denominator: {a} {op} {b}.",
+      "fracciones.operados": "Work out the numerators: {n}/{d}.",
+      "fracciones.multiplica": "Multiply top by top and bottom by bottom: ({n}) / ({d}).",
+      "fracciones.invierte": "Dividing by {b} is the same as multiplying by {inv}.",
+      "fracciones.simplificada": "Simplified: {r} (≈ {decimal}).",
+      "fracciones.simplificaInicio": "We start from {f}.",
+      "fracciones.divideAmbos": "Divide top and bottom by their GCD, which is {g}.",
+      "fracciones.yaSimple": "It's already in lowest terms.",
+      "mcd.inicio": "We look for the GCD of {a} and {b} using Euclid's algorithm.",
+      "mcd.division": "{a} = {b} × {q} + {r}.",
+      "mcd.resultado": "The last non-zero remainder gives GCD = {g}.",
+      "mcd.mcm": "And the LCM comes from LCM = ({a} × {b}) ÷ GCD = {m}.",
+      "factor.inicio": "We break {n} down by dividing by primes.",
+      "factor.divide": "{n} ÷ {p} = {r}.",
+      "factor.resultado": "{n} = {f}.",
+      "factor.esPrimo": "{n} divides only by 1 and itself: it's prime.",
+      "factor.uno": "1 has no prime factors.",
+      "regla.inicioDirecta": "Direct proportion: if {a} matches {b}, what matches {c}?",
+      "regla.inicioInversa": "Inverse proportion: if {a} matches {b}, what matches {c}?",
+      "regla.formulaDirecta": "x = ({b} × {c}) ÷ {a} = {x}.",
+      "regla.formulaInversa": "x = ({a} × {b}) ÷ {c} = {x}.",
+      "regla.resultado": "Result: x = {x} (≈ {decimal}).",
+      "pct.deQueInicio": "We want {p}% of {n}.",
+      "pct.deQuePaso": "{p} ÷ 100 × {n} = {r}.",
+      "pct.queInicio": "We want to know what percentage {a} is of {b}.",
+      "pct.quePaso": "({a} ÷ {b}) × 100 = {r}%.",
+      "pct.aumentaInicio": "We increase {n} by {p}%.",
+      "pct.aumentaPaso": "{n} × (100 + {p}) ÷ 100 = {r}.",
+      "pct.descuentaInicio": "We take {p}% off {n}.",
+      "pct.descuentaPaso": "{n} × (100 − {p}) ÷ 100 = {r}.",
+      "pct.resultado": "Result: {r}.",
+      "pot.inicio": "We work out {b} to the power of {e}.",
+      "pot.multiplica": "Multiply {b} by itself {e} times.",
+      "pot.negativo": "A negative exponent flips the base: 1 ÷ ({b} to the power of {e}).",
+      "pot.decimal": "Non-integer exponent: worked out as a decimal, {r}.",
+      "pot.resultado": "Result: {r} (≈ {decimal}).",
+      "pot.raizInicio": "We work out the square root of {n}.",
+      "pot.raizExacta": "√{n} = {r}, exactly.",
+      "pot.raizSimplifica": "√{n} = {fuera}√{dentro}.",
+      "pot.raizDecimal": "As a decimal, ≈ {r}.",
+      "est.datos": "We have {n} values, in order: {lista}.",
+      "est.media": "Mean = sum ÷ n = {suma} ÷ {n} = {media}.",
+      "est.mediana": "The median, the middle value, is {mediana}.",
+      "est.varianza": "Variance = sum of (x − mean)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
+      "est.desviacion": "Standard deviation = √{varianza} = {desviacion}."
     }
   }
 }

@@ -435,3 +435,63 @@
 .nc--violeta { color: var(--nc-violeta); }
 .nc--rosa { color: var(--nc-rosa); }
 .nc--gris { color: var(--nc-gris); }
+
+/* ---------- Calculadora paso a paso ---------- */
+.steps {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+}
+.steps__title {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.steps__list {
+  margin: 0;
+  padding-left: 1.35em;
+  display: grid;
+  gap: var(--sp-2);
+}
+.steps__item {
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.steps__item::marker { color: var(--c-accent); font-weight: var(--fw-bold); }
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+.keypad__key {
+  min-height: 46px;
+  padding: var(--sp-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  cursor: pointer;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.keypad__key:hover { background: var(--c-surface-3); border-color: var(--c-text-faint); }
+.keypad__key:active { transform: translateY(1px); }
+.keypad__key:focus-visible {
+  outline: none; border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-accent-ring);
+}
+.keypad__key--wide { grid-column: span 2; }
+@media (max-width: 380px) {
+  .keypad { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .keypad__key { transition: none; }
+  .keypad__key:active { transform: none; }
+}
