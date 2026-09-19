@@ -85,18 +85,54 @@
     }
   },
   "tools": {
-    "temporizador":   { "name": "Timer",          "desc": "Countdown and pomodoro, with an alert when time is up." },
-    "listas":         { "name": "Tasks & notes",  "desc": "To-dos, shopping list and quick notes in one place." },
-    "unidades":       { "name": "Unit converter", "desc": "Length, weight, temperature, volume and more." },
-    "contrasenas":    { "name": "Passwords",      "desc": "Build strong passwords exactly how you want them." },
-    "contador-texto": { "name": "Word counter",   "desc": "Words, characters, sentences and reading time." },
-    "porcentajes":    { "name": "Percentages",    "desc": "Discounts, increases, drops and splits." },
-    "monedas":        { "name": "Currency converter", "desc": "Convert between currencies using the latest saved rate." },
-    "zonas-horarias": { "name": "Time zones",     "desc": "The time in other cities, plus a meeting-time converter." },
-    "azar":           { "name": "Random picker",  "desc": "Coin, dice, spinner and random numbers." },
-    "qr":             { "name": "QR codes",       "desc": "Make QR codes for text, links or wifi, right on your device." },
-    "colores":        { "name": "Colour picker",  "desc": "HEX, RGB, HSL, WCAG contrast and saved swatches." },
-    "equipos":        { "name": "Team picker",    "desc": "Split a list of names into fair, random teams." }
+    "temporizador": {
+      "name": "Timer",
+      "desc": "Countdown and pomodoro, with an alert when time is up."
+    },
+    "listas": {
+      "name": "Tasks & notes",
+      "desc": "To-dos, shopping list and quick notes in one place."
+    },
+    "unidades": {
+      "name": "Unit converter",
+      "desc": "Length, weight, temperature, volume and more."
+    },
+    "contrasenas": {
+      "name": "Passwords",
+      "desc": "Build strong passwords exactly how you want them."
+    },
+    "contador-texto": {
+      "name": "Word counter",
+      "desc": "Words, characters, sentences and reading time."
+    },
+    "porcentajes": {
+      "name": "Percentages",
+      "desc": "Discounts, increases, drops and splits."
+    },
+    "monedas": {
+      "name": "Currency converter",
+      "desc": "Convert between currencies using the latest saved rate."
+    },
+    "zonas-horarias": {
+      "name": "Time zones",
+      "desc": "The time in other cities, plus a meeting-time converter."
+    },
+    "azar": {
+      "name": "Random picker",
+      "desc": "Coin, dice, spinner and random numbers."
+    },
+    "qr": {
+      "name": "QR codes",
+      "desc": "Make QR codes for text, links or wifi, right on your device."
+    },
+    "colores": {
+      "name": "Colour picker",
+      "desc": "HEX, RGB, HSL, WCAG contrast and saved swatches."
+    },
+    "equipos": {
+      "name": "Team picker",
+      "desc": "Split a list of names into fair, random teams."
+    }
   },
   "settings": {
     "title": "Settings",
@@ -182,12 +218,30 @@
       },
       "timer": {
         "title": "Timer",
-        "focus": { "label": "Pomodoro length", "desc": "Minutes of focus in each round." },
-        "shortBreak": { "label": "Short break", "desc": "Minutes between rounds." },
-        "longBreak": { "label": "Long break", "desc": "Minutes once the rounds are done." },
-        "rounds": { "label": "Rounds before a long break", "desc": "How many pomodoros in a row." },
-        "sound": { "label": "Sound when time is up", "desc": "A short chime at the end." },
-        "vibrate": { "label": "Vibrate when time is up", "desc": "Supported devices only." },
+        "focus": {
+          "label": "Pomodoro length",
+          "desc": "Minutes of focus in each round."
+        },
+        "shortBreak": {
+          "label": "Short break",
+          "desc": "Minutes between rounds."
+        },
+        "longBreak": {
+          "label": "Long break",
+          "desc": "Minutes once the rounds are done."
+        },
+        "rounds": {
+          "label": "Rounds before a long break",
+          "desc": "How many pomodoros in a row."
+        },
+        "sound": {
+          "label": "Sound when time is up",
+          "desc": "A short chime at the end."
+        },
+        "vibrate": {
+          "label": "Vibrate when time is up",
+          "desc": "Supported devices only."
+        },
         "notify": {
           "label": "Notify when time is up",
           "desc": "Alerts you even if the app is in the background.",
@@ -234,9 +288,47 @@
         "label": "Guest mode",
         "desc": "Everything works without an account. Your data stays on this device."
       },
-      "pending": {
-        "title": "Sync isn't available yet",
-        "message": "Signing in to share the same data between your phone and computer arrives in phase 3."
+      "why": "Signing in is optional. It's there so your phone and computer share the same data.",
+      "email": "Email address",
+      "password": "Password",
+      "passwordHint": "At least 6 characters.",
+      "invalidEmail": "Enter a valid email address",
+      "shortPassword": "6 characters minimum",
+      "signIn": "Sign in",
+      "signUp": "Create account",
+      "forgot": "I've forgotten my password",
+      "signedIn": "Signed in",
+      "signedOut": "Signed out",
+      "signOut": "Sign out",
+      "confirmEmail": "We've sent you an email to confirm the account. Open it, then come back here.",
+      "resetSent": "We've sent you an email to change your password.",
+      "syncStatus": "Sync",
+      "syncNow": "Sync now",
+      "synced": "Everything is in sync",
+      "status": {
+        "guest": "Guest mode",
+        "signedOut": "Not signed in",
+        "syncing": "Syncing…",
+        "synced": "Up to date",
+        "offline": "Offline — it'll send once you're back",
+        "error": "Couldn't sync"
+      },
+      "setup": {
+        "title": "Sync isn't set up",
+        "message": "The app works fine without an account. To share data between your phone and computer you need a free Supabase project and two values pasted into config.js.",
+        "where": "The exact steps and the SQL are in the project README, under “Cuenta y sincronización”."
+      },
+      "deleteCloud": {
+        "label": "Delete my cloud data",
+        "desc": "Removes your data from the server. Whatever is on this device stays put.",
+        "action": "Delete from cloud",
+        "confirmTitle": "Delete your cloud data?",
+        "confirmMessage": "Every row of yours on the server will be deleted. This device's data is untouched. There's no undo.",
+        "done": "Cloud data deleted"
+      },
+      "deleteAccount": {
+        "title": "What about deleting the whole account?",
+        "message": "Removing the user itself can only be done from the Supabase dashboard (Authentication → Users) or with a server function. From here you can sign out and delete your data."
       }
     },
     "about": {
@@ -298,12 +390,23 @@
         "No permission is requested unless you turn that feature on first."
       ]
     },
+    "account": {
+      "title": "If you sign in (optional)",
+      "items": [
+        "Data only reaches a server if you create an account — your own Supabase project.",
+        "What syncs: settings, favourites, tasks, shopping list, notes, time zones, spinner options, colours, team names and currency preferences.",
+        "Each row carries your user id, and the database's security policies stop anyone else reading or writing your rows.",
+        "Passwords and sessions are handled by the Supabase library itself: this app never stores passwords or tokens on its own.",
+        "You can delete your cloud data at any time from Settings → Account."
+      ]
+    },
     "network": {
       "title": "When the internet is used",
       "items": [
         "The first time you open the app, to download it and store it for offline use.",
         "To check for updates to the app itself.",
-        "The currency converter will fetch public exchange rates once it's available."
+        "The currency converter will fetch public exchange rates once it's available.",
+        "If you're signed in, to sync your data with your Supabase project."
       ]
     },
     "control": {
@@ -318,7 +421,16 @@
   "licenses": {
     "title": "Licences",
     "lead": "Third-party libraries bundled inside the project so the app keeps working offline.",
-    "empty": "No third-party libraries yet — every line here is our own."
+    "empty": "No third-party libraries yet — every line here is our own.",
+    "license": "Licence",
+    "author": "Author",
+    "readFull": "Read the licence",
+    "project": "Original project",
+    "use": {
+      "qrcode": "Draws the QR codes on your device, offline.",
+      "supabase": "Sign-in and data sync between devices."
+    },
+    "ownCode": "Everything else in the app is our own code: HTML, CSS and JavaScript, no frameworks."
   },
   "notfound": {
     "title": "Page not found",
@@ -329,5 +441,620 @@
     "title": "You're offline",
     "message": "We couldn't load this part of the app, and there's no connection right now.",
     "action": "Try again"
+  },
+  "temporizador": {
+    "tab": {
+      "countdown": "Countdown",
+      "pomodoro": "Pomodoro"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "preset": "{n} min",
+    "remaining": "{time} left",
+    "endsAt": "Ends at {time}",
+    "round": "Round {n}",
+    "custom": {
+      "label": "Custom minutes",
+      "action": "Set",
+      "invalid": "Enter a number of minutes between 1 and 600"
+    },
+    "state": {
+      "running": "Running",
+      "paused": "Paused",
+      "finished": "Done"
+    },
+    "phase": {
+      "cuenta": "Countdown",
+      "focus": "Focus",
+      "short": "Short break",
+      "long": "Long break"
+    },
+    "done": {
+      "title": "Time's up",
+      "body": "Finished: {phase}"
+    },
+    "pomodoro": {
+      "config": "{focus} min focus · {short} min break · {long} min long break every {rounds} rounds. Change it in Settings."
+    },
+    "hint": "It keeps running if you switch screens or close the app, and the alert still fires."
+  },
+  "listas": {
+    "add": "Add",
+    "tab": {
+      "tareas": "Tasks",
+      "compra": "Shopping",
+      "notas": "Notes"
+    },
+    "tareas": {
+      "placeholder": "What needs doing?",
+      "addLabel": "New task",
+      "editLabel": "Edit task",
+      "dueLabel": "Due date",
+      "dueHint": "Due date (optional)",
+      "due": "Due {date}",
+      "overdue": "Was due {date}",
+      "markDone": "Mark “{text}” as done",
+      "markPending": "Mark “{text}” as not done",
+      "moveUp": "Move up",
+      "moveDown": "Move down",
+      "edit": "Edit",
+      "delete": "Delete",
+      "filterLabel": "Filter tasks",
+      "filter": {
+        "todas": "All",
+        "pendientes": "To do",
+        "hechas": "Done"
+      },
+      "pending": {
+        "one": "{n} to do",
+        "other": "{n} to do"
+      },
+      "clearDone": "Clear completed",
+      "clearDoneConfirm": "Every task marked as done will be removed.",
+      "cleared": "Completed tasks cleared",
+      "empty": {
+        "title": "No tasks yet",
+        "message": "Type the first thing on your list above."
+      },
+      "emptyFilter": {
+        "title": "Nothing here",
+        "message": "No task matches this filter."
+      }
+    },
+    "compra": {
+      "placeholder": "Add an item and press Enter",
+      "addLabel": "New item",
+      "qtyPlaceholder": "Qty",
+      "qtyLabel": "Quantity (optional)",
+      "categoryLabel": "Category (optional)",
+      "categoryHint": "Category for the next item (optional)",
+      "noCategory": "No category",
+      "category": {
+        "fruta": "Fruit",
+        "verdura": "Veg",
+        "carne": "Meat",
+        "pescado": "Fish",
+        "lacteos": "Dairy",
+        "panaderia": "Bakery",
+        "bebidas": "Drinks",
+        "congelados": "Frozen",
+        "despensa": "Pantry",
+        "limpieza": "Cleaning",
+        "higiene": "Toiletries",
+        "otros": "Other"
+      },
+      "markBought": "Mark “{text}” as bought",
+      "markPending": "Mark “{text}” as not bought",
+      "delete": "Remove “{text}”",
+      "pending": {
+        "one": "{n} still to buy",
+        "other": "{n} still to buy"
+      },
+      "uncheckAll": "Uncheck all",
+      "clearBought": "Clear bought",
+      "clearBoughtConfirm": "Items you've already bought will be removed from the list.",
+      "cleared": "Bought items cleared",
+      "share": "Copy or share",
+      "empty": {
+        "title": "Your list is empty",
+        "message": "Type an item and press Enter. It'll suggest ones you've used before."
+      }
+    },
+    "notas": {
+      "new": "New note",
+      "untitled": "Untitled",
+      "emptyBody": "(empty)",
+      "titleLabel": "Note title",
+      "titlePlaceholder": "Title (optional)",
+      "bodyLabel": "Note contents",
+      "bodyPlaceholder": "Start writing…",
+      "searchLabel": "Search notes",
+      "searchPlaceholder": "Search notes…",
+      "saving": "Saving…",
+      "saved": "Saved",
+      "updated": "Edited {when}",
+      "pin": "Pin to top",
+      "unpin": "Unpin",
+      "pinned": "Pinned",
+      "delete": "Delete note",
+      "deleteConfirmTitle": "Delete this note?",
+      "deleteConfirmMessage": "This can't be undone.",
+      "deleted": "Note deleted",
+      "empty": {
+        "title": "No notes yet",
+        "message": "Create your first one with a single tap."
+      },
+      "noResults": {
+        "title": "Nothing found",
+        "message": "No note matches your search."
+      }
+    }
+  },
+  "unidades": {
+    "category": "Quantity",
+    "cat": {
+      "longitud": "Length",
+      "masa": "Weight & mass",
+      "temperatura": "Temperature",
+      "volumen": "Volume",
+      "superficie": "Area",
+      "velocidad": "Speed",
+      "tiempo": "Time",
+      "datos": "Data",
+      "presion": "Pressure",
+      "energia": "Energy"
+    },
+    "value": "Amount",
+    "from": "From",
+    "to": "To",
+    "swap": "Swap",
+    "invalid": "Enter a number",
+    "summary": "{value} {from} equals:",
+    "allUnits": "See every unit",
+    "hint": "Use either a comma or a dot for decimals. Imperial units are the US ones unless stated otherwise.",
+    "u": {
+      "longitud": {
+        "mm": "millimetres",
+        "cm": "centimetres",
+        "m": "metres",
+        "km": "kilometres",
+        "in": "inches",
+        "ft": "feet",
+        "yd": "yards",
+        "mi": "miles",
+        "nmi": "nautical miles"
+      },
+      "masa": {
+        "mg": "milligrams",
+        "g": "grams",
+        "kg": "kilograms",
+        "t": "tonnes",
+        "oz": "ounces",
+        "lb": "pounds",
+        "st": "stones"
+      },
+      "temperatura": {
+        "c": "degrees Celsius",
+        "f": "degrees Fahrenheit",
+        "k": "kelvin"
+      },
+      "volumen": {
+        "ml": "millilitres",
+        "cl": "centilitres",
+        "l": "litres",
+        "m3": "cubic metres",
+        "tsp": "teaspoons",
+        "tbsp": "tablespoons",
+        "floz": "fluid ounces",
+        "cup": "cups",
+        "pt": "pints",
+        "qt": "quarts",
+        "galus": "gallons (US)",
+        "galuk": "gallons (UK)"
+      },
+      "superficie": {
+        "cm2": "square centimetres",
+        "m2": "square metres",
+        "ha": "hectares",
+        "km2": "square kilometres",
+        "in2": "square inches",
+        "ft2": "square feet",
+        "yd2": "square yards",
+        "acre": "acres",
+        "mi2": "square miles"
+      },
+      "velocidad": {
+        "ms": "metres per second",
+        "kmh": "kilometres per hour",
+        "mph": "miles per hour",
+        "fts": "feet per second",
+        "kn": "knots"
+      },
+      "tiempo": {
+        "ms": "milliseconds",
+        "s": "seconds",
+        "min": "minutes",
+        "h": "hours",
+        "d": "days",
+        "wk": "weeks",
+        "mo": "months",
+        "yr": "years"
+      },
+      "datos": {
+        "bit": "bits",
+        "b": "bytes",
+        "kb": "kilobytes",
+        "mb": "megabytes",
+        "gb": "gigabytes",
+        "tb": "terabytes",
+        "kib": "kibibytes",
+        "mib": "mebibytes",
+        "gib": "gibibytes",
+        "tib": "tebibytes"
+      },
+      "presion": {
+        "pa": "pascals",
+        "hpa": "hectopascals",
+        "kpa": "kilopascals",
+        "bar": "bar",
+        "atm": "atmospheres",
+        "psi": "pounds per square inch",
+        "mmhg": "millimetres of mercury"
+      },
+      "energia": {
+        "j": "joules",
+        "kj": "kilojoules",
+        "cal": "calories",
+        "kcal": "kilocalories",
+        "wh": "watt-hours",
+        "kwh": "kilowatt-hours",
+        "btu": "BTU"
+      }
+    }
+  },
+  "contrasenas": {
+    "generate": "Generate again",
+    "copyOne": "Copy this password",
+    "copyAll": "Copy all",
+    "length": "Length",
+    "chars": "{n} characters",
+    "count": "How many to generate",
+    "lower": {
+      "label": "Lowercase",
+      "desc": "a–z"
+    },
+    "upper": {
+      "label": "Uppercase",
+      "desc": "A–Z"
+    },
+    "digits": {
+      "label": "Numbers",
+      "desc": "0–9"
+    },
+    "symbols": {
+      "label": "Symbols",
+      "desc": "! @ # $ % & * …"
+    },
+    "noAmbiguous": {
+      "label": "Avoid look-alike characters",
+      "desc": "Drops l, I, 1, O, 0 and quotes, which are easy to misread."
+    },
+    "noSets": "Turn on at least one character type",
+    "strength": "Strength: {level} · {bits} bits of entropy",
+    "level": {
+      "1": "weak",
+      "2": "fair",
+      "3": "good",
+      "4": "very strong"
+    },
+    "privacy": "Generated on your device with the browser's cryptographic generator. Nothing is sent or stored anywhere."
+  },
+  "contador": {
+    "label": "Text to analyse",
+    "placeholder": "Type or paste your text here…",
+    "stat": {
+      "words": "Words",
+      "chars": "Characters",
+      "charsNoSpaces": "No spaces",
+      "sentences": "Sentences",
+      "paragraphs": "Paragraphs",
+      "lines": "Lines"
+    },
+    "times": "Reading: {read} · read aloud: {speak}",
+    "time": {
+      "zero": "under 1s",
+      "seconds": "{n}s",
+      "minutes": "{n} min"
+    },
+    "frequent": "Most repeated words:",
+    "clear": "Clear",
+    "clearConfirmTitle": "Clear the text?",
+    "clearConfirmMessage": "Whatever you've written will be deleted. This can't be undone.",
+    "hint": "The text is kept on this device only, so it's still here when you come back."
+  },
+  "porcentajes": {
+    "mode": {
+      "deQue": "What's X% of an amount?",
+      "queporcentaje": "What percentage is this?",
+      "aumentar": "Increase an amount by X%",
+      "descontar": "Apply a discount",
+      "variacion": "Change between two values",
+      "impuesto": "Add tax (VAT)",
+      "sinImpuesto": "Remove tax (VAT)"
+    },
+    "f": {
+      "percent": "Percentage (%)",
+      "of": "Of this amount",
+      "part": "Part",
+      "total": "Total",
+      "amount": "Amount",
+      "increase": "Increase (%)",
+      "price": "Price",
+      "discount": "Discount (%)",
+      "from": "Starting value",
+      "to": "Ending value",
+      "netPrice": "Price before tax",
+      "taxRate": "Tax rate (%)",
+      "grossPrice": "Price including tax"
+    },
+    "r": {
+      "deQue": "{pct}% of {total} is {result}.",
+      "queporcentaje": "{part} is {result}% of {total}.",
+      "aumentar": "{base} + {pct}% = {result} (up by {diff}).",
+      "descontar": "{base} − {pct}% = {result} (you save {diff}).",
+      "variacionSube": "From {from} to {to} is a {pct}% rise ({diff} more).",
+      "variacionBaja": "From {from} to {to} is a {pct}% drop ({diff} less).",
+      "variacionIgual": "From {from} to {to} there's no change.",
+      "variacionCero": "Change can't be worked out starting from zero.",
+      "impuesto": "{base} + {pct}% tax = {result} (tax: {tax}).",
+      "sinImpuesto": "{gross} including {pct}% tax is {result} before tax (tax: {tax})."
+    },
+    "invalid": "Enter a number",
+    "hint": "Decimals work with either a comma or a dot.",
+    "modeLabel": "What do you want to work out"
+  },
+  "monedas": {
+    "amount": "Amount",
+    "from": "From",
+    "to": "To",
+    "swap": "Swap",
+    "invalidAmount": "Enter a valid amount",
+    "rateLine": "1 {from} = {rate} {to}",
+    "loading": "Fetching exchange rates…",
+    "refresh": "Refresh rates",
+    "refreshed": "Rates updated",
+    "updated": "Rate from {when} · source: {source}",
+    "noRates": "No rates downloaded yet",
+    "pick": {
+      "from": "Choose the source currency",
+      "to": "Choose the target currency",
+      "search": "Search currency…",
+      "none": "No currency matches",
+      "fromCurrent": "Source currency: {code}. Tap to change it",
+      "toCurrent": "Target currency: {code}. Tap to change it"
+    },
+    "manual": {
+      "summary": "Use your own exchange rate",
+      "label": "Manual exchange rate",
+      "hint": "How many units of the target currency equal 1 of the source. Fill this in and it overrides the online rate.",
+      "invalid": "Enter a number greater than zero",
+      "inUse": "manual rate"
+    },
+    "error": {
+      "offline": "You're offline, so this uses the last saved rate, which may be out of date.",
+      "stale": "These rates are over a day old. Tap “Refresh rates” once you're back online.",
+      "noData": "Rates couldn't be downloaded and none are saved. Get online, or enter a rate by hand.",
+      "fetch": "Couldn't refresh the rates"
+    },
+    "disclaimer": "Treat the result as a guide. These are reference rates and don't include fees or your bank's margin."
+  },
+  "zonas": {
+    "tab": {
+      "clock": "Clocks",
+      "convert": "Convert"
+    },
+    "add": "Add a zone",
+    "remove": "Remove {name}",
+    "copy": "Copy",
+    "myZone": "{name} (my zone)",
+    "searchLabel": "Search time zones",
+    "searchPlaceholder": "Search a city or zone…",
+    "noResults": "No zone matches",
+    "day": "daytime",
+    "night": "night-time",
+    "sameTime": "same time as you",
+    "ahead": "{diff} h from you",
+    "behind": "{diff} h from you",
+    "empty": {
+      "title": "Just your zone so far",
+      "message": "Add cities to see their time side by side."
+    },
+    "convert": {
+      "source": "Source zone",
+      "date": "Date",
+      "time": "Time",
+      "now": "Now",
+      "invalid": "Fill in both the date and the time",
+      "addMore": "Add another zone to compare against."
+    },
+    "hint": "Times come straight from your browser, so they work offline and follow each country's daylight saving."
+  },
+  "azar": {
+    "tab": {
+      "moneda": "Coin",
+      "dados": "Dice",
+      "ruleta": "Spinner",
+      "numeros": "Numbers"
+    },
+    "moneda": {
+      "ready": "Toss",
+      "heads": "Heads",
+      "tails": "Tails",
+      "flip": "Toss it",
+      "reset": "Reset count",
+      "score": "Heads: {heads} · Tails: {tails} · Total: {total}"
+    },
+    "dados": {
+      "count": "How many dice",
+      "faces": "Sides",
+      "custom": "Custom",
+      "customFaces": "Number of sides",
+      "customInvalid": "Between 2 and 1000",
+      "roll": "Roll",
+      "total": "{values} = {sum}"
+    },
+    "ruleta": {
+      "spin": "Spin",
+      "optionsLabel": "Options (one per line)",
+      "placeholder": "Pizza\nPasta\nSushi",
+      "example": "Pizza\nPasta\nSushi\nSalad",
+      "hint": "Up to 24 options. They're saved for next time.",
+      "empty": "Add at least one option",
+      "emptyLabel": "Empty spinner",
+      "wheelLabel": "Spinner with {n} options"
+    },
+    "numeros": {
+      "min": "Minimum",
+      "max": "Maximum",
+      "count": "How many numbers",
+      "generate": "Generate",
+      "needNumber": "Enter a number",
+      "needInteger": "These need to be whole numbers",
+      "minLessThanMax": "The minimum has to be lower than the maximum",
+      "countRange": "Between 1 and 100",
+      "tooManyUnique": "Without repeats, only {size} numbers fit in that range",
+      "noRepeat": {
+        "label": "No repeats",
+        "desc": "Never draw the same number twice."
+      },
+      "sorted": {
+        "label": "Sort the result",
+        "desc": "Lowest to highest."
+      },
+      "history": "Recent results:"
+    },
+    "hint": "Results come from the browser's cryptographic generator, without the bias a plain remainder would introduce."
+  },
+  "qr": {
+    "tab": {
+      "text": "Text or link",
+      "wifi": "Wi-Fi"
+    },
+    "text": {
+      "label": "Text or link",
+      "placeholder": "https://example.com, or any text",
+      "hint": "The code updates as you type."
+    },
+    "wifi": {
+      "ssid": "Network name (SSID)",
+      "password": "Password",
+      "passwordHint": "It isn't stored anywhere — it's only used to draw the code.",
+      "security": "Security",
+      "wpa": "WPA/WPA2/WPA3",
+      "open": "No password",
+      "hidden": {
+        "label": "Hidden network",
+        "desc": "Tick this if the network doesn't show up in the list."
+      },
+      "note": "Scanning it offers to join this network."
+    },
+    "size": "Size",
+    "level": "Error correction",
+    "levelName": {
+      "L": "Low (L) · more data",
+      "M": "Medium (M) · recommended",
+      "Q": "High (Q)",
+      "H": "Highest (H) · most robust"
+    },
+    "colorDark": "Code colour",
+    "colorLight": "Background colour",
+    "appearance": "Size and colours",
+    "download": "Download PNG",
+    "downloaded": "Image downloaded",
+    "downloadFailed": "The image couldn't be created",
+    "tooLong": "That's too much text for one QR code. Shorten it, or lower the error correction.",
+    "canvasLabel": "QR code",
+    "canvasEmpty": "Nothing to encode yet",
+    "canvasReady": "QR code ready",
+    "privacy": "The code is drawn on your device. Neither the text nor the wifi password leaves it."
+  },
+  "colores": {
+    "tab": {
+      "picker": "Picker",
+      "contrast": "Contrast"
+    },
+    "pick": "Choose a colour",
+    "invalidHex": "Use a 3 or 6 digit HEX value (for example #4f8ef7)",
+    "invalidRgb": "Three values between 0 and 255 (for example 79, 142, 247)",
+    "invalidHsl": "A hue in degrees and two percentages (for example 217, 91%, 64%)",
+    "copyValue": "Copy the {name} value",
+    "shades": "Lighter and darker shades",
+    "useShade": "Use the shade {hex}",
+    "saved": "Saved colours",
+    "save": "Save this colour",
+    "savedOk": "Colour saved",
+    "alreadySaved": "That colour is already saved",
+    "clearSaved": "Clear",
+    "noSaved": "You haven't saved any colours yet.",
+    "useSaved": "Use the saved colour {hex}",
+    "eyedropper": "Eyedropper",
+    "eyedropperUnsupported": "Your browser has no eyedropper",
+    "contrast": {
+      "text": "Text colour",
+      "bg": "Background colour",
+      "swap": "Swap",
+      "useCurrent": "Use the colour from the picker",
+      "ratio": "Contrast ratio: {value}:1",
+      "aaNormal": "AA normal text",
+      "aaLarge": "AA large text",
+      "aaaNormal": "AAA normal text",
+      "aaaLarge": "AAA large text",
+      "sampleBig": "Large sample text",
+      "sampleSmall": "And this is how a normal paragraph looks with this pair of colours.",
+      "hint": "“Large text” means 18.66px bold or 24px regular and up. AA needs 4.5:1 (3:1 for large text); AAA needs 7:1 (4.5:1 for large text)."
+    }
+  },
+  "equipos": {
+    "namesLabel": "Names (one per line)",
+    "namesPlaceholder": "Ana\nBruno\nCarla\nDiego",
+    "namesHint": "They're saved for next time. Duplicates are dropped.",
+    "whoPlays": "Who's playing today",
+    "toggle": "Include {name} in the draw",
+    "noNames": "Type the names above.",
+    "modeLabel": "How to split",
+    "mode": {
+      "teams": "By number of teams",
+      "size": "By team size"
+    },
+    "teamCount": "Number of teams",
+    "teamSize": "People per team",
+    "countInvalid": "Between 2 and 50",
+    "sizeInvalid": "Between 2 and 50",
+    "pairs": "Make pairs",
+    "draw": "Draw teams",
+    "again": "Draw again",
+    "share": "Copy or share",
+    "needTwo": "You need at least two people",
+    "noneActive": "Nobody is selected.",
+    "summary": "{people} · {teams} · between {min} and {max} per team",
+    "people": {
+      "one": "{n} person",
+      "other": "{n} people"
+    },
+    "teams": {
+      "one": "{n} team",
+      "other": "{n} teams"
+    },
+    "teamName": "Team {n}",
+    "teamNameLabel": "Name of team {n}",
+    "empty": {
+      "title": "No draw yet",
+      "message": "Type the names and hit “Draw teams”."
+    },
+    "hint": "The split is genuinely random (Fisher-Yates shuffle driven by the cryptographic generator) and teams come out even, differing by one person at most."
+  },
+  "sync": {
+    "applied": "Data updated from your account"
   }
 }

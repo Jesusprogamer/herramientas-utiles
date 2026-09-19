@@ -161,3 +161,108 @@ export function settingRow({ label, desc, control, stacked = false }) {
     h('div.setting__control', control)
   );
 }
+
+/**
+ * Pestañas accesibles (patron tablist/tab/tabpanel).
+ * tabs = [{ id, label, render(panel) }]. Devuelve el contenedor.
+ */
+export function tabs({ label, items, active, onChange }) {
+  const list = h('div.tabs__list', { role: 'tablist', 'aria-label': label });
+  const panels = h('div.tabs__panels');
+  const buttons = [];
+  let current = active || items[0]?.id;
+
+  function show(id, { focus = false, silent = false } = {}) {
+    current = id;
+    for (const b of buttons) {
+      const on = b.dataset.id === id;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+      if (on && focus) b.focus();
+    }
+    for (const p of panels.children) p.hidden = p.dataset.id !== id;
+
+    // onChange va antes de pintar, para que quien escuche pueda preparar el
+    // estado que el panel necesita. La primera llamada es silenciosa: nadie ha
+    // cambiado nada todavia y el contenedor aun no existe.
+    if (!silent) onChange?.(id);
+
+    const item = items.find(i => i.id === id);
+    const panel = [...panels.children].find(p => p.dataset.id === id);
+    if (item && panel && !panel.dataset.painted) {
+      panel.dataset.painted = '1';
+      item.render(panel);
+    }
+  }
+
+  items.forEach(item => {
+    const btn = h('button.tabs__tab', {
+      type: 'button', role: 'tab', id: `tab-${item.id}`,
+      'aria-controls': `panel-${item.id}`,
+      'aria-selected': String(item.id === current),
+      tabIndex: item.id === current ? 0 : -1,
+      dataset: { id: item.id },
+      text: item.label,
+      onClick: () => show(item.id)
+    });
+    buttons.push(btn);
+    list.appendChild(btn);
+    panels.appendChild(h('div.tabs__panel', {
+      role: 'tabpanel', id: `panel-${item.id}`,
+      'aria-labelledby': `tab-${item.id}`,
+      tabIndex: 0,
+      dataset: { id: item.id },
+      hidden: item.id !== current
+    }));
+  });
+
+  list.addEventListener('keydown', e => {
+    const i = buttons.indexOf(document.activeElement);
+    if (i < 0) return;
+    const keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+    if (e.key === 'Home') { e.preventDefault(); show(items[0].id, { focus: true }); return; }
+    if (e.key === 'End') { e.preventDefault(); show(items[items.length - 1].id, { focus: true }); return; }
+    const delta = keys[e.key];
+    if (!delta) return;
+    e.preventDefault();
+    show(items[(i + delta + items.length) % items.length].id, { focus: true });
+  });
+
+  const wrap = h('div.tabs', list, panels);
+  wrap.show = show;
+  show(current, { silent: true });
+  return wrap;
+}
+
+/** Deslizador con valor visible. */
+export function slider({ label, min, max, step = 1, value, onInput, format }) {
+  const id = nextId('r');
+  const out = h('output', { for: id, text: format ? format(value) : String(value) });
+  const input = h('input.range', {
+    type: 'range', id, min, max, step, value,
+    onInput: e => {
+      const v = Number(e.target.value);
+      out.textContent = format ? format(v) : String(v);
+      onInput?.(v);
+    }
+  });
+  const wrap = h('div.field',
+    h('div.row',
+      h('label.field__label.grow', { for: id, text: label }),
+      h('span.slider__value.tnum', out)
+    ),
+    input
+  );
+  wrap.input = input;
+  wrap.setValue = v => { input.value = String(v); out.textContent = format ? format(v) : String(v); };
+  return wrap;
+}
+
+/** Bloque de resultado grande con boton de copiar. */
+export function resultBox({ value = '', mono = true, ariaLabel }) {
+  const text = h(`p.resultbox__value${mono ? '.mono' : ''}`, { text: value, 'aria-live': 'polite', 'aria-label': ariaLabel });
+  const box = h('div.resultbox', text);
+  box.setValue = v => { text.textContent = v; };
+  box.value = () => text.textContent;
+  return box;
+}

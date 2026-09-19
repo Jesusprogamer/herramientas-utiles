@@ -10,6 +10,7 @@ import * as settings from '../core/settings.js';
 import * as storage from '../core/storage.js';
 import * as registry from '../core/registry.js';
 import * as pwa from '../core/pwa.js';
+import * as account from '../core/account.js';
 import * as i18n from '../core/i18n.js';
 import { t, tn } from '../core/i18n.js';
 import { APP_VERSION } from '../core/version.js';
@@ -393,14 +394,163 @@ function dataSection(rerender) {
   );
 }
 
-function accountSection() {
+function accountSection(rerender) {
+  const info = account.state();
+
+  /* --- Sin configurar: modo invitado y explicacion --- */
+  if (!info.configured) {
+    return sectionBlock('settings.account.title', 'user',
+      settingRow({
+        label: t('settings.account.guest.label'),
+        desc: t('settings.account.guest.desc'),
+        control: h('span.chip.chip--accent', { text: t('common.on') })
+      }),
+      notice(t('settings.account.setup.message'), { kind: 'info', title: t('settings.account.setup.title') }),
+      h('p.small.muted', { text: t('settings.account.setup.where') })
+    );
+  }
+
+  /* --- Configurado pero sin sesion: formulario --- */
+  if (!info.signedIn) {
+    const emailField = field({ label: t('settings.account.email'), type: 'email', autocomplete: 'email' });
+    const passField = field({
+      label: t('settings.account.password'), type: 'password',
+      autocomplete: 'current-password', hint: t('settings.account.passwordHint')
+    });
+    const message = h('div');
+
+    const busy = value => {
+      signInBtn.disabled = value;
+      signUpBtn.disabled = value;
+      resetBtn.disabled = value;
+    };
+
+    const show = (kind, text) => { clear(message); message.appendChild(notice(text, { kind })); };
+
+    const readCredentials = () => {
+      const email = emailField.input.value.trim();
+      const password = passField.input.value;
+      emailField.setError(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? '' : t('settings.account.invalidEmail'));
+      passField.setError(password.length >= 6 ? '' : t('settings.account.shortPassword'));
+      if (emailField.input.getAttribute('aria-invalid') === 'true' ||
+          passField.input.getAttribute('aria-invalid') === 'true') return null;
+      return { email, password };
+    };
+
+    const signInBtn = button(t('settings.account.signIn'), {
+      variant: 'primary', icon: 'user',
+      onClick: async () => {
+        const creds = readCredentials();
+        if (!creds) return;
+        busy(true);
+        try {
+          await account.signIn(creds.email, creds.password);
+          account.markAllDirty();
+          await account.syncNow();
+          toastOk(t('settings.account.signedIn'));
+          rerender();
+        } catch (err) {
+          show('danger', err.message || t('common.error'));
+        } finally { busy(false); }
+      }
+    });
+
+    const signUpBtn = button(t('settings.account.signUp'), {
+      onClick: async () => {
+        const creds = readCredentials();
+        if (!creds) return;
+        busy(true);
+        try {
+          const { needsConfirmation } = await account.signUp(creds.email, creds.password);
+          show(needsConfirmation ? 'info' : 'success',
+            t(needsConfirmation ? 'settings.account.confirmEmail' : 'settings.account.signedIn'));
+          if (!needsConfirmation) { account.markAllDirty(); await account.syncNow(); rerender(); }
+        } catch (err) {
+          show('danger', err.message || t('common.error'));
+        } finally { busy(false); }
+      }
+    });
+
+    const resetBtn = button(t('settings.account.forgot'), {
+      variant: 'ghost',
+      onClick: async () => {
+        const email = emailField.input.value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          emailField.setError(t('settings.account.invalidEmail'));
+          return;
+        }
+        busy(true);
+        try {
+          await account.resetPassword(email);
+          show('success', t('settings.account.resetSent'));
+        } catch (err) {
+          show('danger', err.message || t('common.error'));
+        } finally { busy(false); }
+      }
+    });
+
+    return sectionBlock('settings.account.title', 'user',
+      h('p.muted.small', { text: t('settings.account.why') }),
+      h('div.account-form', emailField, passField, h('div.row', signInBtn, signUpBtn), resetBtn),
+      message
+    );
+  }
+
+  /* --- Con sesion iniciada --- */
+  const STATUS_CLASS = {
+    synced: 'sync-dot--ok', syncing: 'sync-dot--pending',
+    offline: 'sync-dot--pending', error: 'sync-dot--error'
+  };
+  const dot = h(`span.sync-dot.${STATUS_CLASS[info.status] || ''}`);
+  const statusText = h('span.small.muted', {
+    text: t(`settings.account.status.${info.status}`, { n: info.pending })
+      + (info.error ? ` · ${info.error}` : '')
+  });
+
+  const syncBtn = button(t('settings.account.syncNow'), {
+    icon: 'refresh',
+    onClick: async () => {
+      syncBtn.disabled = true;
+      try { await account.syncNow(); toastOk(t('settings.account.synced')); }
+      catch (err) { toastError(err.message || t('common.error')); }
+      finally { syncBtn.disabled = false; rerender(); }
+    }
+  });
+
+  const signOutBtn = button(t('settings.account.signOut'), {
+    onClick: async () => {
+      try { await account.signOut(); toastOk(t('settings.account.signedOut')); rerender(); }
+      catch (err) { toastError(err.message || t('common.error')); }
+    }
+  });
+
+  const deleteCloudBtn = button(t('settings.account.deleteCloud.action'), {
+    variant: 'danger', icon: 'trash',
+    onClick: async () => {
+      const ok = await confirm({
+        title: t('settings.account.deleteCloud.confirmTitle'),
+        message: t('settings.account.deleteCloud.confirmMessage'),
+        confirmLabel: t('settings.account.deleteCloud.action'), danger: true
+      });
+      if (!ok) return;
+      try { await account.deleteCloudData(); toastOk(t('settings.account.deleteCloud.done')); rerender(); }
+      catch (err) { toastError(err.message || t('common.error')); }
+    }
+  });
+
   return sectionBlock('settings.account.title', 'user',
+    h('div.kv',
+      h('div.kv__row', h('span.kv__key', { text: t('settings.account.email') }), h('span.kv__val', { text: info.email })),
+      h('div.kv__row', h('span.kv__key', { text: t('settings.account.syncStatus') }), h('span.row', dot, statusText))
+    ),
+    h('div.row', syncBtn, signOutBtn),
+    h('hr'),
     settingRow({
-      label: t('settings.account.guest.label'),
-      desc: t('settings.account.guest.desc'),
-      control: h('span.chip.chip--accent', { text: t('common.on') })
+      label: t('settings.account.deleteCloud.label'),
+      desc: t('settings.account.deleteCloud.desc'),
+      control: deleteCloudBtn
     }),
-    notice(t('settings.account.pending.message'), { kind: 'info', title: t('settings.account.pending.title') })
+    notice(t('settings.account.deleteAccount.message'), { kind: 'info', title: t('settings.account.deleteAccount.title') })
   );
 }
 
@@ -463,7 +613,7 @@ export default function settingsView({ outlet }) {
     container.appendChild(regionSection());
     container.appendChild(toolsSection());
     container.appendChild(dataSection(render));
-    container.appendChild(accountSection());
+    container.appendChild(accountSection(render));
     container.appendChild(aboutSection());
   }
 
@@ -479,5 +629,6 @@ export default function settingsView({ outlet }) {
 
   const offLang = on('i18n:change', () => refresh());
   const offInstall = on('pwa:installable', render);
-  return () => { offLang(); offInstall(); };
+  const offAccount = on('account:change', render);
+  return () => { offLang(); offInstall(); offAccount(); };
 }

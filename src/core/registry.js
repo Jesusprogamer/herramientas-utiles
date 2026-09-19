@@ -10,18 +10,18 @@ import { emit } from './events.js';
 
 /** `ready: false` = la herramienta aun no esta implementada (proximas fases). */
 export const TOOLS = [
-  { id: 'temporizador',   icon: 'timer',     ready: false },
-  { id: 'listas',         icon: 'checklist', ready: false },
-  { id: 'unidades',       icon: 'ruler',     ready: false },
-  { id: 'contrasenas',    icon: 'key',       ready: false },
-  { id: 'contador-texto', icon: 'wordcount', ready: false },
-  { id: 'porcentajes',    icon: 'percent',   ready: false },
-  { id: 'monedas',        icon: 'currency',  ready: false },
-  { id: 'zonas-horarias', icon: 'clock',     ready: false },
-  { id: 'azar',           icon: 'dice',      ready: false },
-  { id: 'qr',             icon: 'qr',        ready: false },
-  { id: 'colores',        icon: 'palette',   ready: false },
-  { id: 'equipos',        icon: 'users',     ready: false }
+  { id: 'temporizador',   icon: 'timer',     ready: true  },
+  { id: 'listas',         icon: 'checklist', ready: true  },
+  { id: 'unidades',       icon: 'ruler',     ready: true  },
+  { id: 'contrasenas',    icon: 'key',       ready: true  },
+  { id: 'contador-texto', icon: 'wordcount', ready: true  },
+  { id: 'porcentajes',    icon: 'percent',   ready: true  },
+  { id: 'monedas',        icon: 'currency',  ready: true  },
+  { id: 'zonas-horarias', icon: 'clock',     ready: true  },
+  { id: 'azar',           icon: 'dice',      ready: true  },
+  { id: 'qr',             icon: 'qr',        ready: true  },
+  { id: 'colores',        icon: 'palette',   ready: true  },
+  { id: 'equipos',        icon: 'users',     ready: true  }
 ];
 
 const IDS = TOOLS.map(tool => tool.id);

@@ -6,6 +6,7 @@ import * as theme from './core/theme.js';
 import * as registry from './core/registry.js';
 import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
+import * as account from './core/account.js';
 import { on } from './core/events.js';
 import { h, clear, $ } from './ui/dom.js';
 import { icon } from './ui/icons.js';
@@ -78,11 +79,27 @@ function hideUpdateBar() {
 
 /* ---------------- Rutas ---------------- */
 
+/* Los estilos de las herramientas se cargan una sola vez, la primera vez que
+   se abre una. Asi no retrasan el primer pintado del inicio. */
+let toolStyles = null;
+function ensureToolStyles() {
+  if (toolStyles) return toolStyles;
+  toolStyles = new Promise(resolve => {
+    const link = h('link', { rel: 'stylesheet', href: './styles/tools.css' });
+    link.addEventListener('load', resolve, { once: true });
+    link.addEventListener('error', resolve, { once: true });
+    document.head.appendChild(link);
+    setTimeout(resolve, 2000);   // nunca bloquear la vista por un estilo
+  });
+  return toolStyles;
+}
+
 async function toolRoute(ctx) {
   const tool = registry.byId(ctx.params.id);
   if (!tool) return notFound(ctx);
   if (!tool.ready) return toolPlaceholder(ctx);
   try {
+    await ensureToolStyles();
     const mod = await import(`./tools/${tool.id}/index.js`);
     const view = mod.default;
     const cleanup = await view.mount(ctx.outlet, {
@@ -144,6 +161,17 @@ async function boot() {
   on('router:change', ({ path }) => markCurrent(path));
   on('pwa:update', showUpdateBar);
 
+  // Datos llegados de la nube: recargamos lo que la app tiene en memoria
+  // y repintamos la pantalla actual para que se vean al momento.
+  on('sync:applied', ({ keys }) => {
+    settings.load();
+    registry.load();
+    theme.apply();
+    if (keys.includes('settings')) i18n.setLanguage(settings.get('language')).catch(() => {});
+    router.refresh();
+    toast(t('sync.applied'), { kind: 'success' });
+  });
+
   await router.start($('#main'));
 
   $('#app').hidden = false;
@@ -158,6 +186,9 @@ async function boot() {
   watchConnection();
   pwa.watchInstallPrompt();
   pwa.registerServiceWorker();
+
+  // La cuenta es opcional: si no esta configurada, esto no hace nada.
+  account.init().catch(err => console.warn('[app] cuenta no disponible', err));
 }
 
 boot().catch(err => {
