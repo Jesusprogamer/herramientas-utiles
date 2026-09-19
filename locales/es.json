@@ -249,6 +249,27 @@
           "denied": "Has bloqueado las notificaciones en este navegador. Cámbialo en los permisos del sitio.",
           "granted": "Notificaciones activadas",
           "hint": "El navegador solo puede avisarte mientras la app siga abierta, aunque sea en segundo plano. Si la cierras del todo, no hay notificación."
+        },
+        "alarm": {
+          "focus": "Sonido al terminar el trabajo",
+          "break": "Sonido al terminar el descanso",
+          "test": "Probar",
+          "volume": "Volumen de la alarma",
+          "campana": "Campana",
+          "beep": "Beep clásico",
+          "digital": "Digital",
+          "arpegio": "Arpegio suave",
+          "timbre": "Timbre",
+          "retro": "Retro 8-bit",
+          "gota": "Gota de agua",
+          "despertador": "Despertador",
+          "repeat": {
+            "label": "Cuántas veces suena",
+            "desc": "«Hasta pararla» sigue sonando hasta que pulses «Detener alarma».",
+            "una": "Una vez",
+            "tres": "Tres veces",
+            "hasta": "Hasta pararla"
+          }
         }
       }
     },
@@ -358,7 +379,7 @@
       "privacy": "Política de privacidad",
       "licenses": "Licencias",
       "sourceLabel": "Hecho con HTML, CSS y JavaScript, sin frameworks.",
-      "iconNote": "El icono cambia con el color de acento. El de la app ya instalada lo fija el sistema al instalarla: para verlo cambiar, vuelve a instalarla. En iPhone y iPad no se actualiza."
+      "iconNote": "El icono cambia con el color de acento y se aplica sin preguntarte nada. El de la app ya instalada lo fija el sistema al instalarla: para verlo cambiar, vuelve a instalarla. En iPhone y iPad no se actualiza."
     },
     "sound": {
       "title": "Sonido y animaciones",
@@ -657,6 +678,24 @@
       "noResults": {
         "title": "Sin resultados",
         "message": "Ninguna nota coincide con la búsqueda."
+      },
+      "format": {
+        "label": "Formato",
+        "bold": "Negrita (Ctrl+B)",
+        "italic": "Cursiva (Ctrl+I)",
+        "strike": "Tachado",
+        "color": "Color del texto",
+        "noColor": "Sin color"
+      },
+      "color": {
+        "rojo": "Rojo",
+        "naranja": "Naranja",
+        "amarillo": "Amarillo",
+        "verde": "Verde",
+        "azul": "Azul",
+        "violeta": "Violeta",
+        "rosa": "Rosa",
+        "gris": "Gris"
       }
     }
   },
@@ -962,7 +1001,14 @@
       "tails": "Cruz",
       "flip": "Lanzar",
       "reset": "Poner a cero",
-      "score": "Cara: {heads} · Cruz: {tails} · Total: {total}"
+      "score": "Cara: {heads} · Cruz: {tails} · Total: {total}",
+      "coinLabel": "Moneda",
+      "finish": {
+        "label": "Acabado",
+        "oro": "Oro",
+        "plata": "Plata",
+        "cobre": "Cobre"
+      }
     },
     "dados": {
       "count": "Cuántos dados",
@@ -971,7 +1017,8 @@
       "customFaces": "Número de caras",
       "customInvalid": "Entre 2 y 1000",
       "roll": "Tirar",
-      "total": "{values} = {sum}"
+      "total": "{values} = {sum}",
+      "dieLabel": "Dado de {sides} caras: {value}"
     },
     "ruleta": {
       "spin": "Girar",

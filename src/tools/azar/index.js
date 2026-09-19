@@ -8,6 +8,10 @@ import { toastOk, toastError, toast } from '../../ui/toast.js';
 import { belowUnbiased, intBetween, uniqueInts, shuffle } from '../../core/random.js';
 import * as storage from '../../core/storage.js';
 import { t, tn, formatNumber } from '../../core/i18n.js';
+import * as audio from '../../core/audio.js';
+import { buildCoin, FINISH_NAMES } from './coin.js';
+import { dieFace } from './dice.js';
+import { coinChime, diceRoll } from './sounds.js';
 
 const KEYS = { coin: 'azar-moneda', wheel: 'azar-ruleta', numbers: 'azar-numeros' };
 
@@ -17,10 +21,27 @@ function renderCoin(panel) {
   const saved = storage.get(KEYS.coin, null) || {};
   let heads = Number.isInteger(saved.heads) ? saved.heads : 0;
   let tails = Number.isInteger(saved.tails) ? saved.tails : 0;
-
-  const face = h('div.coin', { role: 'status', 'aria-live': 'polite', text: t('azar.moneda.ready') });
-  const score = h('p.muted', { 'aria-live': 'polite' });
+  let finish = FINISH_NAMES.includes(saved.finish) ? saved.finish : 'oro';
+  let turns = 0;          // vueltas acumuladas, para que siempre gire hacia delante
   let busy = false;
+
+  const holder = h('div');
+  let coin = null;
+
+  const result = h('p.coin-result', { role: 'status', 'aria-live': 'polite' });
+  const score = h('p.muted', { style: { textAlign: 'center' } });
+
+  const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    || document.documentElement.dataset.reduceMotion === 'on';
+
+  function buildFace() {
+    clear(holder);
+    coin = buildCoin(finish);
+    coin.root.setAttribute('role', 'img');
+    coin.root.setAttribute('aria-label', t('azar.moneda.coinLabel'));
+    holder.appendChild(coin.root);
+    coin.inner.style.transform = `rotateY(${turns * 360}deg)`;
+  }
 
   function updateScore() {
     score.textContent = t('azar.moneda.score', {
@@ -31,29 +52,72 @@ function renderCoin(panel) {
   function flip() {
     if (busy) return;
     busy = true;
-    face.classList.add('coin--flipping');
-    const result = belowUnbiased(2) === 0 ? 'heads' : 'tails';
-    setTimeout(() => {
-      face.classList.remove('coin--flipping');
-      face.textContent = t(`azar.moneda.${result}`);
-      if (result === 'heads') heads++; else tails++;
-      storage.set(KEYS.coin, { heads, tails });
+    // El resultado se decide ANTES de la animacion, con el generador
+    // criptografico: la animacion solo lo representa.
+    const isHeads = belowUnbiased(2) === 0;
+    audio.playCustom(coinChime);
+
+    const land = isHeads ? 0 : 180;
+    const finish_ = () => {
+      result.textContent = t(`azar.moneda.${isHeads ? 'heads' : 'tails'}`);
+      if (isHeads) heads++; else tails++;
+      storage.set(KEYS.coin, { heads, tails, finish });
       updateScore();
       busy = false;
-    }, 700);
+    };
+
+    if (reduced()) {
+      // Sin giro: solo un fundido.
+      coin.inner.classList.add('coin3d--instant');
+      coin.inner.style.transform = `rotateY(${land}deg)`;
+      coin.root.classList.remove('coin3d--fade');
+      void coin.root.offsetWidth;
+      coin.root.classList.add('coin3d--fade');
+      setTimeout(finish_, 260);
+      return;
+    }
+
+    coin.inner.classList.remove('coin3d--instant');
+    turns += 4 + belowUnbiased(3);
+    coin.inner.style.transform = `rotateY(${turns * 360 + land}deg)`;
+    setTimeout(finish_, 1600);
   }
 
+  const finishRow = h('div.coin-finishes');
+  const finishButtons = FINISH_NAMES.map(name => {
+    const b = button(t(`azar.moneda.finish.${name}`), {
+      class: 'btn--sm',
+      'aria-pressed': String(name === finish),
+      onClick: () => {
+        finish = name;
+        storage.set(KEYS.coin, { heads, tails, finish });
+        finishButtons.forEach(x => x.setAttribute('aria-pressed', String(x.dataset.finish === name)));
+        buildFace();
+      }
+    });
+    b.dataset.finish = name;
+    finishRow.appendChild(b);
+    return b;
+  });
+
+  buildFace();
   updateScore();
+
   panel.append(h('div.stack',
-    face,
+    holder,
+    result,
     h('div.row', { style: { justifyContent: 'center' } },
       button(t('azar.moneda.flip'), { variant: 'primary', icon: 'dice', onClick: flip }),
       button(t('azar.moneda.reset'), {
         icon: 'refresh',
-        onClick: () => { heads = 0; tails = 0; storage.set(KEYS.coin, { heads, tails }); updateScore(); }
+        onClick: () => { heads = 0; tails = 0; storage.set(KEYS.coin, { heads, tails, finish }); updateScore(); }
       })
     ),
-    score
+    score,
+    h('div.stack',
+      h('span.field__label', { style: { textAlign: 'center' }, text: t('azar.moneda.finish.label') }),
+      finishRow
+    )
   ));
 }
 
@@ -74,11 +138,17 @@ function renderDice(panel) {
     clear(row);
     let sum = 0;
     const values = [];
+    audio.playCustom((ctx, dest, when) => diceRoll(ctx, dest, when, Math.min(6, count)));
+
     for (let i = 0; i < count; i++) {
       const value = intBetween(1, sides);
       values.push(value);
       sum += value;
-      const die = h('div.die.die--rolling', { text: String(value) });
+      // El d6 sale con puntos; el resto, con la forma del dado y su numero.
+      const die = h('div.die.die--svg.die--rolling', {
+        role: 'img',
+        'aria-label': t('azar.dados.dieLabel', { sides: sides === 0 ? custom : sides, value })
+      }, dieFace(sides, value));
       row.appendChild(die);
       setTimeout(() => die.classList.remove('die--rolling'), 500);
     }

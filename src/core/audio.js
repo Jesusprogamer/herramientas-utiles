@@ -175,6 +175,40 @@ export function play(cue, { value, force = false } = {}) {
   return true;
 }
 
+/**
+ * Reproduce un sonido propio de una herramienta (moneda, dados, alarma…).
+ * `schedule(ctx, destino, cuando)` debe programar la síntesis y devolver su
+ * duración en segundos. Respeta el volumen, el límite de voces y el silencio
+ * con la pestaña oculta, igual que los avisos de la interfaz.
+ */
+export function playCustom(schedule, { force = false, volume = 1 } = {}) {
+  if (!force && !prefs().enabled) return false;
+  if (document.visibilityState !== 'visible') return false;
+  if (!ctx && !unlock()) return false;
+  if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+  if (voices >= MAX_VOICES) return false;
+
+  voices++;
+  let node = masterGain;
+  if (volume !== 1) {
+    node = ctx.createGain();
+    node.gain.value = Math.max(0, Math.min(1, volume));
+    node.connect(masterGain);
+  }
+  const duration = schedule(ctx, node, ctx.currentTime + 0.001) || 0.2;
+  setTimeout(() => { voices = Math.max(0, voices - 1); }, Math.max(60, duration * 1000));
+  return true;
+}
+
+/** Igual que renderCue pero con una síntesis propia. Para medirla en pruebas. */
+export async function renderWith(schedule, { sampleRate = 44100, seconds = 3 } = {}) {
+  const Ctor = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  if (!Ctor) throw new Error('Este navegador no tiene OfflineAudioContext');
+  const offline = new Ctor(1, Math.ceil(sampleRate * seconds), sampleRate);
+  schedule(offline, offline.destination, 0);
+  return offline.startRendering();
+}
+
 /** Prueba un estilo desde Ajustes, aunque los sonidos estén apagados. */
 export function preview(style) {
   if (!ctx && !unlock()) return false;

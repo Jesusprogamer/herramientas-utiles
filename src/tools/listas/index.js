@@ -12,6 +12,7 @@ import { confirm } from '../../ui/dialog.js';
 import { toast, toastOk, toastError } from '../../ui/toast.js';
 import * as storage from '../../core/storage.js';
 import { t, tn, formatDate, formatRelative } from '../../core/i18n.js';
+import * as rich from './rich.js';
 
 const KEYS = { tasks: 'tareas', shop: 'compra', shopHistory: 'compra-historial', notes: 'notas' };
 
@@ -31,7 +32,8 @@ function readList(key, validate) {
 }
 
 const isTask = x => x && typeof x === 'object' && typeof x.id === 'string' && typeof x.text === 'string';
-const isNote = x => x && typeof x === 'object' && typeof x.id === 'string' && typeof x.body === 'string';
+const isNote = x => x && typeof x === 'object' && typeof x.id === 'string'
+  && (typeof x.body === 'string' || Array.isArray(x.body));
 
 /* Fecha de hoy en local (no UTC) con formato YYYY-MM-DD, para <input type=date>. */
 function todayISO() {
@@ -404,7 +406,7 @@ function renderNotes(panel) {
   function openEditor(id) { editingId = id; paint(); }
 
   function newNote() {
-    const note = { id: uid(), title: '', body: '', pinned: false, updatedAt: Date.now() };
+    const note = { id: uid(), title: '', body: [], pinned: false, updatedAt: Date.now() };
     notes.unshift(note);
     save();
     openEditor(note.id);
@@ -420,30 +422,172 @@ function renderNotes(panel) {
       placeholder: t('listas.notas.titlePlaceholder'),
       'aria-label': t('listas.notas.titleLabel')
     });
-    const body = h('textarea.textarea', {
-      rows: '14', 'aria-label': t('listas.notas.bodyLabel'),
-      placeholder: t('listas.notas.bodyPlaceholder')
-    });
-    body.value = note.body;   // value, nunca innerHTML: siempre texto plano
 
+    /* El editor es contenteditable, pero lo que se GUARDA nunca es HTML:
+       el formato se aplica sobre el modelo y el DOM se reconstruye a partir
+       de el con createElement y textContent. */
+    const editor = h('div.note-editor', {
+      contenteditable: 'true', role: 'textbox',
+      'aria-multiline': 'true', 'aria-label': t('listas.notas.bodyLabel'),
+      'data-placeholder': t('listas.notas.bodyPlaceholder'),
+      spellcheck: 'true'
+    });
+
+    let fragments = rich.toFragments(note.body);
+    rich.renderInto(editor, fragments);
+
+    /* --- posicion del cursor en caracteres, para no perderla al repintar --- */
+    const offsetsInEditor = () => {
+      const sel = window.getSelection();
+      if (!sel || !sel.rangeCount || !editor.contains(sel.anchorNode)) return null;
+      const range = sel.getRangeAt(0);
+      const medir = hasta => {
+        const r = document.createRange();
+        r.selectNodeContents(editor);
+        r.setEnd(hasta.container, hasta.offset);
+        const frag = r.cloneContents();
+        const tmp = document.createElement('div');
+        tmp.appendChild(frag);
+        return rich.plainText(rich.fromEditor(tmp)).length;
+      };
+      const start = medir({ container: range.startContainer, offset: range.startOffset });
+      const end = range.collapsed ? start : medir({ container: range.endContainer, offset: range.endOffset });
+      return { start, end };
+    };
+
+    const setOffsets = (start, end) => {
+      const range = document.createRange();
+      let at = 0, hecho = { s: false, e: false };
+      const walk = node => {
+        for (const child of node.childNodes) {
+          if (child.nodeType === Node.TEXT_NODE) {
+            const len = child.nodeValue.length;
+            if (!hecho.s && at + len >= start) { range.setStart(child, start - at); hecho.s = true; }
+            if (!hecho.e && at + len >= end) { range.setEnd(child, end - at); hecho.e = true; }
+            at += len;
+          } else if (child.tagName === 'BR') {
+            if (!hecho.s && at + 1 > start) { range.setStartBefore(child); hecho.s = true; }
+            if (!hecho.e && at + 1 > end) { range.setEndBefore(child); hecho.e = true; }
+            at += 1;
+          } else walk(child);
+          if (hecho.s && hecho.e) return;
+        }
+      };
+      walk(editor);
+      if (!hecho.s) range.selectNodeContents(editor), range.collapse(false);
+      else if (!hecho.e) range.setEnd(range.startContainer, range.startOffset);
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    };
+
+    const sync = () => { fragments = rich.fromEditor(editor); };
+
+    /* --- barra de formato --- */
+    const aplicar = patch => {
+      const pos = offsetsInEditor();
+      sync();
+      if (!pos || pos.start === pos.end) { editor.focus(); return; }   // hace falta selección
+      fragments = rich.applyStyle(fragments, pos.start, pos.end, patch);
+      rich.renderInto(editor, fragments);
+      setOffsets(pos.start, pos.end);
+      refreshToolbar();
+      autosave();
+    };
+
+    const mkBtn = (key, iconName, labelKey) => iconButton(iconName, t(labelKey), {
+      pressed: false,
+      dataset: { style: key },
+      onClick: () => {
+        const pos = offsetsInEditor();
+        sync();
+        const activo = pos ? rich.styleAt(fragments, pos.start, pos.end, key) : false;
+        aplicar({ [key]: !activo });
+      }
+    });
+
+    const bBtn = mkBtn('b', 'type', 'listas.notas.format.bold');
+    bBtn.style.fontWeight = '800';
+    const iBtn = mkBtn('i', 'type', 'listas.notas.format.italic');
+    iBtn.style.fontStyle = 'italic';
+    const sBtn = mkBtn('s', 'type', 'listas.notas.format.strike');
+    sBtn.style.textDecoration = 'line-through';
+
+    const colorRow = h('div.note-colors', { role: 'group', 'aria-label': t('listas.notas.format.color') });
+    colorRow.appendChild(h('button.note-color.note-color--none', {
+      type: 'button', 'aria-label': t('listas.notas.format.noColor'), title: t('listas.notas.format.noColor'),
+      onClick: () => aplicar({ c: null })
+    }));
+    for (const color of rich.COLORS) {
+      colorRow.appendChild(h(`button.note-color.nc--${color}`, {
+        type: 'button',
+        'aria-label': t(`listas.notas.color.${color}`), title: t(`listas.notas.color.${color}`),
+        onClick: () => aplicar({ c: color })
+      }));
+    }
+
+    const toolbar = h('div.note-toolbar', { role: 'toolbar', 'aria-label': t('listas.notas.format.label') },
+      bBtn, iBtn, sBtn, h('span.note-toolbar__sep'), colorRow);
+
+    function refreshToolbar() {
+      const pos = offsetsInEditor();
+      for (const [btn, key] of [[bBtn, 'b'], [iBtn, 'i'], [sBtn, 's']]) {
+        const on = pos ? rich.styleAt(fragments, pos.start, pos.end, key) : false;
+        btn.setAttribute('aria-pressed', String(on));
+      }
+    }
+
+    /* --- guardado --- */
     const autosave = () => {
       clearTimeout(saveTimer);
       status.textContent = t('listas.notas.saving');
       saveTimer = setTimeout(() => {
         note.title = title.value;
-        note.body = body.value;
+        note.body = fragments;
         note.updatedAt = Date.now();
         save();
         status.textContent = t('listas.notas.saved');
       }, 400);
     };
+
+    editor.addEventListener('input', () => { sync(); autosave(); });
+    editor.addEventListener('keyup', refreshToolbar);
+    editor.addEventListener('mouseup', refreshToolbar);
     title.addEventListener('input', autosave);
-    body.addEventListener('input', autosave);
+
+    // Al pegar, siempre texto plano: nunca entra HTML de fuera.
+    editor.addEventListener('paste', event => {
+      event.preventDefault();
+      const texto = event.clipboardData?.getData('text/plain') || '';
+      const pos = offsetsInEditor();
+      sync();
+      const inicio = pos ? pos.start : rich.textLength(fragments);
+      const fin = pos ? pos.end : inicio;
+      // Solo se sustituye lo seleccionado: el formato del resto no se toca.
+      fragments = rich.replaceRange(fragments, inicio, fin, texto);
+      rich.renderInto(editor, fragments);
+      setOffsets(inicio + texto.length, inicio + texto.length);
+      autosave();
+    });
+
+    // Atajos de teclado.
+    editor.addEventListener('keydown', event => {
+      if (!(event.ctrlKey || event.metaKey)) return;
+      const key = event.key.toLowerCase();
+      const mapa = { b: 'b', i: 'i' };
+      if (!mapa[key]) return;
+      event.preventDefault();
+      const pos = offsetsInEditor();
+      sync();
+      const activo = pos ? rich.styleAt(fragments, pos.start, pos.end, mapa[key]) : false;
+      aplicar({ [mapa[key]]: !activo });
+    });
 
     const commitNow = () => {
       clearTimeout(saveTimer);
+      sync();
       note.title = title.value;
-      note.body = body.value;
+      note.body = fragments;
       note.updatedAt = Date.now();
       save();
     };
@@ -456,7 +600,7 @@ function renderNotes(panel) {
         h('span.grow'),
         iconButton('star', t(note.pinned ? 'listas.notas.unpin' : 'listas.notas.pin'), {
           pressed: note.pinned,
-          onClick: () => { note.pinned = !note.pinned; note.updatedAt = Date.now(); save(); paint(); }
+          onClick: () => { commitNow(); note.pinned = !note.pinned; note.updatedAt = Date.now(); save(); paint(); }
         }),
         iconButton('trash', t('listas.notas.delete'), {
           onClick: async () => {
@@ -467,6 +611,7 @@ function renderNotes(panel) {
             });
             if (!ok) return;
             clearTimeout(saveTimer);
+            flushNotes = null;
             notes = notes.filter(n => n.id !== note.id);
             save();
             editingId = null;
@@ -476,10 +621,12 @@ function renderNotes(panel) {
         })
       ),
       title,
-      body,
+      toolbar,
+      editor,
       h('div.row', status, h('span.grow'),
         h('span.small.faint', { text: t('listas.notas.updated', { when: formatRelative(note.updatedAt || Date.now()) }) }))
     ));
+    refreshToolbar();
     title.focus();
   }
 
@@ -497,7 +644,7 @@ function renderNotes(panel) {
 
     const q = norm(query.trim());
     const found = q
-      ? notes.filter(n => norm(n.title).includes(q) || norm(n.body).includes(q))
+      ? notes.filter(n => norm(n.title).includes(q) || norm(rich.plainText(n.body)).includes(q))
       : notes;
 
     const grid = h('div.notes-grid');
@@ -507,7 +654,7 @@ function renderNotes(panel) {
         onClick: () => openEditor(note.id)
       },
         h('span.note-card__title', { text: note.title || t('listas.notas.untitled') }),
-        h('span.note-card__body', { text: note.body || t('listas.notas.emptyBody') }),
+        h('span.note-card__body', { text: rich.plainText(note.body) || t('listas.notas.emptyBody') }),
         h('span.note-card__foot',
           h('span.small.faint', { text: formatRelative(note.updatedAt || Date.now()) }),
           note.pinned ? h('span.chip.chip--accent', { text: t('listas.notas.pinned') }) : null

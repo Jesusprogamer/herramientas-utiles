@@ -13,6 +13,8 @@ import { toast } from '../../ui/toast.js';
 import * as storage from '../../core/storage.js';
 import * as settings from '../../core/settings.js';
 import { on } from '../../core/events.js';
+import * as audio from '../../core/audio.js';
+import { alarmSound } from './alarms.js';
 import { t, formatTime } from '../../core/i18n.js';
 
 const KEY = 'temporizador';
@@ -42,6 +44,14 @@ let restored = false;
 const RING_EVERY_MS = 3000;
 const RENOTIFY_EVERY = 5;   // uno de cada 5 ciclos -> vuelve a avisar cada 15 s
 let ringCount = 0;
+
+/** Cuantas veces suena, segun el ajuste de repeticion. */
+function ringLimit() {
+  const modo = settings.get('timer').repeat;
+  if (modo === 'una') return 1;
+  if (modo === 'tres') return 3;
+  return Infinity;
+}
 
 function save() {
   storage.set(KEY, {
@@ -92,29 +102,25 @@ function leftMs() {
 
 /* ---------------- Aviso al terminar ---------------- */
 
-let audioCtx = null;
+/** Alarma elegida para la fase que acaba de terminar. */
+function currentAlarmName() {
+  const cfg = settings.get('timer');
+  return state.phase === 'short' || state.phase === 'long' ? cfg.alarmBreak : cfg.alarmFocus;
+}
 
-/** Pitido generado al vuelo: no necesita ningun archivo y funciona sin conexion. */
-function beep() {
-  try {
-    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-    const now = audioCtx.currentTime;
-    [0, 0.28, 0.56].forEach((offset, i) => {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(i === 2 ? 1046.5 : 880, now + offset);
-      gain.gain.setValueAtTime(0.0001, now + offset);
-      gain.gain.exponentialRampToValueAtTime(0.32, now + offset + 0.02);
-      gain.gain.exponentialRampToValueAtTime(0.0001, now + offset + 0.22);
-      osc.connect(gain).connect(audioCtx.destination);
-      osc.start(now + offset);
-      osc.stop(now + offset + 0.24);
-    });
-  } catch (err) {
-    console.warn('[temporizador] no se pudo reproducir el aviso', err);
-  }
+/** Suena la alarma elegida. Se fuerza: es un aviso, no un adorno. */
+function beep(name) {
+  const cfg = settings.get('timer');
+  audio.playCustom(alarmSound(name || currentAlarmName()), {
+    force: true,
+    volume: (cfg.alarmVolume ?? 80) / 100
+  });
+}
+
+/** Prueba de una alarma desde Ajustes. */
+export function testAlarm(name) {
+  audio.unlock();
+  beep(name);
 }
 
 /**
@@ -217,9 +223,16 @@ function startAlarm() {
   ringCount = 0;
   ring();
   notifySystem();
-  clearInterval(ringTimer);
-  ringTimer = setInterval(ring, RING_EVERY_MS);
   showAlarmBanner();
+
+  // El tope se mira en cada ciclo, NO dentro de ring(): si se comprobara
+  // ahi, el primer aviso apagaria la alarma antes de terminar de montarla.
+  const limit = ringLimit();
+  clearInterval(ringTimer);
+  ringTimer = setInterval(() => {
+    if (ringCount >= limit) { stopAlarm(); return; }
+    ring();
+  }, RING_EVERY_MS);
   toast(t('temporizador.done.body', { phase: t(`temporizador.phase.${state.phase}`) }), {
     kind: 'success', duration: 6000
   });
@@ -277,13 +290,8 @@ function start() {
   stopAlarm();
   if (leftMs() <= 0) return;
   const cfg = settings.get('timer');
-  // Un toque del usuario: buen momento para desbloquear el audio del navegador.
-  if (cfg.sound) {
-    try {
-      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
-      audioCtx.resume?.();
-    } catch { /* sin audio */ }
-  }
+  // Un toque del usuario: los moviles exigen desbloquear el audio asi.
+  audio.unlock();
   // Y tambien para pedir el permiso de notificaciones, que solo se concede
   // a raiz de un gesto de la persona.
   if (cfg.notify && 'Notification' in window && Notification.permission === 'default') {

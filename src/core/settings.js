@@ -16,6 +16,8 @@ export const UNIT_SYSTEMS = ['metrico', 'imperial'];
 export const LANGUAGES = ['auto', 'es', 'en'];
 export const SOUND_STYLES = ['suave', 'retro', 'cristal'];
 export const TRANSITIONS = ['ninguna', 'suave', 'completa'];
+export const ALARM_SOUNDS = ['campana', 'beep', 'digital', 'arpegio', 'timbre', 'retro', 'gota', 'despertador'];
+export const ALARM_REPEATS = ['una', 'tres', 'hasta'];
 
 export const DEFAULTS = Object.freeze({
   // Apariencia
@@ -53,7 +55,11 @@ export const DEFAULTS = Object.freeze({
     roundsBeforeLongBreak: 4,
     sound: true,
     vibrate: true,
-    notify: true          // se pide el permiso la primera vez que pulsas "Empezar"
+    notify: true,         // se pide el permiso la primera vez que pulsas "Empezar"
+    alarmFocus: 'campana',    // al terminar el trabajo
+    alarmBreak: 'gota',       // al terminar el descanso
+    alarmVolume: 80,
+    repeat: 'hasta'           // una | tres | hasta que la pares
   })
 });
 
@@ -107,7 +113,12 @@ function sanitize(input) {
       roundsBeforeLongBreak: num(t.roundsBeforeLongBreak, 2, 12, DEFAULTS.timer.roundsBeforeLongBreak),
       sound: typeof t.sound === 'boolean' ? t.sound : DEFAULTS.timer.sound,
       vibrate: typeof t.vibrate === 'boolean' ? t.vibrate : DEFAULTS.timer.vibrate,
-      notify: typeof t.notify === 'boolean' ? t.notify : DEFAULTS.timer.notify
+      notify: typeof t.notify === 'boolean' ? t.notify : DEFAULTS.timer.notify,
+      alarmFocus: ALARM_SOUNDS.includes(t.alarmFocus) ? t.alarmFocus : DEFAULTS.timer.alarmFocus,
+      alarmBreak: ALARM_SOUNDS.includes(t.alarmBreak) ? t.alarmBreak : DEFAULTS.timer.alarmBreak,
+      alarmVolume: (typeof t.alarmVolume === 'number' && t.alarmVolume >= 0 && t.alarmVolume <= 100)
+        ? Math.round(t.alarmVolume) : DEFAULTS.timer.alarmVolume,
+      repeat: ALARM_REPEATS.includes(t.repeat) ? t.repeat : DEFAULTS.timer.repeat
     };
   }
   return out;

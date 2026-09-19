@@ -41,6 +41,17 @@
   r.style.colorScheme = resolved;
   var m = document.querySelector('meta[name="theme-color"]');
   if (m) m.setAttribute('content', resolved === 'light' ? '#f6f7f9' : '#0f1115');
+
+  // El manifest del acento se elige aqui, antes de que el navegador lo lea.
+  // No se cambia despues: hacerlo en caliente provoca que el navegador
+  // pregunte por la instalacion, y el icono de una app ya instalada no
+  // cambia de todas formas.
+  var accent = s.accent || 'azul';
+  var link = document.querySelector('link[rel="manifest"]');
+  if (link && accent !== 'azul' &&
+      ['violeta','verde','naranja','rosa','cian'].indexOf(accent) !== -1) {
+    link.setAttribute('href', './manifest-' + accent + '.json');
+  }
 })();
 </script>
 </head>

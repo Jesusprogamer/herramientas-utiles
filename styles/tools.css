@@ -320,3 +320,118 @@
 .sync-dot--ok { background: var(--c-success); }
 .sync-dot--pending { background: var(--c-warning); }
 .sync-dot--error { background: var(--c-danger); }
+
+/* ---------------- Moneda en 3D ---------------- */
+.coin3d {
+  width: min(190px, 56vw); aspect-ratio: 1;
+  margin-inline: auto;
+  perspective: 900px;
+}
+.coin3d__inner {
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1.6s cubic-bezier(.2,.7,.2,1);
+}
+.coin3d__face {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  backface-visibility: hidden;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+}
+.coin3d__face--tails { transform: rotateY(180deg); }
+/* Con "reducir movimiento" no gira: solo se funde. */
+:root[data-reduce-motion="on"] .coin3d__inner,
+.coin3d__inner.coin3d--instant { transition: none; }
+.coin3d--fade { animation: coin-fade 260ms var(--ease); }
+@keyframes coin-fade { from { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) {
+  .coin3d__inner { transition: none; }
+}
+.coin-finishes { display: flex; gap: var(--sp-2); justify-content: center; flex-wrap: wrap; }
+.coin-result {
+  text-align: center; font-size: var(--fs-xl); font-weight: var(--fw-bold);
+  min-height: 1.6em;
+}
+
+/* ---------------- Dados en SVG ---------------- */
+.die__svg { width: 64px; height: 64px; }
+.die--svg {
+  min-width: auto; height: auto; padding: 0;
+  background: none; border: 0;
+}
+.die--rolling .die__svg { animation: die-shake .5s var(--ease); }
+@keyframes die-shake {
+  0%   { transform: translateY(0) rotate(0); }
+  25%  { transform: translateY(-10px) rotate(-14deg); }
+  55%  { transform: translateY(6px) rotate(12deg); }
+  80%  { transform: translateY(-3px) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* ---------------- Notas con formato ---------------- */
+.note-toolbar {
+  display: flex; align-items: center; gap: var(--sp-1); flex-wrap: wrap;
+  padding: var(--sp-2);
+  background: var(--c-surface-2);
+  border: 1px solid var(--c-border-soft);
+  border-radius: var(--r-md);
+  position: sticky; top: 56px; z-index: 4;
+}
+.note-toolbar .icon-btn { width: 40px; height: 40px; }
+.note-toolbar .icon-btn[aria-pressed="true"] { background: var(--c-accent-soft); color: var(--c-accent); }
+.note-toolbar__sep { width: 1px; height: 24px; background: var(--c-border); margin-inline: var(--sp-1); }
+.note-colors { display: flex; gap: var(--sp-1); flex-wrap: wrap; }
+.note-color {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--c-border); cursor: pointer;
+  background: currentColor;
+}
+.note-color:focus-visible { outline: 3px solid var(--c-accent); outline-offset: 2px; }
+.note-color--none {
+  background: var(--c-surface); color: var(--c-text-muted);
+  position: relative;
+}
+.note-color--none::after {
+  content: ""; position: absolute; inset: 4px;
+  background: linear-gradient(to bottom right, transparent 44%, currentColor 44%, currentColor 56%, transparent 56%);
+}
+
+.note-editor {
+  min-height: 12rem;
+  padding: var(--sp-4);
+  background: var(--c-bg-elev);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  line-height: var(--lh-normal);
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+.note-editor:focus-visible {
+  outline: none; border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-accent-ring);
+}
+.note-editor:empty::before {
+  content: attr(data-placeholder);
+  color: var(--c-text-faint);
+  pointer-events: none;
+}
+
+/* Los colores del texto son identificadores, no valores fijos: cada tema les
+   da el tono que mantiene el contraste. */
+:root[data-theme="dark"] {
+  --nc-rojo: #ff8b82; --nc-naranja: #ffb066; --nc-amarillo: #ecc94b;
+  --nc-verde: #6ee7a0; --nc-azul: #7cb0ff; --nc-violeta: #c0a8ff;
+  --nc-rosa: #ff9ecb; --nc-gris: #a3abbb;
+}
+:root[data-theme="light"] {
+  --nc-rojo: #b3261e; --nc-naranja: #9a4a02; --nc-amarillo: #7a5c00;
+  --nc-verde: #12703a; --nc-azul: #1d4ed8; --nc-violeta: #6b28d9;
+  --nc-rosa: #a3196a; --nc-gris: #5a6273;
+}
+.nc--rojo { color: var(--nc-rojo); }
+.nc--naranja { color: var(--nc-naranja); }
+.nc--amarillo { color: var(--nc-amarillo); }
+.nc--verde { color: var(--nc-verde); }
+.nc--azul { color: var(--nc-azul); }
+.nc--violeta { color: var(--nc-violeta); }
+.nc--rosa { color: var(--nc-rosa); }
+.nc--gris { color: var(--nc-gris); }
