@@ -396,6 +396,16 @@
         "unavailable": "This device doesn't support vibration."
       },
       "note": "Every sound is generated on the spot — no audio files are downloaded — and nothing plays while the tab is in the background."
+    },
+    "motion": {
+      "transitions": {
+        "label": "Screen transitions",
+        "desc": "How one screen gives way to the next.",
+        "ninguna": "None",
+        "suave": "Subtle",
+        "completa": "Full"
+      },
+      "reducedOverride": "You have “reduce motion” on, so there are no transitions right now whatever you pick here."
     }
   },
   "update": {

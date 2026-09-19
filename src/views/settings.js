@@ -14,6 +14,7 @@ import * as account from '../core/account.js';
 import { markSvg } from '../core/accents.js';
 import * as theme from '../core/theme.js';
 import * as audio from '../core/audio.js';
+import * as transitions from '../core/transitions.js';
 import * as i18n from '../core/i18n.js';
 import { t, tn } from '../core/i18n.js';
 import { APP_VERSION } from '../core/version.js';
@@ -220,6 +221,27 @@ function soundSection(rerender) {
     }));
   } else {
     rows.push(h('p.field__hint', { text: t('settings.sound.vibrate.unavailable') }));
+  }
+
+  /* --- Transiciones --- */
+  const reducido = transitions.effectiveMode() === 'ninguna' && settings.get('transitions') !== 'ninguna';
+
+  rows.push(
+    h('hr'),
+    settingRow({
+      label: t('settings.motion.transitions.label'),
+      desc: t('settings.motion.transitions.desc'),
+      control: segmented({
+        label: t('settings.motion.transitions.label'),
+        value: settings.get('transitions'),
+        options: settings.TRANSITIONS.map(v => ({ value: v, label: t(`settings.motion.transitions.${v}`) })),
+        onChange: value => { settings.update({ transitions: value }); rerender(); }
+      }),
+      stacked: true
+    })
+  );
+  if (reducido) {
+    rows.push(notice(t('settings.motion.reducedOverride'), { kind: 'info' }));
   }
 
   rows.push(notice(t('settings.sound.note'), { kind: 'info' }));

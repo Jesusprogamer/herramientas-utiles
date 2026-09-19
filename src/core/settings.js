@@ -15,6 +15,7 @@ export const DATE_FORMATS = ['auto', 'dmy', 'mdy', 'ymd'];
 export const UNIT_SYSTEMS = ['metrico', 'imperial'];
 export const LANGUAGES = ['auto', 'es', 'en'];
 export const SOUND_STYLES = ['suave', 'retro', 'cristal'];
+export const TRANSITIONS = ['ninguna', 'suave', 'completa'];
 
 export const DEFAULTS = Object.freeze({
   // Apariencia
@@ -22,6 +23,7 @@ export const DEFAULTS = Object.freeze({
   accent: 'azul',
   textSize: 'normal',
   reduceMotion: false,
+  transitions: 'suave',
   // Idioma
   language: 'es',
   // Region y formato
@@ -58,7 +60,8 @@ export const DEFAULTS = Object.freeze({
 const ALLOWED = {
   theme: THEMES, accent: ACCENTS, textSize: TEXT_SIZES,
   language: LANGUAGES, timeFormat: TIME_FORMATS,
-  dateFormat: DATE_FORMATS, units: UNIT_SYSTEMS
+  dateFormat: DATE_FORMATS, units: UNIT_SYSTEMS,
+  transitions: TRANSITIONS
 };
 
 let state = { ...DEFAULTS, sound: { ...DEFAULTS.sound }, timer: { ...DEFAULTS.timer } };

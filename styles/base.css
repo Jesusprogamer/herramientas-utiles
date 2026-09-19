@@ -109,3 +109,59 @@ code, kbd { font-family: var(--font-mono); font-size: 0.9em; }
 @media (pointer: fine) {
   * { scrollbar-width: thin; scrollbar-color: var(--c-surface-3) transparent; }
 }
+
+/* ============================================================
+   Transiciones entre pantallas
+   El modo y la dirección los pone src/core/transitions.js en <html>.
+   Con "reducir movimiento" el modo es siempre "ninguna", así que no se
+   declara ninguna animación aquí para ese caso.
+   ============================================================ */
+
+/* ---- View Transitions API ---- */
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+@keyframes vt-out-forward { to { opacity: 0; transform: translateX(-2.5%); } }
+@keyframes vt-in-forward { from { opacity: 0; transform: translateX(4%); } }
+@keyframes vt-out-back { to { opacity: 0; transform: translateX(2.5%); } }
+@keyframes vt-in-back { from { opacity: 0; transform: translateX(-4%); } }
+
+:root[data-transition="suave"]::view-transition-old(root) {
+  animation: vt-fade-out 110ms var(--ease) both;
+}
+:root[data-transition="suave"]::view-transition-new(root) {
+  animation: vt-fade-in 150ms var(--ease) both;
+}
+
+:root[data-transition="completa"][data-direction="adelante"]::view-transition-old(root) {
+  animation: vt-out-forward 130ms var(--ease) both;
+}
+:root[data-transition="completa"][data-direction="adelante"]::view-transition-new(root) {
+  animation: vt-in-forward 280ms var(--ease) both;
+}
+:root[data-transition="completa"][data-direction="atras"]::view-transition-old(root) {
+  animation: vt-out-back 130ms var(--ease) both;
+}
+:root[data-transition="completa"][data-direction="atras"]::view-transition-new(root) {
+  animation: vt-in-back 280ms var(--ease) both;
+}
+:root[data-transition="completa"][data-direction="lateral"]::view-transition-old(root) {
+  animation: vt-fade-out 110ms var(--ease) both;
+}
+:root[data-transition="completa"][data-direction="lateral"]::view-transition-new(root) {
+  animation: vt-fade-in 220ms var(--ease) both;
+}
+
+/* La barra superior no se mueve con el resto: se queda fija. */
+.appbar { view-transition-name: appbar; }
+::view-transition-old(appbar),
+::view-transition-new(appbar) { animation: none; }
+
+/* ---- Respaldo en CSS donde no hay View Transitions ---- */
+.main.view-leave { opacity: 0; transition: opacity 110ms var(--ease); }
+.main.view-enter { animation: vt-fade-in 200ms var(--ease) both; }
+:root[data-transition="completa"][data-direction="adelante"] .main.view-enter {
+  animation: vt-in-forward 260ms var(--ease) both;
+}
+:root[data-transition="completa"][data-direction="atras"] .main.view-enter {
+  animation: vt-in-back 260ms var(--ease) both;
+}

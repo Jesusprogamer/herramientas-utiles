@@ -396,6 +396,16 @@
         "unavailable": "Este dispositivo no admite vibración."
       },
       "note": "Todos los sonidos se generan en el momento, sin descargar ningún archivo, y no suenan si la pestaña está en segundo plano."
+    },
+    "motion": {
+      "transitions": {
+        "label": "Transiciones entre pantallas",
+        "desc": "Cómo se pasa de una pantalla a otra.",
+        "ninguna": "Ninguna",
+        "suave": "Suave",
+        "completa": "Completa"
+      },
+      "reducedOverride": "Tienes activado «reducir movimiento», así que ahora mismo no hay transiciones aunque elijas otra cosa."
     }
   },
   "update": {
