@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="">
+<meta name="theme-color" content="#0f1115">
+<meta name="color-scheme" content="dark light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<!--
+  El titulo se rellena desde locales/*.json (clave app.name).
+  El nombre de la app vive SOLO en locales/*.json y en manifest.json.
+-->
+<title></title>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="./styles/tokens.css">
+<link rel="stylesheet" href="./styles/themes.css">
+<link rel="stylesheet" href="./styles/base.css">
+<link rel="stylesheet" href="./styles/components.css">
+<link rel="stylesheet" href="./styles/layout.css">
+<script>
+/* Aplica tema, acento, tamano de texto y animaciones ANTES de pintar,
+   para evitar el parpadeo del tema equivocado. Debe quedarse inline. */
+(function () {
+  var KEY = 'amano:v1:settings';
+  var s = {};
+  try { s = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { s = {}; }
+  var pref = s.theme || 'dark';                    // oscuro por defecto la 1a vez
+  var resolved = pref;
+  if (pref === 'system') {
+    resolved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+  var r = document.documentElement;
+  r.setAttribute('data-theme', resolved);
+  r.setAttribute('data-accent', s.accent || 'azul');
+  r.setAttribute('data-text-size', s.textSize || 'normal');
+  if (s.reduceMotion) r.setAttribute('data-reduce-motion', 'on');
+  r.style.colorScheme = resolved;
+  var m = document.querySelector('meta[name="theme-color"]');
+  if (m) m.setAttribute('content', resolved === 'light' ? '#f6f7f9' : '#0f1115');
+})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main" id="skip-link"></a>
+
+<div id="splash" class="splash" role="status" aria-live="polite">
+  <div class="splash__mark" aria-hidden="true">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <p class="splash__text" id="splash-text"></p>
+</div>
+
+<div id="app" class="app" hidden>
+  <header class="appbar">
+    <div class="appbar__inner">
+      <a class="appbar__brand" href="#/" id="brand-link">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span class="brand-name" id="brand-name"></span>
+      </a>
+      <nav class="appbar__nav" id="appbar-nav" aria-label=""></nav>
+    </div>
+  </header>
+
+  <main id="main" class="main" tabindex="-1"></main>
+
+  <footer class="appfoot">
+    <p id="foot-text"></p>
+  </footer>
+</div>
+
+<div id="toasts" class="toasts" role="status" aria-live="polite" aria-atomic="false"></div>
+<div id="dialogs"></div>
+
+<noscript>
+  <p style="padding:2rem;text-align:center">
+    Esta aplicacion necesita JavaScript. / This app needs JavaScript.
+  </p>
+</noscript>
+
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>

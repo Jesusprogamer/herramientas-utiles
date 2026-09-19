@@ -1,0 +1,333 @@
+{
+  "app": {
+    "name": "A mano",
+    "short": "A mano",
+    "description": "Everyday tools that work offline and stay out of your way.",
+    "tagline": "Your everyday tools, always within reach."
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "close": "Close",
+    "back": "Back",
+    "search": "Search",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyFailed": "Couldn't copy",
+    "apply": "Apply",
+    "reset": "Reset",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "retry": "Try again",
+    "yes": "Yes",
+    "no": "No",
+    "on": "On",
+    "off": "Off",
+    "minutes": "minutes",
+    "unknown": "Unknown"
+  },
+  "splash": {
+    "loading": "Getting things ready…"
+  },
+  "skip": {
+    "toContent": "Skip to content"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "Home",
+    "settings": "Settings",
+    "about": "About",
+    "privacy": "Privacy"
+  },
+  "foot": {
+    "text": "Works offline. Your data stays on your device."
+  },
+  "home": {
+    "title": "Tools",
+    "searchLabel": "Search for a tool",
+    "searchPlaceholder": "Search tools…",
+    "clearSearch": "Clear search",
+    "favorites": "Favourites",
+    "all": "All tools",
+    "results": "Results",
+    "soon": "Coming soon",
+    "addFavorite": "Add {name} to favourites",
+    "removeFavorite": "Remove {name} from favourites",
+    "favoriteAdded": "{name} added to favourites",
+    "favoriteRemoved": "{name} removed from favourites",
+    "count": {
+      "one": "{n} tool",
+      "other": "{n} tools"
+    },
+    "noResults": {
+      "title": "Nothing found",
+      "message": "No tool matches “{q}”.",
+      "action": "Clear search"
+    },
+    "allHidden": {
+      "title": "No tools to show",
+      "message": "You've hidden all of them in Settings. You can bring them back whenever you like.",
+      "action": "Open Settings"
+    }
+  },
+  "tool": {
+    "soon": {
+      "title": "Not ready yet",
+      "message": "This one arrives in the next phase. The card is already here so you can see where it will live.",
+      "back": "Back to home"
+    },
+    "failed": {
+      "title": "Couldn't open this tool",
+      "message": "Give it another go. If it keeps failing, check for updates in Settings."
+    }
+  },
+  "tools": {
+    "temporizador":   { "name": "Timer",          "desc": "Countdown and pomodoro, with an alert when time is up." },
+    "listas":         { "name": "Tasks & notes",  "desc": "To-dos, shopping list and quick notes in one place." },
+    "unidades":       { "name": "Unit converter", "desc": "Length, weight, temperature, volume and more." },
+    "contrasenas":    { "name": "Passwords",      "desc": "Build strong passwords exactly how you want them." },
+    "contador-texto": { "name": "Word counter",   "desc": "Words, characters, sentences and reading time." },
+    "porcentajes":    { "name": "Percentages",    "desc": "Discounts, increases, drops and splits." },
+    "monedas":        { "name": "Currency converter", "desc": "Convert between currencies using the latest saved rate." },
+    "zonas-horarias": { "name": "Time zones",     "desc": "The time in other cities, plus a meeting-time converter." },
+    "azar":           { "name": "Random picker",  "desc": "Coin, dice, spinner and random numbers." },
+    "qr":             { "name": "QR codes",       "desc": "Make QR codes for text, links or wifi, right on your device." },
+    "colores":        { "name": "Colour picker",  "desc": "HEX, RGB, HSL, WCAG contrast and saved swatches." },
+    "equipos":        { "name": "Team picker",    "desc": "Split a list of names into fair, random teams." }
+  },
+  "settings": {
+    "title": "Settings",
+    "lead": "Changes are saved as you make them.",
+    "appearance": {
+      "title": "Appearance",
+      "theme": {
+        "label": "Theme",
+        "desc": "Dark by default. “System” follows your device setting.",
+        "dark": "Dark",
+        "light": "Light",
+        "system": "System"
+      },
+      "accent": {
+        "label": "Accent colour",
+        "desc": "Used for buttons, links and active items.",
+        "azul": "Blue",
+        "violeta": "Purple",
+        "verde": "Green",
+        "naranja": "Orange",
+        "rosa": "Pink",
+        "cian": "Teal"
+      },
+      "textSize": {
+        "label": "Text size",
+        "desc": "Applies across the whole app.",
+        "pequeno": "Small",
+        "normal": "Normal",
+        "grande": "Large"
+      },
+      "reduceMotion": {
+        "label": "Reduce motion",
+        "desc": "Turns off transitions and movement. Your system preference is respected too."
+      }
+    },
+    "language": {
+      "title": "Language",
+      "label": "App language",
+      "desc": "Takes effect straight away, no reload needed.",
+      "auto": "Automatic (follow my browser)"
+    },
+    "region": {
+      "title": "Region & formats",
+      "time": {
+        "label": "Time format",
+        "desc": "How times are shown throughout the app.",
+        "auto": "Automatic",
+        "h12": "12-hour",
+        "h24": "24-hour"
+      },
+      "date": {
+        "label": "Date format",
+        "desc": "The order of day, month and year.",
+        "auto": "Automatic",
+        "dmy": "Day/Month/Year",
+        "mdy": "Month/Day/Year",
+        "ymd": "Year-Month-Day"
+      },
+      "currency": {
+        "label": "Default currency",
+        "desc": "What the currency converter starts with."
+      },
+      "units": {
+        "label": "Unit system",
+        "desc": "Starting preference for the unit converter.",
+        "metrico": "Metric",
+        "imperial": "Imperial"
+      },
+      "preview": "Preview: {date} · {time} · {number} · {money}"
+    },
+    "tools": {
+      "title": "Tools",
+      "lead": "Choose which ones appear on the home screen, and in what order.",
+      "show": "Show {name}",
+      "hide": "Hide {name}",
+      "moveUp": "Move {name} up",
+      "moveDown": "Move {name} down",
+      "resetOrder": "Reset order",
+      "orderReset": "Order reset",
+      "hiddenCount": {
+        "one": "{n} tool hidden",
+        "other": "{n} tools hidden"
+      },
+      "timer": {
+        "title": "Timer",
+        "focus": { "label": "Pomodoro length", "desc": "Minutes of focus in each round." },
+        "shortBreak": { "label": "Short break", "desc": "Minutes between rounds." },
+        "longBreak": { "label": "Long break", "desc": "Minutes once the rounds are done." },
+        "rounds": { "label": "Rounds before a long break", "desc": "How many pomodoros in a row." },
+        "sound": { "label": "Sound when time is up", "desc": "A short chime at the end." },
+        "vibrate": { "label": "Vibrate when time is up", "desc": "Supported devices only." },
+        "notify": {
+          "label": "Notify when time is up",
+          "desc": "Alerts you even if the app is in the background.",
+          "unsupported": "Your browser doesn't support notifications.",
+          "denied": "Notifications are blocked for this site. Change it in your browser's site permissions.",
+          "granted": "Notifications are on"
+        }
+      }
+    },
+    "data": {
+      "title": "Data",
+      "export": {
+        "label": "Backup",
+        "desc": "Download everything as a single JSON file.",
+        "action": "Export",
+        "done": "Backup downloaded"
+      },
+      "import": {
+        "label": "Restore a backup",
+        "desc": "The file is checked before anything is applied. This replaces your current data.",
+        "action": "Import",
+        "confirmTitle": "Restore this backup?",
+        "confirmMessage": "Everything currently stored in the app will be replaced by the contents of the file.",
+        "done": "Backup restored ({n} items)",
+        "invalid": "That file isn't a valid backup from this app",
+        "unreadable": "The file couldn't be read"
+      },
+      "clear": {
+        "label": "Delete all local data",
+        "desc": "Settings, favourites and everything your tools have saved on this device.",
+        "action": "Delete everything",
+        "confirmTitle": "Delete all data?",
+        "confirmMessage": "This can't be undone. Everything saved on this device will be gone.",
+        "done": "Data deleted"
+      },
+      "blocked": {
+        "title": "Storage is blocked",
+        "message": "This browser won't let the app save anything (private mode or site permissions). The app still works, but it will forget everything when you close it."
+      }
+    },
+    "account": {
+      "title": "Account",
+      "guest": {
+        "label": "Guest mode",
+        "desc": "Everything works without an account. Your data stays on this device."
+      },
+      "pending": {
+        "title": "Sync isn't available yet",
+        "message": "Signing in to share the same data between your phone and computer arrives in phase 3."
+      }
+    },
+    "about": {
+      "title": "About",
+      "version": "Version",
+      "storage": "Data format",
+      "storageValue": "version {n}",
+      "install": {
+        "label": "Install the app",
+        "desc": "Add it to your home screen or desktop.",
+        "action": "Install",
+        "unavailable": "Your browser doesn't offer installation here, or the app is already installed.",
+        "installed": "App installed",
+        "dismissed": "Installation cancelled",
+        "howto": "On iPhone and iPad: Share button → “Add to Home Screen”."
+      },
+      "update": {
+        "label": "Check for updates",
+        "desc": "See whether a newer version has been published.",
+        "action": "Check",
+        "checking": "Checking…",
+        "upToDate": "You're on the latest version",
+        "found": "An update is available",
+        "unsupported": "This browser doesn't support background updates"
+      },
+      "privacy": "Privacy policy",
+      "licenses": "Licences",
+      "sourceLabel": "Built with plain HTML, CSS and JavaScript — no frameworks."
+    }
+  },
+  "update": {
+    "available": "An update is available",
+    "action": "Update now",
+    "dismiss": "Not now",
+    "applying": "Applying the update…"
+  },
+  "connection": {
+    "offline": "Offline",
+    "online": "Back online",
+    "offlineHint": "Carry on as usual: everything here works offline."
+  },
+  "privacy": {
+    "title": "Privacy",
+    "lead": "The short version: this app doesn't track you, and without an account nothing leaves your device.",
+    "local": {
+      "title": "What's stored on your device",
+      "items": [
+        "Your settings: theme, accent, language, formats and tool preferences.",
+        "Your favourites and the order of the tools.",
+        "Whatever you create in each tool — tasks, notes, lists, history.",
+        "All of it in the browser's local storage, under the “amano:” prefix."
+      ]
+    },
+    "none": {
+      "title": "What doesn't happen",
+      "items": [
+        "No analytics, no tracking cookies, no ads.",
+        "None of your content is sent to a server.",
+        "No permission is requested unless you turn that feature on first."
+      ]
+    },
+    "network": {
+      "title": "When the internet is used",
+      "items": [
+        "The first time you open the app, to download it and store it for offline use.",
+        "To check for updates to the app itself.",
+        "The currency converter will fetch public exchange rates once it's available."
+      ]
+    },
+    "control": {
+      "title": "What you control",
+      "items": [
+        "Export a copy of your data at any time from Settings → Data.",
+        "Delete everything stored on this device with one button — there's no undo."
+      ]
+    },
+    "contact": "This app is published as a static website, so whoever hosts it only sees ordinary web requests."
+  },
+  "licenses": {
+    "title": "Licences",
+    "lead": "Third-party libraries bundled inside the project so the app keeps working offline.",
+    "empty": "No third-party libraries yet — every line here is our own."
+  },
+  "notfound": {
+    "title": "Page not found",
+    "message": "The link you followed doesn't exist, or it has moved.",
+    "action": "Go to home"
+  },
+  "offlinePage": {
+    "title": "You're offline",
+    "message": "We couldn't load this part of the app, and there's no connection right now.",
+    "action": "Try again"
+  }
+}
