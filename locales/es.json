@@ -1125,5 +1125,19 @@
   },
   "sync": {
     "applied": "Datos actualizados desde tu cuenta"
+  },
+  "categories": {
+    "all": "Todas",
+    "filterLabel": "Filtrar por categoría",
+    "calculo": "Cálculo",
+    "tiempo": "Tiempo",
+    "texto": "Texto y datos",
+    "azar": "Azar",
+    "estudio": "Estudio",
+    "empty": {
+      "title": "Nada en esta categoría",
+      "message": "Todas sus herramientas están ocultas desde Ajustes.",
+      "action": "Ver todas"
+    }
   }
 }

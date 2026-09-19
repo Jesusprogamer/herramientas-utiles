@@ -1,7 +1,7 @@
 /** Pantalla de inicio: buscador, favoritos y rejilla de herramientas. */
 import { h, clear } from '../ui/dom.js';
 import { icon, starFilled } from '../ui/icons.js';
-import { iconButton, emptyState, button } from '../ui/components.js';
+import { iconButton, emptyState, button, segmented } from '../ui/components.js';
 import { t, tn } from '../core/i18n.js';
 import * as registry from '../core/registry.js';
 import { navigate } from '../core/router.js';
@@ -12,6 +12,7 @@ import { on } from '../core/events.js';
 const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
 let query = '';
+let category = 'todas';   // se conserva al ir y volver, se reinicia al recargar
 
 function toolCard(tool) {
   const name = t(`tools.${tool.id}.name`);
@@ -79,7 +80,34 @@ export default function home({ outlet }) {
   const searchIcon = icon('search');
   searchIcon.classList.add('search__icon');
 
+  /* Chips de categoria: solo aparecen las que tienen alguna herramienta. */
+  function buildChips(visible) {
+    const counts = new Map();
+    for (const tool of visible) counts.set(tool.category, (counts.get(tool.category) || 0) + 1);
+
+    const options = [{ value: 'todas', label: `${t('categories.all')} · ${visible.length}` }];
+    for (const id of registry.CATEGORIES) {
+      if (!counts.has(id)) continue;
+      options.push({ value: id, label: `${t(`categories.${id}`)} · ${counts.get(id)}` });
+    }
+    if (options.length <= 2) return null;        // una sola categoria: no aporta nada
+
+    if (!counts.has(category)) category = 'todas';
+    const group = segmented({
+      label: t('categories.filterLabel'),
+      value: category,
+      options,
+      onChange: value => { category = value; paint(); }
+    });
+    group.classList.add('segmented--chips');
+    return group;
+  }
+
   function paint() {
+    // Al repintar se destruyen los chips. Si uno tenia el foco (teclado),
+    // hay que devolverselo al equivalente o el foco se cae al body.
+    const chipsHadFocus = Boolean(document.activeElement?.closest?.('.segmented--chips'));
+
     clear(results);
     clearBtn.hidden = !query;
 
@@ -94,8 +122,20 @@ export default function home({ outlet }) {
       return;
     }
 
+    const chips = buildChips(visible);
+    if (chips) {
+      results.appendChild(chips);
+      if (chipsHadFocus) chips.querySelector('[aria-checked="true"]')?.focus();
+    }
+
+    const inCategory = category === 'todas'
+      ? visible
+      : visible.filter(tool => tool.category === category);
+
     const q = norm(query.trim());
     if (q) {
+      // El buscador manda: busca en todas las herramientas visibles, no solo
+      // en la categoria elegida, para que nadie "pierda" un resultado.
       const found = visible.filter(tool =>
         norm(t(`tools.${tool.id}.name`)).includes(q) || norm(t(`tools.${tool.id}.desc`)).includes(q)
       );
@@ -113,9 +153,24 @@ export default function home({ outlet }) {
     }
 
     const favIds = registry.favoriteIds();
-    const favs = visible.filter(tool => favIds.includes(tool.id));
+    const favs = inCategory.filter(tool => favIds.includes(tool.id));
+    const rest = inCategory.filter(tool => !favIds.includes(tool.id));
+
     if (favs.length) results.appendChild(section('home.favorites', favs));
-    results.appendChild(section('home.all', visible.filter(tool => !favIds.includes(tool.id)), { count: true }));
+    if (rest.length) {
+      results.appendChild(section(
+        category === 'todas' ? 'home.all' : `categories.${category}`,
+        rest,
+        { count: true }
+      ));
+    } else if (!favs.length) {
+      results.appendChild(emptyState({
+        iconName: 'package',
+        title: t('categories.empty.title'),
+        message: t('categories.empty.message'),
+        action: button(t('categories.empty.action'), { onClick: () => { category = 'todas'; paint(); } })
+      }));
+    }
   }
 
   outlet.appendChild(h('div.page',

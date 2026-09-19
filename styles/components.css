@@ -329,3 +329,24 @@ body.alarm-on { padding-bottom: 6.5rem; }
   0%, 100% { border-color: var(--c-accent); }
   50%      { border-color: var(--c-warning); }
 }
+
+/* Variante "chips" del grupo de opciones: se usa para filtrar por categoría
+   en el inicio. Mantiene la semántica de radiogroup y el manejo con flechas. */
+.segmented--chips {
+  background: transparent;
+  border-color: transparent;
+  padding: 0;
+  gap: var(--sp-2);
+}
+.segmented--chips .segmented__item {
+  border-radius: var(--r-full);
+  border-color: var(--c-border);
+  background: var(--c-surface);
+  padding-inline: var(--sp-4);
+}
+.segmented--chips .segmented__item[aria-checked="true"] {
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+  box-shadow: none;
+}

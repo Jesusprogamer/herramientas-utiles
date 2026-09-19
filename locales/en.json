@@ -1125,5 +1125,19 @@
   },
   "sync": {
     "applied": "Data updated from your account"
+  },
+  "categories": {
+    "all": "All",
+    "filterLabel": "Filter by category",
+    "calculo": "Maths",
+    "tiempo": "Time",
+    "texto": "Text & data",
+    "azar": "Random",
+    "estudio": "Study",
+    "empty": {
+      "title": "Nothing in this category",
+      "message": "All of its tools are hidden in Settings.",
+      "action": "Show all"
+    }
   }
 }
