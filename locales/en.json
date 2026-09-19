@@ -475,7 +475,8 @@
     },
     "done": {
       "title": "Time's up",
-      "body": "Finished: {phase}"
+      "body": "Finished: {phase}",
+      "notification": "Finished: {phase}. Tap to stop the alarm."
     },
     "pomodoro": {
       "config": "{focus} min focus · {short} min break · {long} min long break every {rounds} rounds. Change it in Settings."
@@ -484,6 +485,19 @@
     "alarm": {
       "stop": "Stop alarm",
       "ringing": "Alarm: {phase}"
+    },
+    "notify": {
+      "title": "Device notification",
+      "ask": "Get the alert in your notification bar, like any other app, even with the screen off or while you're in another app.",
+      "enable": "Turn on",
+      "enabled": "Notifications are on",
+      "on": "On. When the countdown ends you'll get a notification with a button to stop the alarm.",
+      "test": "Send a test one",
+      "tested": "Test notification sent",
+      "testTitle": "A mano",
+      "testBody": "This is how we'll let you know the timer is up.",
+      "denied": "You've blocked notifications for this page. To get them, allow them in your browser's site permissions (the padlock next to the address) and come back.",
+      "unsupported": "Your browser doesn't support notifications. On iPhone and iPad you need to install the app to your home screen first."
     }
   },
   "listas": {

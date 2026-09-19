@@ -2,7 +2,7 @@
    Alcance relativo: funciona igual en la raiz de un dominio que en
    https://usuario.github.io/repositorio/ */
 
-const APP_VERSION = '2.1.0';          // sincronizar con src/core/version.js
+const APP_VERSION = '2.2.0';          // sincronizar con src/core/version.js
 const CACHE_NAME = `amano-v${APP_VERSION}`;
 
 /* Esqueleto de la app: se guarda en la instalacion para que arranque
@@ -102,6 +102,35 @@ self.addEventListener('activate', event => {
 /* El aviso "Hay una actualizacion disponible" llama aqui. */
 self.addEventListener('message', event => {
   if (event.data?.type === 'SKIP_WAITING') self.skipWaiting();
+});
+
+/* ------------------------------------------------------------------
+   Notificaciones del temporizador
+   Al pulsar la notificacion (o su boton "Detener alarma") se trae la app
+   al frente y se avisa a la pestaña para que calle el aviso. Si no queda
+   ninguna abierta, se abre el temporizador.
+   ------------------------------------------------------------------ */
+async function handleNotificationAction(stop) {
+  const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+  for (const client of windows) {
+    client.postMessage({ type: stop ? 'STOP_ALARM' : 'OPEN_TIMER' });
+  }
+  const visible = windows.find(client => 'focus' in client);
+  if (visible) { await visible.focus(); return; }
+  if (self.clients.openWindow) await self.clients.openWindow('./#/h/temporizador');
+}
+
+self.addEventListener('notificationclick', event => {
+  if (event.notification.tag !== 'amano-temporizador') return;
+  event.notification.close();
+  // Tanto el boton "Detener alarma" como tocar el cuerpo apagan el aviso.
+  event.waitUntil(handleNotificationAction(true));
+});
+
+self.addEventListener('notificationclose', event => {
+  if (event.notification.tag !== 'amano-temporizador') return;
+  // Descartarla deslizando tambien cuenta como apagarla.
+  event.waitUntil(handleNotificationAction(true));
 });
 
 async function cacheFirstThenUpdate(request) {

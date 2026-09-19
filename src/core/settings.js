@@ -36,7 +36,7 @@ export const DEFAULTS = Object.freeze({
     roundsBeforeLongBreak: 4,
     sound: true,
     vibrate: true,
-    notify: false
+    notify: true          // se pide el permiso la primera vez que pulsas "Empezar"
   })
 });
 
