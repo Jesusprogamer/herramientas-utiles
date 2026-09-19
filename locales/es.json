@@ -678,6 +678,24 @@
       "noResults": {
         "title": "Sin resultados",
         "message": "Ninguna nota coincide con la búsqueda."
+      },
+      "format": {
+        "label": "Formato",
+        "bold": "Negrita (Ctrl+B)",
+        "italic": "Cursiva (Ctrl+I)",
+        "strike": "Tachado",
+        "color": "Color del texto",
+        "noColor": "Sin color"
+      },
+      "color": {
+        "rojo": "Rojo",
+        "naranja": "Naranja",
+        "amarillo": "Amarillo",
+        "verde": "Verde",
+        "azul": "Azul",
+        "violeta": "Violeta",
+        "rosa": "Rosa",
+        "gris": "Gris"
       }
     }
   },

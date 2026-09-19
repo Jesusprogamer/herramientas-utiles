@@ -47,6 +47,7 @@ const PRECACHE = [
   './src/views/home.js',
   './src/views/settings.js',
   './src/views/info.js',
+  './src/tools/listas/rich.js',
   './src/tools/temporizador/index.js',
   './src/tools/temporizador/alarms.js',
   './src/tools/listas/index.js',

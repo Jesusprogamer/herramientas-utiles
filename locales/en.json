@@ -678,6 +678,24 @@
       "noResults": {
         "title": "Nothing found",
         "message": "No note matches your search."
+      },
+      "format": {
+        "label": "Formatting",
+        "bold": "Bold (Ctrl+B)",
+        "italic": "Italic (Ctrl+I)",
+        "strike": "Strikethrough",
+        "color": "Text colour",
+        "noColor": "No colour"
+      },
+      "color": {
+        "rojo": "Red",
+        "naranja": "Orange",
+        "amarillo": "Yellow",
+        "verde": "Green",
+        "azul": "Blue",
+        "violeta": "Purple",
+        "rosa": "Pink",
+        "gris": "Grey"
       }
     }
   },
