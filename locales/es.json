@@ -1,0 +1,333 @@
+{
+  "app": {
+    "name": "A mano",
+    "short": "A mano",
+    "description": "Herramientas útiles para el día a día, siempre a mano y sin conexión.",
+    "tagline": "Tus herramientas del día a día, siempre a mano."
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Borrar",
+    "close": "Cerrar",
+    "back": "Volver",
+    "search": "Buscar",
+    "clear": "Limpiar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyFailed": "No se pudo copiar",
+    "apply": "Aplicar",
+    "reset": "Restablecer",
+    "loading": "Cargando…",
+    "error": "Ha ocurrido un error",
+    "retry": "Reintentar",
+    "yes": "Sí",
+    "no": "No",
+    "on": "Activado",
+    "off": "Desactivado",
+    "minutes": "minutos",
+    "unknown": "Desconocido"
+  },
+  "splash": {
+    "loading": "Preparando la app…"
+  },
+  "skip": {
+    "toContent": "Saltar al contenido"
+  },
+  "nav": {
+    "label": "Navegación principal",
+    "home": "Inicio",
+    "settings": "Ajustes",
+    "about": "Acerca de",
+    "privacy": "Privacidad"
+  },
+  "foot": {
+    "text": "Funciona sin conexión. Tus datos se quedan en tu dispositivo."
+  },
+  "home": {
+    "title": "Herramientas",
+    "searchLabel": "Buscar una herramienta",
+    "searchPlaceholder": "Buscar herramienta…",
+    "clearSearch": "Borrar la búsqueda",
+    "favorites": "Favoritas",
+    "all": "Todas las herramientas",
+    "results": "Resultados",
+    "soon": "Próximamente",
+    "addFavorite": "Añadir {name} a favoritas",
+    "removeFavorite": "Quitar {name} de favoritas",
+    "favoriteAdded": "{name} añadida a favoritas",
+    "favoriteRemoved": "{name} quitada de favoritas",
+    "count": {
+      "one": "{n} herramienta",
+      "other": "{n} herramientas"
+    },
+    "noResults": {
+      "title": "Sin resultados",
+      "message": "No hay ninguna herramienta que coincida con «{q}».",
+      "action": "Borrar la búsqueda"
+    },
+    "allHidden": {
+      "title": "No hay herramientas visibles",
+      "message": "Las has ocultado todas desde Ajustes. Puedes volver a mostrarlas cuando quieras.",
+      "action": "Ir a Ajustes"
+    }
+  },
+  "tool": {
+    "soon": {
+      "title": "Todavía no está lista",
+      "message": "Esta herramienta llega en la siguiente fase. La tarjeta ya está aquí para que veas dónde quedará.",
+      "back": "Volver al inicio"
+    },
+    "failed": {
+      "title": "No se pudo abrir la herramienta",
+      "message": "Vuelve a intentarlo. Si sigue fallando, busca actualizaciones desde Ajustes."
+    }
+  },
+  "tools": {
+    "temporizador":   { "name": "Temporizador",        "desc": "Cuenta atrás y pomodoro con avisos al terminar." },
+    "listas":         { "name": "Tareas y notas",      "desc": "Tareas, lista de la compra y notas rápidas en un solo sitio." },
+    "unidades":       { "name": "Conversor de unidades","desc": "Longitud, peso, temperatura, volumen y más." },
+    "contrasenas":    { "name": "Contraseñas",         "desc": "Genera contraseñas seguras a tu medida." },
+    "contador-texto": { "name": "Contador de texto",   "desc": "Palabras, caracteres, frases y tiempo de lectura." },
+    "porcentajes":    { "name": "Porcentajes",         "desc": "Descuentos, subidas, bajadas y repartos." },
+    "monedas":        { "name": "Conversor de monedas","desc": "Cambia entre monedas con la última tasa guardada." },
+    "zonas-horarias": { "name": "Zonas horarias",      "desc": "La hora en otras ciudades y un conversor de horas." },
+    "azar":           { "name": "Elegir al azar",      "desc": "Moneda, dados, ruleta y números aleatorios." },
+    "qr":             { "name": "Códigos QR",          "desc": "Crea QR de texto, enlaces o wifi en tu dispositivo." },
+    "colores":        { "name": "Selector de colores", "desc": "HEX, RGB, HSL, contraste WCAG y paletas guardadas." },
+    "equipos":        { "name": "Sorteo de equipos",   "desc": "Reparte nombres en equipos equilibrados al azar." }
+  },
+  "settings": {
+    "title": "Ajustes",
+    "lead": "Los cambios se guardan al instante.",
+    "appearance": {
+      "title": "Apariencia",
+      "theme": {
+        "label": "Tema",
+        "desc": "Oscuro por defecto. «Sistema» sigue la preferencia de tu dispositivo.",
+        "dark": "Oscuro",
+        "light": "Claro",
+        "system": "Sistema"
+      },
+      "accent": {
+        "label": "Color de acento",
+        "desc": "Se usa en botones, enlaces y elementos activos.",
+        "azul": "Azul",
+        "violeta": "Violeta",
+        "verde": "Verde",
+        "naranja": "Naranja",
+        "rosa": "Rosa",
+        "cian": "Cian"
+      },
+      "textSize": {
+        "label": "Tamaño del texto",
+        "desc": "Afecta a toda la aplicación.",
+        "pequeno": "Pequeño",
+        "normal": "Normal",
+        "grande": "Grande"
+      },
+      "reduceMotion": {
+        "label": "Reducir animaciones",
+        "desc": "Quita transiciones y movimientos. También se respeta la preferencia del sistema."
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "label": "Idioma de la aplicación",
+      "desc": "El cambio se aplica al momento, sin recargar.",
+      "auto": "Automático (según el navegador)"
+    },
+    "region": {
+      "title": "Región y formato",
+      "time": {
+        "label": "Formato de hora",
+        "desc": "Cómo se muestran las horas en toda la app.",
+        "auto": "Automático",
+        "h12": "12 horas",
+        "h24": "24 horas"
+      },
+      "date": {
+        "label": "Formato de fecha",
+        "desc": "Orden de día, mes y año.",
+        "auto": "Automático",
+        "dmy": "Día/Mes/Año",
+        "mdy": "Mes/Día/Año",
+        "ymd": "Año-Mes-Día"
+      },
+      "currency": {
+        "label": "Moneda por defecto",
+        "desc": "La que aparece al abrir el conversor de monedas."
+      },
+      "units": {
+        "label": "Sistema de unidades",
+        "desc": "Preferencia inicial del conversor de unidades.",
+        "metrico": "Métrico",
+        "imperial": "Imperial"
+      },
+      "preview": "Ejemplo: {date} · {time} · {number} · {money}"
+    },
+    "tools": {
+      "title": "Herramientas",
+      "lead": "Elige cuáles se ven en el inicio y en qué orden.",
+      "show": "Mostrar {name}",
+      "hide": "Ocultar {name}",
+      "moveUp": "Subir {name}",
+      "moveDown": "Bajar {name}",
+      "resetOrder": "Restablecer el orden",
+      "orderReset": "Orden restablecido",
+      "hiddenCount": {
+        "one": "{n} herramienta oculta",
+        "other": "{n} herramientas ocultas"
+      },
+      "timer": {
+        "title": "Temporizador",
+        "focus": { "label": "Duración del pomodoro", "desc": "Minutos de concentración en cada ronda." },
+        "shortBreak": { "label": "Descanso corto", "desc": "Minutos entre rondas." },
+        "longBreak": { "label": "Descanso largo", "desc": "Minutos tras completar las rondas." },
+        "rounds": { "label": "Rondas antes del descanso largo", "desc": "Cuántos pomodoros seguidos." },
+        "sound": { "label": "Sonido al terminar", "desc": "Un aviso corto cuando se acaba el tiempo." },
+        "vibrate": { "label": "Vibración al terminar", "desc": "Solo en dispositivos compatibles." },
+        "notify": {
+          "label": "Notificación al terminar",
+          "desc": "Avisa aunque la app esté en segundo plano.",
+          "unsupported": "Tu navegador no admite notificaciones.",
+          "denied": "Has bloqueado las notificaciones en este navegador. Cámbialo en los permisos del sitio.",
+          "granted": "Notificaciones activadas"
+        }
+      }
+    },
+    "data": {
+      "title": "Datos",
+      "export": {
+        "label": "Copia de seguridad",
+        "desc": "Descarga todos tus datos en un archivo JSON.",
+        "action": "Exportar",
+        "done": "Copia de seguridad descargada"
+      },
+      "import": {
+        "label": "Restaurar una copia",
+        "desc": "Se comprueba el archivo antes de aplicarlo. Reemplaza los datos actuales.",
+        "action": "Importar",
+        "confirmTitle": "¿Restaurar esta copia?",
+        "confirmMessage": "Se reemplazarán todos los datos actuales de la app por los del archivo.",
+        "done": "Copia restaurada ({n} elementos)",
+        "invalid": "El archivo no es una copia válida de esta app",
+        "unreadable": "No se pudo leer el archivo"
+      },
+      "clear": {
+        "label": "Borrar todos los datos locales",
+        "desc": "Ajustes, favoritos y el contenido de las herramientas de este dispositivo.",
+        "action": "Borrar todo",
+        "confirmTitle": "¿Borrar todos los datos?",
+        "confirmMessage": "Esta acción no se puede deshacer. Se borrará todo lo guardado en este dispositivo.",
+        "done": "Datos borrados"
+      },
+      "blocked": {
+        "title": "El almacenamiento está bloqueado",
+        "message": "Este navegador no deja guardar datos (modo privado o permisos del sitio). La app funciona, pero se olvidará todo al cerrar."
+      }
+    },
+    "account": {
+      "title": "Cuenta",
+      "guest": {
+        "label": "Modo invitado",
+        "desc": "Todo funciona sin cuenta. Tus datos están solo en este dispositivo."
+      },
+      "pending": {
+        "title": "Sincronización todavía no disponible",
+        "message": "Iniciar sesión para usar los mismos datos en el móvil y en el PC llega en la fase 3."
+      }
+    },
+    "about": {
+      "title": "Acerca de",
+      "version": "Versión",
+      "storage": "Formato de datos",
+      "storageValue": "versión {n}",
+      "install": {
+        "label": "Instalar la aplicación",
+        "desc": "Añádela a tu pantalla de inicio o al escritorio.",
+        "action": "Instalar",
+        "unavailable": "Tu navegador no ofrece la instalación aquí, o la app ya está instalada.",
+        "installed": "Aplicación instalada",
+        "dismissed": "Instalación cancelada",
+        "howto": "En iPhone y iPad: botón Compartir → «Añadir a pantalla de inicio»."
+      },
+      "update": {
+        "label": "Buscar actualizaciones",
+        "desc": "Comprueba si hay una versión nueva publicada.",
+        "action": "Buscar",
+        "checking": "Comprobando…",
+        "upToDate": "Ya tienes la última versión",
+        "found": "Hay una actualización disponible",
+        "unsupported": "Este navegador no admite actualizaciones en segundo plano"
+      },
+      "privacy": "Política de privacidad",
+      "licenses": "Licencias",
+      "sourceLabel": "Hecho con HTML, CSS y JavaScript, sin frameworks."
+    }
+  },
+  "update": {
+    "available": "Hay una actualización disponible",
+    "action": "Actualizar ahora",
+    "dismiss": "Ahora no",
+    "applying": "Aplicando la actualización…"
+  },
+  "connection": {
+    "offline": "Sin conexión",
+    "online": "Conexión recuperada",
+    "offlineHint": "Puedes seguir usando la app: todo funciona sin conexión."
+  },
+  "privacy": {
+    "title": "Privacidad",
+    "lead": "Resumen corto: esta app no te rastrea y, sin cuenta, nada sale de tu dispositivo.",
+    "local": {
+      "title": "Qué se guarda en tu dispositivo",
+      "items": [
+        "Tus ajustes: tema, acento, idioma, formatos y preferencias de las herramientas.",
+        "Tus favoritos y el orden de las herramientas.",
+        "El contenido que creas en cada herramienta (tareas, notas, listas, historiales).",
+        "Todo ello en el almacenamiento local del navegador, bajo el prefijo «amano:»."
+      ]
+    },
+    "none": {
+      "title": "Qué NO se hace",
+      "items": [
+        "No hay analítica, ni cookies de seguimiento, ni publicidad.",
+        "No se envía tu contenido a ningún servidor.",
+        "No se pide ningún permiso sin que tú lo actives antes."
+      ]
+    },
+    "network": {
+      "title": "Cuándo se usa internet",
+      "items": [
+        "Al abrir la app por primera vez, para descargarla y guardarla para uso sin conexión.",
+        "Para buscar actualizaciones de la propia app.",
+        "El conversor de monedas consultará tasas de cambio públicas cuando esté disponible."
+      ]
+    },
+    "control": {
+      "title": "Tu control",
+      "items": [
+        "Puedes exportar una copia de tus datos cuando quieras desde Ajustes → Datos.",
+        "Puedes borrar todo lo guardado en este dispositivo con un botón, y no se puede deshacer."
+      ]
+    },
+    "contact": "Esta aplicación se publica como una web estática: quien la aloja solo ve las peticiones normales de un sitio web."
+  },
+  "licenses": {
+    "title": "Licencias",
+    "lead": "Librerías de terceros incluidas dentro del proyecto para que funcione sin conexión.",
+    "empty": "Todavía no se usa ninguna librería externa: todo el código es propio."
+  },
+  "notfound": {
+    "title": "Página no encontrada",
+    "message": "El enlace que has seguido no existe o ha cambiado.",
+    "action": "Ir al inicio"
+  },
+  "offlinePage": {
+    "title": "Sin conexión",
+    "message": "No hemos podido cargar esta parte de la app y no hay conexión ahora mismo.",
+    "action": "Reintentar"
+  }
+}

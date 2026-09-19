@@ -1,0 +1,147 @@
+/* ============================================================
+   Temas: oscuro (por defecto) y claro. Cada uno esta ajustado
+   a mano, no es una simple inversion del otro.
+   ============================================================ */
+
+/* ---------- Tema oscuro ---------- */
+:root,
+:root[data-theme="dark"] {
+  --c-bg:          #0f1115;
+  --c-bg-elev:     #13161d;
+  --c-surface:     #171a21;
+  --c-surface-2:   #1e222b;
+  --c-surface-3:   #262b36;
+  --c-border:      #2b313d;
+  --c-border-soft: #21262f;
+
+  --c-text:        #e9ecf2;
+  --c-text-muted:  #a3abbb;
+  --c-text-faint:  #767f90;
+
+  --c-danger:      #ff7b72;
+  --c-danger-solid:#c0392f;
+  --c-on-danger:   #ffffff;
+  --c-success:     #56d364;
+  --c-warning:     #e3b341;
+
+  --c-overlay:     rgba(4, 6, 10, 0.68);
+
+  --sh-1: 0 1px 2px rgba(0,0,0,.4);
+  --sh-2: 0 4px 14px rgba(0,0,0,.42);
+  --sh-3: 0 14px 40px rgba(0,0,0,.55);
+
+  --c-focus: #ffffff;
+}
+
+/* ---------- Tema claro ---------- */
+:root[data-theme="light"] {
+  --c-bg:          #f5f6f9;
+  --c-bg-elev:     #ffffff;
+  --c-surface:     #ffffff;
+  --c-surface-2:   #f0f2f6;
+  --c-surface-3:   #e6e9ef;
+  --c-border:      #d8dde6;
+  --c-border-soft: #e8ebf1;
+
+  --c-text:        #14171d;
+  --c-text-muted:  #5a6273;
+  --c-text-faint:  #767f90;
+
+  --c-danger:      #b3261e;
+  --c-danger-solid:#b3261e;
+  --c-on-danger:   #ffffff;
+  --c-success:     #1a7f37;
+  --c-warning:     #8a6100;
+
+  --c-overlay:     rgba(20, 23, 29, 0.42);
+
+  --sh-1: 0 1px 2px rgba(16,24,40,.07);
+  --sh-2: 0 4px 14px rgba(16,24,40,.09);
+  --sh-3: 0 14px 40px rgba(16,24,40,.16);
+
+  --c-focus: #14171d;
+}
+
+/* ============================================================
+   Colores de acento. Cada acento define:
+     --c-accent        texto / iconos sobre el fondo
+     --c-accent-solid  fondo de boton principal
+     --c-on-accent     texto sobre ese fondo
+     --c-accent-soft   fondo tenue (chips, estados activos)
+   Todos los pares cumplen contraste AA.
+   ============================================================ */
+
+/* --- Oscuro --- */
+:root[data-theme="dark"][data-accent="azul"],
+:root[data-theme="dark"]:not([data-accent]) {
+  --c-accent: #7cb0ff; --c-accent-solid: #5c9dff; --c-on-accent: #07101f;
+  --c-accent-soft: rgba(92,157,255,.16); --c-accent-ring: rgba(124,176,255,.45);
+}
+:root[data-theme="dark"][data-accent="violeta"] {
+  --c-accent: #b79bff; --c-accent-solid: #9f80ff; --c-on-accent: #0d0720;
+  --c-accent-soft: rgba(159,128,255,.18); --c-accent-ring: rgba(183,155,255,.45);
+}
+:root[data-theme="dark"][data-accent="verde"] {
+  --c-accent: #5ddc8a; --c-accent-solid: #46cd77; --c-on-accent: #04130a;
+  --c-accent-soft: rgba(70,205,119,.16); --c-accent-ring: rgba(93,220,138,.45);
+}
+:root[data-theme="dark"][data-accent="naranja"] {
+  --c-accent: #ffa657; --c-accent-solid: #ff9640; --c-on-accent: #1c0c00;
+  --c-accent-soft: rgba(255,150,64,.16); --c-accent-ring: rgba(255,166,87,.45);
+}
+:root[data-theme="dark"][data-accent="rosa"] {
+  --c-accent: #ff92c2; --c-accent-solid: #f878b2; --c-on-accent: #200512;
+  --c-accent-soft: rgba(248,120,178,.16); --c-accent-ring: rgba(255,146,194,.45);
+}
+:root[data-theme="dark"][data-accent="cian"] {
+  --c-accent: #53d5e8; --c-accent-solid: #38c7dc; --c-on-accent: #011519;
+  --c-accent-soft: rgba(56,199,220,.16); --c-accent-ring: rgba(83,213,232,.45);
+}
+
+/* --- Claro --- */
+:root[data-theme="light"][data-accent="azul"],
+:root[data-theme="light"]:not([data-accent]) {
+  --c-accent: #1d4ed8; --c-accent-solid: #1d4ed8; --c-on-accent: #ffffff;
+  --c-accent-soft: rgba(29,78,216,.10); --c-accent-ring: rgba(29,78,216,.40);
+}
+:root[data-theme="light"][data-accent="violeta"] {
+  --c-accent: #6b28d9; --c-accent-solid: #6b28d9; --c-on-accent: #ffffff;
+  --c-accent-soft: rgba(107,40,217,.10); --c-accent-ring: rgba(107,40,217,.40);
+}
+:root[data-theme="light"][data-accent="verde"] {
+  --c-accent: #12703a; --c-accent-solid: #12703a; --c-on-accent: #ffffff;
+  --c-accent-soft: rgba(18,112,58,.10); --c-accent-ring: rgba(18,112,58,.40);
+}
+:root[data-theme="light"][data-accent="naranja"] {
+  --c-accent: #9a4a02; --c-accent-solid: #9a4a02; --c-on-accent: #ffffff;
+  --c-accent-soft: rgba(154,74,2,.10); --c-accent-ring: rgba(154,74,2,.40);
+}
+:root[data-theme="light"][data-accent="rosa"] {
+  --c-accent: #a3196a; --c-accent-solid: #a3196a; --c-on-accent: #ffffff;
+  --c-accent-soft: rgba(163,25,106,.10); --c-accent-ring: rgba(163,25,106,.40);
+}
+:root[data-theme="light"][data-accent="cian"] {
+  --c-accent: #0d5e6e; --c-accent-solid: #0d5e6e; --c-on-accent: #ffffff;
+  --c-accent-soft: rgba(13,94,110,.10); --c-accent-ring: rgba(13,94,110,.40);
+}
+
+/* ------------------------------------------------------------
+   Muestras de acento en Ajustes: se ven los 6 colores a la vez,
+   por eso no dependen del acento activo, solo del tema.
+   ------------------------------------------------------------ */
+:root[data-theme="dark"] {
+  --accent-preview-azul: #5c9dff;
+  --accent-preview-violeta: #9f80ff;
+  --accent-preview-verde: #46cd77;
+  --accent-preview-naranja: #ff9640;
+  --accent-preview-rosa: #f878b2;
+  --accent-preview-cian: #38c7dc;
+}
+:root[data-theme="light"] {
+  --accent-preview-azul: #1d4ed8;
+  --accent-preview-violeta: #6b28d9;
+  --accent-preview-verde: #12703a;
+  --accent-preview-naranja: #9a4a02;
+  --accent-preview-rosa: #a3196a;
+  --accent-preview-cian: #0d5e6e;
+}

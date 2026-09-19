@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0f1115">
+<title></title>
+<!--
+  Pagina autonoma: no enlaza ningun archivo externo porque GitHub Pages
+  puede servirla desde cualquier ruta profunda, donde las rutas relativas
+  dejarian de resolver. Los estilos van aqui en pequeno y el texto se carga
+  desde locales/*.json probando varias raices posibles del sitio.
+-->
+<style>
+  :root {
+    --bg: #0f1115; --surface: #171a21; --text: #e9ecf2; --muted: #a3abbb;
+    --faint: #767f90; --accent: #5c9dff; --on-accent: #07101f; --border: #2b313d;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f6f9; --surface: #ffffff; --text: #14171d; --muted: #5a6273;
+    --faint: #767f90; --accent: #1d4ed8; --on-accent: #ffffff; --border: #d8dde6;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100dvh;
+    display: grid; place-content: center; justify-items: center; gap: 1rem;
+    padding: 2rem 1rem; text-align: center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55; color: var(--text); background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  svg { width: 48px; height: 48px; color: var(--faint); }
+  h1 { margin: 0; font-size: 1.375rem; line-height: 1.2; }
+  p { margin: 0; color: var(--muted); max-width: 32rem; }
+  a {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 44px; margin-top: .5rem; padding: .5rem 1.25rem;
+    border: 1px solid transparent; border-radius: 10px;
+    background: var(--accent); color: var(--on-accent);
+    font-weight: 600; font-size: .875rem; text-decoration: none;
+  }
+  a:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+<script>
+/* Tema antes de pintar, igual que en la app. */
+(function () {
+  try {
+    var s = JSON.parse(localStorage.getItem('amano:v1:settings')) || {};
+    var pref = s.theme || 'dark';
+    var r = pref === 'system'
+      ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+      : (pref === 'light' ? 'light' : 'dark');
+    document.documentElement.setAttribute('data-theme', r);
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute('content', r === 'light' ? '#f5f6f9' : '#0f1115');
+  } catch (e) {}
+})();
+</script>
+</head>
+<body>
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.7-3.7"></path></svg>
+<h1 id="title"></h1>
+<p id="message"></p>
+<a id="action" href="./"></a>
+<script>
+/* Busca src/standalone.js probando las posibles raices del sitio. */
+(function () {
+  var parts = location.pathname.split('/').filter(Boolean);
+  if (parts.length && parts[parts.length - 1].indexOf('.') !== -1) parts.pop();
+  var roots = [];
+  for (var i = 0; i <= parts.length; i++) {
+    roots.push('/' + parts.slice(0, i).join('/') + (i ? '/' : ''));
+  }
+  (function tryNext(i) {
+    if (i >= roots.length) return;
+    var s = document.createElement('script');
+    s.type = 'module';
+    s.src = roots[i] + 'src/standalone.js';
+    s.onerror = function () { s.remove(); tryNext(i + 1); };
+    document.body.appendChild(s);
+  })(0);
+})();
+</script>
+</body>
+</html>
