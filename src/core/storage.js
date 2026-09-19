@@ -8,6 +8,8 @@
  * - Las migraciones se ejecutan una sola vez al arrancar.
  */
 
+import { emit } from './events.js';
+
 export const PREFIX = 'amano';
 export const SCHEMA_VERSION = 1;
 
@@ -75,16 +77,23 @@ export function get(name, fallback = null) {
   }
 }
 
-/** Guarda un valor JSON. Devuelve true si llego a disco. */
-export function set(name, value) {
+/**
+ * Guarda un valor JSON. Devuelve true si llego a disco.
+ * `silent: true` evita avisar a la sincronizacion: se usa al aplicar datos
+ * que acaban de llegar de la nube, para no reenviarlos de vuelta.
+ */
+export function set(name, value, { silent = false } = {}) {
   let raw;
   try { raw = JSON.stringify(value); }
   catch (err) { console.error(`[almacenamiento] no serializable "${name}"`, err); return false; }
-  return rawSet(NS + name, raw);
+  const ok = rawSet(NS + name, raw);
+  if (!silent) emit('storage:write', { name });
+  return ok;
 }
 
-export function remove(name) {
+export function remove(name, { silent = false } = {}) {
   rawRemove(NS + name);
+  if (!silent) emit('storage:write', { name });
 }
 
 /** Todas las claves de la app (sin el prefijo). */

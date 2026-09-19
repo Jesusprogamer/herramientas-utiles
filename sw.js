@@ -2,7 +2,7 @@
    Alcance relativo: funciona igual en la raiz de un dominio que en
    https://usuario.github.io/repositorio/ */
 
-const APP_VERSION = '1.0.0';          // sincronizar con src/core/version.js
+const APP_VERSION = '2.0.0';          // sincronizar con src/core/version.js
 const CACHE_NAME = `amano-v${APP_VERSION}`;
 
 /* Esqueleto de la app: se guarda en la instalacion para que arranque
@@ -18,6 +18,7 @@ const PRECACHE = [
   './styles/base.css',
   './styles/components.css',
   './styles/layout.css',
+  './styles/tools.css',
   './locales/es.json',
   './locales/en.json',
   './src/main.js',
@@ -31,6 +32,10 @@ const PRECACHE = [
   './src/core/registry.js',
   './src/core/router.js',
   './src/core/pwa.js',
+  './src/core/random.js',
+  './src/core/account.js',
+  './src/core/licenses.js',
+  './config.js',
   './src/ui/dom.js',
   './src/ui/icons.js',
   './src/ui/toast.js',
@@ -39,6 +44,20 @@ const PRECACHE = [
   './src/views/home.js',
   './src/views/settings.js',
   './src/views/info.js',
+  './src/tools/temporizador/index.js',
+  './src/tools/listas/index.js',
+  './src/tools/unidades/index.js',
+  './src/tools/contrasenas/index.js',
+  './src/tools/contador-texto/index.js',
+  './src/tools/porcentajes/index.js',
+  './src/tools/monedas/index.js',
+  './src/tools/zonas-horarias/index.js',
+  './src/tools/azar/index.js',
+  './src/tools/qr/index.js',
+  './src/tools/colores/index.js',
+  './src/tools/equipos/index.js',
+  './vendor/qrcode/qrcode.mjs',
+  './vendor/qrcode/qrcode-utf8.mjs',
   './assets/icons/favicon.svg',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
