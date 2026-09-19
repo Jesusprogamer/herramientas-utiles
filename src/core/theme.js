@@ -5,7 +5,7 @@
  */
 import * as settings from './settings.js';
 import { on } from './events.js';
-import { faviconDataUrl, iconDir, manifestPath } from './accents.js';
+import { faviconDataUrl, iconDir } from './accents.js';
 
 const THEME_COLORS = { dark: '#0f1115', light: '#f5f6f9' };
 const mq = window.matchMedia('(prefers-color-scheme: light)');
@@ -27,8 +27,13 @@ export function registerMark(svg) {
 }
 
 /**
- * El icono de la pestaña, el de iOS y el manifest cambian con el acento.
- * El favicon va como data URL: no necesita pedir nada a la red.
+ * El icono de la pestaña y el de iOS siguen al acento, en silencio.
+ *
+ * El <link rel="manifest"> NO se toca aqui a proposito: cambiarlo en caliente
+ * hace que el navegador vuelva a evaluar la instalacion y le pregunte a la
+ * persona. Se elige una sola vez al cargar, en el script del <head>, segun el
+ * acento guardado. Y el icono de una app ya instalada lo fija el sistema al
+ * instalarla, asi que cambiarlo en caliente tampoco serviria de nada.
  */
 function applyIcons(accent) {
   const favicon = document.querySelector('link[rel="icon"]');
@@ -36,17 +41,6 @@ function applyIcons(accent) {
 
   const apple = document.querySelector('link[rel="apple-touch-icon"]');
   if (apple) apple.setAttribute('href', `${iconDir(accent)}apple-touch-icon.png`);
-
-  const manifest = document.querySelector('link[rel="manifest"]');
-  if (manifest) {
-    const next = manifestPath(accent);
-    // Cambiar el href sin mas no siempre relee el manifest: se reemplaza el nodo.
-    if (manifest.getAttribute('href') !== next) {
-      const replacement = manifest.cloneNode(false);
-      replacement.setAttribute('href', next);
-      manifest.replaceWith(replacement);
-    }
-  }
 
   for (const svg of marks) svg.refresh?.(accent);
 }

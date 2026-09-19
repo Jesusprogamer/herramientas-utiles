@@ -358,7 +358,7 @@
       "privacy": "Política de privacidad",
       "licenses": "Licencias",
       "sourceLabel": "Hecho con HTML, CSS y JavaScript, sin frameworks.",
-      "iconNote": "El icono cambia con el color de acento. El de la app ya instalada lo fija el sistema al instalarla: para verlo cambiar, vuelve a instalarla. En iPhone y iPad no se actualiza."
+      "iconNote": "El icono cambia con el color de acento y se aplica sin preguntarte nada. El de la app ya instalada lo fija el sistema al instalarla: para verlo cambiar, vuelve a instalarla. En iPhone y iPad no se actualiza."
     },
     "sound": {
       "title": "Sonido y animaciones",
