@@ -962,7 +962,14 @@
       "tails": "Tails",
       "flip": "Toss it",
       "reset": "Reset count",
-      "score": "Heads: {heads} · Tails: {tails} · Total: {total}"
+      "score": "Heads: {heads} · Tails: {tails} · Total: {total}",
+      "coinLabel": "Coin",
+      "finish": {
+        "label": "Finish",
+        "oro": "Gold",
+        "plata": "Silver",
+        "cobre": "Copper"
+      }
     },
     "dados": {
       "count": "How many dice",
@@ -971,7 +978,8 @@
       "customFaces": "Number of sides",
       "customInvalid": "Between 2 and 1000",
       "roll": "Roll",
-      "total": "{values} = {sum}"
+      "total": "{values} = {sum}",
+      "dieLabel": "{sides}-sided die: {value}"
     },
     "ruleta": {
       "spin": "Spin",

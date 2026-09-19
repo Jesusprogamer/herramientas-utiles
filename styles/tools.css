@@ -320,3 +320,49 @@
 .sync-dot--ok { background: var(--c-success); }
 .sync-dot--pending { background: var(--c-warning); }
 .sync-dot--error { background: var(--c-danger); }
+
+/* ---------------- Moneda en 3D ---------------- */
+.coin3d {
+  width: min(190px, 56vw); aspect-ratio: 1;
+  margin-inline: auto;
+  perspective: 900px;
+}
+.coin3d__inner {
+  position: relative; width: 100%; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1.6s cubic-bezier(.2,.7,.2,1);
+}
+.coin3d__face {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  backface-visibility: hidden;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+}
+.coin3d__face--tails { transform: rotateY(180deg); }
+/* Con "reducir movimiento" no gira: solo se funde. */
+:root[data-reduce-motion="on"] .coin3d__inner,
+.coin3d__inner.coin3d--instant { transition: none; }
+.coin3d--fade { animation: coin-fade 260ms var(--ease); }
+@keyframes coin-fade { from { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) {
+  .coin3d__inner { transition: none; }
+}
+.coin-finishes { display: flex; gap: var(--sp-2); justify-content: center; flex-wrap: wrap; }
+.coin-result {
+  text-align: center; font-size: var(--fs-xl); font-weight: var(--fw-bold);
+  min-height: 1.6em;
+}
+
+/* ---------------- Dados en SVG ---------------- */
+.die__svg { width: 64px; height: 64px; }
+.die--svg {
+  min-width: auto; height: auto; padding: 0;
+  background: none; border: 0;
+}
+.die--rolling .die__svg { animation: die-shake .5s var(--ease); }
+@keyframes die-shake {
+  0%   { transform: translateY(0) rotate(0); }
+  25%  { transform: translateY(-10px) rotate(-14deg); }
+  55%  { transform: translateY(6px) rotate(12deg); }
+  80%  { transform: translateY(-3px) rotate(-5deg); }
+  100% { transform: translateY(0) rotate(0); }
+}

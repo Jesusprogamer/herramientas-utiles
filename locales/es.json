@@ -962,7 +962,14 @@
       "tails": "Cruz",
       "flip": "Lanzar",
       "reset": "Poner a cero",
-      "score": "Cara: {heads} · Cruz: {tails} · Total: {total}"
+      "score": "Cara: {heads} · Cruz: {tails} · Total: {total}",
+      "coinLabel": "Moneda",
+      "finish": {
+        "label": "Acabado",
+        "oro": "Oro",
+        "plata": "Plata",
+        "cobre": "Cobre"
+      }
     },
     "dados": {
       "count": "Cuántos dados",
@@ -971,7 +978,8 @@
       "customFaces": "Número de caras",
       "customInvalid": "Entre 2 y 1000",
       "roll": "Tirar",
-      "total": "{values} = {sum}"
+      "total": "{values} = {sum}",
+      "dieLabel": "Dado de {sides} caras: {value}"
     },
     "ruleta": {
       "spin": "Girar",
