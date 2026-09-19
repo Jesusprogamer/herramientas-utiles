@@ -475,7 +475,8 @@
     },
     "done": {
       "title": "Tiempo cumplido",
-      "body": "Ha terminado: {phase}"
+      "body": "Ha terminado: {phase}",
+      "notification": "Ha terminado: {phase}. Toca para detener la alarma."
     },
     "pomodoro": {
       "config": "{focus} min de concentración · {short} min de descanso · {long} min de descanso largo cada {rounds} rondas. Se cambia en Ajustes."
@@ -484,6 +485,19 @@
     "alarm": {
       "stop": "Detener alarma",
       "ringing": "Sonando: {phase}"
+    },
+    "notify": {
+      "title": "Notificación en el dispositivo",
+      "ask": "Recibe el aviso en la barra de notificaciones, como cualquier otra app, aunque tengas la pantalla apagada o estés en otra aplicación.",
+      "enable": "Activar",
+      "enabled": "Notificaciones activadas",
+      "on": "Activadas. Cuando termine la cuenta te llegará una notificación con un botón para detener la alarma.",
+      "test": "Enviar una de prueba",
+      "tested": "Notificación de prueba enviada",
+      "testTitle": "A mano",
+      "testBody": "Así te avisaremos cuando termine el temporizador.",
+      "denied": "Has bloqueado las notificaciones para esta página. Para recibirlas, ábrelas desde los permisos del sitio en tu navegador (el candado junto a la dirección) y vuelve aquí.",
+      "unsupported": "Tu navegador no admite notificaciones. En iPhone y iPad hace falta instalar la app en la pantalla de inicio para que funcionen."
     }
   },
   "listas": {

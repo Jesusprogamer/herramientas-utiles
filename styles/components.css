@@ -204,6 +204,12 @@
 .notice--danger .notice__icon { color: var(--c-danger); }
 .notice--success { border-left-color: var(--c-success); }
 .notice--success .notice__icon { color: var(--c-success); }
+/* Un aviso puede llevar su propio boton de accion al final. */
+.notice > .btn { flex: none; align-self: center; }
+@media (max-width: 30rem) {
+  .notice { flex-wrap: wrap; }
+  .notice > .btn { width: 100%; margin-top: var(--sp-2); }
+}
 
 /* ---------------- Estado vacio ---------------- */
 .empty {

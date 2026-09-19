@@ -12,6 +12,7 @@ import { button, tabs, notice } from '../../ui/components.js';
 import { toast } from '../../ui/toast.js';
 import * as storage from '../../core/storage.js';
 import * as settings from '../../core/settings.js';
+import { on } from '../../core/events.js';
 import { t, formatTime } from '../../core/i18n.js';
 
 const KEY = 'temporizador';
@@ -39,6 +40,8 @@ let render = null;         // funcion de pintado actual (null si no esta montada
 let restored = false;
 
 const RING_EVERY_MS = 3000;
+const RENOTIFY_EVERY = 5;   // uno de cada 5 ciclos -> vuelve a avisar cada 15 s
+let ringCount = 0;
 
 function save() {
   storage.set(KEY, {
@@ -114,13 +117,19 @@ function beep() {
   }
 }
 
-/** Un ciclo de aviso: pitido y vibracion. Se repite hasta que se apaga. */
+/**
+ * Un ciclo de aviso: pitido y vibracion. Se repite hasta que se apaga.
+ * Cada cierto numero de ciclos se reenvia la notificacion del sistema, que
+ * es lo unico que suena si el movil tiene la pantalla apagada.
+ */
 function ring() {
   const cfg = settings.get('timer');
   if (cfg.sound) beep();
   if (cfg.vibrate && typeof navigator.vibrate === 'function') {
     try { navigator.vibrate([220, 120, 220, 120, 320]); } catch { /* no compatible */ }
   }
+  ringCount += 1;
+  if (ringCount % RENOTIFY_EVERY === 0) notifySystem();
 }
 
 /**
@@ -135,13 +144,16 @@ function notifySystem() {
 
   const label = t(`temporizador.phase.${state.phase}`);
   const options = {
-    body: t('temporizador.done.body', { phase: label }),
+    body: t('temporizador.done.notification', { phase: label }),
     tag: 'amano-temporizador',
-    renotify: true,
+    renotify: true,                    // vuelve a avisar al repetirse
     requireInteraction: true,          // no se va sola: el aviso sigue sonando
+    silent: false,
     icon: './assets/icons/icon-192.png',
     badge: './assets/icons/icon-192.png',
-    vibrate: cfg.vibrate ? [220, 120, 220, 120, 320] : undefined
+    vibrate: cfg.vibrate ? [220, 120, 220, 120, 320] : undefined,
+    // Boton dentro de la propia notificacion (Android y escritorio).
+    actions: [{ action: 'stop', title: t('temporizador.alarm.stop') }]
   };
 
   const fallback = () => {
@@ -186,9 +198,23 @@ function hideAlarmBanner() {
 
 export function isRinging() { return ringing; }
 
+/* La notificacion del sistema vive fuera de la pagina: cuando la tocas, el
+   service worker avisa por aqui para callar el aviso. */
+let swListening = false;
+function listenToServiceWorker() {
+  if (swListening || !('serviceWorker' in navigator)) return;
+  swListening = true;
+  navigator.serviceWorker.addEventListener('message', event => {
+    const type = event.data?.type;
+    if (type === 'STOP_ALARM') stopAlarm();
+    if (type === 'OPEN_TIMER' && location.hash !== '#/h/temporizador') location.hash = '#/h/temporizador';
+  });
+}
+
 /** Arranca el aviso y lo repite hasta que la persona lo apaga. */
 function startAlarm() {
   ringing = true;
+  ringCount = 0;
   ring();
   notifySystem();
   clearInterval(ringTimer);
@@ -484,6 +510,93 @@ function buildPanel(panel) {
   render();
 }
 
+/* ---------------- Aviso sobre las notificaciones ----------------
+   Sin esto la notificacion del sistema queda escondida en Ajustes y no
+   llega nunca. Aqui se ve su estado y se activa de un toque. */
+
+function supportsNotifications() {
+  return 'Notification' in window;
+}
+
+/** Envia una notificacion de prueba para que se vea que funciona. */
+function sendTestNotification() {
+  const options = {
+    body: t('temporizador.notify.testBody'),
+    tag: 'amano-prueba',
+    icon: './assets/icons/icon-192.png',
+    badge: './assets/icons/icon-192.png'
+  };
+  const fallback = () => {
+    try { new Notification(t('temporizador.notify.testTitle'), options); } catch { /* sin permiso */ }
+  };
+  if (navigator.serviceWorker?.ready) {
+    navigator.serviceWorker.ready
+      .then(reg => reg.showNotification(t('temporizador.notify.testTitle'), options))
+      .catch(fallback);
+  } else {
+    fallback();
+  }
+}
+
+function buildNotificationBox() {
+  const box = h('div');
+
+  function paint() {
+    clear(box);
+
+    if (!supportsNotifications()) {
+      box.appendChild(notice(t('temporizador.notify.unsupported'), { kind: 'warning' }));
+      return;
+    }
+
+    const permission = Notification.permission;
+    const wanted = settings.get('timer').notify;
+
+    if (permission === 'denied') {
+      box.appendChild(notice(t('temporizador.notify.denied'), {
+        kind: 'warning', title: t('temporizador.notify.title')
+      }));
+      return;
+    }
+
+    if (permission === 'granted' && wanted) {
+      const row = notice(t('temporizador.notify.on'), {
+        kind: 'success', title: t('temporizador.notify.title')
+      });
+      row.appendChild(button(t('temporizador.notify.test'), {
+        class: 'btn--sm',
+        onClick: () => { sendTestNotification(); toast(t('temporizador.notify.tested')); }
+      }));
+      box.appendChild(row);
+      return;
+    }
+
+    const row = notice(t('temporizador.notify.ask'), {
+      kind: 'info', title: t('temporizador.notify.title')
+    });
+    row.appendChild(button(t('temporizador.notify.enable'), {
+      variant: 'primary', class: 'btn--sm',
+      onClick: async () => {
+        let result = Notification.permission;
+        if (result === 'default') {
+          try { result = await Notification.requestPermission(); } catch { result = 'denied'; }
+        }
+        if (result === 'granted') {
+          settings.update({ timer: { notify: true } });
+          sendTestNotification();
+          toast(t('temporizador.notify.enabled'), { kind: 'success' });
+        }
+        paint();
+      }
+    }));
+    box.appendChild(row);
+  }
+
+  paint();
+  box.refresh = paint;
+  return box;
+}
+
 /* ---------------- Módulo de herramienta ---------------- */
 
 export default {
@@ -491,6 +604,7 @@ export default {
 
   mount(container) {
     restore();
+    listenToServiceWorker();
 
     const view = h('div.page',
       h('header.page__header',
@@ -516,8 +630,16 @@ export default {
     });
 
     view.appendChild(tabsEl);
+
+    const notificationBox = buildNotificationBox();
+    view.appendChild(notificationBox);
     view.appendChild(notice(t('temporizador.hint'), { kind: 'info' }));
     container.appendChild(view);
+
+    // Si el permiso cambia en otra pestaña o desde Ajustes, se refresca.
+    this._offSettings = on('settings:change', ({ changed }) => {
+      if (changed.includes('timer')) notificationBox.refresh();
+    });
 
     ticker = setInterval(() => {
       if (state.running) render?.();
@@ -528,6 +650,8 @@ export default {
     clearInterval(ticker);
     ticker = 0;
     render = null;
+    this._offSettings?.();
+    this._offSettings = null;
     // Ojo: el aviso (alarmTimer) NO se cancela, para que suene aunque
     // hayas salido de la herramienta.
   }
