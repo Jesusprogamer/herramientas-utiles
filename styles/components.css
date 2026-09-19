@@ -297,3 +297,29 @@ dialog.dialog::backdrop { background: var(--c-overlay); }
   animation: shimmer 1.4s ease infinite;
 }
 @keyframes shimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+/* ---------------- Alarma sonando ----------------
+   Barra fija: permite apagar el aviso desde cualquier pantalla,
+   no solo desde el temporizador. */
+/* Mientras suena, se reserva sitio para que la barra no tape el contenido. */
+body.alarm-on { padding-bottom: 6.5rem; }
+
+.alarmbar {
+  position: fixed; z-index: calc(var(--z-toast) + 1);
+  left: 50%; transform: translateX(-50%);
+  bottom: calc(var(--sp-5) + env(safe-area-inset-bottom));
+  display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap;
+  width: min(34rem, calc(100vw - var(--sp-8)));
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--c-surface-3);
+  border: 2px solid var(--c-accent);
+  box-shadow: var(--sh-3);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  animation: alarm-pulse 1.4s var(--ease) infinite;
+}
+@keyframes alarm-pulse {
+  0%, 100% { border-color: var(--c-accent); }
+  50%      { border-color: var(--c-warning); }
+}

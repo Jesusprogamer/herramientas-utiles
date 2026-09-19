@@ -302,6 +302,7 @@ function toolsSection() {
       label: t('settings.tools.timer.notify.label'), desc: t('settings.tools.timer.notify.desc'),
       control: notifyToggle
     }),
+    h('p.field__hint', { text: t('settings.tools.timer.notify.hint') }),
     notifyState
   );
 }
