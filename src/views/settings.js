@@ -11,6 +11,8 @@ import * as storage from '../core/storage.js';
 import * as registry from '../core/registry.js';
 import * as pwa from '../core/pwa.js';
 import * as account from '../core/account.js';
+import { markSvg } from '../core/accents.js';
+import * as theme from '../core/theme.js';
 import * as i18n from '../core/i18n.js';
 import { t, tn } from '../core/i18n.js';
 import { APP_VERSION } from '../core/version.js';
@@ -587,7 +589,19 @@ function aboutSection() {
     h('a.btn.btn--ghost', { href: '#/licencias', text: t('settings.about.licenses') })
   );
 
+  const logo = markSvg({ accent: settings.get('accent'), label: t('app.name') });
+  logo.classList.add('about-logo');
+  theme.registerMark(logo);
+
   return sectionBlock('settings.about.title', 'info',
+    h('div.row',
+      logo,
+      h('div.grow',
+        h('p', { text: t('app.name'), style: { fontWeight: '600' } }),
+        h('p.small.muted', { text: t('app.tagline') })
+      )
+    ),
+    h('p.field__hint', { text: t('settings.about.iconNote') }),
     h('div.kv',
       h('div.kv__row', h('span.kv__key', { text: t('settings.about.version') }), h('span.kv__val', { text: APP_VERSION })),
       h('div.kv__row', h('span.kv__key', { text: t('settings.about.storage') }),

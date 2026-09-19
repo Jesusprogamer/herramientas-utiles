@@ -2,7 +2,7 @@
    Alcance relativo: funciona igual en la raiz de un dominio que en
    https://usuario.github.io/repositorio/ */
 
-const APP_VERSION = '2.2.0';          // sincronizar con src/core/version.js
+const APP_VERSION = '2.3.0';          // sincronizar con src/core/version.js
 const CACHE_NAME = `amano-v${APP_VERSION}`;
 
 /* Esqueleto de la app: se guarda en la instalacion para que arranque
@@ -33,6 +33,7 @@ const PRECACHE = [
   './src/core/router.js',
   './src/core/pwa.js',
   './src/core/random.js',
+  './src/core/accents.js',
   './src/core/account.js',
   './src/core/licenses.js',
   './config.js',
@@ -59,11 +60,13 @@ const PRECACHE = [
   './vendor/qrcode/qrcode.mjs',
   './vendor/qrcode/qrcode-utf8.mjs',
   './assets/icons/favicon.svg',
-  './assets/icons/icon-192.png',
-  './assets/icons/icon-512.png',
-  './assets/icons/maskable-192.png',
-  './assets/icons/maskable-512.png',
-  './assets/icons/apple-touch-icon.png'
+  // Solo los iconos del acento por defecto: los otros cinco juegos se
+  // guardan en cache la primera vez que se usan, para no inflar la instalacion.
+  './assets/icons/azul/icon-192.png',
+  './assets/icons/azul/icon-512.png',
+  './assets/icons/azul/maskable-192.png',
+  './assets/icons/azul/maskable-512.png',
+  './assets/icons/azul/apple-touch-icon.png'
 ];
 
 /* Nunca se cachea: las peticiones a Supabase van siempre a la red. */

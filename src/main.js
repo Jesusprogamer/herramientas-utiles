@@ -3,6 +3,7 @@ import * as storage from './core/storage.js';
 import * as settings from './core/settings.js';
 import * as i18n from './core/i18n.js';
 import * as theme from './core/theme.js';
+import { markSvg } from './core/accents.js';
 import * as registry from './core/registry.js';
 import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
@@ -45,6 +46,29 @@ function paintChrome() {
     nav.appendChild(link);
   }
   markCurrent(router.current());
+}
+
+/**
+ * Sustituye las marcas estaticas del HTML por el SVG con degradado del
+ * acento. El HTML trae una version plana para que la pantalla de carga tenga
+ * algo que enseñar antes de que arranque el JS.
+ */
+function paintMarks() {
+  const brand = document.querySelector('#brand-link .brand-mark');
+  if (brand) {
+    const logo = markSvg({ accent: settings.get('accent') });
+    logo.classList.add('brand-logo');
+    brand.replaceWith(logo);
+    theme.registerMark(logo);
+  }
+
+  const splashMark = document.querySelector('#splash .splash__mark');
+  if (splashMark) {
+    const logo = markSvg({ accent: settings.get('accent'), animated: true });
+    logo.classList.add('splash-logo');
+    splashMark.replaceWith(logo);
+    theme.registerMark(logo);
+  }
 }
 
 function markCurrent(path) {
@@ -154,6 +178,7 @@ async function boot() {
 
   splashText.textContent = t('splash.loading');
   theme.init();
+  paintMarks();
   paintChrome();
   registerRoutes();
 

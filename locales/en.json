@@ -357,7 +357,8 @@
       },
       "privacy": "Privacy policy",
       "licenses": "Licences",
-      "sourceLabel": "Built with plain HTML, CSS and JavaScript — no frameworks."
+      "sourceLabel": "Built with plain HTML, CSS and JavaScript — no frameworks.",
+      "iconNote": "The icon follows your accent colour. The icon of an already-installed app is fixed by the system at install time: reinstall the app to see it change. On iPhone and iPad it never updates."
     }
   },
   "update": {
