@@ -2143,5 +2143,79 @@
     "retencion": "Cuánto se guarda lo borrado",
     "retencionAyuda": "Pasado ese tiempo se elimina solo al abrir la app.",
     "dias": "{n} días"
+  },
+  "informe": {
+    "formato": {
+      "movil": "móvil",
+      "escritorio": "escritorio"
+    },
+    "seccion": "Sugerencias o errores",
+    "seccionDesc": "Cuéntame qué falla o qué echas de menos. El aviso se publica en GitHub.",
+    "tituloError": "Informar de un error",
+    "tituloMejora": "Sugerir una mejora",
+    "prefijoError": "[Error]",
+    "prefijoMejora": "[Sugerencia]",
+    "quePasa": "Qué pasa",
+    "placeholderError": "Qué hacías, qué esperabas que pasara y qué pasó en su lugar.",
+    "placeholderMejora": "Qué te gustaría poder hacer y para qué te serviría.",
+    "sinDescripcion": "sin descripción",
+    "entorno": "Entorno",
+    "erroresTitulo": "Errores recientes",
+    "incluirErrores": "Incluir los errores recientes",
+    "incluirErroresDesc": "Solo el mensaje y el archivo, nunca lo que has escrito.",
+    "previa": "Así queda el aviso",
+    "previaDesc": "Esto es lo que se va a enviar. Puedes editarlo en GitHub antes de publicarlo.",
+    "aviso": "El aviso será público en GitHub y hace falta una cuenta de GitHub para enviarlo. No se incluye nada de tus notas, tareas ni de tu cuenta.",
+    "enviar": "Abrir en GitHub",
+    "copiar": "Copiar el informe",
+    "verAbiertos": "Ver avisos abiertos",
+    "recortado": "El informe era muy largo: se ha recortado para que quepa en el enlace.",
+    "herramienta": "Herramienta",
+    "idiomaApp": "Idioma de la app",
+    "idiomaNavegador": "Idioma del navegador",
+    "navegador": "Navegador",
+    "sistema": "Sistema",
+    "formatoLabel": "Formato",
+    "pantalla": "Pantalla",
+    "instalada": "Instalada",
+    "conexion": "Conexión",
+    "conectado": "con conexión"
+  },
+  "widgets": {
+    "agenda": {
+      "titulo": "Próximos exámenes",
+      "desc": "Los tres exámenes más cercanos de la agenda."
+    },
+    "tareas": {
+      "titulo": "Tareas de hoy",
+      "desc": "Lo que vence hoy y lo que ya venció.",
+      "vacio": "No tienes tareas para hoy.",
+      "paraHoy": "Para hoy",
+      "vencio": "Venció el {fecha}",
+      "mas": "Y {n} más."
+    },
+    "horario": {
+      "titulo": "Clase actual y siguiente",
+      "desc": "Lo que toca ahora y lo que viene después.",
+      "sinMas": "Sin más clases hoy.",
+      "quedan": "Quedan {n} min",
+      "despues": "Después"
+    },
+    "temporizador": {
+      "titulo": "Temporizador en curso",
+      "desc": "El temporizador o el cronómetro, con más detalle.",
+      "otros": "y {n} más"
+    },
+    "zonas": {
+      "titulo": "Hora en mis ciudades",
+      "desc": "Hasta tres ciudades de las zonas horarias.",
+      "vacio": "Añade ciudades para verlas aquí."
+    },
+    "seccion": "Pantalla de inicio",
+    "seccionDesc": "Elige qué recuadros aparecen arriba del todo y en qué orden.",
+    "abrir": "Abrir",
+    "mostrar": "Mostrar {nombre}",
+    "subir": "Subir {nombre}",
+    "bajar": "Bajar {nombre}"
   }
 }

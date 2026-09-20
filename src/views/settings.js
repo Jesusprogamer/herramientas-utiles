@@ -10,6 +10,7 @@ import * as settings from '../core/settings.js';
 import * as storage from '../core/storage.js';
 import * as registry from '../core/registry.js';
 import * as trash from '../core/trash.js';
+import * as widgets from '../core/widgets.js';
 import * as pwa from '../core/pwa.js';
 import * as account from '../core/account.js';
 import { markSvg } from '../core/accents.js';
@@ -509,6 +510,44 @@ function toolsSection() {
 }
 
 
+
+/* ---------------- Pantalla de inicio ---------------- */
+
+function widgetsSection() {
+  const lista = h('div.stack');
+
+  function pintar() {
+    clear(lista);
+    const todos = widgets.listados();
+    todos.forEach((w, i) => {
+      lista.appendChild(h('div.row',
+        h('div.grow',
+          h('p', { text: t(`widgets.${w.id}.titulo`) }),
+          h('p.small.muted', { text: t(`widgets.${w.id}.desc`) })),
+        toggle({
+          label: t('widgets.mostrar', { nombre: t(`widgets.${w.id}.titulo`) }),
+          checked: w.activo,
+          onChange: v => { widgets.setActivo(w.id, v); pintar(); }
+        }),
+        iconButton('chevronUp', t('widgets.subir', { nombre: t(`widgets.${w.id}.titulo`) }), {
+          disabled: i === 0,
+          onClick: () => { widgets.mover(w.id, -1); pintar(); }
+        }),
+        iconButton('chevronDown', t('widgets.bajar', { nombre: t(`widgets.${w.id}.titulo`) }), {
+          disabled: i === todos.length - 1,
+          onClick: () => { widgets.mover(w.id, 1); pintar(); }
+        })
+      ));
+    });
+  }
+
+  pintar();
+  return sectionBlock('widgets.seccion', 'home',
+    h('p.small.muted', { text: t('widgets.seccionDesc') }),
+    lista
+  );
+}
+
 /* ---------------- Papelera ---------------- */
 
 /** Bloque de la papelera dentro de la seccion de Datos. */
@@ -893,6 +932,24 @@ function aboutSection() {
     h('a.btn.btn--ghost', { href: '#/licencias', text: t('settings.about.licenses') })
   );
 
+  /* Informar de un fallo o pedir algo, sin salir a buscar el repositorio. */
+  const informeRow = h('div.row',
+    button(t('informe.tituloError'), {
+      icon: 'alert',
+      onClick: async () => {
+        const { abrirInforme } = await import('../ui/report-dialog.js');
+        abrirInforme('error');
+      }
+    }),
+    button(t('informe.tituloMejora'), {
+      icon: 'star',
+      onClick: async () => {
+        const { abrirInforme } = await import('../ui/report-dialog.js');
+        abrirInforme('mejora');
+      }
+    })
+  );
+
   const logo = markSvg({ accent: settings.get('accent'), label: t('app.name') });
   logo.classList.add('about-logo');
   theme.registerMark(logo);
@@ -915,6 +972,7 @@ function aboutSection() {
     pwa.installAvailable() || pwa.isStandalone() ? null : h('p.field__hint', { text: t('settings.about.install.howto') }),
     settingRow({ label: t('settings.about.update.label'), desc: t('settings.about.update.desc'), control: updateBtn }),
     h('hr'),
+    settingRow({ label: t('informe.seccion'), desc: t('informe.seccionDesc'), control: informeRow, stacked: true }),
     linkRow,
     h('p.small.faint', { text: t('settings.about.sourceLabel') })
   );
@@ -934,6 +992,7 @@ export default function settingsView({ outlet }) {
     container.appendChild(toolsSection());
     container.appendChild(dataSection(render));
     container.appendChild(accountSection(render));
+    container.appendChild(widgetsSection());
     container.appendChild(aboutSection());
   }
 

@@ -26,6 +26,7 @@ export default function homeWidget({ ahora = new Date() } = {}) {
   if (!lista.length) return null;
 
   const caja = h('section.widget', { 'aria-labelledby': 'widget-agenda' });
+  caja.dataset.widget = 'agenda';
   caja.append(
     h('div.row',
       h('h2.widget__titulo#widget-agenda', { text: t('agenda.proximos') }),

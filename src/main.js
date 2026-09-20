@@ -9,6 +9,7 @@ import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
 import * as timers from './core/timers.js';
 import * as trash from './core/trash.js';
+import * as diagnostics from './core/diagnostics.js';
 import * as minibar from './ui/minibar.js';
 import * as audio from './core/audio.js';
 import { on } from './core/events.js';
@@ -258,6 +259,9 @@ async function boot() {
   /* El temporizador y el cronometro viven fuera de su herramienta: arrancan
      con la app para que sigan contando y avisen desde cualquier pantalla. */
   /* Lo borrado hace mas del plazo elegido se va al abrir la app. */
+  /* Se apuntan los errores de JavaScript (solo mensaje y sitio, en memoria)
+     por si luego quieres adjuntarlos a un aviso. */
+  diagnostics.init();
   trash.purgar();
   timers.init();
   minibar.init();

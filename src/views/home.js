@@ -7,6 +7,7 @@ import * as registry from '../core/registry.js';
 import { navigate } from '../core/router.js';
 import { toast } from '../ui/toast.js';
 import { on } from '../core/events.js';
+import * as widgetRegistry from '../core/widgets.js';
 
 /** Normaliza para buscar sin tildes ni mayusculas. */
 const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -65,14 +66,38 @@ export default function home({ outlet }) {
      desaparece solo cuando no hay ningun examen proximo. */
   const widgets = h('div.stack');
 
+  /* Cada recuadro se carga solo si esta activado, y guarda su propia
+     limpieza por si necesita apagar un reloj o un suscriptor. */
+  let limpiezas = [];
+  let pintando = 0;
+
   async function pintarWidgets() {
+    const turno = ++pintando;
+    for (const fn of limpiezas) { try { fn(); } catch { /* da igual */ } }
+    limpiezas = [];
+
+    const activos = widgetRegistry.activos();
+    const cajas = await Promise.all(activos.map(async w => {
+      try {
+        const mod = await import(`../tools/${w.tool}/widget.js`);
+        return mod.default?.() || null;
+      } catch (err) {
+        console.warn(`[inicio] el recuadro "${w.id}" no se ha podido cargar`, err);
+        return null;
+      }
+    }));
+
+    // Si ha entrado otro repintado mientras cargabamos, este ya no vale.
+    if (turno !== pintando) {
+      for (const c of cajas) { try { c?.cleanup?.(); } catch { /* da igual */ } }
+      return;
+    }
+
     clear(widgets);
-    try {
-      const { default: agendaWidget } = await import('../tools/agenda/widget.js');
-      const caja = agendaWidget();
-      if (caja) widgets.appendChild(caja);
-    } catch (err) {
-      console.warn('[inicio] el recuadro de la agenda no se ha podido cargar', err);
+    for (const c of cajas) {
+      if (!c) continue;
+      widgets.appendChild(c);
+      if (typeof c.cleanup === 'function') limpiezas.push(c.cleanup);
     }
   }
 
@@ -209,6 +234,18 @@ export default function home({ outlet }) {
     pintarWidgets();
   });
   const offAsig = on('asignaturas:change', pintarWidgets);
+  const offWidgets = on('widgets:change', pintarWidgets);
+  const offStorage = on('storage:write', ({ name }) => {
+    // Un cambio en los datos que enseña un recuadro lo repinta.
+    if (['tareas', 'agenda', 'horario', 'zonas-horarias'].includes(name)) pintarWidgets();
+  });
+  // Y un refresco por minuto: el horario y las horas cambian solos.
+  const reloj = setInterval(pintarWidgets, 60 * 1000);
 
-  return () => { offFav(); offTools(); offLang(); offAsig(); };
+  return () => {
+    offFav(); offTools(); offLang(); offAsig(); offWidgets(); offStorage();
+    clearInterval(reloj);
+    for (const fn of limpiezas) { try { fn(); } catch { /* da igual */ } }
+    limpiezas = [];
+  };
 }
