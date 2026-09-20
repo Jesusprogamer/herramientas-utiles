@@ -4,7 +4,7 @@ Aplicación web instalable (PWA) con herramientas útiles para el día a día.
 HTML, CSS y JavaScript puro con módulos ES: **sin frameworks y sin paso de compilación**.
 Los archivos del repositorio son exactamente los que se publican.
 
-- 12 herramientas, todas funcionando sin conexión.
+- 20 herramientas, todas funcionando sin conexión.
 - Tema oscuro por defecto, con tema claro y opción «Sistema».
 - Español e inglés, con cambio en directo.
 - Sin analítica ni seguimiento. Sin cuenta, nada sale del dispositivo.
