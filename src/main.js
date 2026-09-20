@@ -8,6 +8,7 @@ import * as registry from './core/registry.js';
 import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
 import * as timers from './core/timers.js';
+import * as trash from './core/trash.js';
 import * as minibar from './ui/minibar.js';
 import * as audio from './core/audio.js';
 import { on } from './core/events.js';
@@ -83,23 +84,58 @@ function markCurrent(path) {
 /* ---------------- Aviso de actualizacion ---------------- */
 
 let updateBar = null;
+let focoPrevio = null;
 
+/**
+ * Aviso de version nueva, en medio de la pantalla.
+ *
+ * Antes era una franja abajo que se confundia con el resto de avisos y se
+ * pasaba por alto. Ahora es un dialogo centrado: atrapa el foco, se cierra
+ * con Escape y el boton de actualizar es el primero que recibe el foco.
+ */
 function showUpdateBar() {
   if (updateBar) return;
-  updateBar = h('div.updatebar', { role: 'status' },
-    h('span.grow', { text: t('update.available') }),
-    button(t('update.dismiss'), { variant: 'ghost', onClick: hideUpdateBar }),
-    button(t('update.action'), {
-      variant: 'primary',
-      onClick: () => { toast(t('update.applying')); pwa.applyUpdate(); }
-    })
+
+  const actualizar = button(t('update.action'), {
+    variant: 'primary',
+    icon: 'download',
+    onClick: () => { toast(t('update.applying')); pwa.applyUpdate(); }
+  });
+  const ahoraNo = button(t('update.dismiss'), { onClick: hideUpdateBar });
+
+  const caja = h('div.updatedialog__caja', { role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'update-title' },
+    h('span.updatedialog__icono', icon('download')),
+    h('h2.updatedialog__titulo#update-title', { text: t('update.available') }),
+    h('p.updatedialog__texto', { text: t('update.explain') }),
+    h('div.row.updatedialog__botones', ahoraNo, actualizar)
   );
+
+  updateBar = h('div.updatedialog', caja);
+
+  // Clic fuera y Escape: como cualquier otro dialogo de la app.
+  updateBar.addEventListener('click', e => { if (e.target === updateBar) hideUpdateBar(); });
+  updateBar.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { e.preventDefault(); hideUpdateBar(); return; }
+    if (e.key !== 'Tab') return;
+    // El foco no se escapa del dialogo mientras esta abierto.
+    const focos = caja.querySelectorAll('button');
+    const primero = focos[0];
+    const ultimo = focos[focos.length - 1];
+    if (e.shiftKey && document.activeElement === primero) { e.preventDefault(); ultimo.focus(); }
+    else if (!e.shiftKey && document.activeElement === ultimo) { e.preventDefault(); primero.focus(); }
+  });
+
+  focoPrevio = document.activeElement;
   document.body.appendChild(updateBar);
+  actualizar.focus();
 }
 
 function hideUpdateBar() {
   updateBar?.remove();
   updateBar = null;
+  // El foco vuelve donde estaba, no al principio de la pagina.
+  if (focoPrevio?.isConnected) focoPrevio.focus();
+  focoPrevio = null;
 }
 
 /* ---------------- Rutas ---------------- */
@@ -221,6 +257,8 @@ async function boot() {
   audio.init();
   /* El temporizador y el cronometro viven fuera de su herramienta: arrancan
      con la app para que sigan contando y avisen desde cualquier pantalla. */
+  /* Lo borrado hace mas del plazo elegido se va al abrir la app. */
+  trash.purgar();
   timers.init();
   minibar.init();
   watchConnection();

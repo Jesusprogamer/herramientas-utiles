@@ -943,3 +943,14 @@ body.has-minibar .page { padding-bottom: 5.5rem; }
   background: var(--c-surface-2);
 }
 .minibar__abrir svg { width: 20px; height: 20px; flex: 0 0 auto; color: var(--c-accent); }
+
+/* ---------- Papelera ---------- */
+.papelera__fila {
+  align-items: center;
+  padding: var(--sp-2) var(--sp-3);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+}
+.papelera__que { margin: 0; overflow-wrap: anywhere; }
+.toast--undo { border-left: 3px solid var(--c-accent); }

@@ -9,12 +9,13 @@ import { h, clear, downloadFile } from '../../ui/dom.js';
 import { button, iconButton, field, select, notice, settingRow, toggle } from '../../ui/components.js';
 import { selector, gestor, punto, conColor } from '../../ui/subjects-ui.js';
 import { toastOk, toastError } from '../../ui/toast.js';
+import { borrarConDeshacer } from '../../ui/delete.js';
 import * as subjects from '../../core/subjects.js';
 import { on } from '../../core/events.js';
 import { t, formatDate } from '../../core/i18n.js';
 import { aFecha, aDia, diasHasta, proximos, pasados, porDia, urgencia } from '../../lib/agenda.js';
 import { calendario } from '../../lib/ics.js';
-import { leer, escribir, nuevoId, AVISOS, MAX_TITULO, MAX_NOTAS, MAX_EXAMENES } from './store.js';
+import { leer, escribir, nuevoId, KEY, AVISOS, MAX_TITULO, MAX_NOTAS, MAX_EXAMENES } from './store.js';
 import { cuando } from './widget.js';
 
 export default {
@@ -161,9 +162,19 @@ export default {
         }),
         iconButton('trash', t('agenda.quitar'), {
           onClick: () => {
+            const pos = estado.examenes.indexOf(examen);
             estado.examenes = estado.examenes.filter(e => e.id !== examen.id);
             if (editando === examen.id) { editando = null; pintarFormulario(); }
             guardar(); pintar();
+            borrarConDeshacer({
+              clave: KEY, ruta: ['examenes'], pos, tool: 'agenda', tipo: 'examen',
+              etiqueta: examen.titulo || t('agenda.sinTitulo'), datos: examen
+            }, {
+              onRestore: () => {
+                estado.examenes = leer().examenes;
+                pintar();
+              }
+            });
           }
         })
       );

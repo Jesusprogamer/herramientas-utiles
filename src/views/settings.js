@@ -9,6 +9,7 @@ import { toast, toastOk, toastError } from '../ui/toast.js';
 import * as settings from '../core/settings.js';
 import * as storage from '../core/storage.js';
 import * as registry from '../core/registry.js';
+import * as trash from '../core/trash.js';
 import * as pwa from '../core/pwa.js';
 import * as account from '../core/account.js';
 import { markSvg } from '../core/accents.js';
@@ -16,7 +17,7 @@ import * as theme from '../core/theme.js';
 import * as audio from '../core/audio.js';
 import * as transitions from '../core/transitions.js';
 import * as i18n from '../core/i18n.js';
-import { t, tn } from '../core/i18n.js';
+import { t, tn, formatRelative } from '../core/i18n.js';
 import { APP_VERSION } from '../core/version.js';
 import { refresh } from '../core/router.js';
 import { on } from '../core/events.js';
@@ -507,6 +508,109 @@ function toolsSection() {
   );
 }
 
+
+/* ---------------- Papelera ---------------- */
+
+/** Bloque de la papelera dentro de la seccion de Datos. */
+function trashBlock(rerender) {
+  const caja = h('div.stack');
+  let consulta = '';
+
+  const busqueda = field({
+    label: t('papelera.buscar'), type: 'search',
+    onInput: e => { consulta = e.target.value; pintar(); }
+  });
+
+  const retencionSel = select({
+    label: t('papelera.retencion'),
+    value: String(trash.retencion()),
+    hint: t('papelera.retencionAyuda'),
+    options: trash.RETENCIONES.map(d => ({ value: String(d), label: t('papelera.dias', { n: d }) })),
+    onChange: e => { trash.setRetencion(Number(e.target.value)); pintar(); }
+  });
+
+  const lista = h('div.stack');
+  const acciones = h('div.row');
+
+  function pintar() {
+    clear(lista);
+    clear(acciones);
+    const todas = trash.listar();
+    const encontradas = trash.buscar(todas, consulta);
+
+    busqueda.hidden = todas.length < 5;
+
+    if (!todas.length) {
+      lista.appendChild(h('p.small.muted', { text: t('papelera.vacia') }));
+      return;
+    }
+    if (!encontradas.length) {
+      lista.appendChild(h('p.small.muted', { text: t('papelera.sinResultados', { q: consulta }) }));
+      return;
+    }
+
+    for (const grupo of trash.porHerramienta(encontradas)) {
+      lista.appendChild(h('p.small.muted', { text: t(`papelera.tool.${grupo.tool}`) }));
+      for (const entrada of grupo.entradas) {
+        lista.appendChild(h('div.row.papelera__fila',
+          h('div.grow',
+            // Contenido escrito por la persona: siempre como texto.
+            h('p.papelera__que', { text: entrada.etiqueta || t(`papelera.tipo.${entrada.tipo}`) }),
+            h('p.small.muted', {
+              text: `${t(`papelera.tipo.${entrada.tipo}`)} · ${formatRelative(new Date(entrada.borradoEn))}`
+            })),
+          button(t('papelera.restaurar'), {
+            icon: 'refresh',
+            onClick: () => {
+              const n = trash.restaurar(entrada.id);
+              pintar();
+              toastOk(n ? t('papelera.restaurado') : t('common.error'));
+            }
+          }),
+          iconButton('trash', t('papelera.eliminarUno'), {
+            onClick: async () => {
+              const ok = await confirm({
+                title: t('papelera.eliminarUno'),
+                message: t('papelera.eliminarAviso'),
+                confirmLabel: t('common.delete'), danger: true
+              });
+              if (!ok) return;
+              trash.eliminar(entrada.id);
+              pintar();
+            }
+          })
+        ));
+      }
+    }
+
+    acciones.appendChild(button(t('papelera.vaciar'), {
+      variant: 'danger', icon: 'trash',
+      onClick: async () => {
+        const ok = await confirm({
+          title: t('papelera.vaciar'),
+          message: t('papelera.vaciarAviso', { n: todas.length }),
+          confirmLabel: t('papelera.vaciar'), danger: true
+        });
+        if (!ok) return;
+        trash.vaciar();
+        pintar();
+        toastOk(t('papelera.vaciada'));
+      }
+    }));
+  }
+
+  caja.append(
+    h('h3.form__nombre', { text: t('papelera.titulo') }),
+    h('p.small.muted', { text: t('papelera.explicacion') }),
+    retencionSel,
+    busqueda,
+    lista,
+    acciones
+  );
+  pintar();
+  return caja;
+}
+
 function dataSection(rerender) {
   const fileInput = h('input', {
     type: 'file', accept: 'application/json,.json', hidden: true,
@@ -575,6 +679,7 @@ function dataSection(rerender) {
       });
       if (!ok) return;
       storage.clearAll();
+      trash.vaciar();
       settings.load();
       registry.load();
       storage.runMigrations();
@@ -591,6 +696,7 @@ function dataSection(rerender) {
     settingRow({ label: t('settings.data.export.label'), desc: t('settings.data.export.desc'), control: exportBtn }),
     settingRow({ label: t('settings.data.import.label'), desc: t('settings.data.import.desc'), control: importBtn }),
     settingRow({ label: t('settings.data.clear.label'), desc: t('settings.data.clear.desc'), control: clearBtn }),
+    trashBlock(rerender),
     fileInput
   );
 }

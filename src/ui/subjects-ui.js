@@ -8,6 +8,8 @@ import { h, clear } from './dom.js';
 import { button, iconButton, field, select } from './components.js';
 import { t } from '../core/i18n.js';
 import * as subjects from '../core/subjects.js';
+import { loteDeBorrado, quitarVinculados } from '../core/subject-delete.js';
+import { borrarConDeshacer } from './delete.js';
 
 /** Punto de color de una asignatura. */
 export function punto(asignatura) {
@@ -102,7 +104,15 @@ export function gestor({ onChange } = {}) {
           onClick: () => { subjects.move(a.id, 1); avisar(); }
         }),
         iconButton('trash', t('asig.quitar', { nombre: a.nombre }), {
-          onClick: () => { subjects.remove(a.id); avisar(); }
+          onClick: () => {
+            // La asignatura y todo lo que colgaba de ella van juntos:
+            // un solo «Deshacer» lo devuelve entero.
+            const lote = loteDeBorrado(a.id);
+            quitarVinculados(a.id);
+            subjects.remove(a.id);
+            avisar();
+            borrarConDeshacer(lote, { onRestore: () => { subjects.load(); avisar(); } });
+          }
         })
       ));
     });

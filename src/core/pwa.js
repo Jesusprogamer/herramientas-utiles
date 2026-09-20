@@ -53,7 +53,45 @@ export async function registerServiceWorker() {
     location.reload();
   });
 
+  vigilarVersiones();
   return registration;
+}
+
+/**
+ * Busca versiones nuevas sin que nadie lo pida.
+ *
+ * El navegador solo comprueba el service worker de vez en cuando y al
+ * navegar, asi que una version recien publicada podia tardar horas en
+ * aparecer. Aqui se pregunta cada poco y, sobre todo, al volver a la app:
+ * es el momento en el que alguien esta mirando y puede actualizar.
+ */
+const CADA_MS = 15 * 60 * 1000;   // cuarto de hora con la app abierta
+const AL_VOLVER_MS = 60 * 1000;   // al volver, si hace mas de un minuto
+let ultimaComprobacion = 0;
+let vigilando = false;
+
+function vigilarVersiones() {
+  if (vigilando) return;
+  vigilando = true;
+  ultimaComprobacion = Date.now();
+
+  const comprobar = (minimo = 0) => {
+    if (hasUpdate()) return;                       // ya hay una esperando
+    if (Date.now() - ultimaComprobacion < minimo) return;
+    ultimaComprobacion = Date.now();
+    checkForUpdate().catch(() => { /* sin conexion: ya se reintentara */ });
+  };
+
+  setInterval(() => comprobar(), CADA_MS);
+
+  // Volver a la pestaña o a la app instalada es el mejor momento para mirar.
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') comprobar(AL_VOLVER_MS);
+  });
+  window.addEventListener('focus', () => comprobar(AL_VOLVER_MS));
+
+  // Y en cuanto vuelve la conexion, porque sin ella no se podia mirar.
+  window.addEventListener('online', () => comprobar(AL_VOLVER_MS));
 }
 
 export function hasUpdate() { return waitingWorker !== null; }

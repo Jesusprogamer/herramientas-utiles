@@ -469,7 +469,8 @@
     "available": "An update is available",
     "action": "Update now",
     "dismiss": "Not now",
-    "applying": "Applying the update…"
+    "applying": "Applying the update…",
+    "explain": "A new version has been published. Updating takes a moment and the app restarts on its own."
   },
   "connection": {
     "offline": "Offline",
@@ -2102,5 +2103,45 @@
     "pausar": "Pause {nombre}",
     "reanudar": "Resume {nombre}",
     "parar": "Stop {nombre}"
+  },
+  "papelera": {
+    "borrado": {
+      "uno": "Deleted: {que}",
+      "varios": "{n} items deleted"
+    },
+    "tool": {
+      "listas": "Tasks and notes",
+      "agenda": "Exam diary",
+      "horario": "Class timetable",
+      "notas": "Grade calculator",
+      "asignaturas": "Subjects",
+      "otros": "Other"
+    },
+    "tipo": {
+      "tarea": "Task",
+      "articulo": "Shopping item",
+      "nota": "Note",
+      "examen": "Exam",
+      "clase": "Timetable class",
+      "asignatura": "Subject",
+      "notasDeAsignatura": "Subject marks",
+      "elemento": "Item"
+    },
+    "titulo": "Trash",
+    "explicacion": "What you delete is kept here for a while before it goes for good.",
+    "deshacer": "Undo",
+    "buscar": "Search the trash",
+    "vacia": "The trash is empty.",
+    "sinResultados": "Nothing in the trash matches “{q}”.",
+    "restaurar": "Restore",
+    "restaurado": "Put back where it was.",
+    "eliminarUno": "Delete for good",
+    "eliminarAviso": "This can't be recovered.",
+    "vaciar": "Empty the trash",
+    "vaciarAviso": "{n} items will be deleted for good. This can't be undone.",
+    "vaciada": "Trash emptied.",
+    "retencion": "How long deleted items are kept",
+    "retencionAyuda": "After that they're removed on their own when you open the app.",
+    "dias": "{n} days"
   }
 }
