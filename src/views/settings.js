@@ -932,6 +932,14 @@ function aboutSection() {
     h('a.btn.btn--ghost', { href: '#/licencias', text: t('settings.about.licenses') })
   );
 
+  const bienvenidaBtn = button(t('bienvenida.verOtraVez'), {
+    icon: 'star',
+    onClick: async () => {
+      const { abrir } = await import('../ui/welcome.js');
+      abrir();
+    }
+  });
+
   /* Informar de un fallo o pedir algo, sin salir a buscar el repositorio. */
   const informeRow = h('div.row',
     button(t('informe.tituloError'), {
@@ -972,6 +980,7 @@ function aboutSection() {
     pwa.installAvailable() || pwa.isStandalone() ? null : h('p.field__hint', { text: t('settings.about.install.howto') }),
     settingRow({ label: t('settings.about.update.label'), desc: t('settings.about.update.desc'), control: updateBtn }),
     h('hr'),
+    settingRow({ label: t('bienvenida.verOtraVez'), desc: t('bienvenida.verOtraVezDesc'), control: bienvenidaBtn }),
     settingRow({ label: t('informe.seccion'), desc: t('informe.seccionDesc'), control: informeRow, stacked: true }),
     linkRow,
     h('p.small.faint', { text: t('settings.about.sourceLabel') })

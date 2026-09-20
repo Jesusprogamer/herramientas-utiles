@@ -2217,5 +2217,49 @@
     "mostrar": "Show {nombre}",
     "subir": "Move {nombre} up",
     "bajar": "Move {nombre} down"
+  },
+  "bienvenida": {
+    "pasoN": "Step {n} of {total}",
+    "siguiente": "Next",
+    "omitir": "Skip",
+    "empezar": "Get started",
+    "verOtraVez": "See the welcome again",
+    "verOtraVezDesc": "The first-time steps, in case you want to choose again.",
+    "idioma": {
+      "titulo": "Hi, I'm “A mano”",
+      "desc": "Everyday tools that work offline. Which language shall I use?",
+      "label": "Language"
+    },
+    "tema": {
+      "titulo": "Dark or light?",
+      "desc": "It applies right away. “System” follows whatever your device uses."
+    },
+    "acento": {
+      "titulo": "Pick a colour",
+      "desc": "It's used for buttons and links, and for the app icon too."
+    },
+    "favoritas": {
+      "titulo": "What do you use most?",
+      "desc": "The ones you star go right at the top. You can change it whenever you like."
+    },
+    "perfil": {
+      "estudiante": "Student",
+      "diaADia": "Everyday",
+      "todas": "All"
+    },
+    "instalar": {
+      "titulo": "Install it if you like",
+      "desc": "You don't have to, but it works better: its own window and a faster start.",
+      "que": "Installing gives it its own icon and its own window, and it still works offline.",
+      "ios": "On iPhone and iPad: tap the Share button and choose “Add to Home Screen”.",
+      "android": "On Android: open the browser menu (⋮) and choose “Install app” or “Add to Home screen”.",
+      "safariMac": "In Safari for Mac: File menu → “Add to Dock”.",
+      "escritorio": "In Chrome or Edge: the install icon appears at the end of the address bar."
+    },
+    "listo": {
+      "titulo": "All set",
+      "texto": "That's it. Everything you save stays on your device and works offline.",
+      "ajustes": "You can change all of this any time from Settings."
+    }
   }
 }
