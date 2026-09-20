@@ -296,7 +296,7 @@ export default function modoTest(contenedor, { favoritas = [], alSalir }) {
     }));
 
     clear(vista);
-    test = montarTest(preguntas, {
+    test = montarTest(vista, preguntas, {
       comentario: config.comentario,
       tolerancia: config.tolerancia,
       texto: config.texto
@@ -312,7 +312,6 @@ export default function modoTest(contenedor, { favoritas = [], alSalir }) {
       },
       alSalir: () => pintarConfig()
     });
-    vista.appendChild(test.caja);
   }
 
   /** Señuelos para las opciones multiples: del mismo tipo de pregunta. */

@@ -31,10 +31,12 @@ function sanear(guardado) {
   const activos = Array.isArray(guardado?.activos)
     ? guardado.activos.filter(id => IDS.includes(id))
     : null;
+  const alto = Number(guardado?.alto);
   return {
     // Los que se añadan en el futuro entran al final, no se pierden.
     orden: [...orden, ...IDS.filter(id => !orden.includes(id))],
-    activos: activos || [...POR_DEFECTO]
+    activos: activos || [...POR_DEFECTO],
+    alto: Number.isFinite(alto) && alto > 0 ? Math.round(alto) : 0
   };
 }
 
@@ -76,6 +78,27 @@ export function mover(id, delta) {
 export function activos() {
   const p = prefs();
   return p.orden.map(id => WIDGETS.find(w => w.id === id)).filter(w => w && p.activos.includes(w.id));
+}
+
+/**
+ * Alto que ocuparon los recuadros la ultima vez.
+ *
+ * Los recuadros se cargan aparte, asi que llegan despues del primer
+ * pintado; sin esto, al aparecer empujaban hacia abajo la lista de
+ * herramientas. Guardando cuanto ocuparon se les reserva el sitio desde el
+ * principio. La primera vez vale cero, que es justo lo que ocupan cuando
+ * todavia no hay nada que enseñar.
+ */
+export function altoRecordado() {
+  return prefs().alto;
+}
+
+export function recordarAlto(px) {
+  const alto = Math.max(0, Math.round(px) || 0);
+  const p = prefs();
+  if (alto === p.alto) return;
+  // Sin avisar a nadie: es una medida, no un cambio de ajustes.
+  storage.set(KEY, { ...p, alto });
 }
 
 /** Todos, en el orden elegido, con su estado: para la pantalla de Ajustes. */

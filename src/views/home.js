@@ -60,11 +60,15 @@ function section(titleKey, tools, { count = false } = {}) {
   );
 }
 
-export default function home({ outlet }) {
+export default async function home({ outlet }) {
   const results = h('div.stack');
   /* Recuadro de la agenda: se carga aparte para no pesar en el arranque y
      desaparece solo cuando no hay ningun examen proximo. */
   const widgets = h('div.stack');
+  /* Se les reserva lo que ocuparon la ultima vez para que, al llegar, no
+     empujen hacia abajo la lista de herramientas. */
+  const altoReservado = widgetRegistry.altoRecordado();
+  if (altoReservado) widgets.style.minHeight = `${altoReservado}px`;
 
   /* Cada recuadro se carga solo si esta activado, y guarda su propia
      limpieza por si necesita apagar un reloj o un suscriptor. */
@@ -99,6 +103,10 @@ export default function home({ outlet }) {
       widgets.appendChild(c);
       if (typeof c.cleanup === 'function') limpiezas.push(c.cleanup);
     }
+
+    // El sitio reservado ya no hace falta: lo ocupa el contenido de verdad.
+    widgets.style.minHeight = '';
+    widgetRegistry.recordarAlto(widgets.offsetHeight);
   }
 
   const input = h('input.input', {
@@ -223,7 +231,12 @@ export default function home({ outlet }) {
   ));
 
   paint();
-  pintarWidgets();
+  /* Los recuadros se piden antes de enseñar la pantalla: son modulos
+     pequeños y ya precacheados, y asi entran de una vez en su sitio en vez
+     de aparecer luego empujando la lista de herramientas hacia abajo. Si
+     tardan demasiado se sigue adelante y llegaran cuando lleguen: para eso
+     esta el sitio reservado. */
+  await Promise.race([pintarWidgets(), new Promise(r => setTimeout(r, 1200))]);
 
   const offFav = on('favorites:change', paint);
   const offTools = on('tools:change', paint);

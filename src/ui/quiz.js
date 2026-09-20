@@ -48,15 +48,20 @@ export function respuestaEnTexto(pregunta) {
 }
 
 /**
- * Monta el test. Devuelve un elemento y una funcion de limpieza.
+ * Monta el test dentro de `contenedor`.
+ *
+ * La caja se cuelga del contenedor antes de pintar nada: si no, en la
+ * primera pregunta el foco no tenia donde ir (un elemento que todavia no
+ * esta en la pagina no se puede enfocar) y se quedaba al principio de todo.
  *
  * @param preguntas  las ya generadas
  * @param ajustes    { comentario: 'cada'|'final', segundos, tolerancia, ... }
  * @param alTerminar recibe el resultado, para guardarlo en el historial
  * @param alSalir    para volver a la configuracion
  */
-export function montarTest(preguntas, ajustes, { alTerminar, alSalir, senuelos = () => [] } = {}) {
+export function montarTest(contenedor, preguntas, ajustes, { alTerminar, alSalir, senuelos = () => [] } = {}) {
   const caja = h('div.stack');
+  contenedor.appendChild(caja);
   let sesion = sesionLib.crear(preguntas);
   let cuenta = 0;
   let reloj = 0;
@@ -72,8 +77,9 @@ export function montarTest(preguntas, ajustes, { alTerminar, alSalir, senuelos =
     const barra = h('div.quiz__barra', h('span'));
     barra.firstChild.style.width = `${r.porcentaje}%`;
 
+    const nota = h('h2.quiz__nota', { text: `${r.porcentaje} %`, tabindex: '-1' });
     caja.append(
-      h('h2.quiz__nota', { text: `${r.porcentaje} %` }),
+      nota,
       barra,
       h('p', {
         text: t('quiz.resumen', {
@@ -110,6 +116,9 @@ export function montarTest(preguntas, ajustes, { alTerminar, alSalir, senuelos =
       caja.appendChild(h('p.nc--verde', { text: t('quiz.perfecto') }));
       caja.appendChild(h('div.row', button(t('quiz.salir'), { variant: 'primary', onClick: () => { limpiar(); alSalir?.(); } })));
     }
+    // El foco va a la nota: al terminar se lee el resultado, no el principio
+    // de la pagina.
+    nota.focus();
   }
 
   function pintarPregunta() {
