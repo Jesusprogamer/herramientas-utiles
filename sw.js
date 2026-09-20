@@ -22,6 +22,7 @@ const PRECACHE = [
   './locales/es.json',
   './locales/en.json',
   './locales/pt.json',
+  './locales/ca.json',
   './src/main.js',
   './src/standalone.js',
   './src/core/version.js',

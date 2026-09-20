@@ -1,0 +1,2089 @@
+{
+  "app": {
+    "name": "A mano",
+    "short": "A mano",
+    "description": "Eines útils per al dia a dia, sempre a mà i sense connexió.",
+    "tagline": "Les teves eines del dia a dia, sempre a mà."
+  },
+  "common": {
+    "save": "Desa",
+    "cancel": "Cancel·la",
+    "confirm": "Confirma",
+    "delete": "Esborra",
+    "close": "Tanca",
+    "back": "Torna",
+    "search": "Cerca",
+    "clear": "Neteja",
+    "copy": "Copia",
+    "copied": "Copiat",
+    "copyFailed": "No s'ha pogut copiar",
+    "apply": "Aplica",
+    "reset": "Restableix",
+    "loading": "S'està carregant…",
+    "error": "Hi ha hagut un error",
+    "retry": "Torna-ho a provar",
+    "yes": "Sí",
+    "no": "No",
+    "on": "Activat",
+    "off": "Desactivat",
+    "minutes": "minuts",
+    "unknown": "Desconegut"
+  },
+  "splash": {
+    "loading": "S'està preparant l'aplicació…"
+  },
+  "skip": {
+    "toContent": "Ves al contingut"
+  },
+  "nav": {
+    "label": "Navegació principal",
+    "home": "Inici",
+    "settings": "Configuració",
+    "about": "Quant a",
+    "privacy": "Privadesa"
+  },
+  "foot": {
+    "text": "Funciona sense connexió. Les teves dades es queden al teu dispositiu."
+  },
+  "home": {
+    "title": "Eines",
+    "searchLabel": "Cerca una eina",
+    "searchPlaceholder": "Cerca una eina…",
+    "clearSearch": "Esborra la cerca",
+    "favorites": "Preferides",
+    "all": "Totes les eines",
+    "results": "Resultats",
+    "soon": "Properament",
+    "addFavorite": "Afegeix {name} a preferides",
+    "removeFavorite": "Treu {name} de preferides",
+    "favoriteAdded": "{name} afegida a preferides",
+    "favoriteRemoved": "{name} treta de preferides",
+    "count": {
+      "one": "{n} eina",
+      "other": "{n} eines"
+    },
+    "noResults": {
+      "title": "Sense resultats",
+      "message": "No hi ha cap eina que coincideixi amb «{q}».",
+      "action": "Esborra la cerca"
+    },
+    "allHidden": {
+      "title": "No hi ha cap eina visible",
+      "message": "Les has amagat totes des de la configuració. Pots tornar a mostrar-les quan vulguis.",
+      "action": "Ves a la configuració"
+    }
+  },
+  "tool": {
+    "soon": {
+      "title": "Encara no està llesta",
+      "message": "Aquesta eina arriba a la fase següent. La targeta ja és aquí perquè vegis on quedarà.",
+      "back": "Torna a l'inici"
+    },
+    "failed": {
+      "title": "No s'ha pogut obrir l'eina",
+      "message": "Torna-ho a provar. Si continua fallant, busca actualitzacions des de la configuració."
+    }
+  },
+  "tools": {
+    "temporizador": {
+      "name": "Temporitzador",
+      "desc": "Compte enrere i pomodoro amb avisos en acabar."
+    },
+    "listas": {
+      "name": "Tasques i notes",
+      "desc": "Tasques, llista de la compra i notes ràpides en un sol lloc."
+    },
+    "unidades": {
+      "name": "Convertidor d'unitats",
+      "desc": "Longitud, pes, temperatura, volum i més."
+    },
+    "contrasenas": {
+      "name": "Contrasenyes",
+      "desc": "Genera contrasenyes segures a la teva mida."
+    },
+    "contador-texto": {
+      "name": "Comptador de text",
+      "desc": "Paraules, caràcters, frases i temps de lectura."
+    },
+    "porcentajes": {
+      "name": "Percentatges",
+      "desc": "Descomptes, pujades, baixades i repartiments."
+    },
+    "monedas": {
+      "name": "Convertidor de monedes",
+      "desc": "Canvia entre monedes amb l'última taxa desada."
+    },
+    "zonas-horarias": {
+      "name": "Fusos horaris",
+      "desc": "L'hora en altres ciutats i un convertidor d'hores."
+    },
+    "azar": {
+      "name": "Tria a l'atzar",
+      "desc": "Moneda, daus, ruleta i nombres aleatoris."
+    },
+    "qr": {
+      "name": "Codis QR",
+      "desc": "Crea QR de text, enllaços o wifi al teu dispositiu."
+    },
+    "colores": {
+      "name": "Selector de colors",
+      "desc": "HEX, RGB, HSL, contrast WCAG i paletes desades."
+    },
+    "equipos": {
+      "name": "Sorteig d'equips",
+      "desc": "Reparteix noms en equips equilibrats a l'atzar."
+    },
+    "calculadora": {
+      "name": "Calculadora pas a pas",
+      "desc": "Científica, equacions, fraccions, percentatges i estadística, explicant cada pas."
+    },
+    "graficas": {
+      "name": "Gràfiques de funcions",
+      "desc": "Dibuixa i explora funcions amb zoom i taula de valors."
+    },
+    "bases": {
+      "name": "Convertidor de bases",
+      "desc": "Passa nombres entre binari, octal, decimal, hexadecimal i qualsevol base de 2 a 36."
+    },
+    "tabla": {
+      "name": "Taula periòdica",
+      "desc": "Els 118 elements, amb les seves dades i un cercador."
+    },
+    "formulario": {
+      "name": "Formulari",
+      "desc": "Fórmules de geometria, física i química, amb la incògnita aïllada."
+    },
+    "notas": {
+      "name": "Calculadora de notes",
+      "desc": "Mitjana ponderada per assignatura i quant et falta per arribar-hi."
+    },
+    "agenda": {
+      "name": "Agenda d'exàmens",
+      "desc": "Apunta els teus exàmens, mira quant falta i passa'ls al calendari."
+    },
+    "horario": {
+      "name": "Horari de classe",
+      "desc": "La teva setmana amb les assignatures, les aules i el que toca ara."
+    }
+  },
+  "settings": {
+    "title": "Configuració",
+    "lead": "Els canvis es desen a l'instant.",
+    "appearance": {
+      "title": "Aparença",
+      "theme": {
+        "label": "Tema",
+        "desc": "Fosc per defecte. «Sistema» segueix la preferència del teu dispositiu.",
+        "dark": "Fosc",
+        "light": "Clar",
+        "system": "Sistema"
+      },
+      "accent": {
+        "label": "Color d'accent",
+        "desc": "S'usa en botons, enllaços i elements actius.",
+        "azul": "Blau",
+        "violeta": "Violeta",
+        "verde": "Verd",
+        "naranja": "Taronja",
+        "rosa": "Rosa",
+        "cian": "Cian"
+      },
+      "textSize": {
+        "label": "Mida del text",
+        "desc": "Afecta tota l'aplicació.",
+        "pequeno": "Petita",
+        "normal": "Normal",
+        "grande": "Gran"
+      },
+      "reduceMotion": {
+        "label": "Redueix les animacions",
+        "desc": "Treu transicions i moviments. També es respecta la preferència del sistema."
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "label": "Idioma de l'aplicació",
+      "desc": "El canvi s'aplica de seguida, sense recarregar.",
+      "auto": "Automàtic (segons el navegador)"
+    },
+    "region": {
+      "title": "Regió i format",
+      "time": {
+        "label": "Format de l'hora",
+        "desc": "Com es mostren les hores a tota l'aplicació.",
+        "auto": "Automàtic",
+        "h12": "12 hores",
+        "h24": "24 hores"
+      },
+      "date": {
+        "label": "Format de la data",
+        "desc": "Ordre de dia, mes i any.",
+        "auto": "Automàtic",
+        "dmy": "Dia/Mes/Any",
+        "mdy": "Mes/Dia/Any",
+        "ymd": "Any-Mes-Dia"
+      },
+      "currency": {
+        "label": "Moneda per defecte",
+        "desc": "La que apareix en obrir el convertidor de monedes."
+      },
+      "units": {
+        "label": "Sistema d'unitats",
+        "desc": "Preferència inicial del convertidor d'unitats.",
+        "metrico": "Mètric",
+        "imperial": "Imperial"
+      },
+      "preview": "Exemple: {date} · {time} · {number} · {money}"
+    },
+    "tools": {
+      "title": "Eines",
+      "lead": "Tria quines es veuen a l'inici i en quin ordre.",
+      "show": "Mostra {name}",
+      "hide": "Amaga {name}",
+      "moveUp": "Puja {name}",
+      "moveDown": "Baixa {name}",
+      "resetOrder": "Restableix l'ordre",
+      "orderReset": "Ordre restablert",
+      "hiddenCount": {
+        "one": "{n} eina amagada",
+        "other": "{n} eines amagades"
+      },
+      "timer": {
+        "title": "Temporitzador",
+        "focus": {
+          "label": "Durada del pomodoro",
+          "desc": "Minuts de concentració a cada ronda."
+        },
+        "shortBreak": {
+          "label": "Descans curt",
+          "desc": "Minuts entre rondes."
+        },
+        "longBreak": {
+          "label": "Descans llarg",
+          "desc": "Minuts després de completar les rondes."
+        },
+        "rounds": {
+          "label": "Rondes abans del descans llarg",
+          "desc": "Quants pomodoros seguits."
+        },
+        "sound": {
+          "label": "So en acabar",
+          "desc": "Un avís curt quan s'acaba el temps."
+        },
+        "vibrate": {
+          "label": "Vibració en acabar",
+          "desc": "Només en dispositius compatibles."
+        },
+        "notify": {
+          "label": "Notificació en acabar",
+          "desc": "Avisa encara que l'aplicació estigui en segon pla.",
+          "unsupported": "El teu navegador no admet notificacions.",
+          "denied": "Has bloquejat les notificacions en aquest navegador. Canvia-ho als permisos del lloc.",
+          "granted": "Notificacions activades",
+          "hint": "El navegador només et pot avisar mentre l'aplicació segueixi oberta, encara que sigui en segon pla. Si la tanques del tot, no hi ha notificació."
+        },
+        "alarm": {
+          "focus": "So en acabar la feina",
+          "break": "So en acabar el descans",
+          "test": "Prova",
+          "volume": "Volum de l'alarma",
+          "campana": "Campana",
+          "beep": "Bip clàssic",
+          "digital": "Digital",
+          "arpegio": "Arpegi suau",
+          "timbre": "Timbre",
+          "retro": "Retro 8-bit",
+          "gota": "Gota d'aigua",
+          "despertador": "Despertador",
+          "repeat": {
+            "label": "Quantes vegades sona",
+            "desc": "«Fins que la paris» continua sonant fins que premis «Atura l'alarma».",
+            "una": "Una vegada",
+            "tres": "Tres vegades",
+            "hasta": "Fins que la paris"
+          }
+        }
+      }
+    },
+    "data": {
+      "title": "Dades",
+      "export": {
+        "label": "Còpia de seguretat",
+        "desc": "Baixa totes les teves dades en un fitxer JSON.",
+        "action": "Exporta",
+        "done": "Còpia de seguretat baixada"
+      },
+      "import": {
+        "label": "Restaura una còpia",
+        "desc": "Es comprova el fitxer abans d'aplicar-lo. Reemplaça les dades actuals.",
+        "action": "Importa",
+        "confirmTitle": "Vols restaurar aquesta còpia?",
+        "confirmMessage": "Es reemplaçaran totes les dades actuals de l'aplicació per les del fitxer.",
+        "done": "Còpia restaurada ({n} elements)",
+        "invalid": "El fitxer no és una còpia vàlida d'aquesta aplicació",
+        "unreadable": "No s'ha pogut llegir el fitxer"
+      },
+      "clear": {
+        "label": "Esborra totes les dades locals",
+        "desc": "Configuració, preferides i el contingut de les eines d'aquest dispositiu.",
+        "action": "Esborra-ho tot",
+        "confirmTitle": "Vols esborrar totes les dades?",
+        "confirmMessage": "Aquesta acció no es pot desfer. S'esborrarà tot el que hi ha desat en aquest dispositiu.",
+        "done": "Dades esborrades"
+      },
+      "blocked": {
+        "title": "L'emmagatzematge està bloquejat",
+        "message": "Aquest navegador no deixa desar dades (mode privat o permisos del lloc). L'aplicació funciona, però ho oblidarà tot en tancar."
+      }
+    },
+    "account": {
+      "title": "Compte",
+      "guest": {
+        "label": "Mode convidat",
+        "desc": "Tot funciona sense compte. Les teves dades són només en aquest dispositiu."
+      },
+      "why": "Iniciar la sessió és opcional. Serveix per fer servir les mateixes dades al mòbil i a l'ordinador.",
+      "email": "Correu electrònic",
+      "password": "Contrasenya",
+      "passwordHint": "Com a mínim 6 caràcters.",
+      "invalidEmail": "Escriu un correu vàlid",
+      "shortPassword": "Mínim 6 caràcters",
+      "signIn": "Inicia la sessió",
+      "signUp": "Crea un compte",
+      "forgot": "He oblidat la contrasenya",
+      "signedIn": "Sessió iniciada",
+      "signedOut": "Sessió tancada",
+      "signOut": "Tanca la sessió",
+      "confirmEmail": "T'hem enviat un correu per confirmar el compte. Obre'l i torna aquí.",
+      "resetSent": "T'hem enviat un correu per canviar la contrasenya.",
+      "syncStatus": "Sincronització",
+      "syncNow": "Sincronitza ara",
+      "synced": "Tot sincronitzat",
+      "status": {
+        "guest": "Mode convidat",
+        "signedOut": "Sense sessió",
+        "syncing": "S'està sincronitzant…",
+        "synced": "Al dia",
+        "offline": "Sense connexió: s'enviarà quan torni",
+        "error": "No s'ha pogut sincronitzar"
+      },
+      "setup": {
+        "title": "Sincronització sense configurar",
+        "message": "L'aplicació funciona igual sense compte. Per fer servir les mateixes dades al mòbil i a l'ordinador cal crear un projecte gratuït a Supabase i enganxar dues dades al fitxer config.js.",
+        "where": "Els passos exactes i l'SQL són al README del projecte, apartat «Compte i sincronització»."
+      },
+      "deleteCloud": {
+        "label": "Esborra les meves dades del núvol",
+        "desc": "Treu les teves dades del servidor. El que hi ha desat en aquest dispositiu es queda igual.",
+        "action": "Esborra del núvol",
+        "confirmTitle": "Vols esborrar les teves dades del núvol?",
+        "confirmMessage": "S'esborraran totes les teves files del servidor. Les dades d'aquest dispositiu no es toquen. No es pot desfer.",
+        "done": "Dades del núvol esborrades"
+      },
+      "deleteAccount": {
+        "title": "I esborrar el compte sencer?",
+        "message": "Eliminar l'usuari en si només es pot fer des del tauler de Supabase (Authentication → Users) o amb una funció de servidor. Des d'aquí pots tancar la sessió i esborrar les teves dades."
+      }
+    },
+    "about": {
+      "title": "Quant a",
+      "version": "Versió",
+      "storage": "Format de dades",
+      "storageValue": "versió {n}",
+      "install": {
+        "label": "Instal·la l'aplicació",
+        "desc": "Afegeix-la a la pantalla d'inici o a l'escriptori.",
+        "action": "Instal·la",
+        "unavailable": "El teu navegador no ofereix la instal·lació aquí, o l'aplicació ja està instal·lada.",
+        "installed": "Aplicació instal·lada",
+        "dismissed": "Instal·lació cancel·lada",
+        "howto": "A l'iPhone i l'iPad: botó Comparteix → «Afegeix a la pantalla d'inici»."
+      },
+      "update": {
+        "label": "Busca actualitzacions",
+        "desc": "Comprova si hi ha una versió nova publicada.",
+        "action": "Busca",
+        "checking": "S'està comprovant…",
+        "upToDate": "Ja tens l'última versió",
+        "found": "Hi ha una actualització disponible",
+        "unsupported": "Aquest navegador no admet actualitzacions en segon pla"
+      },
+      "privacy": "Política de privadesa",
+      "licenses": "Llicències",
+      "sourceLabel": "Fet amb HTML, CSS i JavaScript, sense frameworks.",
+      "iconNote": "La icona canvia amb el color d'accent i s'aplica sense preguntar-te res. La de l'aplicació ja instal·lada la fixa el sistema en instal·lar-la: per veure-la canviar, torna a instal·lar-la. A l'iPhone i l'iPad no s'actualitza."
+    },
+    "sound": {
+      "title": "So i animacions",
+      "enabled": {
+        "label": "Sons de la interfície",
+        "desc": "Avisos curts en prémer, confirmar o canviar de pantalla. Sempre acompanyen alguna cosa visible, mai la substitueixen."
+      },
+      "volume": {
+        "label": "Volum"
+      },
+      "style": {
+        "label": "Estil de so",
+        "desc": "Com sonen els avisos.",
+        "suave": "Suau",
+        "retro": "Retro",
+        "cristal": "Cristall",
+        "tryIt": "Escolta'ls:"
+      },
+      "cue": {
+        "tap": "En prémer un botó",
+        "toggle": "En activar un interruptor",
+        "success": "En confirmar-se alguna cosa",
+        "error": "En fallar alguna cosa",
+        "navigate": "En canviar de pantalla",
+        "dialog": "En obrir un diàleg"
+      },
+      "hover": {
+        "label": "En passar el ratolí per sobre",
+        "desc": "Un tic molt curt en entrar en un botó. Només amb ratolí, i mai mentre et desplaces.",
+        "unavailable": "El so en passar per sobre només apareix en dispositius amb ratolí."
+      },
+      "vibrate": {
+        "label": "Vibra en prémer",
+        "desc": "Un toc curt a cada pulsació.",
+        "unavailable": "Aquest dispositiu no admet vibració."
+      },
+      "note": "Tots els sons es generen al moment, sense baixar cap fitxer, i no sonen si la pestanya és en segon pla."
+    },
+    "motion": {
+      "transitions": {
+        "label": "Transicions entre pantalles",
+        "desc": "Com es passa d'una pantalla a una altra.",
+        "ninguna": "Cap",
+        "suave": "Suau",
+        "completa": "Completa"
+      },
+      "reducedOverride": "Tens activat «redueix el moviment», així que ara mateix no hi ha transicions encara que triïs una altra cosa."
+    }
+  },
+  "update": {
+    "available": "Hi ha una actualització disponible",
+    "action": "Actualitza ara",
+    "dismiss": "Ara no",
+    "applying": "S'està aplicant l'actualització…"
+  },
+  "connection": {
+    "offline": "Sense connexió",
+    "online": "Connexió recuperada",
+    "offlineHint": "Pots continuar fent servir l'aplicació: tot funciona sense connexió."
+  },
+  "privacy": {
+    "title": "Privadesa",
+    "lead": "Resum curt: aquesta aplicació no et rastreja i, sense compte, res no surt del teu dispositiu.",
+    "local": {
+      "title": "Què es desa al teu dispositiu",
+      "items": [
+        "La teva configuració: tema, accent, idioma, formats i preferències de les eines.",
+        "Les teves preferides i l'ordre de les eines.",
+        "El contingut que crees a cada eina (tasques, notes, llistes, històrics).",
+        "Tot això a l'emmagatzematge local del navegador, amb el prefix «amano:»."
+      ]
+    },
+    "none": {
+      "title": "Què NO es fa",
+      "items": [
+        "No hi ha analítica, ni galetes de seguiment, ni publicitat.",
+        "No s'envia el teu contingut a cap servidor.",
+        "No es demana cap permís sense que tu l'activis abans."
+      ]
+    },
+    "account": {
+      "title": "Si inicies la sessió (opcional)",
+      "items": [
+        "Només si crees un compte s'envien dades a un servidor: el teu de Supabase.",
+        "Se sincronitzen configuració, preferides, tasques, llista de la compra, notes, fusos horaris, opcions de la ruleta, colors, noms d'equips i preferències de monedes.",
+        "Es desen en una taula on cada fila porta el teu identificador d'usuari, i les polítiques de seguretat de la base de dades impedeixen que ningú més llegeixi ni escrigui les teves files.",
+        "De la contrasenya i la sessió se n'encarrega la mateixa biblioteca de Supabase: aquesta aplicació no desa contrasenyes ni tokens pel seu compte.",
+        "Pots esborrar les teves dades del núvol quan vulguis des de Configuració → Compte."
+      ]
+    },
+    "network": {
+      "title": "Quan es fa servir internet",
+      "items": [
+        "En obrir l'aplicació per primera vegada, per baixar-la i desar-la per a ús sense connexió.",
+        "Per buscar actualitzacions de la mateixa aplicació.",
+        "El convertidor de monedes consultarà taxes de canvi públiques quan estigui disponible.",
+        "Si has iniciat la sessió, per sincronitzar les teves dades amb el teu projecte de Supabase."
+      ]
+    },
+    "control": {
+      "title": "El teu control",
+      "items": [
+        "Pots exportar una còpia de les teves dades quan vulguis des de Configuració → Dades.",
+        "Pots esborrar tot el que hi ha desat en aquest dispositiu amb un botó, i no es pot desfer."
+      ]
+    },
+    "contact": "Aquesta aplicació es publica com un web estàtic: qui l'allotja només veu les peticions normals d'un lloc web."
+  },
+  "licenses": {
+    "title": "Llicències",
+    "lead": "Biblioteques de tercers incloses dins del projecte perquè l'aplicació funcioni sense connexió.",
+    "empty": "Encara no es fa servir cap biblioteca externa: tot el codi és propi.",
+    "license": "Llicència",
+    "author": "Autoria",
+    "readFull": "Llegeix la llicència",
+    "project": "Projecte original",
+    "use": {
+      "qrcode": "Dibuixa els codis QR al dispositiu, sense connexió.",
+      "supabase": "Inici de sessió i sincronització de dades entre dispositius."
+    },
+    "ownCode": "La resta del codi de l'aplicació és propi: HTML, CSS i JavaScript sense frameworks."
+  },
+  "notfound": {
+    "title": "Pàgina no trobada",
+    "message": "L'enllaç que has seguit no existeix o ha canviat.",
+    "action": "Ves a l'inici"
+  },
+  "offlinePage": {
+    "title": "Sense connexió",
+    "message": "No hem pogut carregar aquesta part de l'aplicació i ara mateix no hi ha connexió.",
+    "action": "Torna-ho a provar"
+  },
+  "temporizador": {
+    "tab": {
+      "countdown": "Compte enrere",
+      "pomodoro": "Pomodoro"
+    },
+    "start": "Comença",
+    "pause": "Pausa",
+    "reset": "Reinicia",
+    "preset": "{n} min",
+    "remaining": "Queden {time}",
+    "endsAt": "Acaba a les {time}",
+    "round": "Ronda {n}",
+    "custom": {
+      "action": "Posa",
+      "invalid": "Entre 0 i 599 minuts i entre 0 i 59 segons, i que no sigui zero.",
+      "title": "Temps a mida",
+      "minutes": "Minuts",
+      "seconds": "Segons"
+    },
+    "state": {
+      "running": "En marxa",
+      "paused": "En pausa",
+      "finished": "Acabat"
+    },
+    "phase": {
+      "cuenta": "Compte enrere",
+      "focus": "Concentració",
+      "short": "Descans curt",
+      "long": "Descans llarg"
+    },
+    "done": {
+      "title": "Temps complert",
+      "body": "Ha acabat: {phase}",
+      "notification": "Ha acabat: {phase}. Toca per aturar l'alarma."
+    },
+    "pomodoro": {
+      "config": "{focus} min de concentració · {short} min de descans · {long} min de descans llarg cada {rounds} rondes. Es canvia a la configuració."
+    },
+    "hint": "Continua comptant encara que canviïs de pantalla, i l'alarma sona una vegada i una altra fins que l'atures.",
+    "alarm": {
+      "stop": "Atura l'alarma",
+      "ringing": "Sonant: {phase}"
+    },
+    "notify": {
+      "title": "Notificació al dispositiu",
+      "ask": "Rep l'avís a la barra de notificacions, com qualsevol altra aplicació, encara que tinguis la pantalla apagada o siguis en una altra aplicació.",
+      "enable": "Activa",
+      "enabled": "Notificacions activades",
+      "on": "Activades. Quan acabi el compte et arribarà una notificació amb un botó per aturar l'alarma.",
+      "test": "Envia'n una de prova",
+      "tested": "Notificació de prova enviada",
+      "testTitle": "A mano",
+      "testBody": "Així t'avisarem quan acabi el temporitzador.",
+      "denied": "Has bloquejat les notificacions per a aquesta pàgina. Per rebre-les, obre-les des dels permisos del lloc al teu navegador (el cadenat al costat de l'adreça) i torna aquí.",
+      "unsupported": "El teu navegador no admet notificacions. A l'iPhone i l'iPad cal instal·lar l'aplicació a la pantalla d'inici perquè funcionin."
+    }
+  },
+  "listas": {
+    "add": "Afegeix",
+    "tab": {
+      "tareas": "Tasques",
+      "compra": "Compra",
+      "notas": "Notes"
+    },
+    "tareas": {
+      "placeholder": "Què s'ha de fer?",
+      "addLabel": "Tasca nova",
+      "editLabel": "Edita la tasca",
+      "dueLabel": "Data límit",
+      "dueHint": "Data límit (opcional)",
+      "due": "Per al {date}",
+      "overdue": "Va vèncer el {date}",
+      "markDone": "Marca «{text}» com a feta",
+      "markPending": "Marca «{text}» com a pendent",
+      "moveUp": "Puja",
+      "moveDown": "Baixa",
+      "edit": "Edita",
+      "delete": "Esborra",
+      "filterLabel": "Filtra les tasques",
+      "filter": {
+        "todas": "Totes",
+        "pendientes": "Pendents",
+        "hechas": "Fetes"
+      },
+      "pending": {
+        "one": "{n} pendent",
+        "other": "{n} pendents"
+      },
+      "clearDone": "Esborra les completades",
+      "clearDoneConfirm": "S'esborraran totes les tasques marcades com a fetes.",
+      "cleared": "Tasques completades esborrades",
+      "empty": {
+        "title": "Sense tasques",
+        "message": "Escriu a dalt la primera cosa que hagis de fer."
+      },
+      "emptyFilter": {
+        "title": "Res per aquí",
+        "message": "Cap tasca no encaixa amb aquest filtre."
+      }
+    },
+    "compra": {
+      "placeholder": "Afegeix un article i prem Retorn",
+      "addLabel": "Article nou",
+      "qtyPlaceholder": "Quant.",
+      "qtyLabel": "Quantitat (opcional)",
+      "categoryLabel": "Categoria (opcional)",
+      "categoryHint": "Categoria del pròxim article (opcional)",
+      "noCategory": "Sense categoria",
+      "category": {
+        "fruta": "Fruita",
+        "verdura": "Verdura",
+        "carne": "Carn",
+        "pescado": "Peix",
+        "lacteos": "Lactis",
+        "panaderia": "Fleca",
+        "bebidas": "Begudes",
+        "congelados": "Congelats",
+        "despensa": "Rebost",
+        "limpieza": "Neteja",
+        "higiene": "Higiene",
+        "otros": "Altres"
+      },
+      "markBought": "Marca «{text}» com a comprat",
+      "markPending": "Marca «{text}» com a pendent",
+      "delete": "Treu «{text}»",
+      "pending": {
+        "one": "{n} per comprar",
+        "other": "{n} per comprar"
+      },
+      "uncheckAll": "Desmarca-ho tot",
+      "clearBought": "Esborra els comprats",
+      "clearBoughtConfirm": "Es trauran de la llista els articles ja comprats.",
+      "cleared": "Articles comprats esborrats",
+      "share": "Copia o comparteix",
+      "empty": {
+        "title": "La llista és buida",
+        "message": "Escriu un article i prem Retorn. T'anirà suggerint els que ja has fet servir."
+      }
+    },
+    "notas": {
+      "new": "Nota nova",
+      "untitled": "Sense títol",
+      "emptyBody": "(buida)",
+      "titleLabel": "Títol de la nota",
+      "titlePlaceholder": "Títol (opcional)",
+      "bodyLabel": "Contingut de la nota",
+      "bodyPlaceholder": "Escriu aquí…",
+      "searchLabel": "Cerca a les notes",
+      "searchPlaceholder": "Cerca a les notes…",
+      "saving": "S'està desant…",
+      "saved": "Desat",
+      "updated": "Editada {when}",
+      "pin": "Fixa a dalt",
+      "unpin": "Deixa de fixar",
+      "pinned": "Fixada",
+      "delete": "Esborra la nota",
+      "deleteConfirmTitle": "Vols esborrar aquesta nota?",
+      "deleteConfirmMessage": "No es pot desfer.",
+      "deleted": "Nota esborrada",
+      "empty": {
+        "title": "Sense notes",
+        "message": "Crea la primera amb un toc."
+      },
+      "noResults": {
+        "title": "Sense resultats",
+        "message": "Cap nota no coincideix amb la cerca."
+      },
+      "format": {
+        "label": "Format",
+        "bold": "Negreta (Ctrl+B)",
+        "italic": "Cursiva (Ctrl+I)",
+        "strike": "Ratllat",
+        "color": "Color del text",
+        "noColor": "Sense color"
+      },
+      "color": {
+        "rojo": "Vermell",
+        "naranja": "Taronja",
+        "amarillo": "Groc",
+        "verde": "Verd",
+        "azul": "Blau",
+        "violeta": "Violeta",
+        "rosa": "Rosa",
+        "gris": "Gris"
+      }
+    }
+  },
+  "unidades": {
+    "category": "Magnitud",
+    "cat": {
+      "longitud": "Longitud",
+      "masa": "Pes i massa",
+      "temperatura": "Temperatura",
+      "volumen": "Volum",
+      "superficie": "Superfície",
+      "velocidad": "Velocitat",
+      "tiempo": "Temps",
+      "datos": "Dades",
+      "presion": "Pressió",
+      "energia": "Energia"
+    },
+    "value": "Quantitat",
+    "from": "De",
+    "to": "A",
+    "swap": "Intercanvia",
+    "invalid": "Escriu un nombre",
+    "summary": "{value} {from} equival a:",
+    "allUnits": "Ves a totes les unitats",
+    "hint": "El separador decimal pot ser coma o punt. Les unitats imperials fan servir les mesures dels EUA excepte on s'indica.",
+    "u": {
+      "longitud": {
+        "mm": "mil·límetres",
+        "cm": "centímetres",
+        "m": "metres",
+        "km": "quilòmetres",
+        "in": "polzades",
+        "ft": "peus",
+        "yd": "iardes",
+        "mi": "milles",
+        "nmi": "milles nàutiques"
+      },
+      "masa": {
+        "mg": "mil·ligrams",
+        "g": "grams",
+        "kg": "quilograms",
+        "t": "tones",
+        "oz": "unces",
+        "lb": "lliures",
+        "st": "stones"
+      },
+      "temperatura": {
+        "c": "graus Celsius",
+        "f": "graus Fahrenheit",
+        "k": "kelvin"
+      },
+      "volumen": {
+        "ml": "mil·lilitres",
+        "cl": "centilitres",
+        "l": "litres",
+        "m3": "metres cúbics",
+        "tsp": "culleradetes",
+        "tbsp": "cullerades",
+        "floz": "unces líquides",
+        "cup": "tasses",
+        "pt": "pintes",
+        "qt": "quarts",
+        "galus": "galons (EUA)",
+        "galuk": "galons (Regne Unit)"
+      },
+      "superficie": {
+        "cm2": "centímetres quadrats",
+        "m2": "metres quadrats",
+        "ha": "hectàrees",
+        "km2": "quilòmetres quadrats",
+        "in2": "polzades quadrades",
+        "ft2": "peus quadrats",
+        "yd2": "iardes quadrades",
+        "acre": "acres",
+        "mi2": "milles quadrades"
+      },
+      "velocidad": {
+        "ms": "metres per segon",
+        "kmh": "quilòmetres per hora",
+        "mph": "milles per hora",
+        "fts": "peus per segon",
+        "kn": "nusos"
+      },
+      "tiempo": {
+        "ms": "mil·lisegons",
+        "s": "segons",
+        "min": "minuts",
+        "h": "hores",
+        "d": "dies",
+        "wk": "setmanes",
+        "mo": "mesos",
+        "yr": "anys"
+      },
+      "datos": {
+        "bit": "bits",
+        "b": "bytes",
+        "kb": "kilobytes",
+        "mb": "megabytes",
+        "gb": "gigabytes",
+        "tb": "terabytes",
+        "kib": "kibibytes",
+        "mib": "mebibytes",
+        "gib": "gibibytes",
+        "tib": "tebibytes"
+      },
+      "presion": {
+        "pa": "pascals",
+        "hpa": "hectopascals",
+        "kpa": "quilopascals",
+        "bar": "bars",
+        "atm": "atmosferes",
+        "psi": "lliures per polzada quadrada",
+        "mmhg": "mil·límetres de mercuri"
+      },
+      "energia": {
+        "j": "joules",
+        "kj": "quilojoules",
+        "cal": "calories",
+        "kcal": "quilocalories",
+        "wh": "watts-hora",
+        "kwh": "quilowatts-hora",
+        "btu": "BTU"
+      }
+    }
+  },
+  "contrasenas": {
+    "generate": "Genera un altre cop",
+    "copyOne": "Copia aquesta contrasenya",
+    "copyAll": "Copia-les totes",
+    "length": "Longitud",
+    "chars": "{n} caràcters",
+    "count": "Quantes generar",
+    "lower": {
+      "label": "Minúscules",
+      "desc": "a–z"
+    },
+    "upper": {
+      "label": "Majúscules",
+      "desc": "A–Z"
+    },
+    "digits": {
+      "label": "Nombres",
+      "desc": "0–9"
+    },
+    "symbols": {
+      "label": "Símbols",
+      "desc": "! @ # $ % & * …"
+    },
+    "noAmbiguous": {
+      "label": "Evita caràcters confusos",
+      "desc": "Treu l, I, 1, O, 0 i cometes, que es confonen en llegir-los."
+    },
+    "noSets": "Activa almenys un tipus de caràcters",
+    "strength": "Seguretat: {level} · {bits} bits d'entropia",
+    "level": {
+      "1": "baixa",
+      "2": "acceptable",
+      "3": "bona",
+      "4": "molt bona"
+    },
+    "privacy": "Es generen al teu dispositiu amb el generador criptogràfic del navegador. No s'envien ni es desen enlloc."
+  },
+  "contador": {
+    "label": "Text per analitzar",
+    "placeholder": "Escriu o enganxa aquí el teu text…",
+    "stat": {
+      "words": "Paraules",
+      "chars": "Caràcters",
+      "charsNoSpaces": "Sense espais",
+      "sentences": "Frases",
+      "paragraphs": "Paràgrafs",
+      "lines": "Línies"
+    },
+    "times": "Lectura: {read} · en veu alta: {speak}",
+    "time": {
+      "zero": "menys d'1 s",
+      "seconds": "{n} s",
+      "minutes": "{n} min"
+    },
+    "frequent": "Paraules més repetides:",
+    "clear": "Buida",
+    "clearConfirmTitle": "Vols buidar el text?",
+    "clearConfirmMessage": "S'esborrarà el que hi ha escrit. No es pot desfer.",
+    "hint": "El text es desa només en aquest dispositiu perquè el trobis en tornar."
+  },
+  "porcentajes": {
+    "mode": {
+      "deQue": "Quant és un % d'una quantitat?",
+      "queporcentaje": "Quin percentatge representa?",
+      "aumentar": "Augmentar una quantitat un %",
+      "descontar": "Aplicar un descompte",
+      "variacion": "Variació entre dos valors",
+      "impuesto": "Afegir impost (IVA)",
+      "sinImpuesto": "Treure impost (IVA)"
+    },
+    "f": {
+      "percent": "Percentatge (%)",
+      "of": "D'aquesta quantitat",
+      "part": "Part",
+      "total": "Total",
+      "amount": "Quantitat",
+      "increase": "Pujada (%)",
+      "price": "Preu",
+      "discount": "Descompte (%)",
+      "from": "Valor inicial",
+      "to": "Valor final",
+      "netPrice": "Preu sense impost",
+      "taxRate": "Impost (%)",
+      "grossPrice": "Preu amb impost"
+    },
+    "r": {
+      "deQue": "El {pct} % de {total} és {result}.",
+      "queporcentaje": "{part} és el {result} % de {total}.",
+      "aumentar": "{base} + {pct} % = {result} (puja {diff}).",
+      "descontar": "{base} − {pct} % = {result} (estalvies {diff}).",
+      "variacionSube": "De {from} a {to} puja un {pct} % ({diff} més).",
+      "variacionBaja": "De {from} a {to} baixa un {pct} % ({diff} menys).",
+      "variacionIgual": "De {from} a {to} no hi ha variació.",
+      "variacionCero": "No es pot calcular la variació partint de zero.",
+      "impuesto": "{base} + {pct} % d'impost = {result} (impost: {tax}).",
+      "sinImpuesto": "{gross} amb un {pct} % inclòs són {result} sense impost (impost: {tax})."
+    },
+    "invalid": "Escriu un nombre",
+    "hint": "Pots fer servir coma o punt per als decimals.",
+    "modeLabel": "Què vols calcular"
+  },
+  "monedas": {
+    "amount": "Quantitat",
+    "from": "De",
+    "to": "A",
+    "swap": "Intercanvia",
+    "invalidAmount": "Escriu una quantitat vàlida",
+    "rateLine": "1 {from} = {rate} {to}",
+    "loading": "S'estan buscant taxes de canvi…",
+    "refresh": "Actualitza les taxes",
+    "refreshed": "Taxes actualitzades",
+    "updated": "Taxa del {when} · font: {source}",
+    "noRates": "Encara no hi ha taxes baixades",
+    "pick": {
+      "from": "Tria la moneda d'origen",
+      "to": "Tria la moneda de destí",
+      "search": "Cerca una moneda…",
+      "none": "Cap moneda no coincideix",
+      "fromCurrent": "Moneda d'origen: {code}. Prem per canviar-la",
+      "toCurrent": "Moneda de destí: {code}. Prem per canviar-la"
+    },
+    "manual": {
+      "summary": "Fes servir un tipus de canvi propi",
+      "label": "Tipus de canvi manual",
+      "hint": "Quantes unitats de la moneda de destí equivalen a 1 de la d'origen. Si l'omples, té prioritat sobre el d'internet.",
+      "invalid": "Escriu un nombre més gran que zero",
+      "inUse": "tipus de canvi manual"
+    },
+    "error": {
+      "offline": "Sense connexió: s'està fent servir l'última taxa desada, que pot estar desactualitzada.",
+      "stale": "Aquestes taxes tenen més d'un dia. Prem «Actualitza les taxes» quan tinguis connexió.",
+      "noData": "No s'han pogut baixar les taxes i no n'hi ha cap de desada. Connecta't a internet o escriu un tipus de canvi manual.",
+      "fetch": "No s'han pogut actualitzar les taxes"
+    },
+    "disclaimer": "El resultat és orientatiu. Les taxes són de referència i no inclouen comissions ni el marge del teu banc."
+  },
+  "zonas": {
+    "tab": {
+      "clock": "Rellotges",
+      "convert": "Converteix"
+    },
+    "add": "Afegeix un fus",
+    "remove": "Treu {name}",
+    "copy": "Copia",
+    "myZone": "{name} (el meu fus)",
+    "searchLabel": "Cerca un fus horari",
+    "searchPlaceholder": "Cerca una ciutat o un fus…",
+    "noResults": "Cap fus no coincideix",
+    "day": "de dia",
+    "night": "de nit",
+    "sameTime": "mateixa hora",
+    "ahead": "{diff} h respecte a tu",
+    "behind": "{diff} h respecte a tu",
+    "empty": {
+      "title": "Només el teu fus",
+      "message": "Afegeix ciutats per veure la seva hora alhora."
+    },
+    "convert": {
+      "source": "Fus d'origen",
+      "date": "Data",
+      "time": "Hora",
+      "now": "Ara",
+      "invalid": "Completa la data i l'hora",
+      "addMore": "Afegeix algun fus més per comparar."
+    },
+    "hint": "Les hores surten del mateix navegador, així que funcionen sense connexió i tenen en compte l'horari d'estiu de cada país."
+  },
+  "azar": {
+    "tab": {
+      "moneda": "Moneda",
+      "dados": "Daus",
+      "ruleta": "Ruleta",
+      "numeros": "Nombres"
+    },
+    "moneda": {
+      "ready": "Llança",
+      "heads": "Cara",
+      "tails": "Creu",
+      "flip": "Llança",
+      "reset": "Posa a zero",
+      "score": "Cara: {heads} · Creu: {tails} · Total: {total}",
+      "coinLabel": "Moneda",
+      "finish": {
+        "label": "Acabat",
+        "oro": "Or",
+        "plata": "Plata",
+        "cobre": "Coure"
+      }
+    },
+    "dados": {
+      "count": "Quants daus",
+      "faces": "Cares",
+      "custom": "Personalitzat",
+      "customFaces": "Nombre de cares",
+      "customInvalid": "Entre 2 i 1000",
+      "roll": "Tira",
+      "total": "{values} = {sum}",
+      "dieLabel": "Dau de {sides} cares: {value}"
+    },
+    "ruleta": {
+      "spin": "Gira",
+      "optionsLabel": "Opcions (una per línia)",
+      "placeholder": "Pizza\nPasta\nSushi",
+      "example": "Pizza\nPasta\nSushi\nAmanida",
+      "hint": "Fins a 24 opcions. Es desen per a la propera vegada.",
+      "empty": "Escriu alguna opció",
+      "emptyLabel": "Ruleta buida",
+      "wheelLabel": "Ruleta amb {n} opcions"
+    },
+    "numeros": {
+      "min": "Mínim",
+      "max": "Màxim",
+      "count": "Quants nombres",
+      "generate": "Genera",
+      "needNumber": "Escriu un nombre",
+      "needInteger": "Han de ser nombres enters",
+      "minLessThanMax": "El mínim ha de ser més petit que el màxim",
+      "countRange": "Entre 1 i 100",
+      "tooManyUnique": "Sense repetir només hi caben {size} nombres en aquest interval",
+      "noRepeat": {
+        "label": "Sense repetir",
+        "desc": "Que no surti dues vegades el mateix nombre."
+      },
+      "sorted": {
+        "label": "Ordena el resultat",
+        "desc": "De menor a major."
+      },
+      "history": "Últims resultats:"
+    },
+    "hint": "Els resultats fan servir el generador criptogràfic del navegador, sense el biaix que introdueix la resta de la divisió."
+  },
+  "qr": {
+    "tab": {
+      "text": "Text o enllaç",
+      "wifi": "Wi-Fi"
+    },
+    "text": {
+      "label": "Text o enllaç",
+      "placeholder": "https://exemple.com o qualsevol text",
+      "hint": "El codi es genera sol, a mesura que escrius."
+    },
+    "wifi": {
+      "ssid": "Nom de la xarxa (SSID)",
+      "password": "Contrasenya",
+      "passwordHint": "No es desa enlloc: només es fa servir per dibuixar el codi.",
+      "security": "Seguretat",
+      "wpa": "WPA/WPA2/WPA3",
+      "open": "Sense contrasenya",
+      "hidden": {
+        "label": "Xarxa oculta",
+        "desc": "Marca això si la xarxa no apareix a la llista."
+      },
+      "note": "En escanejar-lo, el mòbil s'ofereix a connectar-se a aquesta xarxa."
+    },
+    "size": "Mida",
+    "level": "Correcció d'errors",
+    "levelName": {
+      "L": "Baixa (L) · més dades",
+      "M": "Mitjana (M) · recomanada",
+      "Q": "Alta (Q)",
+      "H": "Màxima (H) · més resistent"
+    },
+    "colorDark": "Color del codi",
+    "colorLight": "Color del fons",
+    "appearance": "Mida i colors",
+    "download": "Baixa PNG",
+    "downloaded": "Imatge baixada",
+    "downloadFailed": "No s'ha pogut generar la imatge",
+    "tooLong": "El text és massa llarg per a un codi QR. Escurça'l o baixa la correcció d'errors.",
+    "canvasLabel": "Codi QR",
+    "canvasEmpty": "Sense contingut encara",
+    "canvasReady": "Codi QR generat",
+    "privacy": "El codi es dibuixa al teu dispositiu. Ni el text ni la contrasenya del wifi surten d'aquí."
+  },
+  "colores": {
+    "tab": {
+      "picker": "Selector",
+      "contrast": "Contrast"
+    },
+    "pick": "Tria un color",
+    "invalidHex": "Escriu un HEX de 3 o 6 dígits (per exemple #4f8ef7)",
+    "invalidRgb": "Tres valors entre 0 i 255 (per exemple 79, 142, 247)",
+    "invalidHsl": "To en graus i dos percentatges (per exemple 217, 91%, 64%)",
+    "copyValue": "Copia el valor {name}",
+    "shades": "Tons més clars i més foscos",
+    "useShade": "Fes servir el to {hex}",
+    "saved": "Colors desats",
+    "save": "Desa aquest color",
+    "savedOk": "Color desat",
+    "alreadySaved": "Aquest color ja està desat",
+    "clearSaved": "Buida",
+    "noSaved": "Encara no has desat cap color.",
+    "useSaved": "Fes servir el color desat {hex}",
+    "eyedropper": "Comptagotes",
+    "eyedropperUnsupported": "El teu navegador no té comptagotes",
+    "contrast": {
+      "text": "Color del text",
+      "bg": "Color del fons",
+      "swap": "Intercanvia",
+      "useCurrent": "Fes servir el color del selector",
+      "ratio": "Relació de contrast: {value}:1",
+      "aaNormal": "AA text normal",
+      "aaLarge": "AA text gran",
+      "aaaNormal": "AAA text normal",
+      "aaaLarge": "AAA text gran",
+      "sampleBig": "Text gran d'exemple",
+      "sampleSmall": "I així es veuria un paràgraf normal amb aquesta parella de colors.",
+      "hint": "«Text gran» són 18,66 px en negreta o 24 px normal en endavant. AA demana 4,5:1 (3:1 en text gran) i AAA demana 7:1 (4,5:1 en text gran)."
+    }
+  },
+  "equipos": {
+    "namesLabel": "Noms (un per línia)",
+    "namesPlaceholder": "Anna\nBruno\nCarla\nDídac",
+    "namesHint": "Es desen per a la propera vegada. Els repetits es descarten.",
+    "whoPlays": "Qui participa avui",
+    "toggle": "Inclou {name} al sorteig",
+    "noNames": "Escriu a dalt els noms.",
+    "modeLabel": "Com repartir",
+    "mode": {
+      "teams": "Per nombre d'equips",
+      "size": "Per mida d'equip"
+    },
+    "teamCount": "Nombre d'equips",
+    "teamSize": "Persones per equip",
+    "countInvalid": "Entre 2 i 50",
+    "sizeInvalid": "Entre 2 i 50",
+    "pairs": "Fes parelles",
+    "draw": "Sorteja",
+    "again": "Repeteix el sorteig",
+    "share": "Copia o comparteix",
+    "needTwo": "Calen com a mínim dos participants",
+    "noneActive": "No hi ha ningú seleccionat.",
+    "summary": "{people} · {teams} · entre {min} i {max} per equip",
+    "people": {
+      "one": "{n} persona",
+      "other": "{n} persones"
+    },
+    "teams": {
+      "one": "{n} equip",
+      "other": "{n} equips"
+    },
+    "teamName": "Equip {n}",
+    "teamNameLabel": "Nom de l'equip {n}",
+    "empty": {
+      "title": "Encara sense sorteig",
+      "message": "Escriu els noms i prem «Sorteja»."
+    },
+    "hint": "El repartiment és realment aleatori (barreja de Fisher-Yates amb el generador criptogràfic) i els equips queden igualats, amb una persona de diferència com a màxim."
+  },
+  "sync": {
+    "applied": "Dades actualitzades des del teu compte"
+  },
+  "categories": {
+    "all": "Totes",
+    "filterLabel": "Filtra per categoria",
+    "calculo": "Càlcul",
+    "tiempo": "Temps",
+    "texto": "Text i dades",
+    "azar": "Atzar",
+    "estudio": "Estudi",
+    "empty": {
+      "title": "Res en aquesta categoria",
+      "message": "Totes les seves eines estan amagades des de la configuració.",
+      "action": "Mostra-les totes"
+    }
+  },
+  "calc": {
+    "tab": {
+      "cientifica": "Científica",
+      "lineal": "1r grau",
+      "cuadratica": "2n grau",
+      "sistema": "Sistemes",
+      "fracciones": "Fraccions",
+      "mcd": "MCD i mcm",
+      "factorizar": "Factoritza",
+      "regla": "Regla de 3",
+      "porcentajes": "Percentatges",
+      "potencias": "Potències",
+      "estadistica": "Estadística"
+    },
+    "explicar": "Explica pas a pas",
+    "explicarDesc": "Mostra com s'arriba al resultat, no només el resultat.",
+    "nivel": {
+      "label": "Nivell de detall",
+      "breve": "Breu",
+      "detallado": "Detallat"
+    },
+    "pasos": "Com es resol",
+    "pasosOcultos": "… {n} passos intermedis amagats (posa «Detallat» per veure'ls)",
+    "copyResult": "Copia el resultat",
+    "copySteps": "Copia l'explicació",
+    "sinPasos": "No hi ha cap explicació per copiar",
+    "ejemplo": "Exemple",
+    "historial": "Últims càlculs",
+    "nota": "Els càlculs es fan amb fraccions exactes i només es passen a decimal al final.",
+    "cientifica": {
+      "label": "Expressió",
+      "placeholder": "Per exemple: 2+3×4 o sqrt(16)",
+      "angulo": "Angles",
+      "grados": "Graus",
+      "radianes": "Radians",
+      "borrar": "Esborra",
+      "limpiar": "Neteja",
+      "guardar": "Desa a l'històric"
+    },
+    "lineal": {
+      "a": "a (coeficient de x)",
+      "b": "b (terme independent)",
+      "c": "c (resultat)",
+      "infinitas": "Infinites solucions",
+      "ninguna": "Sense solució"
+    },
+    "cuadratica": {
+      "a": "a (coeficient de x²)",
+      "b": "b (coeficient de x)",
+      "c": "c (terme independent)",
+      "sinReales": "No hi ha solucions reals",
+      "unaDoble": "Solució doble"
+    },
+    "sistema": {
+      "a1": "a₁",
+      "b1": "b₁",
+      "c1": "c₁",
+      "a2": "a₂",
+      "b2": "b₂",
+      "c2": "c₂",
+      "metodo": "Mètode",
+      "metodo.reduccion": "Reducció",
+      "metodo.sustitucion": "Substitució",
+      "metodo.cramer": "Cramer",
+      "ninguna": "Sense solució",
+      "infinitas": "Infinites solucions"
+    },
+    "fracciones": {
+      "a": "Primera fracció",
+      "b": "Segona fracció",
+      "formato": "S'escriu com 3/4, o també 0,75",
+      "op": "Operació",
+      "op.suma": "Suma",
+      "op.resta": "Resta",
+      "op.multiplicacion": "Multiplica",
+      "op.division": "Divideix"
+    },
+    "mcd": {
+      "a": "Primer nombre",
+      "b": "Segon nombre"
+    },
+    "factor": {
+      "n": "Nombre",
+      "divisores": "{n} divisors: {lista}"
+    },
+    "regla": {
+      "a": "Si això…",
+      "b": "…és això",
+      "c": "I això?",
+      "tipo": "Tipus",
+      "tipo.directa": "Directa",
+      "tipo.inversa": "Inversa"
+    },
+    "pct": {
+      "tipo": "Què calcular",
+      "tipo.deQue": "Quant és un % de…",
+      "tipo.queporcentaje": "Quin percentatge és…",
+      "tipo.aumentar": "Augmentar un %",
+      "tipo.descontar": "Descomptar un %",
+      "a": "Primer valor",
+      "b": "Segon valor"
+    },
+    "pot": {
+      "base": "Base",
+      "exp": "Exponent",
+      "expHint": "Escriu «sqrt» com a exponent per a l'arrel quadrada"
+    },
+    "est": {
+      "datos": "Dades",
+      "placeholder": "4, 8, 15, 16, 23, 42",
+      "tipo": "Tipus de mostra",
+      "tipo.poblacional": "Població (n)",
+      "tipo.muestral": "Mostra (n−1)",
+      "resumen": "Mitjana {media} · Mediana {mediana} · σ {desviacion}",
+      "detalle": "{n} dades · mín {min} · màx {max} · rang {rango} · moda {moda} · Q1 {q1} · Q3 {q3} · variància {varianza}",
+      "sinModa": "sense moda"
+    },
+    "error": {
+      "entreCero": "No es pot dividir entre zero",
+      "ceros": "Els dos nombres no poden ser zero",
+      "cero": "El nombre no pot ser zero",
+      "totalCero": "El total no pot ser zero",
+      "raizNegativa": "No hi ha arrel quadrada real d'un nombre negatiu",
+      "sinDatos": "Escriu alguna dada",
+      "general": "Revisa les dades"
+    },
+    "paso": {
+      "expr": "{paso}  →  {resto}",
+      "lineal.inicio": "Partim de {a}x + ({b}) = {c}.",
+      "lineal.despeja": "Passem {b} a l'altre costat: {a}x = {resto}.",
+      "lineal.divide": "Dividim entre {a}: x = {resto} ÷ {a} = {x}.",
+      "lineal.infinitas": "Els dos costats són iguals: qualsevol valor de x serveix.",
+      "lineal.ninguna": "Queda una igualtat falsa: no hi ha cap solució.",
+      "cuadratica.inicio": "Partim de {a}x² + ({b})x + ({c}) = 0.",
+      "cuadratica.discriminante": "Discriminant: Δ = b² − 4ac = ({b})² − 4·({a})·({c}) = {d}.",
+      "cuadratica.doble": "Δ = 0, així que hi ha una única solució doble: x = {x}.",
+      "cuadratica.raizExacta": "√{d} = {raiz}, que és exacta.",
+      "cuadratica.raizSimplificada": "√{d} = {fuera}√{dentro}.",
+      "cuadratica.dos": "x = (−b ± √Δ) ÷ 2a dona x₁ = {x1} i x₂ = {x2}.",
+      "cuadratica.dosDecimal": "x = (−b ± √Δ) ÷ 2a dona x₁ ≈ {x1} i x₂ ≈ {x2}.",
+      "cuadratica.negativo": "Δ = {d} és negatiu: no hi ha solucions reals.",
+      "cuadratica.complejas": "Les solucions són complexes: x = {re} ± {im}i.",
+      "sistema.inicio": "Sistema: {a1}x + {b1}y = {c1} i {a2}x + {b2}y = {c2}.",
+      "sistema.infinitas": "Les dues equacions són la mateixa recta: hi ha infinites solucions.",
+      "sistema.ninguna": "Les dues rectes són paral·leles: no hi ha solució.",
+      "sistema.cramerDet": "Determinant principal: Δ = {det}.",
+      "sistema.cramerX": "x = Δx ÷ Δ = {detX} ÷ {det} = {x}.",
+      "sistema.cramerY": "y = Δy ÷ Δ = {detY} ÷ {det} = {y}.",
+      "sistema.despejaX": "Aïllem la x a la primera: x = ({c1} + {b1}y) ÷ {a1}.",
+      "sistema.sustituye": "Substituïm aquesta x a la segona equació.",
+      "sistema.multiplica": "Multipliquem la primera per {m1} i la segona per {m2} per igualar els coeficients de x.",
+      "sistema.resta": "Restem les dues equacions perquè desaparegui la x.",
+      "sistema.resultadoY": "Queda y = {y}.",
+      "sistema.resultadoX": "I substituint, x = {x}.",
+      "fracciones.inicio": "Operació: {a} {op} {b}.",
+      "fracciones.comun": "Denominador comú: el mcm dels dos és {m}.",
+      "fracciones.igualadas": "Amb aquest denominador: {a} {op} {b}.",
+      "fracciones.operados": "Operem els numeradors: {n}/{d}.",
+      "fracciones.multiplica": "Es multiplica a dalt amb a dalt i a baix amb a baix: ({n}) / ({d}).",
+      "fracciones.invierte": "Dividir entre {b} és multiplicar per {inv}.",
+      "fracciones.simplificada": "Simplificat: {r} (≈ {decimal}).",
+      "fracciones.simplificaInicio": "Partim de {f}.",
+      "fracciones.divideAmbos": "Dividim a dalt i a baix entre el seu MCD, que és {g}.",
+      "fracciones.yaSimple": "Ja està simplificada del tot.",
+      "mcd.inicio": "Busquem el MCD de {a} i {b} amb l'algorisme d'Euclides.",
+      "mcd.division": "{a} = {b} × {q} + {r}.",
+      "mcd.resultado": "L'últim residu diferent de zero dona el MCD = {g}.",
+      "mcd.mcm": "I el mcm surt de mcm = ({a} × {b}) ÷ MCD = {m}.",
+      "factor.inicio": "Descomponem {n} dividint entre primers.",
+      "factor.divide": "{n} ÷ {p} = {r}.",
+      "factor.resultado": "{n} = {f}.",
+      "factor.esPrimo": "{n} només es divideix entre 1 i entre ell mateix: és primer.",
+      "factor.uno": "L'1 no té factors primers.",
+      "regla.inicioDirecta": "Regla de tres directa: si {a} correspon a {b}, a quant correspon {c}?",
+      "regla.inicioInversa": "Regla de tres inversa: si {a} correspon a {b}, a quant correspon {c}?",
+      "regla.formulaDirecta": "x = ({b} × {c}) ÷ {a} = {x}.",
+      "regla.formulaInversa": "x = ({a} × {b}) ÷ {c} = {x}.",
+      "regla.resultado": "Resultat: x = {x} (≈ {decimal}).",
+      "pct.deQueInicio": "Volem el {p} % de {n}.",
+      "pct.deQuePaso": "{p} ÷ 100 × {n} = {r}.",
+      "pct.queInicio": "Volem saber quin percentatge és {a} de {b}.",
+      "pct.quePaso": "({a} ÷ {b}) × 100 = {r} %.",
+      "pct.aumentaInicio": "Augmentem {n} un {p} %.",
+      "pct.aumentaPaso": "{n} × (100 + {p}) ÷ 100 = {r}.",
+      "pct.descuentaInicio": "Descomptem un {p} % de {n}.",
+      "pct.descuentaPaso": "{n} × (100 − {p}) ÷ 100 = {r}.",
+      "pct.resultado": "Resultat: {r}.",
+      "pot.inicio": "Calculem {b} elevat a {e}.",
+      "pot.multiplica": "Multipliquem {b} per si mateix {e} vegades.",
+      "pot.negativo": "L'exponent negatiu inverteix la base: 1 ÷ ({b} elevat a {e}).",
+      "pot.decimal": "Exponent no enter: es calcula en decimal, {r}.",
+      "pot.resultado": "Resultat: {r} (≈ {decimal}).",
+      "pot.raizInicio": "Calculem l'arrel quadrada de {n}.",
+      "pot.raizExacta": "√{n} = {r}, exacta.",
+      "pot.raizSimplifica": "√{n} = {fuera}√{dentro}.",
+      "pot.raizDecimal": "En decimal, ≈ {r}.",
+      "est.datos": "Tenim {n} dades, ordenades: {lista}.",
+      "est.media": "Mitjana = suma ÷ n = {suma} ÷ {n} = {media}.",
+      "est.mediana": "La mediana, el valor central, és {mediana}.",
+      "est.varianza": "Variància = suma de (x − mitjana)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
+      "est.desviacion": "Desviació típica = √{varianza} = {desviacion}.",
+      "bases": {
+        "division": "{n} ÷ {base} = {cociente}, residu {resto} → dígit {digito}.",
+        "leerAlReves": "Es llegeixen els residus de baix a dalt: {digitos}.",
+        "multiplicacion": "{valor} × {base} → part entera {digito}, queda {resto}.",
+        "cero": "El zero s'escriu igual en totes les bases: 0."
+      }
+    }
+  },
+  "graf": {
+    "funcion": "Funció {n}",
+    "anadir": "Afegeix una funció",
+    "quitar": "Treu la funció",
+    "mostrar": "Mostra la funció",
+    "ocultar": "Amaga la funció",
+    "lienzo": "Gràfica buida: escriu una funció per veure-la.",
+    "lienzoCon": "Gràfica de {funciones}. Es veu de x = {x0} a x = {x1} i de y = {y0} a y = {y1}.",
+    "lectura": "{f} → x = {x}, y = {y}",
+    "lecturaSinValor": "A x = {x} la funció no té valor.",
+    "error": "No s'entén «{f}»: {motivo}",
+    "acercar": "Apropa",
+    "alejar": "Allunya",
+    "ajustarY": "Ajusta l'alçada",
+    "ajustado": "Alçada ajustada al que es veu.",
+    "nadaQueAjustar": "No hi ha cap funció visible per ajustar.",
+    "reiniciar": "Vista inicial",
+    "png": "Imatge PNG",
+    "csv": "Taula CSV",
+    "descargada": "Baixada preparada.",
+    "tabla": "Taula de valors",
+    "ayuda": "Fes servir x com a variable: x^2, sin(x), 1/x. Arrossega per moure la gràfica i fes servir la roda o els botons per apropar. Amb el teclat: fletxes per moure, + i − per al zoom."
+  },
+  "bases": {
+    "binario": "Binari (base 2)",
+    "octal": "Octal (base 8)",
+    "decimal": "Decimal (base 10)",
+    "hexadecimal": "Hexadecimal (base 16)",
+    "baseLibre": "Una altra base",
+    "baseN": "Base {n}",
+    "enBase": "En base {n}",
+    "copiar": "Copia el valor en base {base}",
+    "agrupar": "Agrupa el binari de quatre en quatre",
+    "agruparDesc": "1111 0000 es llegeix millor que 11110000.",
+    "tamano": "Mida per al complement a dos",
+    "nBits": "{n} bits",
+    "bits": "Bits que ocupa",
+    "digitosHex": "Dígits en hexadecimal",
+    "complemento": "Complement a dos ({bits} bits)",
+    "noCabe": "No hi cap en {bits} bits",
+    "sinBitsConDecimales": "El recompte de bits i el complement a dos només es mostren amb nombres enters.",
+    "cortado": "La part decimal és periòdica a la base de destí: es mostren {n} dígits.",
+    "ejemplo": "{v} en base {b}",
+    "explicarDesc": "Mostra les divisions i multiplicacions successives.",
+    "nota": "La part entera es calcula amb enters grans, així que no es perd precisió per llarga que sigui. S'accepten coma o punt decimal, i espais o guions baixos per separar.",
+    "error": {
+      "vacio": "Escriu un nombre.",
+      "base": "Aquesta base no és vàlida.",
+      "separadores": "Només hi pot haver un separador decimal.",
+      "digito": "«{c}» no és un dígit vàlid en base {base}."
+    }
+  },
+  "elementos": {
+    "nombre": {
+      "H": "Hidrogen",
+      "He": "Heli",
+      "Li": "Liti",
+      "Be": "Beril·li",
+      "B": "Bor",
+      "C": "Carboni",
+      "N": "Nitrogen",
+      "O": "Oxigen",
+      "F": "Fluor",
+      "Ne": "Neó",
+      "Na": "Sodi",
+      "Mg": "Magnesi",
+      "Al": "Alumini",
+      "Si": "Silici",
+      "P": "Fòsfor",
+      "S": "Sofre",
+      "Cl": "Clor",
+      "Ar": "Argó",
+      "K": "Potassi",
+      "Ca": "Calci",
+      "Sc": "Escandi",
+      "Ti": "Titani",
+      "V": "Vanadi",
+      "Cr": "Crom",
+      "Mn": "Manganès",
+      "Fe": "Ferro",
+      "Co": "Cobalt",
+      "Ni": "Níquel",
+      "Cu": "Coure",
+      "Zn": "Zinc",
+      "Ga": "Gal·li",
+      "Ge": "Germani",
+      "As": "Arsènic",
+      "Se": "Seleni",
+      "Br": "Brom",
+      "Kr": "Criptó",
+      "Rb": "Rubidi",
+      "Sr": "Estronci",
+      "Y": "Itri",
+      "Zr": "Zirconi",
+      "Nb": "Niobi",
+      "Mo": "Molibdè",
+      "Tc": "Tecneci",
+      "Ru": "Ruteni",
+      "Rh": "Rodi",
+      "Pd": "Pal·ladi",
+      "Ag": "Argent",
+      "Cd": "Cadmi",
+      "In": "Indi",
+      "Sn": "Estany",
+      "Sb": "Antimoni",
+      "Te": "Tel·luri",
+      "I": "Iode",
+      "Xe": "Xenó",
+      "Cs": "Cesi",
+      "Ba": "Bari",
+      "La": "Lantani",
+      "Ce": "Ceri",
+      "Pr": "Praseodimi",
+      "Nd": "Neodimi",
+      "Pm": "Prometi",
+      "Sm": "Samari",
+      "Eu": "Europi",
+      "Gd": "Gadolini",
+      "Tb": "Terbi",
+      "Dy": "Disprosi",
+      "Ho": "Holmi",
+      "Er": "Erbi",
+      "Tm": "Tuli",
+      "Yb": "Iterbi",
+      "Lu": "Luteci",
+      "Hf": "Hafni",
+      "Ta": "Tàntal",
+      "W": "Tungstè",
+      "Re": "Reni",
+      "Os": "Osmi",
+      "Ir": "Iridi",
+      "Pt": "Platí",
+      "Au": "Or",
+      "Hg": "Mercuri",
+      "Tl": "Tal·li",
+      "Pb": "Plom",
+      "Bi": "Bismut",
+      "Po": "Poloni",
+      "At": "Àstat",
+      "Rn": "Radó",
+      "Fr": "Franci",
+      "Ra": "Radi",
+      "Ac": "Actini",
+      "Th": "Tori",
+      "Pa": "Protactini",
+      "U": "Urani",
+      "Np": "Neptuni",
+      "Pu": "Plutoni",
+      "Am": "Americi",
+      "Cm": "Curi",
+      "Bk": "Berkeli",
+      "Cf": "Californi",
+      "Es": "Einsteini",
+      "Fm": "Fermi",
+      "Md": "Mendelevi",
+      "No": "Nobeli",
+      "Lr": "Lawrenci",
+      "Rf": "Rutherfordi",
+      "Db": "Dubni",
+      "Sg": "Seaborgi",
+      "Bh": "Bohri",
+      "Hs": "Hassi",
+      "Mt": "Meitneri",
+      "Ds": "Darmstadti",
+      "Rg": "Roentgeni",
+      "Cn": "Copernici",
+      "Nh": "Nihoni",
+      "Fl": "Flerovi",
+      "Mc": "Moscovi",
+      "Lv": "Livermori",
+      "Ts": "Tennes",
+      "Og": "Oganessó"
+    },
+    "cat": {
+      "alcalino": "Metall alcalí",
+      "alcalinoterreo": "Metall alcalinoterri",
+      "transicion": "Metall de transició",
+      "postTransicion": "Metall del bloc p",
+      "metaloide": "Metal·loide",
+      "noMetal": "No metall",
+      "halogeno": "Halogen",
+      "nobleGas": "Gas noble",
+      "lantanido": "Lantànid",
+      "actinido": "Actínid"
+    },
+    "estado": {
+      "solido": "Sòlid",
+      "liquido": "Líquid",
+      "gas": "Gas",
+      "previsto": "Previst"
+    }
+  },
+  "tabla": {
+    "buscar": "Cerca un element",
+    "buscarAyuda": "Per nom, símbol o nombre atòmic.",
+    "sinResultados": "Cap element no coincideix amb «{q}».",
+    "colorear": "Acoloreix per",
+    "color": {
+      "categoria": "Família",
+      "estado": "Estat a 20 °C",
+      "electroneg": "Electronegativitat",
+      "masa": "Massa atòmica"
+    },
+    "leyenda": "Llegenda",
+    "sinDato": "Sense dada",
+    "celda": "{z} {simbolo} {nombre}, {familia}",
+    "cerrar": "Tanca la fitxa",
+    "anterior": "Element anterior",
+    "siguiente": "Element següent",
+    "z": "Nombre atòmic",
+    "masa": "Massa atòmica",
+    "familia": "Família",
+    "grupoPeriodo": "Grup i període",
+    "grupo": "Grup {g}",
+    "sinGrupo": "Fora de la graella principal",
+    "periodo": "Període {p}",
+    "config": "Configuració electrònica",
+    "configPredicha": "prevista, no mesurada",
+    "electroneg": "Electronegativitat (Pauling)",
+    "ionizacion": "Energia d'ionització",
+    "afinidad": "Afinitat electrònica",
+    "radio": "Radi de van der Waals",
+    "fusion": "Punt de fusió",
+    "ebullicion": "Punt d'ebullició",
+    "densidad": "Densitat",
+    "oxidacion": "Estats d'oxidació",
+    "estado": "Estat a 20 °C",
+    "anio": "Any del descobriment",
+    "anioAntiguo": "Conegut des de l'antiguitat",
+    "lantanidos": "Lantànids",
+    "actinidos": "Actínids",
+    "fuente": "D'on surten aquestes dades",
+    "fuenteTexto": "Les dades vénen de la taula periòdica de PubChem (NCBI, domini públic) i s'han comprovat element a element contra una segona font. El detall és a docs/fuentes-datos.md del repositori.",
+    "unidad": {
+      "u": "u",
+      "eV": "eV",
+      "pm": "pm",
+      "K": "K",
+      "gcm3": "g/cm³"
+    },
+    "enC": "{v} °C"
+  },
+  "formulas": {
+    "var": {
+      "A": "Àrea",
+      "l": "Costat",
+      "b": "Base",
+      "h": "Alçada",
+      "r": "Radi",
+      "L": "Longitud",
+      "B": "Base major",
+      "c": "Hipotenusa",
+      "a": "Catet / Acceleració",
+      "V": "Volum",
+      "A_b": "Àrea de la base",
+      "d": "Distància",
+      "v": "Velocitat",
+      "t": "Temps",
+      "v0": "Velocitat inicial",
+      "x": "Posició",
+      "x0": "Posició inicial",
+      "g": "Gravetat",
+      "F": "Força",
+      "m": "Massa",
+      "P": "Pes / Potència",
+      "p": "Pressió",
+      "rho": "Densitat",
+      "Ec": "Energia cinètica",
+      "Ep": "Energia potencial",
+      "W": "Treball",
+      "I": "Intensitat / Interès",
+      "R": "Resistència",
+      "Q": "Càrrega",
+      "n": "Mols",
+      "M": "Massa molar",
+      "Mc": "Molaritat",
+      "T": "Temperatura",
+      "C": "Capital",
+      "C_f": "Capital final",
+      "real": "Mesura real",
+      "plano": "Mesura al plànol",
+      "escala": "Escala",
+      "IMC": "Índex de massa corporal"
+    },
+    "unidad": {
+      "m2": "m²",
+      "m": "m",
+      "m3": "m³",
+      "ms": "m/s",
+      "s": "s",
+      "ms2": "m/s²",
+      "N": "N",
+      "kg": "kg",
+      "Pa": "Pa",
+      "kgm3": "kg/m³",
+      "J": "J",
+      "W": "W",
+      "V": "V",
+      "A": "A",
+      "ohm": "Ω",
+      "C": "C",
+      "g": "g",
+      "mol": "mol",
+      "gmol": "g/mol",
+      "molL": "mol/L",
+      "L": "L",
+      "atm": "atm",
+      "RGas": "atm·L/(mol·K)",
+      "K": "K",
+      "cm": "cm",
+      "kgm2": "kg/m²",
+      "porcentaje": "%",
+      "anos": "anys"
+    },
+    "grupo": {
+      "plana": "Geometria plana",
+      "cuerpos": "Cossos",
+      "cinematica": "Cinemàtica",
+      "dinamica": "Dinàmica",
+      "energia": "Energia i treball",
+      "electricidad": "Electricitat",
+      "quimica": "Química",
+      "proporciones": "Proporcions i diners"
+    },
+    "areaCuadrado": {
+      "nombre": "Àrea del quadrat",
+      "desc": "Tots els costats mesuren el mateix."
+    },
+    "areaRectangulo": {
+      "nombre": "Àrea del rectangle",
+      "desc": "Base per alçada."
+    },
+    "areaTriangulo": {
+      "nombre": "Àrea del triangle",
+      "desc": "Base per alçada, dividit entre dos."
+    },
+    "areaCirculo": {
+      "nombre": "Àrea del cercle",
+      "desc": "Pi per el radi al quadrat."
+    },
+    "longitudCircunferencia": {
+      "nombre": "Longitud de la circumferència",
+      "desc": "El contorn del cercle."
+    },
+    "areaTrapecio": {
+      "nombre": "Àrea del trapezi",
+      "desc": "Semisuma de les bases per l'alçada."
+    },
+    "pitagoras": {
+      "nombre": "Teorema de Pitàgores",
+      "desc": "En un triangle rectangle."
+    },
+    "volumenCubo": {
+      "nombre": "Volum del cub",
+      "desc": "L'aresta al cub."
+    },
+    "volumenPrisma": {
+      "nombre": "Volum del prisma",
+      "desc": "Àrea de la base per l'alçada."
+    },
+    "volumenCilindro": {
+      "nombre": "Volum del cilindre",
+      "desc": "Àrea del cercle per l'alçada."
+    },
+    "volumenEsfera": {
+      "nombre": "Volum de l'esfera",
+      "desc": "Quatre terços de pi per el radi al cub."
+    },
+    "areaEsfera": {
+      "nombre": "Àrea de l'esfera",
+      "desc": "Quatre vegades l'àrea del seu cercle màxim."
+    },
+    "volumenCono": {
+      "nombre": "Volum del con",
+      "desc": "Un terç del cilindre amb la mateixa base i alçada."
+    },
+    "velocidadMedia": {
+      "nombre": "Velocitat mitjana",
+      "desc": "Distància recorreguda entre temps emprat."
+    },
+    "mruv": {
+      "nombre": "Velocitat amb acceleració constant",
+      "desc": "Moviment rectilini uniformement accelerat."
+    },
+    "espacioMruv": {
+      "nombre": "Posició amb acceleració constant",
+      "desc": "On és el mòbil a cada instant."
+    },
+    "caidaLibre": {
+      "nombre": "Caiguda lliure",
+      "desc": "Alçada recorreguda en caure sense fregament."
+    },
+    "segundaNewton": {
+      "nombre": "Segona llei de Newton",
+      "desc": "La força és massa per acceleració."
+    },
+    "peso": {
+      "nombre": "Pes",
+      "desc": "La força amb què la gravetat estira una massa."
+    },
+    "presion": {
+      "nombre": "Pressió",
+      "desc": "Força repartida sobre una superfície."
+    },
+    "densidad": {
+      "nombre": "Densitat",
+      "desc": "Massa que cap en un volum."
+    },
+    "energiaCinetica": {
+      "nombre": "Energia cinètica",
+      "desc": "La que té un cos pel fet de moure's."
+    },
+    "energiaPotencial": {
+      "nombre": "Energia potencial gravitatòria",
+      "desc": "La que té per ser a certa alçada."
+    },
+    "trabajo": {
+      "nombre": "Treball",
+      "desc": "Força per distància recorreguda en la seva direcció."
+    },
+    "potencia": {
+      "nombre": "Potència",
+      "desc": "Treball fet per unitat de temps."
+    },
+    "ohm": {
+      "nombre": "Llei d'Ohm",
+      "desc": "Tensió, intensitat i resistència."
+    },
+    "potenciaElectrica": {
+      "nombre": "Potència elèctrica",
+      "desc": "Tensió per intensitat."
+    },
+    "carga": {
+      "nombre": "Càrrega elèctrica",
+      "desc": "Intensitat per temps."
+    },
+    "moles": {
+      "nombre": "Mols a partir de la massa",
+      "desc": "Massa entre massa molar."
+    },
+    "molaridad": {
+      "nombre": "Molaritat",
+      "desc": "Mols de solut per litre de dissolució."
+    },
+    "gasesIdeales": {
+      "nombre": "Llei dels gasos ideals",
+      "desc": "Relació entre pressió, volum, mols i temperatura."
+    },
+    "interesSimple": {
+      "nombre": "Interès simple",
+      "desc": "L'interès es calcula sempre sobre el capital inicial."
+    },
+    "interesCompuesto": {
+      "nombre": "Interès compost",
+      "desc": "Els interessos generen més interessos."
+    },
+    "escala": {
+      "nombre": "Escala d'un plànol",
+      "desc": "De la mesura del plànol a la real."
+    },
+    "imc": {
+      "nombre": "Índex de massa corporal",
+      "desc": "Massa entre l'alçada al quadrat."
+    }
+  },
+  "form": {
+    "buscar": "Cerca una fórmula",
+    "buscarAyuda": "Per nom, variable o fórmula.",
+    "grupo": "Tema",
+    "todos": "Tots els temes",
+    "sinResultados": "Cap fórmula no coincideix amb «{q}».",
+    "resultados": "{n} fórmules",
+    "unaFormula": "1 fórmula",
+    "calcular": "Calcula",
+    "incognita": "Què vols calcular?",
+    "abrir": "Obre la calculadora d'aquesta fórmula",
+    "cerrar": "Tanca",
+    "limpiar": "Neteja",
+    "copiar": "Copia el resultat",
+    "favorita": "Desa a preferides",
+    "quitarFavorita": "Treu de preferides",
+    "favoritas": "Preferides",
+    "despeje": "Aïllada: {expr}",
+    "sustitucion": "Substituint: {expr}",
+    "resultado": "{variable} = {valor}{unidad}",
+    "error": {
+      "faltan": "Omple totes les caselles menys la que vols calcular.",
+      "imposible": "Amb aquests valors no surt un nombre vàlid. Revisa les dades.",
+      "positiva": "«{variable}» ha de ser més gran que zero.",
+      "noDespejable": "Aquesta variable no es pot aïllar en aquesta fórmula."
+    },
+    "nota": "Les unitats que apareixen són les del sistema internacional: si poses les dades en unes altres, el resultat sortirà en aquestes altres.",
+    "valorSugerido": "valor habitual"
+  },
+  "asig": {
+    "titulo": "Les teves assignatures",
+    "nueva": "Assignatura nova",
+    "nuevaAyuda": "Serveixen per a les notes, l'agenda i l'horari.",
+    "anadir": "Afegeix",
+    "ninguna": "Encara no has creat cap assignatura.",
+    "tope": "Només hi caben {n} assignatures.",
+    "nombreDe": "Nom de l'assignatura",
+    "color": {
+      "label": "Color",
+      "azul": "Blau",
+      "verde": "Verd",
+      "naranja": "Taronja",
+      "rosa": "Rosa",
+      "violeta": "Violeta",
+      "cian": "Cian",
+      "amarillo": "Groc",
+      "gris": "Gris"
+    },
+    "colorDe": "Color de {nombre}",
+    "subir": "Puja {nombre}",
+    "bajar": "Baixa {nombre}",
+    "quitar": "Treu {nombre}"
+  },
+  "notas": {
+    "escala": {
+      "label": "Escala",
+      "diez": "De 0 a 10",
+      "cien": "De 0 a 100"
+    },
+    "objetivo": {
+      "label": "Nota a la qual vols arribar",
+      "conseguido": "Ja tens el {meta} assegurat, passi el que passi.",
+      "necesitas": "Per arribar al {meta} necessites un {n} de mitjana en el {peso} % que queda.",
+      "imposible": "Ja no es pot arribar al {meta}: caldria un {n}.",
+      "nadaPendiente": "No queda res per avaluar."
+    },
+    "objetivoAyuda": "Si ho deixes buit, es fa servir l'aprovat.",
+    "examen": "Examen o treball",
+    "examenPlaceholder": "Prova {n}",
+    "nota": {
+      "label": "Nota"
+    },
+    "notaDe": "Nota de la prova {n}",
+    "peso": "Pes %",
+    "pesoDe": "Pes de la prova {n} en percentatge",
+    "anadir": "Afegeix una prova",
+    "quitar": "Treu la prova {n}",
+    "repartir": "Reparteix els pesos a parts iguals",
+    "repartido": "Pesos repartits.",
+    "sinExamenes": "Encara sense proves.",
+    "sinNotas": "—",
+    "evaluado": "Portes avaluat el {n} % de l'assignatura.",
+    "acumulada": "Comptant el que falta com un zero, vas pel {n}.",
+    "pesos": {
+      "falta": "Els pesos sumen {n} punts menys de 100.",
+      "pasa": "Els pesos es passen {n} punts de 100."
+    },
+    "general": "Mitjana de totes les assignatures",
+    "deAsignaturas": "Amb notes en {n} assignatures.",
+    "creaAsignaturas": "Crea una assignatura a sota per començar a posar notes.",
+    "aviso": "El pes és el percentatge que val cada prova sobre la nota final. Les proves sense nota no baixen la mitjana: només compten quan les omples."
+  },
+  "agenda": {
+    "cuando": {
+      "hoy": "Avui",
+      "manana": "Demà",
+      "enDias": "D'aquí a {n} dies",
+      "pasado": "Ja ha passat"
+    },
+    "aviso": {
+      "0": "Sense avís",
+      "60": "Una hora abans",
+      "1440": "Un dia abans",
+      "2880": "Dos dies abans",
+      "10080": "Una setmana abans",
+      "label": "Avís del calendari"
+    },
+    "nuevo": "Examen nou",
+    "editando": "Editant l'examen",
+    "dia": "Dia",
+    "hora": "Hora",
+    "horaAyuda": "Si la deixes buida s'apunta com un dia sencer.",
+    "titulo": "Què hi entra",
+    "tituloAyuda": "Per exemple: temes 3 i 4.",
+    "asignatura": "Assignatura",
+    "sinAsignatura": "Sense assignatura",
+    "lugar": "Aula o lloc",
+    "notas": "Notes",
+    "notasPlaceholder": "El que vulguis recordar.",
+    "anadir": "Afegeix a l'agenda",
+    "anadido": "Examen afegit.",
+    "guardarCambios": "Desa els canvis",
+    "guardado": "Canvis desats.",
+    "faltaFecha": "Posa la data de l'examen.",
+    "faltaTitulo": "Escriu què hi entra o tria una assignatura.",
+    "tope": "Només hi caben {n} exàmens.",
+    "sinTitulo": "Examen",
+    "marcar": "Marca com a fet",
+    "desmarcar": "Marca com a pendent",
+    "editar": "Edita aquest examen",
+    "quitar": "Treu aquest examen",
+    "exportarUno": "Baixa aquest examen per al calendari",
+    "exportarTodo": "Baixa'ls tots per al calendari",
+    "exportado": "{n} examen(s) a punt per al calendari.",
+    "nadaQueExportar": "No hi ha exàmens per exportar.",
+    "vacia": "Encara no has apuntat cap examen. Omple el formulari de dalt.",
+    "sinProximos": "No tens exàmens propers.",
+    "verPasados": "Mostra els {n} exàmens que ja han passat",
+    "proximos": "Pròxims exàmens",
+    "verTodos": "Ves a l'agenda",
+    "avisoAyuda": "Es desa dins del fitxer, perquè t'avisi el teu calendari.",
+    "notaIcs": "El fitxer .ics s'obre amb el calendari del mòbil o de l'ordinador (Google Calendar, Apple, Outlook…). Els exàmens es copien allà: si després els canvies aquí, cal tornar a baixar-los."
+  },
+  "horario": {
+    "dia": {
+      "0": "Diumenge",
+      "1": "Dilluns",
+      "2": "Dimarts",
+      "3": "Dimecres",
+      "4": "Dijous",
+      "5": "Divendres",
+      "6": "Dissabte"
+    },
+    "vista": {
+      "label": "Com veure-ho",
+      "dia": "Un dia",
+      "semana": "La setmana"
+    },
+    "dias": {
+      "label": "Dies de la setmana",
+      "cinco": "Dl–Dv",
+      "seis": "Dl–Ds",
+      "siete": "Tota"
+    },
+    "hora": "Hora",
+    "libre": "Lliure",
+    "aula": "Aula",
+    "claseEn": "Classe del {dia}, franja {franja}",
+    "aulaEn": "Aula del {dia}, franja {franja}",
+    "queDia": "Quin dia vols veure",
+    "franjas": "Franges horàries",
+    "desde": "Des de",
+    "hasta": "Fins a",
+    "desdeN": "Hora d'inici de la franja {n}",
+    "hastaN": "Hora de fi de la franja {n}",
+    "quitarFranja": "Treu la franja {n}",
+    "anadirFranja": "Afegeix una franja",
+    "topeFranjas": "Només hi caben {n} franges.",
+    "rehacerFranjas": "Torna a les de sempre",
+    "franjasRehechas": "Franges restablertes.",
+    "sinFranjas": "No hi ha cap franja horària. Afegeix-ne almenys una a sota.",
+    "creaAsignaturas": "Crea les teves assignatures a sota i podràs repartir-les per l'horari.",
+    "solape": "Les franges {a} i {b} es trepitgen.",
+    "resumen": "Hores per assignatura",
+    "horasSemana": "{h} h a la setmana",
+    "ahoraTitulo": "Ara mateix",
+    "ahora": "Toca {asignatura}, de {desde} a {hasta}.",
+    "luego": "Després: {asignatura}, de {desde} a {hasta}.",
+    "nadaAhora": "Ara no tens classe.",
+    "exportar": "Baixa l'horari",
+    "exportado": "Horari baixat.",
+    "nota": "L'horari es desa només en aquest dispositiu. Les assignatures són les mateixes que fan servir les notes i l'agenda."
+  }
+}
