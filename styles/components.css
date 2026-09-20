@@ -391,3 +391,24 @@ body.alarm-on { padding-bottom: 6.5rem; }
 @media (prefers-reduced-motion: reduce) {
   .updatedialog { animation: none; }
 }
+
+/* ---------- Informe de errores ---------- */
+.dialog--ancho .dialog__body { width: min(100%, 34rem); }
+.informe__previa {
+  margin: 0;
+  max-height: 14rem;
+  overflow: auto;
+  padding: var(--sp-3);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.informe__previa:focus-visible {
+  outline: none;
+  border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-accent-ring);
+}

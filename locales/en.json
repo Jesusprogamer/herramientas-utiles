@@ -2143,5 +2143,42 @@
     "retencion": "How long deleted items are kept",
     "retencionAyuda": "After that they're removed on their own when you open the app.",
     "dias": "{n} days"
+  },
+  "informe": {
+    "formato": {
+      "movil": "phone",
+      "escritorio": "desktop"
+    },
+    "seccion": "Suggestions or bugs",
+    "seccionDesc": "Tell me what's broken or what you're missing. The report is posted publicly on GitHub.",
+    "tituloError": "Report a bug",
+    "tituloMejora": "Suggest an improvement",
+    "prefijoError": "[Bug]",
+    "prefijoMejora": "[Suggestion]",
+    "quePasa": "What happened",
+    "placeholderError": "What you were doing, what you expected and what happened instead.",
+    "placeholderMejora": "What you'd like to be able to do, and what for.",
+    "sinDescripcion": "no description",
+    "entorno": "Environment",
+    "erroresTitulo": "Recent errors",
+    "incluirErrores": "Include recent errors",
+    "incluirErroresDesc": "Only the message and the file, never what you've written.",
+    "previa": "How the report looks",
+    "previaDesc": "This is what will be sent. You can edit it on GitHub before posting.",
+    "aviso": "The report will be public on GitHub and you need a GitHub account to send it. Nothing from your notes, tasks or account is included.",
+    "enviar": "Open on GitHub",
+    "copiar": "Copy the report",
+    "verAbiertos": "See open reports",
+    "recortado": "The report was too long: it's been trimmed to fit in the link.",
+    "herramienta": "Tool",
+    "idiomaApp": "App language",
+    "idiomaNavegador": "Browser language",
+    "navegador": "Browser",
+    "sistema": "System",
+    "formatoLabel": "Form factor",
+    "pantalla": "Screen",
+    "instalada": "Installed",
+    "conexion": "Connection",
+    "conectado": "online"
   }
 }
