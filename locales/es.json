@@ -2180,5 +2180,42 @@
     "instalada": "Instalada",
     "conexion": "Conexión",
     "conectado": "con conexión"
+  },
+  "widgets": {
+    "agenda": {
+      "titulo": "Próximos exámenes",
+      "desc": "Los tres exámenes más cercanos de la agenda."
+    },
+    "tareas": {
+      "titulo": "Tareas de hoy",
+      "desc": "Lo que vence hoy y lo que ya venció.",
+      "vacio": "No tienes tareas para hoy.",
+      "paraHoy": "Para hoy",
+      "vencio": "Venció el {fecha}",
+      "mas": "Y {n} más."
+    },
+    "horario": {
+      "titulo": "Clase actual y siguiente",
+      "desc": "Lo que toca ahora y lo que viene después.",
+      "sinMas": "Sin más clases hoy.",
+      "quedan": "Quedan {n} min",
+      "despues": "Después"
+    },
+    "temporizador": {
+      "titulo": "Temporizador en curso",
+      "desc": "El temporizador o el cronómetro, con más detalle.",
+      "otros": "y {n} más"
+    },
+    "zonas": {
+      "titulo": "Hora en mis ciudades",
+      "desc": "Hasta tres ciudades de las zonas horarias.",
+      "vacio": "Añade ciudades para verlas aquí."
+    },
+    "seccion": "Pantalla de inicio",
+    "seccionDesc": "Elige qué recuadros aparecen arriba del todo y en qué orden.",
+    "abrir": "Abrir",
+    "mostrar": "Mostrar {nombre}",
+    "subir": "Subir {nombre}",
+    "bajar": "Bajar {nombre}"
   }
 }

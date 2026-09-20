@@ -954,3 +954,15 @@ body.has-minibar .page { padding-bottom: 5.5rem; }
 }
 .papelera__que { margin: 0; overflow-wrap: anywhere; }
 .toast--undo { border-left: 3px solid var(--c-accent); }
+
+/* ---------- Recuadros del inicio ---------- */
+.widget__vacio { margin: 0; }
+.widget__item--urgente .widget__nombre { color: var(--nc-rojo); }
+.widget__reloj {
+  margin: 0;
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+.widget__reloj-pequeno { font-weight: var(--fw-bold); flex: 0 0 auto; }
+.widget__dia { flex: 0 0 auto; font-size: var(--fs-lg); }

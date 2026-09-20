@@ -2180,5 +2180,42 @@
     "instalada": "Installed",
     "conexion": "Connection",
     "conectado": "online"
+  },
+  "widgets": {
+    "agenda": {
+      "titulo": "Exams coming up",
+      "desc": "The three closest exams from the diary."
+    },
+    "tareas": {
+      "titulo": "Today's tasks",
+      "desc": "What's due today and what's overdue.",
+      "vacio": "You have no tasks for today.",
+      "paraHoy": "Due today",
+      "vencio": "Was due {fecha}",
+      "mas": "And {n} more."
+    },
+    "horario": {
+      "titulo": "Current and next class",
+      "desc": "What's on now and what comes next.",
+      "sinMas": "No more classes today.",
+      "quedan": "{n} min left",
+      "despues": "Next"
+    },
+    "temporizador": {
+      "titulo": "Timer running",
+      "desc": "The timer or the stopwatch, in more detail.",
+      "otros": "and {n} more"
+    },
+    "zonas": {
+      "titulo": "Time in my cities",
+      "desc": "Up to three cities from time zones.",
+      "vacio": "Add cities to see them here."
+    },
+    "seccion": "Home screen",
+    "seccionDesc": "Choose which cards appear at the top and in what order.",
+    "abrir": "Open",
+    "mostrar": "Show {nombre}",
+    "subir": "Move {nombre} up",
+    "bajar": "Move {nombre} down"
   }
 }

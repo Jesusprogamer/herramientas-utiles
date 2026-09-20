@@ -10,6 +10,7 @@ import * as settings from '../core/settings.js';
 import * as storage from '../core/storage.js';
 import * as registry from '../core/registry.js';
 import * as trash from '../core/trash.js';
+import * as widgets from '../core/widgets.js';
 import * as pwa from '../core/pwa.js';
 import * as account from '../core/account.js';
 import { markSvg } from '../core/accents.js';
@@ -509,6 +510,44 @@ function toolsSection() {
 }
 
 
+
+/* ---------------- Pantalla de inicio ---------------- */
+
+function widgetsSection() {
+  const lista = h('div.stack');
+
+  function pintar() {
+    clear(lista);
+    const todos = widgets.listados();
+    todos.forEach((w, i) => {
+      lista.appendChild(h('div.row',
+        h('div.grow',
+          h('p', { text: t(`widgets.${w.id}.titulo`) }),
+          h('p.small.muted', { text: t(`widgets.${w.id}.desc`) })),
+        toggle({
+          label: t('widgets.mostrar', { nombre: t(`widgets.${w.id}.titulo`) }),
+          checked: w.activo,
+          onChange: v => { widgets.setActivo(w.id, v); pintar(); }
+        }),
+        iconButton('chevronUp', t('widgets.subir', { nombre: t(`widgets.${w.id}.titulo`) }), {
+          disabled: i === 0,
+          onClick: () => { widgets.mover(w.id, -1); pintar(); }
+        }),
+        iconButton('chevronDown', t('widgets.bajar', { nombre: t(`widgets.${w.id}.titulo`) }), {
+          disabled: i === todos.length - 1,
+          onClick: () => { widgets.mover(w.id, 1); pintar(); }
+        })
+      ));
+    });
+  }
+
+  pintar();
+  return sectionBlock('widgets.seccion', 'home',
+    h('p.small.muted', { text: t('widgets.seccionDesc') }),
+    lista
+  );
+}
+
 /* ---------------- Papelera ---------------- */
 
 /** Bloque de la papelera dentro de la seccion de Datos. */
@@ -953,6 +992,7 @@ export default function settingsView({ outlet }) {
     container.appendChild(toolsSection());
     container.appendChild(dataSection(render));
     container.appendChild(accountSection(render));
+    container.appendChild(widgetsSection());
     container.appendChild(aboutSection());
   }
 
