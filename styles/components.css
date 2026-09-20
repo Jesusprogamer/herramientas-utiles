@@ -412,3 +412,142 @@ body.alarm-on { padding-bottom: 6.5rem; }
   border-color: var(--c-accent);
   box-shadow: 0 0 0 3px var(--c-accent-ring);
 }
+
+/* Lo que sigue lo usan la minibarra y los recuadros del inicio, que se
+   ven antes de abrir ninguna herramienta: tiene que estar aqui, no en
+   tools.css, que solo se carga al entrar en una. */
+/* ---------- Minibarra del temporizador ---------- */
+.minibar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--sp-3) + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  width: min(100% - var(--sp-4) * 2, 560px);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2);
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  background: var(--c-surface-2);
+  box-shadow: 0 6px 24px rgb(0 0 0 / .28);
+}
+.minibar__abrir {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: var(--sp-2) var(--sp-3);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--c-text);
+  cursor: pointer;
+  text-align: left;
+}
+.minibar__abrir:hover { background: var(--c-surface-3); }
+.minibar__abrir:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--c-accent-ring);
+}
+.minibar__nombre {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--c-text-muted); font-size: var(--fs-sm);
+}
+.minibar__reloj {
+  margin-left: auto;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+.minibar__abrir svg { width: 20px; height: 20px; flex: 0 0 auto; color: var(--c-accent); }
+.minibar__mas {
+  flex: 0 0 auto;
+  padding: 0 var(--sp-2);
+  border-radius: 999px;
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+/* La barra flota sobre el contenido: se le deja sitio para no tapar nada. */
+body.has-minibar .page { padding-bottom: 5.5rem; }
+
+/* ---------- Recuadros del inicio ---------- */
+.widget__vacio { margin: 0; }
+.widget__item--urgente .widget__nombre { color: var(--nc-rojo); }
+.widget__reloj {
+  margin: 0;
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+.widget__reloj-pequeno { font-weight: var(--fw-bold); flex: 0 0 auto; }
+.widget__dia { flex: 0 0 auto; font-size: var(--fs-lg); }
+
+/* ---------- Agenda de exámenes ---------- */
+.widget {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.widget__titulo { margin: 0; font-size: var(--fs-lg); flex: 1 1 auto; }
+.widget__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.widget__item { display: flex; align-items: center; gap: var(--sp-3); }
+.widget__nombre { margin: 0; font-weight: var(--fw-bold); overflow-wrap: anywhere; }
+.widget__cuenta {
+  flex: 0 0 auto;
+  padding: 2px var(--sp-2);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  background: var(--c-surface-3);
+  color: var(--c-text-muted);
+}
+.widget__cuenta--hoy { background: var(--nc-rojo); color: var(--c-surface); }
+.widget__cuenta--pronto { background: var(--nc-naranja); color: var(--c-surface); }
+
+.agenda__dia { margin: var(--sp-3) 0 0; font-weight: var(--fw-bold); }
+.agenda__examen--hecho { opacity: .6; }
+.agenda__examen--hecho .asig__nombre { text-decoration: line-through; }
+
+/* ---------- Asignaturas (notas, agenda y horario) ---------- */
+:root[data-theme="dark"] {
+  --asig-azul: #3b6fb5; --asig-verde: #2c7a52; --asig-naranja: #9a5a1c;
+  --asig-rosa: #a33a72; --asig-violeta: #6b4bb5; --asig-cian: #1a6f7d;
+  --asig-amarillo: #8a6a12; --asig-gris: #4a5162;
+}
+:root[data-theme="light"] {
+  --asig-azul: #cfe0fb; --asig-verde: #cceadb; --asig-naranja: #f8e0c4;
+  --asig-rosa: #f8d4e6; --asig-violeta: #e0d7f8; --asig-cian: #cbe8ed;
+  --asig-amarillo: #f5e9bf; --asig-gris: #e0e3ea;
+}
+.asig--azul { --asig: var(--asig-azul); }
+.asig--verde { --asig: var(--asig-verde); }
+.asig--naranja { --asig: var(--asig-naranja); }
+.asig--rosa { --asig: var(--asig-rosa); }
+.asig--violeta { --asig: var(--asig-violeta); }
+.asig--cian { --asig: var(--asig-cian); }
+.asig--amarillo { --asig: var(--asig-amarillo); }
+.asig--gris { --asig: var(--asig-gris); }
+
+.asig__punto {
+  width: 12px; height: 12px; border-radius: 50%;
+  flex: 0 0 auto; background: var(--asig, var(--c-text-faint));
+}
+.asig__tarjeta {
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--asig, var(--c-border));
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.asig__nombre { margin: 0; font-size: var(--fs-lg); overflow-wrap: anywhere; }
+.asig__vacia { color: var(--c-text-muted); }
