@@ -160,6 +160,10 @@
     "agenda": {
       "name": "Exam diary",
       "desc": "Write down your exams, see how long is left and send them to your calendar."
+    },
+    "horario": {
+      "name": "Class timetable",
+      "desc": "Your week with subjects, rooms and what's on right now."
     }
   },
   "settings": {
@@ -2031,5 +2035,55 @@
     "verTodos": "Open the diary",
     "avisoAyuda": "It's saved inside the file, so your calendar does the reminding.",
     "notaIcs": "The .ics file opens with your phone's or computer's calendar (Google Calendar, Apple, Outlook…). The exams are copied there: if you change them here afterwards, you need to download them again."
+  },
+  "horario": {
+    "dia": {
+      "1": "Monday",
+      "2": "Tuesday",
+      "3": "Wednesday",
+      "4": "Thursday",
+      "5": "Friday",
+      "6": "Saturday",
+      "0": "Sunday"
+    },
+    "vista": {
+      "label": "How to show it",
+      "dia": "One day",
+      "semana": "The week"
+    },
+    "dias": {
+      "label": "Days of the week",
+      "cinco": "Mon–Fri",
+      "seis": "Mon–Sat",
+      "siete": "All"
+    },
+    "hora": "Time",
+    "libre": "Free",
+    "aula": "Room",
+    "claseEn": "Class on {dia}, slot {franja}",
+    "aulaEn": "Room on {dia}, slot {franja}",
+    "queDia": "Which day to show",
+    "franjas": "Time slots",
+    "desde": "From",
+    "hasta": "To",
+    "desdeN": "Start time of slot {n}",
+    "hastaN": "End time of slot {n}",
+    "quitarFranja": "Remove slot {n}",
+    "anadirFranja": "Add slot",
+    "topeFranjas": "Only {n} slots fit.",
+    "rehacerFranjas": "Back to the usual ones",
+    "franjasRehechas": "Slots reset.",
+    "sinFranjas": "There are no time slots. Add at least one below.",
+    "creaAsignaturas": "Create your subjects below and you'll be able to place them on the timetable.",
+    "solape": "Slots {a} and {b} overlap.",
+    "resumen": "Hours per subject",
+    "horasSemana": "{h} h a week",
+    "ahoraTitulo": "Right now",
+    "ahora": "{asignatura} is on, from {desde} to {hasta}.",
+    "luego": "Next: {asignatura}, from {desde} to {hasta}.",
+    "nadaAhora": "You have no class right now.",
+    "exportar": "Download the timetable",
+    "exportado": "Timetable downloaded.",
+    "nota": "The timetable is saved on this device only. The subjects are the same ones used by grades and the exam diary."
   }
 }

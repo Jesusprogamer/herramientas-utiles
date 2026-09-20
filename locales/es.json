@@ -160,6 +160,10 @@
     "agenda": {
       "name": "Agenda de exámenes",
       "desc": "Apunta tus exámenes, mira cuánto falta y pásalos al calendario."
+    },
+    "horario": {
+      "name": "Horario de clase",
+      "desc": "Tu semana con las asignaturas, las aulas y lo que toca ahora."
     }
   },
   "settings": {
@@ -2031,5 +2035,55 @@
     "verTodos": "Ver la agenda",
     "avisoAyuda": "Se guarda dentro del archivo, para que avise tu calendario.",
     "notaIcs": "El archivo .ics se abre con el calendario del móvil o del ordenador (Google Calendar, Apple, Outlook…). Los exámenes se copian ahí: si luego los cambias aquí, hay que volver a descargarlos."
+  },
+  "horario": {
+    "dia": {
+      "1": "Lunes",
+      "2": "Martes",
+      "3": "Miércoles",
+      "4": "Jueves",
+      "5": "Viernes",
+      "6": "Sábado",
+      "0": "Domingo"
+    },
+    "vista": {
+      "label": "Cómo verlo",
+      "dia": "Un día",
+      "semana": "La semana"
+    },
+    "dias": {
+      "label": "Días de la semana",
+      "cinco": "L–V",
+      "seis": "L–S",
+      "siete": "Toda"
+    },
+    "hora": "Hora",
+    "libre": "Libre",
+    "aula": "Aula",
+    "claseEn": "Clase del {dia}, franja {franja}",
+    "aulaEn": "Aula del {dia}, franja {franja}",
+    "queDia": "Qué día quieres ver",
+    "franjas": "Franjas horarias",
+    "desde": "Desde",
+    "hasta": "Hasta",
+    "desdeN": "Hora de inicio de la franja {n}",
+    "hastaN": "Hora de fin de la franja {n}",
+    "quitarFranja": "Quitar la franja {n}",
+    "anadirFranja": "Añadir franja",
+    "topeFranjas": "Solo caben {n} franjas.",
+    "rehacerFranjas": "Volver a las de siempre",
+    "franjasRehechas": "Franjas restablecidas.",
+    "sinFranjas": "No hay ninguna franja horaria. Añade al menos una abajo.",
+    "creaAsignaturas": "Crea tus asignaturas abajo y podrás repartirlas por el horario.",
+    "solape": "Las franjas {a} y {b} se pisan.",
+    "resumen": "Horas por asignatura",
+    "horasSemana": "{h} h a la semana",
+    "ahoraTitulo": "Ahora mismo",
+    "ahora": "Toca {asignatura}, de {desde} a {hasta}.",
+    "luego": "Después: {asignatura}, de {desde} a {hasta}.",
+    "nadaAhora": "Ahora no tienes clase.",
+    "exportar": "Descargar el horario",
+    "exportado": "Horario descargado.",
+    "nota": "El horario se guarda solo en este dispositivo. Las asignaturas son las mismas que usan las notas y la agenda."
   }
 }

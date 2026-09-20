@@ -30,6 +30,7 @@ export const TOOLS = [
   { id: 'formulario',     icon: 'book',      category: 'estudio', ready: true  },
   { id: 'notas',          icon: 'award',     category: 'estudio', ready: true  },
   { id: 'agenda',         icon: 'calendar',  category: 'estudio', ready: true  },
+  { id: 'horario',        icon: 'grid',      category: 'estudio', ready: true  },
   { id: 'zonas-horarias', icon: 'clock',     category: 'tiempo',  ready: true  },
   { id: 'azar',           icon: 'dice',      category: 'azar',    ready: true  },
   { id: 'qr',             icon: 'qr',        category: 'texto',   ready: true  },

@@ -829,3 +829,40 @@
 .agenda__dia { margin: var(--sp-3) 0 0; font-weight: var(--fw-bold); }
 .agenda__examen--hecho { opacity: .6; }
 .agenda__examen--hecho .asig__nombre { text-decoration: line-through; }
+
+/* ---------- Horario ---------- */
+.horario__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.horario {
+  display: grid;
+  grid-template-columns: 4.5rem repeat(var(--dias, 1), minmax(9rem, 1fr));
+  gap: 4px;
+  min-width: fit-content;
+}
+.horario__esquina, .horario__cabecera {
+  padding: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-muted);
+  text-align: center;
+}
+.horario__cabecera--hoy { color: var(--c-accent); }
+.horario__franja {
+  display: grid;
+  align-content: center;
+  padding: var(--sp-2) 0;
+  text-align: center;
+  font-size: var(--fs-sm);
+}
+.horario__celda {
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--asig, var(--c-border));
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--asig, transparent) 22%, var(--c-surface-2));
+  padding: var(--sp-2);
+  display: grid;
+  gap: var(--sp-2);
+  align-content: start;
+}
+.horario__celda--libre { background: var(--c-surface); border-left-color: var(--c-border); }
+.horario__celda .select, .horario__celda .input { font-size: var(--fs-sm); }
+.horario__ahora-linea { margin: 0; display: flex; align-items: center; gap: var(--sp-2); }
