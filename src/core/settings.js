@@ -26,6 +26,8 @@ export const DEFAULTS = Object.freeze({
   textSize: 'normal',
   reduceMotion: false,
   transitions: 'suave',
+  // Minibarra del temporizador, visible en cualquier pantalla
+  showMinibar: true,
   // Idioma
   language: 'es',
   // Region y formato
@@ -80,6 +82,7 @@ function sanitize(input) {
     if (list.includes(input[key])) out[key] = input[key];
   }
   if (typeof input.reduceMotion === 'boolean') out.reduceMotion = input.reduceMotion;
+  if (typeof input.showMinibar === 'boolean') out.showMinibar = input.showMinibar;
   if (typeof input.currency === 'string' && /^[A-Za-z]{3}$/.test(input.currency)) {
     out.currency = input.currency.toUpperCase();
   }

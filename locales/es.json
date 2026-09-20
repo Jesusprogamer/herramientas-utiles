@@ -198,6 +198,10 @@
       "reduceMotion": {
         "label": "Reducir animaciones",
         "desc": "Quita transiciones y movimientos. También se respeta la preferencia del sistema."
+      },
+      "minibar": {
+        "label": "Mostrar la minibarra del temporizador",
+        "desc": "Una barra pequeña en cualquier pantalla mientras el temporizador o el cronómetro estén en marcha."
       }
     },
     "language": {
@@ -547,7 +551,8 @@
   "temporizador": {
     "tab": {
       "countdown": "Cuenta atrás",
-      "pomodoro": "Pomodoro"
+      "pomodoro": "Pomodoro",
+      "crono": "Cronómetro"
     },
     "start": "Empezar",
     "pause": "Pausar",
@@ -599,6 +604,12 @@
       "testBody": "Así te avisaremos cuando termine el temporizador.",
       "denied": "Has bloqueado las notificaciones para esta página. Para recibirlas, ábrelas desde los permisos del sitio en tu navegador (el candado junto a la dirección) y vuelve aquí.",
       "unsupported": "Tu navegador no admite notificaciones. En iPhone y iPad hace falta instalar la app en la pantalla de inicio para que funcionen."
+    },
+    "crono": {
+      "vuelta": "Vuelta",
+      "numero": "Vuelta {n}",
+      "transcurrido": "Han pasado {time}",
+      "tope": "Solo caben {n} vueltas."
     }
   },
   "listas": {
@@ -2085,5 +2096,11 @@
     "exportar": "Descargar el horario",
     "exportado": "Horario descargado.",
     "nota": "El horario se guarda solo en este dispositivo. Las asignaturas son las mismas que usan las notas y la agenda."
+  },
+  "minibar": {
+    "abrir": "{nombre} en marcha. Abrir el temporizador",
+    "pausar": "Pausar {nombre}",
+    "reanudar": "Reanudar {nombre}",
+    "parar": "Parar {nombre}"
   }
 }

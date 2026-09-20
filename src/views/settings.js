@@ -98,11 +98,18 @@ function appearanceSection() {
     onChange: v => settings.update({ reduceMotion: v })
   });
 
+  const minibar = toggle({
+    label: t('settings.appearance.minibar.label'),
+    checked: s.showMinibar,
+    onChange: v => settings.update({ showMinibar: v })
+  });
+
   return sectionBlock('settings.appearance.title', 'palette',
     settingRow({ label: t('settings.appearance.theme.label'), desc: t('settings.appearance.theme.desc'), control: theme, stacked: true }),
     settingRow({ label: t('settings.appearance.accent.label'), desc: t('settings.appearance.accent.desc'), control: swatches, stacked: true }),
     settingRow({ label: t('settings.appearance.textSize.label'), desc: t('settings.appearance.textSize.desc'), control: textSize, stacked: true }),
-    settingRow({ label: t('settings.appearance.reduceMotion.label'), desc: t('settings.appearance.reduceMotion.desc'), control: motion })
+    settingRow({ label: t('settings.appearance.reduceMotion.label'), desc: t('settings.appearance.reduceMotion.desc'), control: motion }),
+    settingRow({ label: t('settings.appearance.minibar.label'), desc: t('settings.appearance.minibar.desc'), control: minibar })
   );
 }
 

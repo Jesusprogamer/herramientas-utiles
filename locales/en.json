@@ -198,6 +198,10 @@
       "reduceMotion": {
         "label": "Reduce motion",
         "desc": "Turns off transitions and movement. Your system preference is respected too."
+      },
+      "minibar": {
+        "label": "Show the timer mini bar",
+        "desc": "A small bar on any screen while the timer or the stopwatch is running."
       }
     },
     "language": {
@@ -547,7 +551,8 @@
   "temporizador": {
     "tab": {
       "countdown": "Countdown",
-      "pomodoro": "Pomodoro"
+      "pomodoro": "Pomodoro",
+      "crono": "Stopwatch"
     },
     "start": "Start",
     "pause": "Pause",
@@ -599,6 +604,12 @@
       "testBody": "This is how we'll let you know the timer is up.",
       "denied": "You've blocked notifications for this page. To get them, allow them in your browser's site permissions (the padlock next to the address) and come back.",
       "unsupported": "Your browser doesn't support notifications. On iPhone and iPad you need to install the app to your home screen first."
+    },
+    "crono": {
+      "vuelta": "Lap",
+      "numero": "Lap {n}",
+      "transcurrido": "{time} elapsed",
+      "tope": "Only {n} laps fit."
     }
   },
   "listas": {
@@ -2085,5 +2096,11 @@
     "exportar": "Download the timetable",
     "exportado": "Timetable downloaded.",
     "nota": "The timetable is saved on this device only. The subjects are the same ones used by grades and the exam diary."
+  },
+  "minibar": {
+    "abrir": "{nombre} running. Open the timer",
+    "pausar": "Pause {nombre}",
+    "reanudar": "Resume {nombre}",
+    "parar": "Stop {nombre}"
   }
 }

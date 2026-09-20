@@ -7,6 +7,8 @@ import { markSvg } from './core/accents.js';
 import * as registry from './core/registry.js';
 import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
+import * as timers from './core/timers.js';
+import * as minibar from './ui/minibar.js';
 import * as audio from './core/audio.js';
 import { on } from './core/events.js';
 import { h, clear, $ } from './ui/dom.js';
@@ -217,6 +219,10 @@ async function boot() {
   }, wait);
 
   audio.init();
+  /* El temporizador y el cronometro viven fuera de su herramienta: arrancan
+     con la app para que sigan contando y avisen desde cualquier pantalla. */
+  timers.init();
+  minibar.init();
   watchConnection();
   pwa.watchInstallPrompt();
   pwa.registerServiceWorker();
