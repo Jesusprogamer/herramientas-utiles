@@ -152,6 +152,10 @@
     "formulario": {
       "name": "Formula book",
       "desc": "Geometry, physics and chemistry formulas, with the unknown solved for you."
+    },
+    "notas": {
+      "name": "Grade calculator",
+      "desc": "Weighted average per subject, and what you still need to get there."
     }
   },
   "settings": {
@@ -1909,5 +1913,68 @@
     },
     "nota": "The units shown are the SI ones: if you enter the data in others, the result comes out in those others.",
     "valorSugerido": "usual value"
+  },
+  "asig": {
+    "titulo": "Your subjects",
+    "nueva": "New subject",
+    "nuevaAyuda": "They're used by grades, the exam diary and the timetable.",
+    "anadir": "Add",
+    "ninguna": "You haven't created any subjects yet.",
+    "tope": "Only {n} subjects fit.",
+    "nombreDe": "Subject name",
+    "color": {
+      "label": "Colour",
+      "azul": "Blue",
+      "verde": "Green",
+      "naranja": "Orange",
+      "rosa": "Pink",
+      "violeta": "Purple",
+      "cian": "Cyan",
+      "amarillo": "Yellow",
+      "gris": "Grey"
+    },
+    "colorDe": "Colour for {nombre}",
+    "subir": "Move {nombre} up",
+    "bajar": "Move {nombre} down",
+    "quitar": "Remove {nombre}"
+  },
+  "notas": {
+    "escala": {
+      "label": "Scale",
+      "diez": "0 to 10",
+      "cien": "0 to 100"
+    },
+    "objetivo": {
+      "label": "Mark you're aiming for",
+      "conseguido": "You've already secured {meta}, whatever happens.",
+      "necesitas": "To reach {meta} you need an average of {n} in the remaining {peso} %.",
+      "imposible": "{meta} is out of reach now: you'd need {n}.",
+      "nadaPendiente": "There's nothing left to be marked on."
+    },
+    "objetivoAyuda": "Leave it empty to use the pass mark.",
+    "examen": "Test or assignment",
+    "examenPlaceholder": "Test {n}",
+    "nota": {
+      "label": "Mark"
+    },
+    "notaDe": "Mark for test {n}",
+    "peso": "Weight %",
+    "pesoDe": "Weight of test {n} as a percentage",
+    "anadir": "Add test",
+    "quitar": "Remove test {n}",
+    "repartir": "Split weights evenly",
+    "repartido": "Weights split evenly.",
+    "sinExamenes": "No tests yet.",
+    "sinNotas": "—",
+    "evaluado": "You've been marked on {n} % of the subject.",
+    "acumulada": "Counting what's left as a zero, you're at {n}.",
+    "pesos": {
+      "falta": "The weights add up to {n} points short of 100.",
+      "pasa": "The weights go {n} points over 100."
+    },
+    "general": "Average across all subjects",
+    "deAsignaturas": "With marks in {n} subjects.",
+    "creaAsignaturas": "Create a subject below to start adding marks.",
+    "aviso": "The weight is the percentage each test is worth of the final mark. Tests with no mark don't drag the average down: they only count once you fill them in."
   }
 }

@@ -152,6 +152,10 @@
     "formulario": {
       "name": "Formulario",
       "desc": "Fórmulas de geometría, física y química, con la incógnita despejada."
+    },
+    "notas": {
+      "name": "Calculadora de notas",
+      "desc": "Media ponderada por asignatura y cuánto te hace falta para llegar."
     }
   },
   "settings": {
@@ -1909,5 +1913,68 @@
     },
     "nota": "Las unidades que aparecen son las del sistema internacional: si metes los datos en otras, el resultado saldrá en esas otras.",
     "valorSugerido": "valor habitual"
+  },
+  "asig": {
+    "titulo": "Tus asignaturas",
+    "nueva": "Nueva asignatura",
+    "nuevaAyuda": "Valen para las notas, la agenda y el horario.",
+    "anadir": "Añadir",
+    "ninguna": "Todavía no has creado ninguna asignatura.",
+    "tope": "Solo caben {n} asignaturas.",
+    "nombreDe": "Nombre de la asignatura",
+    "color": {
+      "label": "Color",
+      "azul": "Azul",
+      "verde": "Verde",
+      "naranja": "Naranja",
+      "rosa": "Rosa",
+      "violeta": "Violeta",
+      "cian": "Cian",
+      "amarillo": "Amarillo",
+      "gris": "Gris"
+    },
+    "colorDe": "Color de {nombre}",
+    "subir": "Subir {nombre}",
+    "bajar": "Bajar {nombre}",
+    "quitar": "Quitar {nombre}"
+  },
+  "notas": {
+    "escala": {
+      "label": "Escala",
+      "diez": "De 0 a 10",
+      "cien": "De 0 a 100"
+    },
+    "objetivo": {
+      "label": "Nota a la que quieres llegar",
+      "conseguido": "Ya tienes el {meta} asegurado, pase lo que pase.",
+      "necesitas": "Para llegar al {meta} necesitas un {n} de media en el {peso} % que queda.",
+      "imposible": "Ya no se puede llegar al {meta}: haría falta un {n}.",
+      "nadaPendiente": "No queda nada por evaluar."
+    },
+    "objetivoAyuda": "Si lo dejas vacío, se usa el aprobado.",
+    "examen": "Examen o trabajo",
+    "examenPlaceholder": "Prueba {n}",
+    "nota": {
+      "label": "Nota"
+    },
+    "notaDe": "Nota de la prueba {n}",
+    "peso": "Peso %",
+    "pesoDe": "Peso de la prueba {n} en porcentaje",
+    "anadir": "Añadir prueba",
+    "quitar": "Quitar la prueba {n}",
+    "repartir": "Repartir pesos a partes iguales",
+    "repartido": "Pesos repartidos.",
+    "sinExamenes": "Sin pruebas todavía.",
+    "sinNotas": "—",
+    "evaluado": "Llevas evaluado el {n} % de la asignatura.",
+    "acumulada": "Contando lo que falta como un cero, vas por {n}.",
+    "pesos": {
+      "falta": "Los pesos suman {n} puntos menos de 100.",
+      "pasa": "Los pesos se pasan {n} puntos de 100."
+    },
+    "general": "Media de todas las asignaturas",
+    "deAsignaturas": "Con notas en {n} asignaturas.",
+    "creaAsignaturas": "Crea una asignatura abajo para empezar a meter notas.",
+    "aviso": "El peso es el porcentaje que vale cada prueba sobre la nota final. Las pruebas sin nota no bajan la media: solo cuentan cuando las rellenas."
   }
 }
