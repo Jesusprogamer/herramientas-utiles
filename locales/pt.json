@@ -1,0 +1,2089 @@
+{
+  "app": {
+    "name": "A mano",
+    "short": "A mano",
+    "description": "Ferramentas úteis para o dia a dia, sempre à mão e sem ligação.",
+    "tagline": "As tuas ferramentas do dia a dia, sempre à mão."
+  },
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "delete": "Apagar",
+    "close": "Fechar",
+    "back": "Voltar",
+    "search": "Procurar",
+    "clear": "Limpar",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyFailed": "Não foi possível copiar",
+    "apply": "Aplicar",
+    "reset": "Repor",
+    "loading": "A carregar…",
+    "error": "Ocorreu um erro",
+    "retry": "Tentar de novo",
+    "yes": "Sim",
+    "no": "Não",
+    "on": "Ativado",
+    "off": "Desativado",
+    "minutes": "minutos",
+    "unknown": "Desconhecido"
+  },
+  "splash": {
+    "loading": "A preparar a aplicação…"
+  },
+  "skip": {
+    "toContent": "Saltar para o conteúdo"
+  },
+  "nav": {
+    "label": "Navegação principal",
+    "home": "Início",
+    "settings": "Definições",
+    "about": "Acerca de",
+    "privacy": "Privacidade"
+  },
+  "foot": {
+    "text": "Funciona sem ligação. Os teus dados ficam no teu dispositivo."
+  },
+  "home": {
+    "title": "Ferramentas",
+    "searchLabel": "Procurar uma ferramenta",
+    "searchPlaceholder": "Procurar ferramenta…",
+    "clearSearch": "Apagar a pesquisa",
+    "favorites": "Favoritas",
+    "all": "Todas as ferramentas",
+    "results": "Resultados",
+    "soon": "Brevemente",
+    "addFavorite": "Adicionar {name} aos favoritos",
+    "removeFavorite": "Retirar {name} dos favoritos",
+    "favoriteAdded": "{name} adicionada aos favoritos",
+    "favoriteRemoved": "{name} retirada dos favoritos",
+    "count": {
+      "one": "{n} ferramenta",
+      "other": "{n} ferramentas"
+    },
+    "noResults": {
+      "title": "Sem resultados",
+      "message": "Não há nenhuma ferramenta que corresponda a «{q}».",
+      "action": "Apagar a pesquisa"
+    },
+    "allHidden": {
+      "title": "Não há ferramentas visíveis",
+      "message": "Ocultaste-as todas nas Definições. Podes voltar a mostrá-las quando quiseres.",
+      "action": "Ir às Definições"
+    }
+  },
+  "tool": {
+    "soon": {
+      "title": "Ainda não está pronta",
+      "message": "Esta ferramenta chega na fase seguinte. O cartão já está aqui para veres onde vai ficar.",
+      "back": "Voltar ao início"
+    },
+    "failed": {
+      "title": "Não foi possível abrir a ferramenta",
+      "message": "Tenta outra vez. Se continuar a falhar, procura atualizações nas Definições."
+    }
+  },
+  "tools": {
+    "temporizador": {
+      "name": "Temporizador",
+      "desc": "Contagem decrescente e pomodoro com avisos no fim."
+    },
+    "listas": {
+      "name": "Tarefas e notas",
+      "desc": "Tarefas, lista de compras e notas rápidas num só sítio."
+    },
+    "unidades": {
+      "name": "Conversor de unidades",
+      "desc": "Comprimento, peso, temperatura, volume e mais."
+    },
+    "contrasenas": {
+      "name": "Palavras-passe",
+      "desc": "Gera palavras-passe seguras à tua medida."
+    },
+    "contador-texto": {
+      "name": "Contador de texto",
+      "desc": "Palavras, caracteres, frases e tempo de leitura."
+    },
+    "porcentajes": {
+      "name": "Percentagens",
+      "desc": "Descontos, subidas, descidas e repartições."
+    },
+    "monedas": {
+      "name": "Conversor de moedas",
+      "desc": "Converte entre moedas com a última taxa guardada."
+    },
+    "zonas-horarias": {
+      "name": "Fusos horários",
+      "desc": "A hora noutras cidades e um conversor de horas."
+    },
+    "azar": {
+      "name": "Escolher ao acaso",
+      "desc": "Moeda, dados, roleta e números aleatórios."
+    },
+    "qr": {
+      "name": "Códigos QR",
+      "desc": "Cria QR de texto, ligações ou wi-fi no teu dispositivo."
+    },
+    "colores": {
+      "name": "Seletor de cores",
+      "desc": "HEX, RGB, HSL, contraste WCAG e paletas guardadas."
+    },
+    "equipos": {
+      "name": "Sorteio de equipas",
+      "desc": "Reparte nomes por equipas equilibradas ao acaso."
+    },
+    "calculadora": {
+      "name": "Calculadora passo a passo",
+      "desc": "Científica, equações, frações, percentagens e estatística, explicando cada passo."
+    },
+    "graficas": {
+      "name": "Gráficos de funções",
+      "desc": "Desenha e explora funções com zoom e tabela de valores."
+    },
+    "bases": {
+      "name": "Conversor de bases",
+      "desc": "Passa números entre binário, octal, decimal, hexadecimal e qualquer base de 2 a 36."
+    },
+    "tabla": {
+      "name": "Tabela periódica",
+      "desc": "Os 118 elementos, com os seus dados e um motor de pesquisa."
+    },
+    "formulario": {
+      "name": "Formulário",
+      "desc": "Fórmulas de geometria, física e química, com a incógnita já isolada."
+    },
+    "notas": {
+      "name": "Calculadora de notas",
+      "desc": "Média ponderada por disciplina e quanto te falta para lá chegar."
+    },
+    "agenda": {
+      "name": "Agenda de exames",
+      "desc": "Aponta os teus exames, vê quanto falta e passa-os para o calendário."
+    },
+    "horario": {
+      "name": "Horário de aulas",
+      "desc": "A tua semana com as disciplinas, as salas e o que está a dar agora."
+    }
+  },
+  "settings": {
+    "title": "Definições",
+    "lead": "As alterações são guardadas logo.",
+    "appearance": {
+      "title": "Aspeto",
+      "theme": {
+        "label": "Tema",
+        "desc": "Escuro por omissão. «Sistema» segue a preferência do teu dispositivo.",
+        "dark": "Escuro",
+        "light": "Claro",
+        "system": "Sistema"
+      },
+      "accent": {
+        "label": "Cor de destaque",
+        "desc": "Usa-se em botões, ligações e elementos ativos.",
+        "azul": "Azul",
+        "violeta": "Violeta",
+        "verde": "Verde",
+        "naranja": "Laranja",
+        "rosa": "Rosa",
+        "cian": "Ciano"
+      },
+      "textSize": {
+        "label": "Tamanho do texto",
+        "desc": "Afeta toda a aplicação.",
+        "pequeno": "Pequeno",
+        "normal": "Normal",
+        "grande": "Grande"
+      },
+      "reduceMotion": {
+        "label": "Reduzir animações",
+        "desc": "Retira transições e movimentos. Também se respeita a preferência do sistema."
+      }
+    },
+    "language": {
+      "title": "Idioma",
+      "label": "Idioma da aplicação",
+      "desc": "A alteração aplica-se logo, sem recarregar.",
+      "auto": "Automático (conforme o navegador)"
+    },
+    "region": {
+      "title": "Região e formato",
+      "time": {
+        "label": "Formato da hora",
+        "desc": "Como se mostram as horas em toda a aplicação.",
+        "auto": "Automático",
+        "h12": "12 horas",
+        "h24": "24 horas"
+      },
+      "date": {
+        "label": "Formato da data",
+        "desc": "Ordem do dia, mês e ano.",
+        "auto": "Automático",
+        "dmy": "Dia/Mês/Ano",
+        "mdy": "Mês/Dia/Ano",
+        "ymd": "Ano-Mês-Dia"
+      },
+      "currency": {
+        "label": "Moeda por omissão",
+        "desc": "A que aparece ao abrir o conversor de moedas."
+      },
+      "units": {
+        "label": "Sistema de unidades",
+        "desc": "Preferência inicial do conversor de unidades.",
+        "metrico": "Métrico",
+        "imperial": "Imperial"
+      },
+      "preview": "Exemplo: {date} · {time} · {number} · {money}"
+    },
+    "tools": {
+      "title": "Ferramentas",
+      "lead": "Escolhe quais aparecem no início e por que ordem.",
+      "show": "Mostrar {name}",
+      "hide": "Ocultar {name}",
+      "moveUp": "Subir {name}",
+      "moveDown": "Descer {name}",
+      "resetOrder": "Repor a ordem",
+      "orderReset": "Ordem reposta",
+      "hiddenCount": {
+        "one": "{n} ferramenta oculta",
+        "other": "{n} ferramentas ocultas"
+      },
+      "timer": {
+        "title": "Temporizador",
+        "focus": {
+          "label": "Duração do pomodoro",
+          "desc": "Minutos de concentração em cada ronda."
+        },
+        "shortBreak": {
+          "label": "Pausa curta",
+          "desc": "Minutos entre rondas."
+        },
+        "longBreak": {
+          "label": "Pausa longa",
+          "desc": "Minutos depois de terminar as rondas."
+        },
+        "rounds": {
+          "label": "Rondas antes da pausa longa",
+          "desc": "Quantos pomodoros seguidos."
+        },
+        "sound": {
+          "label": "Som ao terminar",
+          "desc": "Um aviso curto quando o tempo acaba."
+        },
+        "vibrate": {
+          "label": "Vibração ao terminar",
+          "desc": "Só em dispositivos compatíveis."
+        },
+        "notify": {
+          "label": "Notificação ao terminar",
+          "desc": "Avisa mesmo com a aplicação em segundo plano.",
+          "unsupported": "O teu navegador não permite notificações.",
+          "denied": "Bloqueaste as notificações neste navegador. Muda isso nas permissões do site.",
+          "granted": "Notificações ativadas",
+          "hint": "O navegador só te pode avisar enquanto a aplicação estiver aberta, mesmo que em segundo plano. Se a fechares de vez, não há notificação."
+        },
+        "alarm": {
+          "focus": "Som ao terminar o trabalho",
+          "break": "Som ao terminar a pausa",
+          "test": "Testar",
+          "volume": "Volume do alarme",
+          "campana": "Sino",
+          "beep": "Bip clássico",
+          "digital": "Digital",
+          "arpegio": "Arpejo suave",
+          "timbre": "Campainha",
+          "retro": "Retro 8-bit",
+          "gota": "Gota de água",
+          "despertador": "Despertador",
+          "repeat": {
+            "label": "Quantas vezes toca",
+            "desc": "«Até a parares» continua a tocar até carregares em «Parar alarme».",
+            "una": "Uma vez",
+            "tres": "Três vezes",
+            "hasta": "Até a parares"
+          }
+        }
+      }
+    },
+    "data": {
+      "title": "Dados",
+      "export": {
+        "label": "Cópia de segurança",
+        "desc": "Descarrega todos os teus dados num ficheiro JSON.",
+        "action": "Exportar",
+        "done": "Cópia de segurança descarregada"
+      },
+      "import": {
+        "label": "Restaurar uma cópia",
+        "desc": "O ficheiro é verificado antes de ser aplicado. Substitui os dados atuais.",
+        "action": "Importar",
+        "confirmTitle": "Restaurar esta cópia?",
+        "confirmMessage": "Todos os dados atuais da aplicação vão ser substituídos pelos do ficheiro.",
+        "done": "Cópia restaurada ({n} elementos)",
+        "invalid": "O ficheiro não é uma cópia válida desta aplicação",
+        "unreadable": "Não foi possível ler o ficheiro"
+      },
+      "clear": {
+        "label": "Apagar todos os dados locais",
+        "desc": "Definições, favoritos e o conteúdo das ferramentas deste dispositivo.",
+        "action": "Apagar tudo",
+        "confirmTitle": "Apagar todos os dados?",
+        "confirmMessage": "Isto não se pode desfazer. Vai ser apagado tudo o que está guardado neste dispositivo.",
+        "done": "Dados apagados"
+      },
+      "blocked": {
+        "title": "O armazenamento está bloqueado",
+        "message": "Este navegador não deixa guardar dados (modo privado ou permissões do site). A aplicação funciona, mas esquece tudo ao fechar."
+      }
+    },
+    "account": {
+      "title": "Conta",
+      "guest": {
+        "label": "Modo convidado",
+        "desc": "Tudo funciona sem conta. Os teus dados estão só neste dispositivo."
+      },
+      "why": "Iniciar sessão é opcional. Serve para usares os mesmos dados no telemóvel e no computador.",
+      "email": "Correio eletrónico",
+      "password": "Palavra-passe",
+      "passwordHint": "Pelo menos 6 caracteres.",
+      "invalidEmail": "Escreve um correio válido",
+      "shortPassword": "Mínimo 6 caracteres",
+      "signIn": "Iniciar sessão",
+      "signUp": "Criar conta",
+      "forgot": "Esqueci-me da palavra-passe",
+      "signedIn": "Sessão iniciada",
+      "signedOut": "Sessão terminada",
+      "signOut": "Terminar sessão",
+      "confirmEmail": "Enviámos-te um correio para confirmares a conta. Abre-o e volta aqui.",
+      "resetSent": "Enviámos-te um correio para mudares a palavra-passe.",
+      "syncStatus": "Sincronização",
+      "syncNow": "Sincronizar agora",
+      "synced": "Tudo sincronizado",
+      "status": {
+        "guest": "Modo convidado",
+        "signedOut": "Sem sessão",
+        "syncing": "A sincronizar…",
+        "synced": "Em dia",
+        "offline": "Sem ligação: será enviado quando voltar",
+        "error": "Não foi possível sincronizar"
+      },
+      "setup": {
+        "title": "Sincronização por configurar",
+        "message": "A aplicação funciona na mesma sem conta. Para usares os mesmos dados no telemóvel e no computador é preciso criar um projeto gratuito no Supabase e colar dois dados no ficheiro config.js.",
+        "where": "Os passos exatos e o SQL estão no README do projeto, secção «Conta e sincronização»."
+      },
+      "deleteCloud": {
+        "label": "Apagar os meus dados da nuvem",
+        "desc": "Retira os teus dados do servidor. O que está guardado neste dispositivo fica como está.",
+        "action": "Apagar da nuvem",
+        "confirmTitle": "Apagar os teus dados da nuvem?",
+        "confirmMessage": "Vão ser apagadas todas as tuas linhas do servidor. Os dados deste dispositivo não são tocados. Não se pode desfazer.",
+        "done": "Dados da nuvem apagados"
+      },
+      "deleteAccount": {
+        "title": "E apagar a conta inteira?",
+        "message": "Eliminar o utilizador em si só pode ser feito no painel do Supabase (Authentication → Users) ou com uma função de servidor. Daqui podes terminar sessão e apagar os teus dados."
+      }
+    },
+    "about": {
+      "title": "Acerca de",
+      "version": "Versão",
+      "storage": "Formato dos dados",
+      "storageValue": "versão {n}",
+      "install": {
+        "label": "Instalar a aplicação",
+        "desc": "Adiciona-a ao teu ecrã principal ou ao ambiente de trabalho.",
+        "action": "Instalar",
+        "unavailable": "O teu navegador não oferece a instalação aqui, ou a aplicação já está instalada.",
+        "installed": "Aplicação instalada",
+        "dismissed": "Instalação cancelada",
+        "howto": "No iPhone e iPad: botão Partilhar → «Adicionar ao ecrã principal»."
+      },
+      "update": {
+        "label": "Procurar atualizações",
+        "desc": "Verifica se há uma versão nova publicada.",
+        "action": "Procurar",
+        "checking": "A verificar…",
+        "upToDate": "Já tens a última versão",
+        "found": "Há uma atualização disponível",
+        "unsupported": "Este navegador não permite atualizações em segundo plano"
+      },
+      "privacy": "Política de privacidade",
+      "licenses": "Licenças",
+      "sourceLabel": "Feito com HTML, CSS e JavaScript, sem frameworks.",
+      "iconNote": "O ícone muda com a cor de destaque e aplica-se sem te perguntar nada. O da aplicação já instalada é fixado pelo sistema na instalação: para o veres mudar, volta a instalá-la. No iPhone e iPad não se atualiza."
+    },
+    "sound": {
+      "title": "Som e animações",
+      "enabled": {
+        "label": "Sons da interface",
+        "desc": "Avisos curtos ao carregar, confirmar ou mudar de ecrã. Acompanham sempre algo visível, nunca o substituem."
+      },
+      "volume": {
+        "label": "Volume"
+      },
+      "style": {
+        "label": "Estilo de som",
+        "desc": "Como soam os avisos.",
+        "suave": "Suave",
+        "retro": "Retro",
+        "cristal": "Cristal",
+        "tryIt": "Ouve-os:"
+      },
+      "cue": {
+        "tap": "Ao carregar num botão",
+        "toggle": "Ao ligar um interruptor",
+        "success": "Ao confirmar-se algo",
+        "error": "Ao falhar algo",
+        "navigate": "Ao mudar de ecrã",
+        "dialog": "Ao abrir uma caixa de diálogo"
+      },
+      "hover": {
+        "label": "Ao passar o rato por cima",
+        "desc": "Um tique muito curto ao entrar num botão. Só com rato, e nunca enquanto te deslocas.",
+        "unavailable": "O som ao passar por cima só aparece em dispositivos com rato."
+      },
+      "vibrate": {
+        "label": "Vibrar ao carregar",
+        "desc": "Um toque curto em cada toque.",
+        "unavailable": "Este dispositivo não permite vibração."
+      },
+      "note": "Todos os sons são gerados na hora, sem descarregar nenhum ficheiro, e não tocam se o separador estiver em segundo plano."
+    },
+    "motion": {
+      "transitions": {
+        "label": "Transições entre ecrãs",
+        "desc": "Como se passa de um ecrã para outro.",
+        "ninguna": "Nenhuma",
+        "suave": "Suave",
+        "completa": "Completa"
+      },
+      "reducedOverride": "Tens «reduzir movimento» ativado, por isso agora não há transições mesmo que escolhas outra coisa."
+    }
+  },
+  "update": {
+    "available": "Há uma atualização disponível",
+    "action": "Atualizar agora",
+    "dismiss": "Agora não",
+    "applying": "A aplicar a atualização…"
+  },
+  "connection": {
+    "offline": "Sem ligação",
+    "online": "Ligação recuperada",
+    "offlineHint": "Podes continuar a usar a aplicação: tudo funciona sem ligação."
+  },
+  "privacy": {
+    "title": "Privacidade",
+    "lead": "Resumo curto: esta aplicação não te segue e, sem conta, nada sai do teu dispositivo.",
+    "local": {
+      "title": "O que se guarda no teu dispositivo",
+      "items": [
+        "As tuas definições: tema, destaque, idioma, formatos e preferências das ferramentas.",
+        "Os teus favoritos e a ordem das ferramentas.",
+        "O conteúdo que crias em cada ferramenta (tarefas, notas, listas, históricos).",
+        "Tudo isso no armazenamento local do navegador, com o prefixo «amano:»."
+      ]
+    },
+    "none": {
+      "title": "O que NÃO se faz",
+      "items": [
+        "Não há análise de dados, nem cookies de rastreio, nem publicidade.",
+        "O teu conteúdo não é enviado para nenhum servidor.",
+        "Não se pede nenhuma permissão sem que a ativem antes."
+      ]
+    },
+    "account": {
+      "title": "Se iniciares sessão (opcional)",
+      "items": [
+        "Só se criares uma conta é que são enviados dados para um servidor: o teu, no Supabase.",
+        "Sincronizam-se definições, favoritos, tarefas, lista de compras, notas, fusos horários, opções da roleta, cores, nomes de equipas e preferências de moedas.",
+        "Ficam guardados numa tabela onde cada linha leva o teu identificador de utilizador, e as políticas de segurança da base de dados impedem que mais alguém leia ou escreva nas tuas linhas.",
+        "Da palavra-passe e da sessão trata a própria biblioteca do Supabase: esta aplicação não guarda palavras-passe nem tokens por sua conta.",
+        "Podes apagar os teus dados da nuvem quando quiseres em Definições → Conta."
+      ]
+    },
+    "network": {
+      "title": "Quando se usa a internet",
+      "items": [
+        "Ao abrir a aplicação pela primeira vez, para a descarregar e guardar para uso sem ligação.",
+        "Para procurar atualizações da própria aplicação.",
+        "O conversor de moedas vai consultar taxas de câmbio públicas quando estiver disponível.",
+        "Se tiveres sessão iniciada, para sincronizar os teus dados com o teu projeto do Supabase."
+      ]
+    },
+    "control": {
+      "title": "O teu controlo",
+      "items": [
+        "Podes exportar uma cópia dos teus dados quando quiseres em Definições → Dados.",
+        "Podes apagar tudo o que está guardado neste dispositivo com um botão, e não se pode desfazer."
+      ]
+    },
+    "contact": "Esta aplicação é publicada como um site estático: quem a aloja só vê os pedidos normais de um site."
+  },
+  "licenses": {
+    "title": "Licenças",
+    "lead": "Bibliotecas de terceiros incluídas dentro do projeto para que a aplicação funcione sem ligação.",
+    "empty": "Ainda não se usa nenhuma biblioteca externa: todo o código é próprio.",
+    "license": "Licença",
+    "author": "Autoria",
+    "readFull": "Ler a licença",
+    "project": "Projeto original",
+    "use": {
+      "qrcode": "Desenha os códigos QR no dispositivo, sem ligação.",
+      "supabase": "Início de sessão e sincronização de dados entre dispositivos."
+    },
+    "ownCode": "O resto do código da aplicação é próprio: HTML, CSS e JavaScript sem frameworks."
+  },
+  "notfound": {
+    "title": "Página não encontrada",
+    "message": "A ligação que seguiste não existe ou mudou.",
+    "action": "Ir para o início"
+  },
+  "offlinePage": {
+    "title": "Sem ligação",
+    "message": "Não conseguimos carregar esta parte da aplicação e não há ligação neste momento.",
+    "action": "Tentar de novo"
+  },
+  "temporizador": {
+    "tab": {
+      "countdown": "Contagem decrescente",
+      "pomodoro": "Pomodoro"
+    },
+    "start": "Começar",
+    "pause": "Pausar",
+    "reset": "Reiniciar",
+    "preset": "{n} min",
+    "remaining": "Faltam {time}",
+    "endsAt": "Termina às {time}",
+    "round": "Ronda {n}",
+    "custom": {
+      "action": "Pôr",
+      "invalid": "Entre 0 e 599 minutos e entre 0 e 59 segundos, e que não seja zero.",
+      "title": "Tempo à medida",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "state": {
+      "running": "A contar",
+      "paused": "Em pausa",
+      "finished": "Terminado"
+    },
+    "phase": {
+      "cuenta": "Contagem decrescente",
+      "focus": "Concentração",
+      "short": "Pausa curta",
+      "long": "Pausa longa"
+    },
+    "done": {
+      "title": "Tempo cumprido",
+      "body": "Terminou: {phase}",
+      "notification": "Terminou: {phase}. Toca para parar o alarme."
+    },
+    "pomodoro": {
+      "config": "{focus} min de concentração · {short} min de pausa · {long} min de pausa longa a cada {rounds} rondas. Muda-se nas Definições."
+    },
+    "hint": "Continua a contar mesmo que mudes de ecrã, e o alarme toca uma e outra vez até o parares.",
+    "alarm": {
+      "stop": "Parar alarme",
+      "ringing": "A tocar: {phase}"
+    },
+    "notify": {
+      "title": "Notificação no dispositivo",
+      "ask": "Recebe o aviso na barra de notificações, como em qualquer outra aplicação, mesmo com o ecrã desligado ou noutra aplicação.",
+      "enable": "Ativar",
+      "enabled": "Notificações ativadas",
+      "on": "Ativadas. Quando a contagem terminar vais receber uma notificação com um botão para parar o alarme.",
+      "test": "Enviar uma de teste",
+      "tested": "Notificação de teste enviada",
+      "testTitle": "A mano",
+      "testBody": "É assim que te avisamos quando o temporizador terminar.",
+      "denied": "Bloqueaste as notificações para esta página. Para as receberes, ativa-as nas permissões do site no teu navegador (o cadeado ao lado do endereço) e volta aqui.",
+      "unsupported": "O teu navegador não permite notificações. No iPhone e iPad é preciso instalar a aplicação no ecrã principal para funcionarem."
+    }
+  },
+  "listas": {
+    "add": "Adicionar",
+    "tab": {
+      "tareas": "Tarefas",
+      "compra": "Compras",
+      "notas": "Notas"
+    },
+    "tareas": {
+      "placeholder": "O que é preciso fazer?",
+      "addLabel": "Nova tarefa",
+      "editLabel": "Editar a tarefa",
+      "dueLabel": "Data limite",
+      "dueHint": "Data limite (opcional)",
+      "due": "Para {date}",
+      "overdue": "Venceu a {date}",
+      "markDone": "Marcar «{text}» como feita",
+      "markPending": "Marcar «{text}» como pendente",
+      "moveUp": "Subir",
+      "moveDown": "Descer",
+      "edit": "Editar",
+      "delete": "Apagar",
+      "filterLabel": "Filtrar tarefas",
+      "filter": {
+        "todas": "Todas",
+        "pendientes": "Pendentes",
+        "hechas": "Feitas"
+      },
+      "pending": {
+        "one": "{n} pendente",
+        "other": "{n} pendentes"
+      },
+      "clearDone": "Apagar concluídas",
+      "clearDoneConfirm": "Vão ser apagadas todas as tarefas marcadas como feitas.",
+      "cleared": "Tarefas concluídas apagadas",
+      "empty": {
+        "title": "Sem tarefas",
+        "message": "Escreve em cima a primeira coisa que tens de fazer."
+      },
+      "emptyFilter": {
+        "title": "Nada por aqui",
+        "message": "Nenhuma tarefa corresponde a este filtro."
+      }
+    },
+    "compra": {
+      "placeholder": "Adiciona um artigo e carrega em Enter",
+      "addLabel": "Novo artigo",
+      "qtyPlaceholder": "Qtd.",
+      "qtyLabel": "Quantidade (opcional)",
+      "categoryLabel": "Categoria (opcional)",
+      "categoryHint": "Categoria do próximo artigo (opcional)",
+      "noCategory": "Sem categoria",
+      "category": {
+        "fruta": "Fruta",
+        "verdura": "Legumes",
+        "carne": "Carne",
+        "pescado": "Peixe",
+        "lacteos": "Laticínios",
+        "panaderia": "Padaria",
+        "bebidas": "Bebidas",
+        "congelados": "Congelados",
+        "despensa": "Despensa",
+        "limpieza": "Limpeza",
+        "higiene": "Higiene",
+        "otros": "Outros"
+      },
+      "markBought": "Marcar «{text}» como comprado",
+      "markPending": "Marcar «{text}» como pendente",
+      "delete": "Retirar «{text}»",
+      "pending": {
+        "one": "{n} por comprar",
+        "other": "{n} por comprar"
+      },
+      "uncheckAll": "Desmarcar tudo",
+      "clearBought": "Apagar comprados",
+      "clearBoughtConfirm": "Os artigos já comprados vão ser retirados da lista.",
+      "cleared": "Artigos comprados apagados",
+      "share": "Copiar ou partilhar",
+      "empty": {
+        "title": "A lista está vazia",
+        "message": "Escreve um artigo e carrega em Enter. Vai sugerindo os que já usaste."
+      }
+    },
+    "notas": {
+      "new": "Nota nova",
+      "untitled": "Sem título",
+      "emptyBody": "(vazia)",
+      "titleLabel": "Título da nota",
+      "titlePlaceholder": "Título (opcional)",
+      "bodyLabel": "Conteúdo da nota",
+      "bodyPlaceholder": "Escreve aqui…",
+      "searchLabel": "Procurar nas notas",
+      "searchPlaceholder": "Procurar nas notas…",
+      "saving": "A guardar…",
+      "saved": "Guardado",
+      "updated": "Editada {when}",
+      "pin": "Fixar em cima",
+      "unpin": "Deixar de fixar",
+      "pinned": "Fixada",
+      "delete": "Apagar a nota",
+      "deleteConfirmTitle": "Apagar esta nota?",
+      "deleteConfirmMessage": "Não se pode desfazer.",
+      "deleted": "Nota apagada",
+      "empty": {
+        "title": "Sem notas",
+        "message": "Cria a primeira com um toque."
+      },
+      "noResults": {
+        "title": "Sem resultados",
+        "message": "Nenhuma nota corresponde à pesquisa."
+      },
+      "format": {
+        "label": "Formato",
+        "bold": "Negrito (Ctrl+B)",
+        "italic": "Itálico (Ctrl+I)",
+        "strike": "Rasurado",
+        "color": "Cor do texto",
+        "noColor": "Sem cor"
+      },
+      "color": {
+        "rojo": "Vermelho",
+        "naranja": "Laranja",
+        "amarillo": "Amarelo",
+        "verde": "Verde",
+        "azul": "Azul",
+        "violeta": "Violeta",
+        "rosa": "Rosa",
+        "gris": "Cinzento"
+      }
+    }
+  },
+  "unidades": {
+    "category": "Grandeza",
+    "cat": {
+      "longitud": "Comprimento",
+      "masa": "Peso e massa",
+      "temperatura": "Temperatura",
+      "volumen": "Volume",
+      "superficie": "Área",
+      "velocidad": "Velocidade",
+      "tiempo": "Tempo",
+      "datos": "Dados",
+      "presion": "Pressão",
+      "energia": "Energia"
+    },
+    "value": "Quantidade",
+    "from": "De",
+    "to": "Para",
+    "swap": "Trocar",
+    "invalid": "Escreve um número",
+    "summary": "{value} {from} equivale a:",
+    "allUnits": "Ver em todas as unidades",
+    "hint": "O separador decimal pode ser vírgula ou ponto. As unidades imperiais usam as medidas dos EUA salvo onde se indica.",
+    "u": {
+      "longitud": {
+        "mm": "milímetros",
+        "cm": "centímetros",
+        "m": "metros",
+        "km": "quilómetros",
+        "in": "polegadas",
+        "ft": "pés",
+        "yd": "jardas",
+        "mi": "milhas",
+        "nmi": "milhas náuticas"
+      },
+      "masa": {
+        "mg": "miligramas",
+        "g": "gramas",
+        "kg": "quilogramas",
+        "t": "toneladas",
+        "oz": "onças",
+        "lb": "libras",
+        "st": "stones"
+      },
+      "temperatura": {
+        "c": "graus Celsius",
+        "f": "graus Fahrenheit",
+        "k": "kelvin"
+      },
+      "volumen": {
+        "ml": "mililitros",
+        "cl": "centilitros",
+        "l": "litros",
+        "m3": "metros cúbicos",
+        "tsp": "colheres de chá",
+        "tbsp": "colheres de sopa",
+        "floz": "onças líquidas",
+        "cup": "chávenas",
+        "pt": "pintas",
+        "qt": "quartos",
+        "galus": "galões (EUA)",
+        "galuk": "galões (Reino Unido)"
+      },
+      "superficie": {
+        "cm2": "centímetros quadrados",
+        "m2": "metros quadrados",
+        "ha": "hectares",
+        "km2": "quilómetros quadrados",
+        "in2": "polegadas quadradas",
+        "ft2": "pés quadrados",
+        "yd2": "jardas quadradas",
+        "acre": "acres",
+        "mi2": "milhas quadradas"
+      },
+      "velocidad": {
+        "ms": "metros por segundo",
+        "kmh": "quilómetros por hora",
+        "mph": "milhas por hora",
+        "fts": "pés por segundo",
+        "kn": "nós"
+      },
+      "tiempo": {
+        "ms": "milissegundos",
+        "s": "segundos",
+        "min": "minutos",
+        "h": "horas",
+        "d": "dias",
+        "wk": "semanas",
+        "mo": "meses",
+        "yr": "anos"
+      },
+      "datos": {
+        "bit": "bits",
+        "b": "bytes",
+        "kb": "kilobytes",
+        "mb": "megabytes",
+        "gb": "gigabytes",
+        "tb": "terabytes",
+        "kib": "kibibytes",
+        "mib": "mebibytes",
+        "gib": "gibibytes",
+        "tib": "tebibytes"
+      },
+      "presion": {
+        "pa": "pascais",
+        "hpa": "hectopascais",
+        "kpa": "quilopascais",
+        "bar": "bares",
+        "atm": "atmosferas",
+        "psi": "libras por polegada quadrada",
+        "mmhg": "milímetros de mercúrio"
+      },
+      "energia": {
+        "j": "joules",
+        "kj": "quilojoules",
+        "cal": "calorias",
+        "kcal": "quilocalorias",
+        "wh": "watt-hora",
+        "kwh": "quilowatt-hora",
+        "btu": "BTU"
+      }
+    }
+  },
+  "contrasenas": {
+    "generate": "Gerar outra vez",
+    "copyOne": "Copiar esta palavra-passe",
+    "copyAll": "Copiar todas",
+    "length": "Comprimento",
+    "chars": "{n} caracteres",
+    "count": "Quantas gerar",
+    "lower": {
+      "label": "Minúsculas",
+      "desc": "a–z"
+    },
+    "upper": {
+      "label": "Maiúsculas",
+      "desc": "A–Z"
+    },
+    "digits": {
+      "label": "Números",
+      "desc": "0–9"
+    },
+    "symbols": {
+      "label": "Símbolos",
+      "desc": "! @ # $ % & * …"
+    },
+    "noAmbiguous": {
+      "label": "Evitar caracteres confusos",
+      "desc": "Retira l, I, 1, O, 0 e aspas, que se confundem ao ler."
+    },
+    "noSets": "Ativa pelo menos um tipo de caracteres",
+    "strength": "Segurança: {level} · {bits} bits de entropia",
+    "level": {
+      "1": "baixa",
+      "2": "aceitável",
+      "3": "boa",
+      "4": "muito boa"
+    },
+    "privacy": "São geradas no teu dispositivo com o gerador criptográfico do navegador. Não são enviadas nem guardadas em lado nenhum."
+  },
+  "contador": {
+    "label": "Texto a analisar",
+    "placeholder": "Escreve ou cola aqui o teu texto…",
+    "stat": {
+      "words": "Palavras",
+      "chars": "Caracteres",
+      "charsNoSpaces": "Sem espaços",
+      "sentences": "Frases",
+      "paragraphs": "Parágrafos",
+      "lines": "Linhas"
+    },
+    "times": "Leitura: {read} · em voz alta: {speak}",
+    "time": {
+      "zero": "menos de 1 s",
+      "seconds": "{n} s",
+      "minutes": "{n} min"
+    },
+    "frequent": "Palavras mais repetidas:",
+    "clear": "Esvaziar",
+    "clearConfirmTitle": "Esvaziar o texto?",
+    "clearConfirmMessage": "Vai ser apagado o que está escrito. Não se pode desfazer.",
+    "hint": "O texto é guardado só neste dispositivo para que o encontres ao voltar."
+  },
+  "porcentajes": {
+    "mode": {
+      "deQue": "Quanto é uma % de uma quantia?",
+      "queporcentaje": "Que percentagem representa?",
+      "aumentar": "Aumentar uma quantia em %",
+      "descontar": "Aplicar um desconto",
+      "variacion": "Variação entre dois valores",
+      "impuesto": "Adicionar imposto (IVA)",
+      "sinImpuesto": "Retirar imposto (IVA)"
+    },
+    "f": {
+      "percent": "Percentagem (%)",
+      "of": "Desta quantia",
+      "part": "Parte",
+      "total": "Total",
+      "amount": "Quantia",
+      "increase": "Subida (%)",
+      "price": "Preço",
+      "discount": "Desconto (%)",
+      "from": "Valor inicial",
+      "to": "Valor final",
+      "netPrice": "Preço sem imposto",
+      "taxRate": "Imposto (%)",
+      "grossPrice": "Preço com imposto"
+    },
+    "r": {
+      "deQue": "{pct} % de {total} é {result}.",
+      "queporcentaje": "{part} é {result} % de {total}.",
+      "aumentar": "{base} + {pct} % = {result} (sobe {diff}).",
+      "descontar": "{base} − {pct} % = {result} (poupas {diff}).",
+      "variacionSube": "De {from} para {to} sobe {pct} % ({diff} a mais).",
+      "variacionBaja": "De {from} para {to} desce {pct} % ({diff} a menos).",
+      "variacionIgual": "De {from} para {to} não há variação.",
+      "variacionCero": "Não se pode calcular a variação partindo de zero.",
+      "impuesto": "{base} + {pct} % de imposto = {result} (imposto: {tax}).",
+      "sinImpuesto": "{gross} com {pct} % incluído são {result} sem imposto (imposto: {tax})."
+    },
+    "invalid": "Escreve um número",
+    "hint": "Podes usar vírgula ou ponto nas casas decimais.",
+    "modeLabel": "O que queres calcular"
+  },
+  "monedas": {
+    "amount": "Quantia",
+    "from": "De",
+    "to": "Para",
+    "swap": "Trocar",
+    "invalidAmount": "Escreve uma quantia válida",
+    "rateLine": "1 {from} = {rate} {to}",
+    "loading": "A procurar taxas de câmbio…",
+    "refresh": "Atualizar taxas",
+    "refreshed": "Taxas atualizadas",
+    "updated": "Taxa de {when} · fonte: {source}",
+    "noRates": "Ainda não há taxas descarregadas",
+    "pick": {
+      "from": "Escolher moeda de origem",
+      "to": "Escolher moeda de destino",
+      "search": "Procurar moeda…",
+      "none": "Nenhuma moeda corresponde",
+      "fromCurrent": "Moeda de origem: {code}. Carrega para a mudar",
+      "toCurrent": "Moeda de destino: {code}. Carrega para a mudar"
+    },
+    "manual": {
+      "summary": "Usar uma taxa de câmbio própria",
+      "label": "Taxa de câmbio manual",
+      "hint": "Quantas unidades da moeda de destino equivalem a 1 da de origem. Se a preencheres, tem prioridade sobre a da internet.",
+      "invalid": "Escreve um número maior que zero",
+      "inUse": "taxa de câmbio manual"
+    },
+    "error": {
+      "offline": "Sem ligação: está a usar-se a última taxa guardada, que pode estar desatualizada.",
+      "stale": "Estas taxas têm mais de um dia. Carrega em «Atualizar taxas» quando tiveres ligação.",
+      "noData": "Não foi possível descarregar as taxas e não há nenhuma guardada. Liga-te à internet ou escreve uma taxa de câmbio manual.",
+      "fetch": "Não foi possível atualizar as taxas"
+    },
+    "disclaimer": "O resultado é indicativo. As taxas são de referência e não incluem comissões nem a margem do teu banco."
+  },
+  "zonas": {
+    "tab": {
+      "clock": "Relógios",
+      "convert": "Converter"
+    },
+    "add": "Adicionar fuso",
+    "remove": "Retirar {name}",
+    "copy": "Copiar",
+    "myZone": "{name} (o meu fuso)",
+    "searchLabel": "Procurar fuso horário",
+    "searchPlaceholder": "Procurar cidade ou fuso…",
+    "noResults": "Nenhum fuso corresponde",
+    "day": "de dia",
+    "night": "de noite",
+    "sameTime": "mesma hora",
+    "ahead": "{diff} h em relação a ti",
+    "behind": "{diff} h em relação a ti",
+    "empty": {
+      "title": "Só o teu fuso",
+      "message": "Adiciona cidades para veres a hora delas ao mesmo tempo."
+    },
+    "convert": {
+      "source": "Fuso de origem",
+      "date": "Data",
+      "time": "Hora",
+      "now": "Agora",
+      "invalid": "Completa a data e a hora",
+      "addMore": "Adiciona mais algum fuso para comparar."
+    },
+    "hint": "As horas vêm do próprio navegador, por isso funcionam sem ligação e têm em conta a hora de verão de cada país."
+  },
+  "azar": {
+    "tab": {
+      "moneda": "Moeda",
+      "dados": "Dados",
+      "ruleta": "Roleta",
+      "numeros": "Números"
+    },
+    "moneda": {
+      "ready": "Lança",
+      "heads": "Cara",
+      "tails": "Coroa",
+      "flip": "Lançar",
+      "reset": "Pôr a zero",
+      "score": "Cara: {heads} · Coroa: {tails} · Total: {total}",
+      "coinLabel": "Moeda",
+      "finish": {
+        "label": "Acabamento",
+        "oro": "Ouro",
+        "plata": "Prata",
+        "cobre": "Cobre"
+      }
+    },
+    "dados": {
+      "count": "Quantos dados",
+      "faces": "Faces",
+      "custom": "Personalizado",
+      "customFaces": "Número de faces",
+      "customInvalid": "Entre 2 e 1000",
+      "roll": "Lançar",
+      "total": "{values} = {sum}",
+      "dieLabel": "Dado de {sides} faces: {value}"
+    },
+    "ruleta": {
+      "spin": "Girar",
+      "optionsLabel": "Opções (uma por linha)",
+      "placeholder": "Pizza\nMassa\nSushi",
+      "example": "Pizza\nMassa\nSushi\nSalada",
+      "hint": "Até 24 opções. Ficam guardadas para a próxima vez.",
+      "empty": "Escreve alguma opção",
+      "emptyLabel": "Roleta vazia",
+      "wheelLabel": "Roleta com {n} opções"
+    },
+    "numeros": {
+      "min": "Mínimo",
+      "max": "Máximo",
+      "count": "Quantos números",
+      "generate": "Gerar",
+      "needNumber": "Escreve um número",
+      "needInteger": "Têm de ser números inteiros",
+      "minLessThanMax": "O mínimo tem de ser menor que o máximo",
+      "countRange": "Entre 1 e 100",
+      "tooManyUnique": "Sem repetir só cabem {size} números nesse intervalo",
+      "noRepeat": {
+        "label": "Sem repetir",
+        "desc": "Que não saia duas vezes o mesmo número."
+      },
+      "sorted": {
+        "label": "Ordenar o resultado",
+        "desc": "Do menor para o maior."
+      },
+      "history": "Últimos resultados:"
+    },
+    "hint": "Os resultados usam o gerador criptográfico do navegador, sem o enviesamento que o resto da divisão introduz."
+  },
+  "qr": {
+    "tab": {
+      "text": "Texto ou ligação",
+      "wifi": "Wi-Fi"
+    },
+    "text": {
+      "label": "Texto ou ligação",
+      "placeholder": "https://exemplo.com ou qualquer texto",
+      "hint": "O código é gerado sozinho, à medida que escreves."
+    },
+    "wifi": {
+      "ssid": "Nome da rede (SSID)",
+      "password": "Palavra-passe",
+      "passwordHint": "Não é guardada em lado nenhum: só serve para desenhar o código.",
+      "security": "Segurança",
+      "wpa": "WPA/WPA2/WPA3",
+      "open": "Sem palavra-passe",
+      "hidden": {
+        "label": "Rede oculta",
+        "desc": "Marca isto se a rede não aparecer na lista."
+      },
+      "note": "Ao lê-lo, o telemóvel oferece-se para ligar a esta rede."
+    },
+    "size": "Tamanho",
+    "level": "Correção de erros",
+    "levelName": {
+      "L": "Baixa (L) · mais dados",
+      "M": "Média (M) · recomendada",
+      "Q": "Alta (Q)",
+      "H": "Máxima (H) · mais resistente"
+    },
+    "colorDark": "Cor do código",
+    "colorLight": "Cor do fundo",
+    "appearance": "Tamanho e cores",
+    "download": "Descarregar PNG",
+    "downloaded": "Imagem descarregada",
+    "downloadFailed": "Não foi possível gerar a imagem",
+    "tooLong": "O texto é demasiado longo para um código QR. Encurta-o ou baixa a correção de erros.",
+    "canvasLabel": "Código QR",
+    "canvasEmpty": "Sem conteúdo ainda",
+    "canvasReady": "Código QR gerado",
+    "privacy": "O código é desenhado no teu dispositivo. Nem o texto nem a palavra-passe do wi-fi saem daqui."
+  },
+  "colores": {
+    "tab": {
+      "picker": "Seletor",
+      "contrast": "Contraste"
+    },
+    "pick": "Escolher cor",
+    "invalidHex": "Escreve um HEX de 3 ou 6 dígitos (por exemplo #4f8ef7)",
+    "invalidRgb": "Três valores entre 0 e 255 (por exemplo 79, 142, 247)",
+    "invalidHsl": "Matiz em graus e duas percentagens (por exemplo 217, 91%, 64%)",
+    "copyValue": "Copiar o valor {name}",
+    "shades": "Tons mais claros e mais escuros",
+    "useShade": "Usar o tom {hex}",
+    "saved": "Cores guardadas",
+    "save": "Guardar esta cor",
+    "savedOk": "Cor guardada",
+    "alreadySaved": "Essa cor já está guardada",
+    "clearSaved": "Esvaziar",
+    "noSaved": "Ainda não guardaste nenhuma cor.",
+    "useSaved": "Usar a cor guardada {hex}",
+    "eyedropper": "Conta-gotas",
+    "eyedropperUnsupported": "O teu navegador não tem conta-gotas",
+    "contrast": {
+      "text": "Cor do texto",
+      "bg": "Cor do fundo",
+      "swap": "Trocar",
+      "useCurrent": "Usar a cor do seletor",
+      "ratio": "Relação de contraste: {value}:1",
+      "aaNormal": "AA texto normal",
+      "aaLarge": "AA texto grande",
+      "aaaNormal": "AAA texto normal",
+      "aaaLarge": "AAA texto grande",
+      "sampleBig": "Texto grande de exemplo",
+      "sampleSmall": "E é assim que ficaria um parágrafo normal com este par de cores.",
+      "hint": "«Texto grande» são 18,66 px a negrito ou 24 px normal para cima. AA pede 4,5:1 (3:1 em texto grande) e AAA pede 7:1 (4,5:1 em texto grande)."
+    }
+  },
+  "equipos": {
+    "namesLabel": "Nomes (um por linha)",
+    "namesPlaceholder": "Ana\nBruno\nCarla\nDiogo",
+    "namesHint": "Ficam guardados para a próxima vez. Os repetidos são descartados.",
+    "whoPlays": "Quem participa hoje",
+    "toggle": "Incluir {name} no sorteio",
+    "noNames": "Escreve os nomes em cima.",
+    "modeLabel": "Como repartir",
+    "mode": {
+      "teams": "Por número de equipas",
+      "size": "Por tamanho de equipa"
+    },
+    "teamCount": "Número de equipas",
+    "teamSize": "Pessoas por equipa",
+    "countInvalid": "Entre 2 e 50",
+    "sizeInvalid": "Entre 2 e 50",
+    "pairs": "Fazer pares",
+    "draw": "Sortear",
+    "again": "Repetir sorteio",
+    "share": "Copiar ou partilhar",
+    "needTwo": "São precisos pelo menos dois participantes",
+    "noneActive": "Não há ninguém selecionado.",
+    "summary": "{people} · {teams} · entre {min} e {max} por equipa",
+    "people": {
+      "one": "{n} pessoa",
+      "other": "{n} pessoas"
+    },
+    "teams": {
+      "one": "{n} equipa",
+      "other": "{n} equipas"
+    },
+    "teamName": "Equipa {n}",
+    "teamNameLabel": "Nome da equipa {n}",
+    "empty": {
+      "title": "Ainda sem sorteio",
+      "message": "Escreve os nomes e carrega em «Sortear»."
+    },
+    "hint": "A repartição é mesmo aleatória (mistura de Fisher-Yates com o gerador criptográfico) e as equipas ficam igualadas, com uma pessoa de diferença no máximo."
+  },
+  "sync": {
+    "applied": "Dados atualizados a partir da tua conta"
+  },
+  "categories": {
+    "all": "Todas",
+    "filterLabel": "Filtrar por categoria",
+    "calculo": "Cálculo",
+    "tiempo": "Tempo",
+    "texto": "Texto e dados",
+    "azar": "Acaso",
+    "estudio": "Estudo",
+    "empty": {
+      "title": "Nada nesta categoria",
+      "message": "Todas as suas ferramentas estão ocultas nas Definições.",
+      "action": "Ver todas"
+    }
+  },
+  "calc": {
+    "tab": {
+      "cientifica": "Científica",
+      "lineal": "1.º grau",
+      "cuadratica": "2.º grau",
+      "sistema": "Sistemas",
+      "fracciones": "Frações",
+      "mcd": "MDC e mmc",
+      "factorizar": "Fatorizar",
+      "regla": "Regra de 3",
+      "porcentajes": "Percentagens",
+      "potencias": "Potências",
+      "estadistica": "Estatística"
+    },
+    "explicar": "Explicar passo a passo",
+    "explicarDesc": "Mostra como se chega ao resultado, não só o resultado.",
+    "nivel": {
+      "label": "Nível de detalhe",
+      "breve": "Breve",
+      "detallado": "Detalhado"
+    },
+    "pasos": "Como se resolve",
+    "pasosOcultos": "… {n} passos intermédios ocultos (põe «Detalhado» para os veres)",
+    "copyResult": "Copiar o resultado",
+    "copySteps": "Copiar a explicação",
+    "sinPasos": "Não há explicação para copiar",
+    "ejemplo": "Exemplo",
+    "historial": "Últimos cálculos",
+    "nota": "Os cálculos são feitos com frações exatas e só passam a decimal no fim.",
+    "cientifica": {
+      "label": "Expressão",
+      "placeholder": "Por exemplo: 2+3×4 ou sqrt(16)",
+      "angulo": "Ângulos",
+      "grados": "Graus",
+      "radianes": "Radianos",
+      "borrar": "Apagar",
+      "limpiar": "Limpar",
+      "guardar": "Guardar no histórico"
+    },
+    "lineal": {
+      "a": "a (coeficiente de x)",
+      "b": "b (termo independente)",
+      "c": "c (resultado)",
+      "infinitas": "Infinitas soluções",
+      "ninguna": "Sem solução"
+    },
+    "cuadratica": {
+      "a": "a (coeficiente de x²)",
+      "b": "b (coeficiente de x)",
+      "c": "c (termo independente)",
+      "sinReales": "Não há soluções reais",
+      "unaDoble": "Solução dupla"
+    },
+    "sistema": {
+      "a1": "a₁",
+      "b1": "b₁",
+      "c1": "c₁",
+      "a2": "a₂",
+      "b2": "b₂",
+      "c2": "c₂",
+      "metodo": "Método",
+      "metodo.reduccion": "Redução",
+      "metodo.sustitucion": "Substituição",
+      "metodo.cramer": "Cramer",
+      "ninguna": "Sem solução",
+      "infinitas": "Infinitas soluções"
+    },
+    "fracciones": {
+      "a": "Primeira fração",
+      "b": "Segunda fração",
+      "formato": "Escreve-se como 3/4, ou também 0,75",
+      "op": "Operação",
+      "op.suma": "Somar",
+      "op.resta": "Subtrair",
+      "op.multiplicacion": "Multiplicar",
+      "op.division": "Dividir"
+    },
+    "mcd": {
+      "a": "Primeiro número",
+      "b": "Segundo número"
+    },
+    "factor": {
+      "n": "Número",
+      "divisores": "{n} divisores: {lista}"
+    },
+    "regla": {
+      "a": "Se isto…",
+      "b": "…é isto",
+      "c": "E isto?",
+      "tipo": "Tipo",
+      "tipo.directa": "Direta",
+      "tipo.inversa": "Inversa"
+    },
+    "pct": {
+      "tipo": "O que calcular",
+      "tipo.deQue": "Quanto é uma % de…",
+      "tipo.queporcentaje": "Que percentagem é…",
+      "tipo.aumentar": "Aumentar em %",
+      "tipo.descontar": "Descontar %",
+      "a": "Primeiro valor",
+      "b": "Segundo valor"
+    },
+    "pot": {
+      "base": "Base",
+      "exp": "Expoente",
+      "expHint": "Escreve «sqrt» como expoente para a raiz quadrada"
+    },
+    "est": {
+      "datos": "Dados",
+      "placeholder": "4, 8, 15, 16, 23, 42",
+      "tipo": "Tipo de amostra",
+      "tipo.poblacional": "População (n)",
+      "tipo.muestral": "Amostra (n−1)",
+      "resumen": "Média {media} · Mediana {mediana} · σ {desviacion}",
+      "detalle": "{n} dados · mín {min} · máx {max} · amplitude {rango} · moda {moda} · Q1 {q1} · Q3 {q3} · variância {varianza}",
+      "sinModa": "sem moda"
+    },
+    "error": {
+      "entreCero": "Não se pode dividir por zero",
+      "ceros": "Os dois números não podem ser zero",
+      "cero": "O número não pode ser zero",
+      "totalCero": "O total não pode ser zero",
+      "raizNegativa": "Não há raiz quadrada real de um número negativo",
+      "sinDatos": "Escreve algum dado",
+      "general": "Revê os dados"
+    },
+    "paso": {
+      "expr": "{paso}  →  {resto}",
+      "lineal.inicio": "Partimos de {a}x + ({b}) = {c}.",
+      "lineal.despeja": "Passamos {b} para o outro lado: {a}x = {resto}.",
+      "lineal.divide": "Dividimos por {a}: x = {resto} ÷ {a} = {x}.",
+      "lineal.infinitas": "Os dois lados são iguais: qualquer valor de x serve.",
+      "lineal.ninguna": "Fica uma igualdade falsa: não há nenhuma solução.",
+      "cuadratica.inicio": "Partimos de {a}x² + ({b})x + ({c}) = 0.",
+      "cuadratica.discriminante": "Discriminante: Δ = b² − 4ac = ({b})² − 4·({a})·({c}) = {d}.",
+      "cuadratica.doble": "Δ = 0, por isso há uma única solução dupla: x = {x}.",
+      "cuadratica.raizExacta": "√{d} = {raiz}, que é exata.",
+      "cuadratica.raizSimplificada": "√{d} = {fuera}√{dentro}.",
+      "cuadratica.dos": "x = (−b ± √Δ) ÷ 2a dá x₁ = {x1} e x₂ = {x2}.",
+      "cuadratica.dosDecimal": "x = (−b ± √Δ) ÷ 2a dá x₁ ≈ {x1} e x₂ ≈ {x2}.",
+      "cuadratica.negativo": "Δ = {d} é negativo: não há soluções reais.",
+      "cuadratica.complejas": "As soluções são complexas: x = {re} ± {im}i.",
+      "sistema.inicio": "Sistema: {a1}x + {b1}y = {c1} e {a2}x + {b2}y = {c2}.",
+      "sistema.infinitas": "As duas equações são a mesma reta: há infinitas soluções.",
+      "sistema.ninguna": "As duas retas são paralelas: não há solução.",
+      "sistema.cramerDet": "Determinante principal: Δ = {det}.",
+      "sistema.cramerX": "x = Δx ÷ Δ = {detX} ÷ {det} = {x}.",
+      "sistema.cramerY": "y = Δy ÷ Δ = {detY} ÷ {det} = {y}.",
+      "sistema.despejaX": "Isolamos x na primeira: x = ({c1} + {b1}y) ÷ {a1}.",
+      "sistema.sustituye": "Substituímos esse x na segunda equação.",
+      "sistema.multiplica": "Multiplicamos a primeira por {m1} e a segunda por {m2} para igualar os coeficientes de x.",
+      "sistema.resta": "Subtraímos as duas equações para que o x desapareça.",
+      "sistema.resultadoY": "Fica y = {y}.",
+      "sistema.resultadoX": "E substituindo, x = {x}.",
+      "fracciones.inicio": "Operação: {a} {op} {b}.",
+      "fracciones.comun": "Denominador comum: o mmc dos dois é {m}.",
+      "fracciones.igualadas": "Com esse denominador: {a} {op} {b}.",
+      "fracciones.operados": "Operamos os numeradores: {n}/{d}.",
+      "fracciones.multiplica": "Multiplica-se em cima com em cima e em baixo com em baixo: ({n}) / ({d}).",
+      "fracciones.invierte": "Dividir por {b} é multiplicar por {inv}.",
+      "fracciones.simplificada": "Simplificado: {r} (≈ {decimal}).",
+      "fracciones.simplificaInicio": "Partimos de {f}.",
+      "fracciones.divideAmbos": "Dividimos em cima e em baixo pelo seu MDC, que é {g}.",
+      "fracciones.yaSimple": "Já está completamente simplificada.",
+      "mcd.inicio": "Procuramos o MDC de {a} e {b} com o algoritmo de Euclides.",
+      "mcd.division": "{a} = {b} × {q} + {r}.",
+      "mcd.resultado": "O último resto diferente de zero dá o MDC = {g}.",
+      "mcd.mcm": "E o mmc sai de mmc = ({a} × {b}) ÷ MDC = {m}.",
+      "factor.inicio": "Decompomos {n} dividindo por primos.",
+      "factor.divide": "{n} ÷ {p} = {r}.",
+      "factor.resultado": "{n} = {f}.",
+      "factor.esPrimo": "{n} só se divide por 1 e por si mesmo: é primo.",
+      "factor.uno": "O 1 não tem fatores primos.",
+      "regla.inicioDirecta": "Regra de três direta: se {a} corresponde a {b}, a quanto corresponde {c}?",
+      "regla.inicioInversa": "Regra de três inversa: se {a} corresponde a {b}, a quanto corresponde {c}?",
+      "regla.formulaDirecta": "x = ({b} × {c}) ÷ {a} = {x}.",
+      "regla.formulaInversa": "x = ({a} × {b}) ÷ {c} = {x}.",
+      "regla.resultado": "Resultado: x = {x} (≈ {decimal}).",
+      "pct.deQueInicio": "Queremos {p} % de {n}.",
+      "pct.deQuePaso": "{p} ÷ 100 × {n} = {r}.",
+      "pct.queInicio": "Queremos saber que percentagem é {a} de {b}.",
+      "pct.quePaso": "({a} ÷ {b}) × 100 = {r} %.",
+      "pct.aumentaInicio": "Aumentamos {n} em {p} %.",
+      "pct.aumentaPaso": "{n} × (100 + {p}) ÷ 100 = {r}.",
+      "pct.descuentaInicio": "Descontamos {p} % de {n}.",
+      "pct.descuentaPaso": "{n} × (100 − {p}) ÷ 100 = {r}.",
+      "pct.resultado": "Resultado: {r}.",
+      "pot.inicio": "Calculamos {b} elevado a {e}.",
+      "pot.multiplica": "Multiplicamos {b} por si mesmo {e} vezes.",
+      "pot.negativo": "O expoente negativo inverte a base: 1 ÷ ({b} elevado a {e}).",
+      "pot.decimal": "Expoente não inteiro: calcula-se em decimal, {r}.",
+      "pot.resultado": "Resultado: {r} (≈ {decimal}).",
+      "pot.raizInicio": "Calculamos a raiz quadrada de {n}.",
+      "pot.raizExacta": "√{n} = {r}, exata.",
+      "pot.raizSimplifica": "√{n} = {fuera}√{dentro}.",
+      "pot.raizDecimal": "Em decimal, ≈ {r}.",
+      "est.datos": "Temos {n} dados, ordenados: {lista}.",
+      "est.media": "Média = soma ÷ n = {suma} ÷ {n} = {media}.",
+      "est.mediana": "A mediana, o valor central, é {mediana}.",
+      "est.varianza": "Variância = soma de (x − média)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
+      "est.desviacion": "Desvio padrão = √{varianza} = {desviacion}.",
+      "bases": {
+        "division": "{n} ÷ {base} = {cociente}, resto {resto} → dígito {digito}.",
+        "leerAlReves": "Leem-se os restos de baixo para cima: {digitos}.",
+        "multiplicacion": "{valor} × {base} → parte inteira {digito}, fica {resto}.",
+        "cero": "O zero escreve-se igual em todas as bases: 0."
+      }
+    }
+  },
+  "graf": {
+    "funcion": "Função {n}",
+    "anadir": "Adicionar função",
+    "quitar": "Retirar função",
+    "mostrar": "Mostrar função",
+    "ocultar": "Ocultar função",
+    "lienzo": "Gráfico vazio: escreve uma função para a veres.",
+    "lienzoCon": "Gráfico de {funciones}. Vê-se de x = {x0} a x = {x1} e de y = {y0} a y = {y1}.",
+    "lectura": "{f} → x = {x}, y = {y}",
+    "lecturaSinValor": "Em x = {x} a função não tem valor.",
+    "error": "Não se entende «{f}»: {motivo}",
+    "acercar": "Aproximar",
+    "alejar": "Afastar",
+    "ajustarY": "Ajustar altura",
+    "ajustado": "Altura ajustada ao que se vê.",
+    "nadaQueAjustar": "Não há nenhuma função visível para ajustar.",
+    "reiniciar": "Vista inicial",
+    "png": "Imagem PNG",
+    "csv": "Tabela CSV",
+    "descargada": "Transferência preparada.",
+    "tabla": "Tabela de valores",
+    "ayuda": "Usa x como variável: x^2, sin(x), 1/x. Arrasta para mover o gráfico e usa a roda ou os botões para aproximar. Com o teclado: setas para mover, + e − para o zoom."
+  },
+  "bases": {
+    "binario": "Binário (base 2)",
+    "octal": "Octal (base 8)",
+    "decimal": "Decimal (base 10)",
+    "hexadecimal": "Hexadecimal (base 16)",
+    "baseLibre": "Outra base",
+    "baseN": "Base {n}",
+    "enBase": "Em base {n}",
+    "copiar": "Copiar o valor em base {base}",
+    "agrupar": "Agrupar o binário de quatro em quatro",
+    "agruparDesc": "1111 0000 lê-se melhor que 11110000.",
+    "tamano": "Tamanho para o complemento para dois",
+    "nBits": "{n} bits",
+    "bits": "Bits que ocupa",
+    "digitosHex": "Dígitos em hexadecimal",
+    "complemento": "Complemento para dois ({bits} bits)",
+    "noCabe": "Não cabe em {bits} bits",
+    "sinBitsConDecimales": "A contagem de bits e o complemento para dois só aparecem com números inteiros.",
+    "cortado": "A parte decimal é periódica na base de destino: mostram-se {n} dígitos.",
+    "ejemplo": "{v} em base {b}",
+    "explicarDesc": "Mostra as divisões e multiplicações sucessivas.",
+    "nota": "A parte inteira é calculada com inteiros grandes, por isso não se perde precisão por mais longa que seja. Aceitam-se vírgula ou ponto decimal, e espaços ou sublinhados para separar.",
+    "error": {
+      "vacio": "Escreve um número.",
+      "base": "Essa base não é válida.",
+      "separadores": "Só pode haver um separador decimal.",
+      "digito": "«{c}» não é um dígito válido em base {base}."
+    }
+  },
+  "elementos": {
+    "nombre": {
+      "H": "Hidrogénio",
+      "He": "Hélio",
+      "Li": "Lítio",
+      "Be": "Berílio",
+      "B": "Boro",
+      "C": "Carbono",
+      "N": "Azoto",
+      "O": "Oxigénio",
+      "F": "Flúor",
+      "Ne": "Néon",
+      "Na": "Sódio",
+      "Mg": "Magnésio",
+      "Al": "Alumínio",
+      "Si": "Silício",
+      "P": "Fósforo",
+      "S": "Enxofre",
+      "Cl": "Cloro",
+      "Ar": "Árgon",
+      "K": "Potássio",
+      "Ca": "Cálcio",
+      "Sc": "Escândio",
+      "Ti": "Titânio",
+      "V": "Vanádio",
+      "Cr": "Crómio",
+      "Mn": "Manganês",
+      "Fe": "Ferro",
+      "Co": "Cobalto",
+      "Ni": "Níquel",
+      "Cu": "Cobre",
+      "Zn": "Zinco",
+      "Ga": "Gálio",
+      "Ge": "Germânio",
+      "As": "Arsénio",
+      "Se": "Selénio",
+      "Br": "Bromo",
+      "Kr": "Crípton",
+      "Rb": "Rubídio",
+      "Sr": "Estrôncio",
+      "Y": "Ítrio",
+      "Zr": "Zircónio",
+      "Nb": "Nióbio",
+      "Mo": "Molibdénio",
+      "Tc": "Tecnécio",
+      "Ru": "Ruténio",
+      "Rh": "Ródio",
+      "Pd": "Paládio",
+      "Ag": "Prata",
+      "Cd": "Cádmio",
+      "In": "Índio",
+      "Sn": "Estanho",
+      "Sb": "Antimónio",
+      "Te": "Telúrio",
+      "I": "Iodo",
+      "Xe": "Xénon",
+      "Cs": "Césio",
+      "Ba": "Bário",
+      "La": "Lantânio",
+      "Ce": "Cério",
+      "Pr": "Praseodímio",
+      "Nd": "Neodímio",
+      "Pm": "Promécio",
+      "Sm": "Samário",
+      "Eu": "Európio",
+      "Gd": "Gadolínio",
+      "Tb": "Térbio",
+      "Dy": "Disprósio",
+      "Ho": "Hólmio",
+      "Er": "Érbio",
+      "Tm": "Túlio",
+      "Yb": "Itérbio",
+      "Lu": "Lutécio",
+      "Hf": "Háfnio",
+      "Ta": "Tântalo",
+      "W": "Tungsténio",
+      "Re": "Rénio",
+      "Os": "Ósmio",
+      "Ir": "Irídio",
+      "Pt": "Platina",
+      "Au": "Ouro",
+      "Hg": "Mercúrio",
+      "Tl": "Tálio",
+      "Pb": "Chumbo",
+      "Bi": "Bismuto",
+      "Po": "Polónio",
+      "At": "Ástato",
+      "Rn": "Rádon",
+      "Fr": "Frâncio",
+      "Ra": "Rádio",
+      "Ac": "Actínio",
+      "Th": "Tório",
+      "Pa": "Protactínio",
+      "U": "Urânio",
+      "Np": "Neptúnio",
+      "Pu": "Plutónio",
+      "Am": "Amerício",
+      "Cm": "Cúrio",
+      "Bk": "Berquélio",
+      "Cf": "Califórnio",
+      "Es": "Einsténio",
+      "Fm": "Férmio",
+      "Md": "Mendelévio",
+      "No": "Nobélio",
+      "Lr": "Laurêncio",
+      "Rf": "Rutherfórdio",
+      "Db": "Dúbnio",
+      "Sg": "Seabórgio",
+      "Bh": "Bóhrio",
+      "Hs": "Hássio",
+      "Mt": "Meitnério",
+      "Ds": "Darmstácio",
+      "Rg": "Roentgénio",
+      "Cn": "Copernício",
+      "Nh": "Nihónio",
+      "Fl": "Fleróvio",
+      "Mc": "Moscóvio",
+      "Lv": "Livermório",
+      "Ts": "Tenesso",
+      "Og": "Oganessónio"
+    },
+    "cat": {
+      "alcalino": "Metal alcalino",
+      "alcalinoterreo": "Metal alcalinoterroso",
+      "transicion": "Metal de transição",
+      "postTransicion": "Metal do bloco p",
+      "metaloide": "Semimetal",
+      "noMetal": "Não metal",
+      "halogeno": "Halogéneo",
+      "nobleGas": "Gás nobre",
+      "lantanido": "Lantanídeo",
+      "actinido": "Actinídeo"
+    },
+    "estado": {
+      "solido": "Sólido",
+      "liquido": "Líquido",
+      "gas": "Gasoso",
+      "previsto": "Previsto"
+    }
+  },
+  "tabla": {
+    "buscar": "Procurar elemento",
+    "buscarAyuda": "Por nome, símbolo ou número atómico.",
+    "sinResultados": "Nenhum elemento corresponde a «{q}».",
+    "colorear": "Colorir por",
+    "color": {
+      "categoria": "Família",
+      "estado": "Estado a 20 °C",
+      "electroneg": "Eletronegatividade",
+      "masa": "Massa atómica"
+    },
+    "leyenda": "Legenda",
+    "sinDato": "Sem dados",
+    "celda": "{z} {simbolo} {nombre}, {familia}",
+    "cerrar": "Fechar a ficha",
+    "anterior": "Elemento anterior",
+    "siguiente": "Elemento seguinte",
+    "z": "Número atómico",
+    "masa": "Massa atómica",
+    "familia": "Família",
+    "grupoPeriodo": "Grupo e período",
+    "grupo": "Grupo {g}",
+    "sinGrupo": "Fora da grelha principal",
+    "periodo": "Período {p}",
+    "config": "Configuração eletrónica",
+    "configPredicha": "prevista, não medida",
+    "electroneg": "Eletronegatividade (Pauling)",
+    "ionizacion": "Energia de ionização",
+    "afinidad": "Afinidade eletrónica",
+    "radio": "Raio de van der Waals",
+    "fusion": "Ponto de fusão",
+    "ebullicion": "Ponto de ebulição",
+    "densidad": "Densidade",
+    "oxidacion": "Estados de oxidação",
+    "estado": "Estado a 20 °C",
+    "anio": "Ano da descoberta",
+    "anioAntiguo": "Conhecido desde a Antiguidade",
+    "lantanidos": "Lantanídeos",
+    "actinidos": "Actinídeos",
+    "fuente": "De onde vêm estes dados",
+    "fuenteTexto": "Os dados vêm da tabela periódica do PubChem (NCBI, domínio público) e foram verificados elemento a elemento com uma segunda fonte. O detalhe está em docs/fuentes-datos.md do repositório.",
+    "unidad": {
+      "u": "u",
+      "eV": "eV",
+      "pm": "pm",
+      "K": "K",
+      "gcm3": "g/cm³"
+    },
+    "enC": "{v} °C"
+  },
+  "formulas": {
+    "var": {
+      "A": "Área",
+      "l": "Lado",
+      "b": "Base",
+      "h": "Altura",
+      "r": "Raio",
+      "L": "Comprimento",
+      "B": "Base maior",
+      "c": "Hipotenusa",
+      "a": "Cateto / Aceleração",
+      "V": "Volume",
+      "A_b": "Área da base",
+      "d": "Distância",
+      "v": "Velocidade",
+      "t": "Tempo",
+      "v0": "Velocidade inicial",
+      "x": "Posição",
+      "x0": "Posição inicial",
+      "g": "Gravidade",
+      "F": "Força",
+      "m": "Massa",
+      "P": "Peso / Potência",
+      "p": "Pressão",
+      "rho": "Densidade",
+      "Ec": "Energia cinética",
+      "Ep": "Energia potencial",
+      "W": "Trabalho",
+      "I": "Corrente / Juro",
+      "R": "Resistência",
+      "Q": "Carga",
+      "n": "Moles",
+      "M": "Massa molar",
+      "Mc": "Molaridade",
+      "T": "Temperatura",
+      "C": "Capital",
+      "C_f": "Capital final",
+      "real": "Medida real",
+      "plano": "Medida na planta",
+      "escala": "Escala",
+      "IMC": "Índice de massa corporal"
+    },
+    "unidad": {
+      "m2": "m²",
+      "m": "m",
+      "m3": "m³",
+      "ms": "m/s",
+      "s": "s",
+      "ms2": "m/s²",
+      "N": "N",
+      "kg": "kg",
+      "Pa": "Pa",
+      "kgm3": "kg/m³",
+      "J": "J",
+      "W": "W",
+      "V": "V",
+      "A": "A",
+      "ohm": "Ω",
+      "C": "C",
+      "g": "g",
+      "mol": "mol",
+      "gmol": "g/mol",
+      "molL": "mol/L",
+      "L": "L",
+      "atm": "atm",
+      "RGas": "atm·L/(mol·K)",
+      "K": "K",
+      "cm": "cm",
+      "kgm2": "kg/m²",
+      "porcentaje": "%",
+      "anos": "anos"
+    },
+    "grupo": {
+      "plana": "Geometria plana",
+      "cuerpos": "Sólidos",
+      "cinematica": "Cinemática",
+      "dinamica": "Dinâmica",
+      "energia": "Energia e trabalho",
+      "electricidad": "Eletricidade",
+      "quimica": "Química",
+      "proporciones": "Proporções e dinheiro"
+    },
+    "areaCuadrado": {
+      "nombre": "Área do quadrado",
+      "desc": "Todos os lados medem o mesmo."
+    },
+    "areaRectangulo": {
+      "nombre": "Área do retângulo",
+      "desc": "Base vezes altura."
+    },
+    "areaTriangulo": {
+      "nombre": "Área do triângulo",
+      "desc": "Base vezes altura, a dividir por dois."
+    },
+    "areaCirculo": {
+      "nombre": "Área do círculo",
+      "desc": "Pi vezes o raio ao quadrado."
+    },
+    "longitudCircunferencia": {
+      "nombre": "Perímetro da circunferência",
+      "desc": "O contorno do círculo."
+    },
+    "areaTrapecio": {
+      "nombre": "Área do trapézio",
+      "desc": "Semissoma das bases vezes a altura."
+    },
+    "pitagoras": {
+      "nombre": "Teorema de Pitágoras",
+      "desc": "Num triângulo retângulo."
+    },
+    "volumenCubo": {
+      "nombre": "Volume do cubo",
+      "desc": "A aresta ao cubo."
+    },
+    "volumenPrisma": {
+      "nombre": "Volume do prisma",
+      "desc": "Área da base vezes a altura."
+    },
+    "volumenCilindro": {
+      "nombre": "Volume do cilindro",
+      "desc": "Área do círculo vezes a altura."
+    },
+    "volumenEsfera": {
+      "nombre": "Volume da esfera",
+      "desc": "Quatro terços de pi vezes o raio ao cubo."
+    },
+    "areaEsfera": {
+      "nombre": "Área da esfera",
+      "desc": "Quatro vezes a área do seu círculo máximo."
+    },
+    "volumenCono": {
+      "nombre": "Volume do cone",
+      "desc": "Um terço do cilindro com a mesma base e altura."
+    },
+    "velocidadMedia": {
+      "nombre": "Velocidade média",
+      "desc": "Distância percorrida a dividir pelo tempo gasto."
+    },
+    "mruv": {
+      "nombre": "Velocidade com aceleração constante",
+      "desc": "Movimento retilíneo uniformemente acelerado."
+    },
+    "espacioMruv": {
+      "nombre": "Posição com aceleração constante",
+      "desc": "Onde está o móvel em cada instante."
+    },
+    "caidaLibre": {
+      "nombre": "Queda livre",
+      "desc": "Altura percorrida ao cair sem atrito."
+    },
+    "segundaNewton": {
+      "nombre": "Segunda lei de Newton",
+      "desc": "A força é massa vezes aceleração."
+    },
+    "peso": {
+      "nombre": "Peso",
+      "desc": "A força com que a gravidade puxa uma massa."
+    },
+    "presion": {
+      "nombre": "Pressão",
+      "desc": "Força repartida por uma superfície."
+    },
+    "densidad": {
+      "nombre": "Densidade",
+      "desc": "Massa que cabe num volume."
+    },
+    "energiaCinetica": {
+      "nombre": "Energia cinética",
+      "desc": "A que um corpo tem por se mover."
+    },
+    "energiaPotencial": {
+      "nombre": "Energia potencial gravítica",
+      "desc": "A que tem por estar a certa altura."
+    },
+    "trabajo": {
+      "nombre": "Trabalho",
+      "desc": "Força vezes distância percorrida na sua direção."
+    },
+    "potencia": {
+      "nombre": "Potência",
+      "desc": "Trabalho feito por unidade de tempo."
+    },
+    "ohm": {
+      "nombre": "Lei de Ohm",
+      "desc": "Tensão, corrente e resistência."
+    },
+    "potenciaElectrica": {
+      "nombre": "Potência elétrica",
+      "desc": "Tensão vezes corrente."
+    },
+    "carga": {
+      "nombre": "Carga elétrica",
+      "desc": "Corrente vezes tempo."
+    },
+    "moles": {
+      "nombre": "Moles a partir da massa",
+      "desc": "Massa a dividir pela massa molar."
+    },
+    "molaridad": {
+      "nombre": "Molaridade",
+      "desc": "Moles de soluto por litro de solução."
+    },
+    "gasesIdeales": {
+      "nombre": "Lei dos gases ideais",
+      "desc": "Relação entre pressão, volume, moles e temperatura."
+    },
+    "interesSimple": {
+      "nombre": "Juro simples",
+      "desc": "O juro calcula-se sempre sobre o capital inicial."
+    },
+    "interesCompuesto": {
+      "nombre": "Juro composto",
+      "desc": "Os juros geram mais juros."
+    },
+    "escala": {
+      "nombre": "Escala de uma planta",
+      "desc": "Da medida da planta à real."
+    },
+    "imc": {
+      "nombre": "Índice de massa corporal",
+      "desc": "Massa a dividir pela altura ao quadrado."
+    }
+  },
+  "form": {
+    "buscar": "Procurar fórmula",
+    "buscarAyuda": "Por nome, variável ou fórmula.",
+    "grupo": "Tema",
+    "todos": "Todos os temas",
+    "sinResultados": "Nenhuma fórmula corresponde a «{q}».",
+    "resultados": "{n} fórmulas",
+    "unaFormula": "1 fórmula",
+    "calcular": "Calcular",
+    "incognita": "O que queres calcular?",
+    "abrir": "Abrir a calculadora desta fórmula",
+    "cerrar": "Fechar",
+    "limpiar": "Limpar",
+    "copiar": "Copiar o resultado",
+    "favorita": "Guardar nos favoritos",
+    "quitarFavorita": "Retirar dos favoritos",
+    "favoritas": "Favoritas",
+    "despeje": "Isolada: {expr}",
+    "sustitucion": "A substituir: {expr}",
+    "resultado": "{variable} = {valor}{unidad}",
+    "error": {
+      "faltan": "Preenche todas as casas menos a que queres calcular.",
+      "imposible": "Com esses valores não sai um número válido. Revê os dados.",
+      "positiva": "«{variable}» tem de ser maior que zero.",
+      "noDespejable": "Essa variável não se pode isolar nesta fórmula."
+    },
+    "nota": "As unidades que aparecem são as do sistema internacional: se meteres os dados noutras, o resultado sai nessas outras.",
+    "valorSugerido": "valor habitual"
+  },
+  "asig": {
+    "titulo": "As tuas disciplinas",
+    "nueva": "Nova disciplina",
+    "nuevaAyuda": "Servem para as notas, a agenda e o horário.",
+    "anadir": "Adicionar",
+    "ninguna": "Ainda não criaste nenhuma disciplina.",
+    "tope": "Só cabem {n} disciplinas.",
+    "nombreDe": "Nome da disciplina",
+    "color": {
+      "label": "Cor",
+      "azul": "Azul",
+      "verde": "Verde",
+      "naranja": "Laranja",
+      "rosa": "Rosa",
+      "violeta": "Violeta",
+      "cian": "Ciano",
+      "amarillo": "Amarelo",
+      "gris": "Cinzento"
+    },
+    "colorDe": "Cor de {nombre}",
+    "subir": "Subir {nombre}",
+    "bajar": "Descer {nombre}",
+    "quitar": "Retirar {nombre}"
+  },
+  "notas": {
+    "escala": {
+      "label": "Escala",
+      "diez": "De 0 a 10",
+      "cien": "De 0 a 100"
+    },
+    "objetivo": {
+      "label": "Nota a que queres chegar",
+      "conseguido": "Já tens o {meta} garantido, aconteça o que acontecer.",
+      "necesitas": "Para chegares ao {meta} precisas de um {n} de média nos {peso} % que faltam.",
+      "imposible": "Já não é possível chegar ao {meta}: era preciso um {n}.",
+      "nadaPendiente": "Não falta nada por avaliar."
+    },
+    "objetivoAyuda": "Se deixares vazio, usa-se a nota de passagem.",
+    "examen": "Exame ou trabalho",
+    "examenPlaceholder": "Prova {n}",
+    "nota": {
+      "label": "Nota"
+    },
+    "notaDe": "Nota da prova {n}",
+    "peso": "Peso %",
+    "pesoDe": "Peso da prova {n} em percentagem",
+    "anadir": "Adicionar prova",
+    "quitar": "Retirar a prova {n}",
+    "repartir": "Repartir pesos por igual",
+    "repartido": "Pesos repartidos.",
+    "sinExamenes": "Ainda sem provas.",
+    "sinNotas": "—",
+    "evaluado": "Já tens avaliado {n} % da disciplina.",
+    "acumulada": "Contando o que falta como um zero, vais em {n}.",
+    "pesos": {
+      "falta": "Os pesos somam {n} pontos menos de 100.",
+      "pasa": "Os pesos passam 100 em {n} pontos."
+    },
+    "general": "Média de todas as disciplinas",
+    "deAsignaturas": "Com notas em {n} disciplinas.",
+    "creaAsignaturas": "Cria uma disciplina em baixo para começares a meter notas.",
+    "aviso": "O peso é a percentagem que cada prova vale na nota final. As provas sem nota não baixam a média: só contam quando as preenches."
+  },
+  "agenda": {
+    "cuando": {
+      "hoy": "Hoje",
+      "manana": "Amanhã",
+      "enDias": "Daqui a {n} dias",
+      "pasado": "Já passou"
+    },
+    "aviso": {
+      "0": "Sem aviso",
+      "60": "Uma hora antes",
+      "1440": "Um dia antes",
+      "2880": "Dois dias antes",
+      "10080": "Uma semana antes",
+      "label": "Aviso do calendário"
+    },
+    "nuevo": "Novo exame",
+    "editando": "A editar o exame",
+    "dia": "Dia",
+    "hora": "Hora",
+    "horaAyuda": "Se a deixares vazia fica apontado como um dia inteiro.",
+    "titulo": "O que entra",
+    "tituloAyuda": "Por exemplo: temas 3 e 4.",
+    "asignatura": "Disciplina",
+    "sinAsignatura": "Sem disciplina",
+    "lugar": "Sala ou sítio",
+    "notas": "Notas",
+    "notasPlaceholder": "O que quiseres lembrar.",
+    "anadir": "Adicionar à agenda",
+    "anadido": "Exame adicionado.",
+    "guardarCambios": "Guardar as alterações",
+    "guardado": "Alterações guardadas.",
+    "faltaFecha": "Põe a data do exame.",
+    "faltaTitulo": "Escreve o que entra ou escolhe uma disciplina.",
+    "tope": "Só cabem {n} exames.",
+    "sinTitulo": "Exame",
+    "marcar": "Marcar como feito",
+    "desmarcar": "Marcar como pendente",
+    "editar": "Editar este exame",
+    "quitar": "Retirar este exame",
+    "exportarUno": "Descarregar este exame para o calendário",
+    "exportarTodo": "Descarregar todos para o calendário",
+    "exportado": "{n} exame(s) prontos para o calendário.",
+    "nadaQueExportar": "Não há exames para exportar.",
+    "vacia": "Ainda não apontaste nenhum exame. Preenche o formulário de cima.",
+    "sinProximos": "Não tens exames próximos.",
+    "verPasados": "Ver os {n} exames que já passaram",
+    "proximos": "Próximos exames",
+    "verTodos": "Ver a agenda",
+    "avisoAyuda": "É guardado dentro do ficheiro, para que seja o teu calendário a avisar.",
+    "notaIcs": "O ficheiro .ics abre-se com o calendário do telemóvel ou do computador (Google Calendar, Apple, Outlook…). Os exames são copiados para lá: se depois os mudares aqui, é preciso voltar a descarregá-los."
+  },
+  "horario": {
+    "dia": {
+      "0": "Domingo",
+      "1": "Segunda-feira",
+      "2": "Terça-feira",
+      "3": "Quarta-feira",
+      "4": "Quinta-feira",
+      "5": "Sexta-feira",
+      "6": "Sábado"
+    },
+    "vista": {
+      "label": "Como ver",
+      "dia": "Um dia",
+      "semana": "A semana"
+    },
+    "dias": {
+      "label": "Dias da semana",
+      "cinco": "2.ª–6.ª",
+      "seis": "2.ª–Sáb",
+      "siete": "Toda"
+    },
+    "hora": "Hora",
+    "libre": "Livre",
+    "aula": "Sala",
+    "claseEn": "Aula de {dia}, tempo {franja}",
+    "aulaEn": "Sala de {dia}, tempo {franja}",
+    "queDia": "Que dia queres ver",
+    "franjas": "Tempos letivos",
+    "desde": "Das",
+    "hasta": "Às",
+    "desdeN": "Hora de início do tempo {n}",
+    "hastaN": "Hora de fim do tempo {n}",
+    "quitarFranja": "Retirar o tempo {n}",
+    "anadirFranja": "Adicionar tempo",
+    "topeFranjas": "Só cabem {n} tempos.",
+    "rehacerFranjas": "Voltar aos do costume",
+    "franjasRehechas": "Tempos repostos.",
+    "sinFranjas": "Não há nenhum tempo letivo. Adiciona pelo menos um em baixo.",
+    "creaAsignaturas": "Cria as tuas disciplinas em baixo e poderás reparti-las pelo horário.",
+    "solape": "Os tempos {a} e {b} sobrepõem-se.",
+    "resumen": "Horas por disciplina",
+    "horasSemana": "{h} h por semana",
+    "ahoraTitulo": "Agora mesmo",
+    "ahora": "Está a dar {asignatura}, das {desde} às {hasta}.",
+    "luego": "A seguir: {asignatura}, das {desde} às {hasta}.",
+    "nadaAhora": "Agora não tens aula.",
+    "exportar": "Descarregar o horário",
+    "exportado": "Horário descarregado.",
+    "nota": "O horário é guardado só neste dispositivo. As disciplinas são as mesmas que usam as notas e a agenda."
+  }
+}

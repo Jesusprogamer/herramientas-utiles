@@ -8,7 +8,7 @@
 import * as settings from './settings.js';
 import { emit } from './events.js';
 
-export const AVAILABLE = ['es', 'en'];
+export const AVAILABLE = ['es', 'en', 'pt'];
 export const FALLBACK = 'es';
 
 const cache = new Map();
