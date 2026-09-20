@@ -148,6 +148,10 @@
     "tabla": {
       "name": "Tabla periódica",
       "desc": "Los 118 elementos, con sus datos y un buscador."
+    },
+    "formulario": {
+      "name": "Formulario",
+      "desc": "Fórmulas de geometría, física y química, con la incógnita despejada."
     }
   },
   "settings": {
@@ -1653,5 +1657,257 @@
       "gcm3": "g/cm³"
     },
     "enC": "{v} °C"
+  },
+  "formulas": {
+    "var": {
+      "A": "Área",
+      "l": "Lado",
+      "b": "Base",
+      "h": "Altura",
+      "r": "Radio",
+      "L": "Longitud",
+      "B": "Base mayor",
+      "c": "Hipotenusa",
+      "a": "Cateto / Aceleración",
+      "V": "Volumen",
+      "A_b": "Área de la base",
+      "d": "Distancia",
+      "v": "Velocidad",
+      "t": "Tiempo",
+      "v0": "Velocidad inicial",
+      "x": "Posición",
+      "x0": "Posición inicial",
+      "g": "Gravedad",
+      "F": "Fuerza",
+      "m": "Masa",
+      "P": "Peso / Potencia",
+      "p": "Presión",
+      "rho": "Densidad",
+      "Ec": "Energía cinética",
+      "Ep": "Energía potencial",
+      "W": "Trabajo",
+      "I": "Intensidad / Interés",
+      "R": "Resistencia",
+      "Q": "Carga",
+      "n": "Moles",
+      "M": "Masa molar",
+      "Mc": "Molaridad",
+      "T": "Temperatura",
+      "C": "Capital",
+      "C_f": "Capital final",
+      "real": "Medida real",
+      "plano": "Medida en el plano",
+      "escala": "Escala",
+      "IMC": "Índice de masa corporal"
+    },
+    "unidad": {
+      "m2": "m²",
+      "m": "m",
+      "m3": "m³",
+      "ms": "m/s",
+      "s": "s",
+      "ms2": "m/s²",
+      "N": "N",
+      "kg": "kg",
+      "Pa": "Pa",
+      "kgm3": "kg/m³",
+      "J": "J",
+      "W": "W",
+      "V": "V",
+      "A": "A",
+      "ohm": "Ω",
+      "C": "C",
+      "g": "g",
+      "mol": "mol",
+      "gmol": "g/mol",
+      "molL": "mol/L",
+      "L": "L",
+      "atm": "atm",
+      "RGas": "atm·L/(mol·K)",
+      "K": "K",
+      "cm": "cm",
+      "kgm2": "kg/m²",
+      "porcentaje": "%",
+      "anos": "años"
+    },
+    "grupo": {
+      "plana": "Geometría plana",
+      "cuerpos": "Cuerpos",
+      "cinematica": "Cinemática",
+      "dinamica": "Dinámica",
+      "energia": "Energía y trabajo",
+      "electricidad": "Electricidad",
+      "quimica": "Química",
+      "proporciones": "Proporciones y dinero"
+    },
+    "areaCuadrado": {
+      "nombre": "Área del cuadrado",
+      "desc": "Todos los lados miden lo mismo."
+    },
+    "areaRectangulo": {
+      "nombre": "Área del rectángulo",
+      "desc": "Base por altura."
+    },
+    "areaTriangulo": {
+      "nombre": "Área del triángulo",
+      "desc": "Base por altura, dividido entre dos."
+    },
+    "areaCirculo": {
+      "nombre": "Área del círculo",
+      "desc": "Pi por el radio al cuadrado."
+    },
+    "longitudCircunferencia": {
+      "nombre": "Longitud de la circunferencia",
+      "desc": "El contorno del círculo."
+    },
+    "areaTrapecio": {
+      "nombre": "Área del trapecio",
+      "desc": "Semisuma de las bases por la altura."
+    },
+    "pitagoras": {
+      "nombre": "Teorema de Pitágoras",
+      "desc": "En un triángulo rectángulo."
+    },
+    "volumenCubo": {
+      "nombre": "Volumen del cubo",
+      "desc": "La arista al cubo."
+    },
+    "volumenPrisma": {
+      "nombre": "Volumen del prisma",
+      "desc": "Área de la base por la altura."
+    },
+    "volumenCilindro": {
+      "nombre": "Volumen del cilindro",
+      "desc": "Área del círculo por la altura."
+    },
+    "volumenEsfera": {
+      "nombre": "Volumen de la esfera",
+      "desc": "Cuatro tercios de pi por el radio al cubo."
+    },
+    "areaEsfera": {
+      "nombre": "Área de la esfera",
+      "desc": "Cuatro veces el área de su círculo máximo."
+    },
+    "volumenCono": {
+      "nombre": "Volumen del cono",
+      "desc": "Un tercio del cilindro con la misma base y altura."
+    },
+    "velocidadMedia": {
+      "nombre": "Velocidad media",
+      "desc": "Distancia recorrida entre tiempo empleado."
+    },
+    "mruv": {
+      "nombre": "Velocidad con aceleración constante",
+      "desc": "Movimiento rectilíneo uniformemente acelerado."
+    },
+    "espacioMruv": {
+      "nombre": "Posición con aceleración constante",
+      "desc": "Dónde está el móvil en cada instante."
+    },
+    "caidaLibre": {
+      "nombre": "Caída libre",
+      "desc": "Altura recorrida al caer sin rozamiento."
+    },
+    "segundaNewton": {
+      "nombre": "Segunda ley de Newton",
+      "desc": "La fuerza es masa por aceleración."
+    },
+    "peso": {
+      "nombre": "Peso",
+      "desc": "La fuerza con la que la gravedad tira de una masa."
+    },
+    "presion": {
+      "nombre": "Presión",
+      "desc": "Fuerza repartida sobre una superficie."
+    },
+    "densidad": {
+      "nombre": "Densidad",
+      "desc": "Masa que cabe en un volumen."
+    },
+    "energiaCinetica": {
+      "nombre": "Energía cinética",
+      "desc": "La que tiene un cuerpo por moverse."
+    },
+    "energiaPotencial": {
+      "nombre": "Energía potencial gravitatoria",
+      "desc": "La que tiene por estar a cierta altura."
+    },
+    "trabajo": {
+      "nombre": "Trabajo",
+      "desc": "Fuerza por distancia recorrida en su dirección."
+    },
+    "potencia": {
+      "nombre": "Potencia",
+      "desc": "Trabajo hecho por unidad de tiempo."
+    },
+    "ohm": {
+      "nombre": "Ley de Ohm",
+      "desc": "Tensión, intensidad y resistencia."
+    },
+    "potenciaElectrica": {
+      "nombre": "Potencia eléctrica",
+      "desc": "Tensión por intensidad."
+    },
+    "carga": {
+      "nombre": "Carga eléctrica",
+      "desc": "Intensidad por tiempo."
+    },
+    "moles": {
+      "nombre": "Moles a partir de la masa",
+      "desc": "Masa entre masa molar."
+    },
+    "molaridad": {
+      "nombre": "Molaridad",
+      "desc": "Moles de soluto por litro de disolución."
+    },
+    "gasesIdeales": {
+      "nombre": "Ley de los gases ideales",
+      "desc": "Relación entre presión, volumen, moles y temperatura."
+    },
+    "interesSimple": {
+      "nombre": "Interés simple",
+      "desc": "El interés se calcula siempre sobre el capital inicial."
+    },
+    "interesCompuesto": {
+      "nombre": "Interés compuesto",
+      "desc": "Los intereses generan más intereses."
+    },
+    "escala": {
+      "nombre": "Escala de un plano",
+      "desc": "De la medida del plano a la real."
+    },
+    "imc": {
+      "nombre": "Índice de masa corporal",
+      "desc": "Masa entre la altura al cuadrado."
+    }
+  },
+  "form": {
+    "buscar": "Buscar fórmula",
+    "buscarAyuda": "Por nombre, variable o fórmula.",
+    "grupo": "Tema",
+    "todos": "Todos los temas",
+    "sinResultados": "Ninguna fórmula coincide con «{q}».",
+    "resultados": "{n} fórmulas",
+    "unaFormula": "1 fórmula",
+    "calcular": "Calcular",
+    "incognita": "¿Qué quieres calcular?",
+    "abrir": "Abrir la calculadora de esta fórmula",
+    "cerrar": "Cerrar",
+    "limpiar": "Limpiar",
+    "copiar": "Copiar el resultado",
+    "favorita": "Guardar en favoritas",
+    "quitarFavorita": "Quitar de favoritas",
+    "favoritas": "Favoritas",
+    "despeje": "Despejada: {expr}",
+    "sustitucion": "Sustituyendo: {expr}",
+    "resultado": "{variable} = {valor}{unidad}",
+    "error": {
+      "faltan": "Rellena todas las casillas menos la que quieres calcular.",
+      "imposible": "Con esos valores no sale un número válido. Revisa los datos.",
+      "positiva": "«{variable}» tiene que ser mayor que cero.",
+      "noDespejable": "Esa variable no se puede despejar en esta fórmula."
+    },
+    "nota": "Las unidades que aparecen son las del sistema internacional: si metes los datos en otras, el resultado saldrá en esas otras.",
+    "valorSugerido": "valor habitual"
   }
 }

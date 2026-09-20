@@ -684,3 +684,51 @@
   .pt__celda { transition: none; }
   .pt__celda:hover { transform: none; }
 }
+
+/* ---------- Formulario ---------- */
+.form__tarjeta {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.form__nombre { margin: 0; font-size: var(--fs-lg); }
+.form__expr {
+  margin: var(--sp-1) 0;
+  font-size: var(--fs-lg);
+  color: var(--c-accent);
+  overflow-wrap: anywhere;
+}
+.form__tema {
+  flex: 1 1 auto;
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+.form__calc {
+  display: grid;
+  gap: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--c-border-soft);
+}
+.form__campos {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.form__resultado {
+  margin: 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-surface-3);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.form__resultado--error {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-normal);
+  color: var(--c-text-muted);
+}

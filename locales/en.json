@@ -148,6 +148,10 @@
     "tabla": {
       "name": "Periodic table",
       "desc": "All 118 elements, with their data and a search box."
+    },
+    "formulario": {
+      "name": "Formula book",
+      "desc": "Geometry, physics and chemistry formulas, with the unknown solved for you."
     }
   },
   "settings": {
@@ -1653,5 +1657,257 @@
       "gcm3": "g/cm³"
     },
     "enC": "{v} °C"
+  },
+  "formulas": {
+    "var": {
+      "A": "Area",
+      "l": "Side",
+      "b": "Base",
+      "h": "Height",
+      "r": "Radius",
+      "L": "Length",
+      "B": "Longer base",
+      "c": "Hypotenuse",
+      "a": "Leg / Acceleration",
+      "V": "Volume",
+      "A_b": "Base area",
+      "d": "Distance",
+      "v": "Speed",
+      "t": "Time",
+      "v0": "Initial speed",
+      "x": "Position",
+      "x0": "Initial position",
+      "g": "Gravity",
+      "F": "Force",
+      "m": "Mass",
+      "P": "Weight / Power",
+      "p": "Pressure",
+      "rho": "Density",
+      "Ec": "Kinetic energy",
+      "Ep": "Potential energy",
+      "W": "Work",
+      "I": "Current / Interest",
+      "R": "Resistance",
+      "Q": "Charge",
+      "n": "Moles",
+      "M": "Molar mass",
+      "Mc": "Molarity",
+      "T": "Temperature",
+      "C": "Principal",
+      "C_f": "Final amount",
+      "real": "Real measurement",
+      "plano": "Measurement on the plan",
+      "escala": "Scale",
+      "IMC": "Body mass index"
+    },
+    "unidad": {
+      "m2": "m²",
+      "m": "m",
+      "m3": "m³",
+      "ms": "m/s",
+      "s": "s",
+      "ms2": "m/s²",
+      "N": "N",
+      "kg": "kg",
+      "Pa": "Pa",
+      "kgm3": "kg/m³",
+      "J": "J",
+      "W": "W",
+      "V": "V",
+      "A": "A",
+      "ohm": "Ω",
+      "C": "C",
+      "g": "g",
+      "mol": "mol",
+      "gmol": "g/mol",
+      "molL": "mol/L",
+      "L": "L",
+      "atm": "atm",
+      "RGas": "atm·L/(mol·K)",
+      "K": "K",
+      "cm": "cm",
+      "kgm2": "kg/m²",
+      "porcentaje": "%",
+      "anos": "years"
+    },
+    "grupo": {
+      "plana": "Plane geometry",
+      "cuerpos": "Solids",
+      "cinematica": "Kinematics",
+      "dinamica": "Dynamics",
+      "energia": "Energy and work",
+      "electricidad": "Electricity",
+      "quimica": "Chemistry",
+      "proporciones": "Ratios and money"
+    },
+    "areaCuadrado": {
+      "nombre": "Area of a square",
+      "desc": "Every side is the same length."
+    },
+    "areaRectangulo": {
+      "nombre": "Area of a rectangle",
+      "desc": "Base times height."
+    },
+    "areaTriangulo": {
+      "nombre": "Area of a triangle",
+      "desc": "Base times height, divided by two."
+    },
+    "areaCirculo": {
+      "nombre": "Area of a circle",
+      "desc": "Pi times the radius squared."
+    },
+    "longitudCircunferencia": {
+      "nombre": "Circumference",
+      "desc": "The outline of the circle."
+    },
+    "areaTrapecio": {
+      "nombre": "Area of a trapezium",
+      "desc": "Average of the bases times the height."
+    },
+    "pitagoras": {
+      "nombre": "Pythagorean theorem",
+      "desc": "In a right-angled triangle."
+    },
+    "volumenCubo": {
+      "nombre": "Volume of a cube",
+      "desc": "The edge cubed."
+    },
+    "volumenPrisma": {
+      "nombre": "Volume of a prism",
+      "desc": "Base area times height."
+    },
+    "volumenCilindro": {
+      "nombre": "Volume of a cylinder",
+      "desc": "Circle area times height."
+    },
+    "volumenEsfera": {
+      "nombre": "Volume of a sphere",
+      "desc": "Four thirds of pi times the radius cubed."
+    },
+    "areaEsfera": {
+      "nombre": "Surface area of a sphere",
+      "desc": "Four times the area of its great circle."
+    },
+    "volumenCono": {
+      "nombre": "Volume of a cone",
+      "desc": "A third of the cylinder with the same base and height."
+    },
+    "velocidadMedia": {
+      "nombre": "Average speed",
+      "desc": "Distance covered over time taken."
+    },
+    "mruv": {
+      "nombre": "Speed under constant acceleration",
+      "desc": "Uniformly accelerated straight-line motion."
+    },
+    "espacioMruv": {
+      "nombre": "Position under constant acceleration",
+      "desc": "Where the object is at each moment."
+    },
+    "caidaLibre": {
+      "nombre": "Free fall",
+      "desc": "Height covered while falling without friction."
+    },
+    "segundaNewton": {
+      "nombre": "Newton's second law",
+      "desc": "Force is mass times acceleration."
+    },
+    "peso": {
+      "nombre": "Weight",
+      "desc": "The force gravity pulls a mass with."
+    },
+    "presion": {
+      "nombre": "Pressure",
+      "desc": "Force spread over a surface."
+    },
+    "densidad": {
+      "nombre": "Density",
+      "desc": "Mass that fits in a volume."
+    },
+    "energiaCinetica": {
+      "nombre": "Kinetic energy",
+      "desc": "The energy a body has from moving."
+    },
+    "energiaPotencial": {
+      "nombre": "Gravitational potential energy",
+      "desc": "The energy it has from being at a height."
+    },
+    "trabajo": {
+      "nombre": "Work",
+      "desc": "Force times the distance covered along it."
+    },
+    "potencia": {
+      "nombre": "Power",
+      "desc": "Work done per unit of time."
+    },
+    "ohm": {
+      "nombre": "Ohm's law",
+      "desc": "Voltage, current and resistance."
+    },
+    "potenciaElectrica": {
+      "nombre": "Electrical power",
+      "desc": "Voltage times current."
+    },
+    "carga": {
+      "nombre": "Electric charge",
+      "desc": "Current times time."
+    },
+    "moles": {
+      "nombre": "Moles from mass",
+      "desc": "Mass over molar mass."
+    },
+    "molaridad": {
+      "nombre": "Molarity",
+      "desc": "Moles of solute per litre of solution."
+    },
+    "gasesIdeales": {
+      "nombre": "Ideal gas law",
+      "desc": "How pressure, volume, moles and temperature relate."
+    },
+    "interesSimple": {
+      "nombre": "Simple interest",
+      "desc": "Interest is always worked out on the starting amount."
+    },
+    "interesCompuesto": {
+      "nombre": "Compound interest",
+      "desc": "Interest earns more interest."
+    },
+    "escala": {
+      "nombre": "Scale of a plan",
+      "desc": "From the measurement on the plan to the real one."
+    },
+    "imc": {
+      "nombre": "Body mass index",
+      "desc": "Mass over height squared."
+    }
+  },
+  "form": {
+    "buscar": "Search formula",
+    "buscarAyuda": "By name, variable or formula.",
+    "grupo": "Topic",
+    "todos": "All topics",
+    "sinResultados": "No formula matches “{q}”.",
+    "resultados": "{n} formulas",
+    "unaFormula": "1 formula",
+    "calcular": "Calculate",
+    "incognita": "What do you want to work out?",
+    "abrir": "Open this formula's calculator",
+    "cerrar": "Close",
+    "limpiar": "Clear",
+    "copiar": "Copy the result",
+    "favorita": "Save to favourites",
+    "quitarFavorita": "Remove from favourites",
+    "favoritas": "Favourites",
+    "despeje": "Solved for it: {expr}",
+    "sustitucion": "Substituting: {expr}",
+    "resultado": "{variable} = {valor}{unidad}",
+    "error": {
+      "faltan": "Fill in every box except the one you want to work out.",
+      "imposible": "Those values don't give a valid number. Check the data.",
+      "positiva": "“{variable}” has to be greater than zero.",
+      "noDespejable": "That variable can't be solved for in this formula."
+    },
+    "nota": "The units shown are the SI ones: if you enter the data in others, the result comes out in those others.",
+    "valorSugerido": "usual value"
   }
 }

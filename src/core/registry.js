@@ -27,6 +27,7 @@ export const TOOLS = [
   { id: 'bases',          icon: 'binary',    category: 'calculo', ready: true  },
   { id: 'monedas',        icon: 'currency',  category: 'calculo', ready: true  },
   { id: 'tabla',          icon: 'atom',      category: 'estudio', ready: true  },
+  { id: 'formulario',     icon: 'book',      category: 'estudio', ready: true  },
   { id: 'zonas-horarias', icon: 'clock',     category: 'tiempo',  ready: true  },
   { id: 'azar',           icon: 'dice',      category: 'azar',    ready: true  },
   { id: 'qr',             icon: 'qr',        category: 'texto',   ready: true  },
