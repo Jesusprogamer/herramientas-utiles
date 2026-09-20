@@ -9,6 +9,7 @@ import { h, clear, copyText, nextId } from '../../ui/dom.js';
 import { icon } from '../../ui/icons.js';
 import { button, iconButton, tabs, segmented, emptyState, select } from '../../ui/components.js';
 import { confirm } from '../../ui/dialog.js';
+import { borrarConDeshacer } from '../../ui/delete.js';
 import { toast, toastOk, toastError } from '../../ui/toast.js';
 import * as storage from '../../core/storage.js';
 import { t, tn, formatDate, formatRelative } from '../../core/i18n.js';
@@ -161,7 +162,16 @@ function renderTasks(panel) {
         iconButton('chevronDown', t('listas.tareas.moveDown'), { disabled: index === shown - 1, onClick: () => move(task.id, 1) }),
         iconButton('type', t('listas.tareas.edit'), { onClick: () => startEdit(task, row) }),
         iconButton('trash', t('listas.tareas.delete'), {
-          onClick: () => { tasks = tasks.filter(x => x.id !== task.id); save(); paint(); }
+          onClick: () => {
+            const pos = tasks.indexOf(task);
+            tasks = tasks.filter(x => x.id !== task.id);
+            save();
+            paint();
+            borrarConDeshacer({
+              clave: KEYS.tasks, ruta: [], pos, tool: 'listas', tipo: 'tarea',
+              etiqueta: task.text, datos: task
+            }, { onRestore: () => { tasks = storage.get(KEYS.tasks, []); paint(); } });
+          }
         })
       )
     );
@@ -197,10 +207,18 @@ function renderTasks(panel) {
         confirmLabel: t('common.delete'), danger: true
       });
       if (!ok) return;
+      // El lote entero va como un solo grupo: un «Deshacer» las devuelve todas.
+      const fuera = tasks
+        .map((x, pos) => ({ x, pos }))
+        .filter(({ x }) => x.done)
+        .map(({ x, pos }) => ({
+          clave: KEYS.tasks, ruta: [], pos, tool: 'listas', tipo: 'tarea',
+          etiqueta: x.text, datos: x
+        }));
       tasks = tasks.filter(x => !x.done);
       save();
       paint();
-      toastOk(t('listas.tareas.cleared'));
+      borrarConDeshacer(fuera, { onRestore: () => { tasks = storage.get(KEYS.tasks, []); paint(); } });
     }
   });
 
@@ -326,7 +344,16 @@ function renderShopping(panel) {
         ),
         h('div.item__actions',
           iconButton('trash', t('listas.compra.delete', { text: item.text }), {
-            onClick: () => { items = items.filter(x => x.id !== item.id); save(); paint(); }
+            onClick: () => {
+              const pos = items.indexOf(item);
+              items = items.filter(x => x.id !== item.id);
+              save();
+              paint();
+              borrarConDeshacer({
+                clave: KEYS.shop, ruta: [], pos, tool: 'listas', tipo: 'articulo',
+                etiqueta: item.text, datos: item
+              }, { onRestore: () => { items = storage.get(KEYS.shop, []); paint(); } });
+            }
           })
         )
       ));
@@ -349,9 +376,16 @@ function renderShopping(panel) {
         confirmLabel: t('common.delete'), danger: true
       });
       if (!ok) return;
+      const fuera = items
+        .map((x, pos) => ({ x, pos }))
+        .filter(({ x }) => x.done)
+        .map(({ x, pos }) => ({
+          clave: KEYS.shop, ruta: [], pos, tool: 'listas', tipo: 'articulo',
+          etiqueta: x.text, datos: x
+        }));
       items = items.filter(x => !x.done);
       save(); paint();
-      toastOk(t('listas.compra.cleared'));
+      borrarConDeshacer(fuera, { onRestore: () => { items = storage.get(KEYS.shop, []); paint(); } });
     }
   });
 
@@ -612,11 +646,16 @@ function renderNotes(panel) {
             if (!ok) return;
             clearTimeout(saveTimer);
             flushNotes = null;
+            const pos = notes.indexOf(note);
             notes = notes.filter(n => n.id !== note.id);
             save();
             editingId = null;
             paint();
-            toastOk(t('listas.notas.deleted'));
+            borrarConDeshacer({
+              clave: KEYS.notes, ruta: [], pos, tool: 'listas', tipo: 'nota',
+              etiqueta: note.title || rich.plainText(note.body).slice(0, 60) || t('listas.notas.untitled'),
+              datos: note
+            }, { onRestore: () => { notes = storage.get(KEYS.notes, []); paint(); } });
           }
         })
       ),

@@ -7,7 +7,7 @@
  * traduce y nunca se mete con innerHTML.
  */
 import * as storage from './storage.js';
-import { emit } from './events.js';
+import { emit, on } from './events.js';
 
 const KEY = 'asignaturas';
 
@@ -52,6 +52,14 @@ export function load() {
   cargado = true;
   return lista;
 }
+
+/* Si una asignatura vuelve de la papelera, el almacenamiento cambia por
+   debajo: hay que releerlo o seguiriamos sirviendo la lista de antes. */
+on('trash:restore', ({ tools }) => {
+  if (!tools?.includes('asignaturas')) return;
+  load();
+  emit('asignaturas:change', { asignaturas: [...lista] });
+});
 
 function guardar() {
   storage.set(KEY, lista);

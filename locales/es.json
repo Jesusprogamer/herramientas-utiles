@@ -469,7 +469,8 @@
     "available": "Hay una actualización disponible",
     "action": "Actualizar ahora",
     "dismiss": "Ahora no",
-    "applying": "Aplicando la actualización…"
+    "applying": "Aplicando la actualización…",
+    "explain": "Hay una versión nueva publicada. Actualizar tarda un momento y la app se reinicia sola."
   },
   "connection": {
     "offline": "Sin conexión",
@@ -2102,5 +2103,45 @@
     "pausar": "Pausar {nombre}",
     "reanudar": "Reanudar {nombre}",
     "parar": "Parar {nombre}"
+  },
+  "papelera": {
+    "borrado": {
+      "uno": "Borrado: {que}",
+      "varios": "{n} elementos borrados"
+    },
+    "tool": {
+      "listas": "Tareas y notas",
+      "agenda": "Agenda de exámenes",
+      "horario": "Horario de clase",
+      "notas": "Calculadora de notas",
+      "asignaturas": "Asignaturas",
+      "otros": "Otros"
+    },
+    "tipo": {
+      "tarea": "Tarea",
+      "articulo": "Artículo de la compra",
+      "nota": "Nota",
+      "examen": "Examen",
+      "clase": "Clase del horario",
+      "asignatura": "Asignatura",
+      "notasDeAsignatura": "Notas de la asignatura",
+      "elemento": "Elemento"
+    },
+    "titulo": "Papelera",
+    "explicacion": "Lo que borras se guarda aquí un tiempo antes de irse del todo.",
+    "deshacer": "Deshacer",
+    "buscar": "Buscar en la papelera",
+    "vacia": "La papelera está vacía.",
+    "sinResultados": "Nada en la papelera coincide con «{q}».",
+    "restaurar": "Restaurar",
+    "restaurado": "Restaurado a su sitio.",
+    "eliminarUno": "Eliminar definitivamente",
+    "eliminarAviso": "Esto ya no se puede recuperar.",
+    "vaciar": "Vaciar la papelera",
+    "vaciarAviso": "Se eliminarán definitivamente {n} elementos. No se puede deshacer.",
+    "vaciada": "Papelera vaciada.",
+    "retencion": "Cuánto se guarda lo borrado",
+    "retencionAyuda": "Pasado ese tiempo se elimina solo al abrir la app.",
+    "dias": "{n} días"
   }
 }
