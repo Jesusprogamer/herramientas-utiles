@@ -7,6 +7,7 @@
  */
 import * as settings from './settings.js';
 import { emit } from './events.js';
+import { lookup } from '../lib/lookup.js';
 
 export const AVAILABLE = ['es', 'en'];
 export const FALLBACK = 'es';
@@ -71,14 +72,6 @@ export async function init() {
   return setLanguage(settings.get('language'));
 }
 
-function lookup(source, path) {
-  let node = source;
-  for (const part of path.split('.')) {
-    if (node === null || typeof node !== 'object' || !(part in node)) return undefined;
-    node = node[part];
-  }
-  return typeof node === 'string' ? node : undefined;
-}
 
 /**
  * Traduce una clave. Admite sustituciones: t('home.count', { n: 3 }) con

@@ -1688,7 +1688,7 @@
       "l": "Side",
       "b": "Base",
       "h": "Height",
-      "r": "Radius",
+      "r": "Radius / Rate",
       "L": "Length",
       "B": "Longer base",
       "c": "Hypotenuse",
@@ -1697,7 +1697,7 @@
       "A_b": "Base area",
       "d": "Distance",
       "v": "Speed",
-      "t": "Time",
+      "t": "Time / Years",
       "v0": "Initial speed",
       "x": "Position",
       "x0": "Initial position",
@@ -2217,5 +2217,178 @@
     "mostrar": "Show {nombre}",
     "subir": "Move {nombre} up",
     "bajar": "Move {nombre} down"
+  },
+  "bienvenida": {
+    "pasoN": "Step {n} of {total}",
+    "siguiente": "Next",
+    "omitir": "Skip",
+    "empezar": "Get started",
+    "verOtraVez": "See the welcome again",
+    "verOtraVezDesc": "The first-time steps, in case you want to choose again.",
+    "idioma": {
+      "titulo": "Hi, I'm “A mano”",
+      "desc": "Everyday tools that work offline. Which language shall I use?",
+      "label": "Language"
+    },
+    "tema": {
+      "titulo": "Dark or light?",
+      "desc": "It applies right away. “System” follows whatever your device uses."
+    },
+    "acento": {
+      "titulo": "Pick a colour",
+      "desc": "It's used for buttons and links, and for the app icon too."
+    },
+    "favoritas": {
+      "titulo": "What do you use most?",
+      "desc": "The ones you star go right at the top. You can change it whenever you like."
+    },
+    "perfil": {
+      "estudiante": "Student",
+      "diaADia": "Everyday",
+      "todas": "All"
+    },
+    "instalar": {
+      "titulo": "Install it if you like",
+      "desc": "You don't have to, but it works better: its own window and a faster start.",
+      "que": "Installing gives it its own icon and its own window, and it still works offline.",
+      "ios": "On iPhone and iPad: tap the Share button and choose “Add to Home Screen”.",
+      "android": "On Android: open the browser menu (⋮) and choose “Install app” or “Add to Home screen”.",
+      "safariMac": "In Safari for Mac: File menu → “Add to Dock”.",
+      "escritorio": "In Chrome or Edge: the install icon appears at the end of the address bar."
+    },
+    "listo": {
+      "titulo": "All set",
+      "desc": "That's it. Everything you save stays on your device and works offline.",
+      "ajustes": "You can change all of this any time from Settings."
+    }
+  },
+  "quiz": {
+    "formato": {
+      "label": "How I answer",
+      "escribir": "Type it",
+      "opciones": "Multiple choice",
+      "mezcla": "Mixed"
+    },
+    "comentario": {
+      "label": "When you tell me",
+      "cada": "After each one",
+      "final": "At the end"
+    },
+    "tolerancia": {
+      "label": "Tolerance for numbers",
+      "entero": "Rounded whole number",
+      "decimales": "One decimal",
+      "absoluta": "± a value",
+      "porcentaje": "± a percentage"
+    },
+    "abrir": "Quiz mode",
+    "volver": "Back to the table",
+    "empezar": "Start the quiz",
+    "queMePregunta": "What it asks",
+    "sobreQue": "Which elements",
+    "avanzadas": "What counts as correct",
+    "tipo": {
+      "simbolo": "Symbol",
+      "nombre": "Name",
+      "z": "Atomic number",
+      "masa": "Atomic mass",
+      "grupo": "Group",
+      "periodo": "Period",
+      "categoria": "Family",
+      "estado": "State",
+      "config": "Configuration",
+      "electroneg": "Electronegativity",
+      "valencias": "Valencies"
+    },
+    "pide": {
+      "simbolo": "What's the symbol for {que}?",
+      "nombre": "Which element is {que}?",
+      "z": "What's the atomic number of {que}?",
+      "masa": "What's the atomic mass of {que}?",
+      "grupo": "Which group is {que} in?",
+      "periodo": "Which period is {que} in?",
+      "categoria": "Which family does {que} belong to?",
+      "estado": "What state is {que} in at 20 °C?",
+      "config": "What's the electron configuration of {que}?",
+      "electroneg": "What's the electronegativity of {que}?",
+      "valencias": "What valencies does {que} have?",
+      "expresion": "How is “{que}” written?",
+      "nombreFormula": "Which formula is {que}?",
+      "variable": "In {formula}, what is “{letra}”?",
+      "unidadDe": "In {formula}, what unit is “{letra}” measured in?",
+      "calcular": "{formula} · Given {datos}, work out {que}"
+    },
+    "pistaValencias": "The usual oxidation states. Separate them with commas.",
+    "cuantas": "How many questions",
+    "sinFin": "No limit",
+    "zDesde": "From atomic number",
+    "zHasta": "To atomic number",
+    "soloFavoritos": "Only my favourites",
+    "erratas": "Forgive one typo",
+    "erratasDesc": "Only in names of five letters or more.",
+    "mayusculas": "Require the symbol's capitals",
+    "mayusculasDesc": "“na” wouldn't count for “Na”.",
+    "valenciasModo": "How I answer valencies",
+    "valenciasDesc": "Here “valency” means the element's usual oxidation states.",
+    "valencias": {
+      "una": "One is enough",
+      "todas": "All the accepted ones"
+    },
+    "penalizar": "Penalise an unaccepted valency",
+    "penalizarDesc": "Even if the rest are right.",
+    "porElemento": "Fine-tune valencies element by element",
+    "porElementoDesc": "Tick which ones count. What you choose overrides everything else.",
+    "valenciaDe": "Valency {v} of {e}",
+    "restablecerValencias": "Back to the source's",
+    "preajuste": {
+      "label": "Preset",
+      "facil": "Easy",
+      "normal": "Normal",
+      "estricto": "Strict"
+    },
+    "guardarPreajuste": "Save as a preset",
+    "nombrePreajuste": "What shall I call it?",
+    "preajusteGuardado": "Preset saved.",
+    "restablecer": "Reset",
+    "disponibles": "{n} possible questions with these settings.",
+    "nadaQuePreguntar": "These filters leave no questions. Turn on another type or widen the range.",
+    "sinValencias": "No valency data, so left out of those questions: {lista}. You can set them yourself under “Fine-tune valencies”.",
+    "responder": "Answer",
+    "saltar": "Skip",
+    "siguiente": "Next",
+    "progreso": "Question {n} of {total}",
+    "quedan": "{n} s",
+    "bien": "Correct!",
+    "mal": "No. It was: {r}",
+    "resumen": "{aciertos} out of {total} · {media} s per question on average",
+    "tusFallos": "What you got wrong",
+    "tuRespuesta": "You wrote: {r}",
+    "correcta": "It was: {r}",
+    "saltada": "You skipped it",
+    "repasarFallos": "Review just the misses",
+    "perfecto": "All correct. Nothing to review.",
+    "salir": "Leave the quiz",
+    "historial": "Recent sessions ({n})",
+    "masFallas": "What you miss most: {tipos}. Elements: {temas}.",
+    "borrarHistorial": "Clear the history",
+    "form": {
+      "abrir": "Quiz mode",
+      "volver": "Back to the formulas",
+      "sobreQue": "Which formulas",
+      "soloFavoritas": "Only my favourites",
+      "toleranciaDesc": "How far your number may be from the exact one and still count.",
+      "preajuste": {
+        "reconocer": "Recognise",
+        "normal": "Normal",
+        "ejercicios": "Exercises"
+      },
+      "tipo": {
+        "expresion": "The formula",
+        "nombre": "The name",
+        "variable": "What each letter means",
+        "unidad": "Units",
+        "calcular": "Exercises"
+      }
+    }
   }
 }

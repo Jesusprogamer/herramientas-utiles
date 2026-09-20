@@ -551,3 +551,51 @@ body.has-minibar .page { padding-bottom: 5.5rem; }
 }
 .asig__nombre { margin: 0; font-size: var(--fs-lg); overflow-wrap: anywhere; }
 .asig__vacia { color: var(--c-text-muted); }
+
+/* ---------- Bienvenida ---------- */
+.bienvenida {
+  width: min(100% - var(--sp-4) * 2, 30rem);
+  max-height: 90vh;
+  padding: 0;
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-lg);
+  background: var(--c-surface);
+  color: var(--c-text);
+  overflow: auto;
+}
+.bienvenida::backdrop { background: rgb(0 0 0 / .6); }
+.bienvenida__contenido { display: grid; gap: var(--sp-3); padding: var(--sp-5); }
+.bienvenida__paso { margin: 0; font-size: var(--fs-sm); color: var(--c-text-muted); }
+.bienvenida__titulo { margin: 0; font-size: var(--fs-2xl); }
+.bienvenida__texto { margin: 0; color: var(--c-text-muted); }
+.bienvenida__puntos { display: flex; gap: var(--sp-2); justify-content: center; margin-top: var(--sp-2); }
+.bienvenida__punto {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--c-surface-3);
+}
+.bienvenida__punto--on { background: var(--c-accent); width: 20px; border-radius: 999px; }
+.bienvenida__botones { margin-top: var(--sp-2); }
+.bienvenida__acentos { display: flex; flex-wrap: wrap; gap: var(--sp-3); justify-content: center; }
+.bienvenida__acentos .acento {
+  width: 48px; height: 48px; padding: 4px;
+  border: 2px solid transparent; border-radius: var(--r-md);
+  background: var(--c-surface-2); cursor: pointer;
+}
+.bienvenida__acentos .acento[aria-pressed="true"] { border-color: var(--c-accent); }
+.bienvenida__acentos .acento svg { width: 100%; height: 100%; }
+.bienvenida__rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: var(--sp-2);
+  max-height: 16rem;
+  overflow-y: auto;
+}
+.bienvenida__tool {
+  display: grid; justify-items: center; gap: 4px;
+  padding: var(--sp-2);
+  border: 1px solid var(--c-border); border-radius: var(--r-md);
+  background: var(--c-surface-2); color: var(--c-text);
+  font-size: var(--fs-sm); text-align: center; cursor: pointer;
+}
+.bienvenida__tool--on { border-color: var(--c-accent); background: var(--c-accent-soft); }
+.bienvenida__tool svg { width: 22px; height: 22px; color: var(--c-accent); }

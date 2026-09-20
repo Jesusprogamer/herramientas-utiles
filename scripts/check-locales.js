@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { lookup as resolve } from '../src/lib/lookup.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 export const LOCALES_DIR = path.resolve(HERE, '..', 'locales');
@@ -37,6 +38,36 @@ export function placeholders(value) {
   if (Array.isArray(value)) value.forEach(scan);
   else scan(value);
   return found;
+}
+
+/**
+ * Claves que el codigo pide con un texto literal: t('algo.asi').
+ * Las que se arman sobre la marcha (`quiz.tipo.${tipo}`) no se pueden ver
+ * desde aqui, asi que esas quedan para las pruebas del navegador.
+ */
+export { resolve };
+
+export function usedKeys(dir = path.resolve(HERE, '..', 'src')) {
+  const out = new Map();   // clave -> primer archivo donde sale
+  const walk = folder => {
+    for (const entry of fs.readdirSync(folder, { withFileTypes: true })) {
+      const full = path.join(folder, entry.name);
+      if (entry.isDirectory()) { walk(full); continue; }
+      if (!entry.name.endsWith('.js')) continue;
+      // Los comentarios llevan ejemplos: t('home.count'). No cuentan.
+      const code = fs.readFileSync(full, 'utf8')
+        .replace(/\/\*[\s\S]*?\*\//g, ' ')
+        .replace(/(^|[^:'"`\\])\/\/[^\n]*/g, '$1');
+      const rel = path.relative(path.resolve(HERE, '..'), full);
+      for (const m of code.matchAll(/\btn?\(\s*'([a-zA-Z][\w.]*)'/g)) {
+        const plural = m[0].startsWith('tn');
+        const claves = plural ? [`${m[1]}.one`, `${m[1]}.other`] : [m[1]];
+        for (const c of claves) if (!out.has(c)) out.set(c, rel);
+      }
+    }
+  };
+  walk(dir);
+  return out;
 }
 
 export function listLocales() {
@@ -105,10 +136,22 @@ export function checkAll() {
   if (!codes.includes(REFERENCE)) {
     throw new Error(`Falta el idioma de referencia locales/${REFERENCE}.json`);
   }
-  const reference = flatten(readLocale(REFERENCE));
+  const refDict = readLocale(REFERENCE);
+  const reference = flatten(refDict);
   const results = codes
     .filter(code => code !== REFERENCE)
     .map(code => compareLocale(code, reference));
+
+  /* Claves que el codigo pide y el idioma de referencia no sabe dar. Es el
+     fallo que mas se cuela: pedir "algo.desc" cuando solo existe "algo". */
+  const huerfanas = [];
+  for (const [key, file] of usedKeys()) {
+    if (resolve(refDict, key) === undefined) {
+      huerfanas.push({ tipo: 'codigo', clave: key, detalle: `la pide ${file} y no existe en ${REFERENCE}` });
+    }
+  }
+  if (huerfanas.length) results.push({ code: `${REFERENCE} (uso en el codigo)`, problems: huerfanas });
+
   return { reference: REFERENCE, total: Object.keys(reference).length, codes, results };
 }
 

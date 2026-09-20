@@ -1688,7 +1688,7 @@
       "l": "Lado",
       "b": "Base",
       "h": "Altura",
-      "r": "Radio",
+      "r": "Radio / Tasa",
       "L": "Longitud",
       "B": "Base mayor",
       "c": "Hipotenusa",
@@ -1697,7 +1697,7 @@
       "A_b": "Área de la base",
       "d": "Distancia",
       "v": "Velocidad",
-      "t": "Tiempo",
+      "t": "Tiempo / Años",
       "v0": "Velocidad inicial",
       "x": "Posición",
       "x0": "Posición inicial",
@@ -2217,5 +2217,178 @@
     "mostrar": "Mostrar {nombre}",
     "subir": "Subir {nombre}",
     "bajar": "Bajar {nombre}"
+  },
+  "bienvenida": {
+    "pasoN": "Paso {n} de {total}",
+    "siguiente": "Siguiente",
+    "omitir": "Omitir",
+    "empezar": "Empezar",
+    "verOtraVez": "Ver la bienvenida otra vez",
+    "verOtraVezDesc": "Los pasos de la primera vez, por si quieres volver a elegir.",
+    "idioma": {
+      "titulo": "Hola, soy «A mano»",
+      "desc": "Herramientas del día a día que funcionan sin conexión. ¿En qué idioma te las pongo?",
+      "label": "Idioma"
+    },
+    "tema": {
+      "titulo": "¿Oscuro o claro?",
+      "desc": "Se aplica al momento. «Sistema» sigue lo que tenga tu dispositivo."
+    },
+    "acento": {
+      "titulo": "Elige un color",
+      "desc": "Se usa en botones y enlaces, y también en el icono de la app."
+    },
+    "favoritas": {
+      "titulo": "¿Qué usas más?",
+      "desc": "Las que marques salen arriba del todo. Puedes cambiarlo cuando quieras."
+    },
+    "perfil": {
+      "estudiante": "Estudiante",
+      "diaADia": "Día a día",
+      "todas": "Todas"
+    },
+    "instalar": {
+      "titulo": "Instálala si quieres",
+      "desc": "No hace falta, pero va mejor: se abre en su propia ventana y arranca antes.",
+      "que": "Instalarla le da su propio icono y su propia ventana, y sigue funcionando sin conexión.",
+      "ios": "En iPhone y iPad: toca el botón Compartir y elige «Añadir a pantalla de inicio».",
+      "android": "En Android: abre el menú del navegador (⋮) y elige «Instalar aplicación» o «Añadir a pantalla de inicio».",
+      "safariMac": "En Safari para Mac: menú Archivo → «Añadir al Dock».",
+      "escritorio": "En Chrome o Edge: el icono de instalar aparece al final de la barra de direcciones."
+    },
+    "listo": {
+      "titulo": "Listo",
+      "desc": "Ya está. Todo lo que guardes se queda en tu dispositivo y funciona sin conexión.",
+      "ajustes": "Todo esto se cambia cuando quieras desde Ajustes."
+    }
+  },
+  "quiz": {
+    "formato": {
+      "label": "Cómo respondo",
+      "escribir": "Escribir",
+      "opciones": "Opciones",
+      "mezcla": "Mezcla"
+    },
+    "comentario": {
+      "label": "Cuándo me dices si acerté",
+      "cada": "En cada una",
+      "final": "Al final"
+    },
+    "tolerancia": {
+      "label": "Tolerancia en los números",
+      "entero": "Entero redondeado",
+      "decimales": "Un decimal",
+      "absoluta": "± un valor",
+      "porcentaje": "± un porcentaje"
+    },
+    "abrir": "Modo test",
+    "volver": "Volver a la tabla",
+    "empezar": "Empezar el test",
+    "queMePregunta": "Qué me pregunta",
+    "sobreQue": "Sobre qué elementos",
+    "avanzadas": "Qué cuenta como acierto",
+    "tipo": {
+      "simbolo": "Símbolo",
+      "nombre": "Nombre",
+      "z": "Número atómico",
+      "masa": "Masa atómica",
+      "grupo": "Grupo",
+      "periodo": "Periodo",
+      "categoria": "Familia",
+      "estado": "Estado",
+      "config": "Configuración",
+      "electroneg": "Electronegatividad",
+      "valencias": "Valencias"
+    },
+    "pide": {
+      "simbolo": "¿Cuál es el símbolo de {que}?",
+      "nombre": "¿Qué elemento es {que}?",
+      "z": "¿Cuál es el número atómico de {que}?",
+      "masa": "¿Cuál es la masa atómica de {que}?",
+      "grupo": "¿En qué grupo está {que}?",
+      "periodo": "¿En qué periodo está {que}?",
+      "categoria": "¿De qué familia es {que}?",
+      "estado": "¿En qué estado está {que} a 20 °C?",
+      "config": "¿Cuál es la configuración electrónica de {que}?",
+      "electroneg": "¿Cuál es la electronegatividad de {que}?",
+      "valencias": "¿Qué valencias tiene {que}?",
+      "expresion": "¿Cómo se escribe «{que}»?",
+      "nombreFormula": "¿Qué fórmula es {que}?",
+      "variable": "En {formula}, ¿qué es «{letra}»?",
+      "unidadDe": "En {formula}, ¿en qué unidad se mide «{letra}»?",
+      "calcular": "{formula} · Con {datos}, calcula {que}"
+    },
+    "pistaValencias": "Los estados de oxidación habituales. Sepáralos con comas.",
+    "cuantas": "Cuántas preguntas",
+    "sinFin": "Sin fin",
+    "zDesde": "Desde el número atómico",
+    "zHasta": "Hasta el número atómico",
+    "soloFavoritos": "Solo mis favoritos",
+    "erratas": "Perdonar una errata",
+    "erratasDesc": "Solo en nombres de cinco letras o más.",
+    "mayusculas": "Exigir las mayúsculas del símbolo",
+    "mayusculasDesc": "«na» no valdría por «Na».",
+    "valenciasModo": "Cómo respondo las valencias",
+    "valenciasDesc": "Aquí «valencia» son los estados de oxidación habituales del elemento.",
+    "valencias": {
+      "una": "Basta con una",
+      "todas": "Todas las aceptadas"
+    },
+    "penalizar": "Penalizar una valencia no aceptada",
+    "penalizarDesc": "Aunque las demás estén bien.",
+    "porElemento": "Afinar las valencias elemento a elemento",
+    "porElementoDesc": "Marca cuáles cuentan como acierto. Lo que elijas manda sobre lo demás.",
+    "valenciaDe": "Valencia {v} de {e}",
+    "restablecerValencias": "Volver a las de la fuente",
+    "preajuste": {
+      "label": "Preajuste",
+      "facil": "Fácil",
+      "normal": "Normal",
+      "estricto": "Estricto"
+    },
+    "guardarPreajuste": "Guardar como preajuste",
+    "nombrePreajuste": "¿Cómo lo llamo?",
+    "preajusteGuardado": "Preajuste guardado.",
+    "restablecer": "Restablecer",
+    "disponibles": "{n} preguntas posibles con lo elegido.",
+    "nadaQuePreguntar": "Con estos filtros no queda ninguna pregunta. Activa algún tipo más o amplía el rango.",
+    "sinValencias": "Sin datos de valencias, y por eso fuera de esas preguntas: {lista}. Puedes ponérselas tú desde «Afinar las valencias».",
+    "responder": "Responder",
+    "saltar": "Saltar",
+    "siguiente": "Siguiente",
+    "progreso": "Pregunta {n} de {total}",
+    "quedan": "{n} s",
+    "bien": "¡Bien!",
+    "mal": "No. Era: {r}",
+    "resumen": "{aciertos} de {total} · {media} s de media por pregunta",
+    "tusFallos": "Lo que has fallado",
+    "tuRespuesta": "Pusiste: {r}",
+    "correcta": "Era: {r}",
+    "saltada": "La saltaste",
+    "repasarFallos": "Repasar solo los fallos",
+    "perfecto": "Todas bien. Nada que repasar.",
+    "salir": "Salir del test",
+    "historial": "Últimas sesiones ({n})",
+    "masFallas": "Lo que más fallas: {tipos}. Elementos: {temas}.",
+    "borrarHistorial": "Borrar el historial",
+    "form": {
+      "abrir": "Modo test",
+      "volver": "Volver al formulario",
+      "sobreQue": "Sobre qué fórmulas",
+      "soloFavoritas": "Solo mis favoritas",
+      "toleranciaDesc": "Cuánto puede alejarse tu número del exacto para darlo por bueno.",
+      "preajuste": {
+        "reconocer": "Reconocer",
+        "normal": "Normal",
+        "ejercicios": "Ejercicios"
+      },
+      "tipo": {
+        "expresion": "La fórmula",
+        "nombre": "El nombre",
+        "variable": "Qué es cada letra",
+        "unidad": "Unidades",
+        "calcular": "Ejercicios"
+      }
+    }
   }
 }

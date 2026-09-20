@@ -265,6 +265,9 @@ async function boot() {
   trash.purgar();
   timers.init();
   minibar.init();
+
+  /* Bienvenida: solo la primera vez y solo si no hay datos de antes. */
+  import('./ui/welcome.js').then(m => m.quizaAbrir()).catch(() => { /* no es critica */ });
   watchConnection();
   pwa.watchInstallPrompt();
   pwa.registerServiceWorker();
