@@ -1688,7 +1688,7 @@
       "l": "Lado",
       "b": "Base",
       "h": "Altura",
-      "r": "Radio",
+      "r": "Radio / Tasa",
       "L": "Longitud",
       "B": "Base mayor",
       "c": "Hipotenusa",
@@ -1697,7 +1697,7 @@
       "A_b": "Área de la base",
       "d": "Distancia",
       "v": "Velocidad",
-      "t": "Tiempo",
+      "t": "Tiempo / Años",
       "v0": "Velocidad inicial",
       "x": "Posición",
       "x0": "Posición inicial",
@@ -2311,7 +2311,12 @@
       "estado": "¿En qué estado está {que} a 20 °C?",
       "config": "¿Cuál es la configuración electrónica de {que}?",
       "electroneg": "¿Cuál es la electronegatividad de {que}?",
-      "valencias": "¿Qué valencias tiene {que}?"
+      "valencias": "¿Qué valencias tiene {que}?",
+      "expresion": "¿Cómo se escribe «{que}»?",
+      "nombreFormula": "¿Qué fórmula es {que}?",
+      "variable": "En {formula}, ¿qué es «{letra}»?",
+      "unidadDe": "En {formula}, ¿en qué unidad se mide «{letra}»?",
+      "calcular": "{formula} · Con {datos}, calcula {que}"
     },
     "pistaValencias": "Los estados de oxidación habituales. Sepáralos con comas.",
     "cuantas": "Cuántas preguntas",
@@ -2365,6 +2370,25 @@
     "salir": "Salir del test",
     "historial": "Últimas sesiones ({n})",
     "masFallas": "Lo que más fallas: {tipos}. Elementos: {temas}.",
-    "borrarHistorial": "Borrar el historial"
+    "borrarHistorial": "Borrar el historial",
+    "form": {
+      "abrir": "Modo test",
+      "volver": "Volver al formulario",
+      "sobreQue": "Sobre qué fórmulas",
+      "soloFavoritas": "Solo mis favoritas",
+      "toleranciaDesc": "Cuánto puede alejarse tu número del exacto para darlo por bueno.",
+      "preajuste": {
+        "reconocer": "Reconocer",
+        "normal": "Normal",
+        "ejercicios": "Ejercicios"
+      },
+      "tipo": {
+        "expresion": "La fórmula",
+        "nombre": "El nombre",
+        "variable": "Qué es cada letra",
+        "unidad": "Unidades",
+        "calcular": "Ejercicios"
+      }
+    }
   }
 }

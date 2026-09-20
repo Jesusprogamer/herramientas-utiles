@@ -2,7 +2,7 @@
    Alcance relativo: funciona igual en la raiz de un dominio que en
    https://usuario.github.io/repositorio/ */
 
-const APP_VERSION = '2.14.0';          // sincronizar con src/core/version.js
+const APP_VERSION = '2.15.0';          // sincronizar con src/core/version.js
 const CACHE_NAME = `amano-v${APP_VERSION}`;
 
 /* Esqueleto de la app: se guarda en la instalacion para que arranque
@@ -77,6 +77,8 @@ const PRECACHE = [
   './src/ui/quiz.js',
   './src/tools/tabla/quiz.js',
   './src/lib/lookup.js',
+  './src/lib/quiz/formulas.js',
+  './src/tools/formulario/quiz.js',
   './src/ui/report-dialog.js',
   './src/core/subject-delete.js',
   './src/lib/trash.js',

@@ -229,22 +229,58 @@ export default {
       onChange: e => { estado.grupo = e.target.value; guardar(); pintar(); }
     });
 
+    /* Modo test: se carga solo al pedirlo, no pesa en la herramienta. */
+    const zonaTest = h('div');
+    let limpiarTest = null;
+    let enTest = false;
+
+    const volverAlFormulario = () => {
+      limpiarTest?.();
+      limpiarTest = null;
+      enTest = false;
+      clear(zonaTest);
+      formulario.hidden = false;
+      botonTest.hidden = false;
+    };
+
+    const botonTest = button(t('quiz.form.abrir'), {
+      variant: 'primary', icon: 'checklist',
+      onClick: async () => {
+        if (enTest) return;
+        enTest = true;
+        const { default: modoTest } = await import('./quiz.js');
+        formulario.hidden = true;
+        botonTest.hidden = true;
+        clear(zonaTest);
+        limpiarTest = modoTest(zonaTest, {
+          favoritas: estado.favoritas,
+          alSalir: volverAlFormulario
+        });
+      }
+    });
+
+    const formulario = h('div.stack',
+      busqueda,
+      grupo,
+      cuenta,
+      lista,
+      notice(t('form.nota'), { kind: 'info' })
+    );
+
     container.appendChild(h('div.page',
       h('header.page__header',
         h('h1.page__title', { text: t('tools.formulario.name') }),
         h('p.page__lead', { text: t('tools.formulario.desc') })
       ),
-      h('div.stack',
-        busqueda,
-        grupo,
-        cuenta,
-        lista,
-        notice(t('form.nota'), { kind: 'info' })
-      )
+      h('div.stack', h('div.row', botonTest), zonaTest, formulario)
     ));
 
     pintar();
+    this._limpiar = () => limpiarTest?.();
   },
 
-  unmount() {}
+  unmount() {
+    this._limpiar?.();
+    this._limpiar = null;
+  }
 };

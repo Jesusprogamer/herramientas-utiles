@@ -1688,7 +1688,7 @@
       "l": "Side",
       "b": "Base",
       "h": "Height",
-      "r": "Radius",
+      "r": "Radius / Rate",
       "L": "Length",
       "B": "Longer base",
       "c": "Hypotenuse",
@@ -1697,7 +1697,7 @@
       "A_b": "Base area",
       "d": "Distance",
       "v": "Speed",
-      "t": "Time",
+      "t": "Time / Years",
       "v0": "Initial speed",
       "x": "Position",
       "x0": "Initial position",
@@ -2311,7 +2311,12 @@
       "estado": "What state is {que} in at 20 °C?",
       "config": "What's the electron configuration of {que}?",
       "electroneg": "What's the electronegativity of {que}?",
-      "valencias": "What valencies does {que} have?"
+      "valencias": "What valencies does {que} have?",
+      "expresion": "How is “{que}” written?",
+      "nombreFormula": "Which formula is {que}?",
+      "variable": "In {formula}, what is “{letra}”?",
+      "unidadDe": "In {formula}, what unit is “{letra}” measured in?",
+      "calcular": "{formula} · Given {datos}, work out {que}"
     },
     "pistaValencias": "The usual oxidation states. Separate them with commas.",
     "cuantas": "How many questions",
@@ -2365,6 +2370,25 @@
     "salir": "Leave the quiz",
     "historial": "Recent sessions ({n})",
     "masFallas": "What you miss most: {tipos}. Elements: {temas}.",
-    "borrarHistorial": "Clear the history"
+    "borrarHistorial": "Clear the history",
+    "form": {
+      "abrir": "Quiz mode",
+      "volver": "Back to the formulas",
+      "sobreQue": "Which formulas",
+      "soloFavoritas": "Only my favourites",
+      "toleranciaDesc": "How far your number may be from the exact one and still count.",
+      "preajuste": {
+        "reconocer": "Recognise",
+        "normal": "Normal",
+        "ejercicios": "Exercises"
+      },
+      "tipo": {
+        "expresion": "The formula",
+        "nombre": "The name",
+        "variable": "What each letter means",
+        "unidad": "Units",
+        "calcular": "Exercises"
+      }
+    }
   }
 }

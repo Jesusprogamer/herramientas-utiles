@@ -28,9 +28,14 @@ export function comprobar(pregunta, dada, ajustes = {}) {
   }
 }
 
-/** La pregunta tal cual se lee: «¿Cuál es el símbolo de Flúor?». */
+/**
+ * La pregunta tal cual se lee: «¿Cuál es el símbolo de Flúor?».
+ * Quien genera la pregunta puede traer la frase ya hecha en `pide` cuando
+ * no cabe en la plantilla de su tipo (los ejercicios del formulario, que
+ * llevan los datos dentro).
+ */
 export function enunciadoCompleto(pregunta) {
-  return t(`quiz.pide.${pregunta.tipo}`, { que: pregunta.enunciado });
+  return pregunta.pide || t(`quiz.pide.${pregunta.tipo}`, { que: pregunta.enunciado });
 }
 
 /** Respuesta correcta en texto, para enseñarla al fallar. */
