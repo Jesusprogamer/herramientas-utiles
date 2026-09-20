@@ -7,6 +7,7 @@
  */
 import { h, clear } from './dom.js';
 import { iconButton } from './components.js';
+import { icon } from './icons.js';
 import { t } from '../core/i18n.js';
 import * as settings from '../core/settings.js';
 import { on } from '../core/events.js';
@@ -67,16 +68,16 @@ function pintar() {
     'aria-label': t('minibar.abrir', { nombre }),
     onClick: () => navigate(RUTA)
   },
+  icon(principal.tipo === 'cronometro' ? 'stopwatch' : 'timer'),
   h('span.minibar__nombre', { text: nombre }),
   reloj,
   otros ? h('span.minibar__mas', { text: `+${otros}` }) : null
   );
 
-  const pausar = iconButton(principal.running ? 'timer' : 'timer',
+  const pausar = iconButton(principal.running ? 'pause' : 'play',
     principal.running ? t('minibar.pausar', { nombre }) : t('minibar.reanudar', { nombre }), {
       onClick: () => timers.toggle(principal.tipo)
     });
-  pausar.classList.toggle('minibar__btn--pausa', principal.running);
 
   const parar = iconButton('x', t('minibar.parar', { nombre }), {
     onClick: () => timers.detener(principal.tipo)

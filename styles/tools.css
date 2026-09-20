@@ -942,3 +942,4 @@ body.has-minibar .page { padding-bottom: 5.5rem; }
   border-radius: var(--r-md);
   background: var(--c-surface-2);
 }
+.minibar__abrir svg { width: 20px; height: 20px; flex: 0 0 auto; color: var(--c-accent); }
