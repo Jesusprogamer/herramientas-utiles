@@ -1,373 +1,36 @@
 /**
- * Temporizador y pomodoro.
+ * Temporizador, pomodoro y cronometro.
  *
- * El reloj se calcula siempre contra la hora real (`Date.now()`), no sumando
- * ticks: asi no se desfasa aunque el navegador ralentice la pestaña. El estado
- * vive en el modulo y se guarda en disco, de modo que el temporizador sigue
- * corriendo al cambiar de pantalla y sobrevive a una recarga.
+ * Aqui solo esta la vista: la logica vive en src/core/timers.js, que sigue
+ * corriendo aunque salgas de esta pantalla o recargues la pagina. Esta
+ * herramienta se suscribe al servicio y se da de baja al desmontarse.
  */
 import { h, clear } from '../../ui/dom.js';
 import { icon } from '../../ui/icons.js';
-import { button, tabs, notice } from '../../ui/components.js';
+import { button, tabs, notice, iconButton } from '../../ui/components.js';
 import { toast } from '../../ui/toast.js';
-import * as storage from '../../core/storage.js';
 import * as settings from '../../core/settings.js';
 import { on } from '../../core/events.js';
 import * as audio from '../../core/audio.js';
-import { alarmSound } from './alarms.js';
 import { t, formatTime } from '../../core/i18n.js';
+import * as timers from '../../core/timers.js';
+import { formatCrono } from '../../lib/stopwatch.js';
+import { silenciar } from '../../ui/minibar.js';
 
-const KEY = 'temporizador';
-const PRESETS = [1, 3, 5, 10, 15, 20, 25, 45, 60];
+const {
+  PRESETS, state, crono, leftMs, cronoMs, start, pause, reset, setDuration,
+  switchMode, formatClock, restore, restoreCrono, stopAlarm, isRinging,
+  listenToServiceWorker, phaseMinutes, cronoToggle, cronoReset, cronoLap,
+  vueltasConParcial, MAX_VUELTAS, subscribe
+} = timers;
 
-/* ---------------- Estado ---------------- */
+export const testAlarm = timers.testAlarm;
 
-const state = {
-  mode: 'cuenta',          // 'cuenta' | 'pomodoro'
-  phase: 'cuenta',         // 'cuenta' | 'focus' | 'short' | 'long'
-  running: false,
-  endsAt: 0,               // marca de tiempo real en la que termina
-  remainingMs: 25 * 60000, // lo que queda cuando esta en pausa
-  totalMs: 25 * 60000,
-  round: 1,
-  finished: false
-};
+let ticker = 0;
+let desuscribir = null;
+let pintarPanel = null;   // repintado del panel visible (cuenta o pomodoro)
+let pintarCrono = null;   // repintado del cronometro
 
-let alarmTimer = 0;        // dispara el aviso aunque no se este viendo la herramienta
-let ringTimer = 0;         // repeticion del aviso mientras nadie lo apaga
-let ringing = false;       // la alarma esta sonando ahora mismo
-let alarmBanner = null;    // barra global para apagarla desde cualquier pantalla
-let ticker = 0;            // refresco de pantalla, solo mientras esta montada
-let render = null;         // funcion de pintado actual (null si no esta montada)
-let restored = false;
-
-const RING_EVERY_MS = 3000;
-const RENOTIFY_EVERY = 5;   // uno de cada 5 ciclos -> vuelve a avisar cada 15 s
-let ringCount = 0;
-
-/** Cuantas veces suena, segun el ajuste de repeticion. */
-function ringLimit() {
-  const modo = settings.get('timer').repeat;
-  if (modo === 'una') return 1;
-  if (modo === 'tres') return 3;
-  return Infinity;
-}
-
-function save() {
-  storage.set(KEY, {
-    mode: state.mode, phase: state.phase, running: state.running,
-    endsAt: state.endsAt, remainingMs: state.remainingMs,
-    totalMs: state.totalMs, round: state.round
-  });
-}
-
-function restore() {
-  if (restored) return;
-  restored = true;
-  const saved = storage.get(KEY, null);
-  if (!saved || typeof saved !== 'object') { applyPomodoroDefaults(); return; }
-
-  state.mode = saved.mode === 'pomodoro' ? 'pomodoro' : 'cuenta';
-  state.phase = ['cuenta', 'focus', 'short', 'long'].includes(saved.phase) ? saved.phase : 'cuenta';
-  state.round = Number.isInteger(saved.round) && saved.round > 0 ? saved.round : 1;
-  state.totalMs = Number.isFinite(saved.totalMs) && saved.totalMs > 0 ? saved.totalMs : 25 * 60000;
-
-  if (saved.running && Number.isFinite(saved.endsAt)) {
-    const left = saved.endsAt - Date.now();
-    if (left > 0) { state.running = true; state.endsAt = saved.endsAt; state.remainingMs = left; scheduleAlarm(); }
-    else { state.running = false; state.remainingMs = 0; state.finished = true; }
-  } else {
-    state.running = false;
-    state.remainingMs = Number.isFinite(saved.remainingMs) ? Math.max(0, saved.remainingMs) : state.totalMs;
-  }
-}
-
-function applyPomodoroDefaults() {
-  const cfg = settings.get('timer');
-  state.totalMs = cfg.focusMinutes * 60000;
-  state.remainingMs = state.totalMs;
-}
-
-function phaseMinutes(phase) {
-  const cfg = settings.get('timer');
-  if (phase === 'short') return cfg.shortBreakMinutes;
-  if (phase === 'long') return cfg.longBreakMinutes;
-  return cfg.focusMinutes;
-}
-
-function leftMs() {
-  if (state.running) return Math.max(0, state.endsAt - Date.now());
-  return Math.max(0, state.remainingMs);
-}
-
-/* ---------------- Aviso al terminar ---------------- */
-
-/** Alarma elegida para la fase que acaba de terminar. */
-function currentAlarmName() {
-  const cfg = settings.get('timer');
-  return state.phase === 'short' || state.phase === 'long' ? cfg.alarmBreak : cfg.alarmFocus;
-}
-
-/** Suena la alarma elegida. Se fuerza: es un aviso, no un adorno. */
-function beep(name) {
-  const cfg = settings.get('timer');
-  audio.playCustom(alarmSound(name || currentAlarmName()), {
-    force: true,
-    volume: (cfg.alarmVolume ?? 80) / 100
-  });
-}
-
-/** Prueba de una alarma desde Ajustes. */
-export function testAlarm(name) {
-  audio.unlock();
-  beep(name);
-}
-
-/**
- * Un ciclo de aviso: pitido y vibracion. Se repite hasta que se apaga.
- * Cada cierto numero de ciclos se reenvia la notificacion del sistema, que
- * es lo unico que suena si el movil tiene la pantalla apagada.
- */
-function ring() {
-  const cfg = settings.get('timer');
-  if (cfg.sound) beep();
-  if (cfg.vibrate && typeof navigator.vibrate === 'function') {
-    try { navigator.vibrate([220, 120, 220, 120, 320]); } catch { /* no compatible */ }
-  }
-  ringCount += 1;
-  if (ringCount % RENOTIFY_EVERY === 0) notifySystem();
-}
-
-/**
- * Notificacion del sistema. Se pide al service worker cuando se puede:
- * aguanta mejor con la app en segundo plano y admite `vibrate` y acciones.
- * Aun asi, una web solo puede avisar si la app sigue viva en alguna pestaña;
- * si se cierra del todo, el navegador no la despierta.
- */
-function notifySystem() {
-  const cfg = settings.get('timer');
-  if (!cfg.notify || !('Notification' in window) || Notification.permission !== 'granted') return;
-
-  const label = t(`temporizador.phase.${state.phase}`);
-  const options = {
-    body: t('temporizador.done.notification', { phase: label }),
-    tag: 'amano-temporizador',
-    renotify: true,                    // vuelve a avisar al repetirse
-    requireInteraction: true,          // no se va sola: el aviso sigue sonando
-    silent: false,
-    icon: './assets/icons/icon-192.png',
-    badge: './assets/icons/icon-192.png',
-    vibrate: cfg.vibrate ? [220, 120, 220, 120, 320] : undefined,
-    // Boton dentro de la propia notificacion (Android y escritorio).
-    actions: [{ action: 'stop', title: t('temporizador.alarm.stop') }]
-  };
-
-  const fallback = () => {
-    try { new Notification(t('temporizador.done.title'), options); } catch { /* sin permiso */ }
-  };
-
-  if (navigator.serviceWorker?.ready) {
-    navigator.serviceWorker.ready
-      .then(reg => reg.showNotification(t('temporizador.done.title'), options))
-      .catch(fallback);
-  } else {
-    fallback();
-  }
-}
-
-function closeSystemNotification() {
-  if (!navigator.serviceWorker?.ready) return;
-  navigator.serviceWorker.ready
-    .then(reg => reg.getNotifications({ tag: 'amano-temporizador' }))
-    .then(list => list.forEach(n => n.close()))
-    .catch(() => { /* nada que cerrar */ });
-}
-
-/** Barra fija para apagar la alarma aunque estes en otra pantalla. */
-function showAlarmBanner() {
-  if (alarmBanner) return;
-  alarmBanner = h('div.alarmbar', { role: 'alert' },
-    h('span.grow', {
-      text: t('temporizador.alarm.ringing', { phase: t(`temporizador.phase.${state.phase}`) })
-    }),
-    button(t('temporizador.alarm.stop'), { variant: 'primary', icon: 'x', onClick: stopAlarm })
-  );
-  document.body.appendChild(alarmBanner);
-  document.body.classList.add('alarm-on');
-}
-
-function hideAlarmBanner() {
-  alarmBanner?.remove();
-  alarmBanner = null;
-  document.body.classList.remove('alarm-on');
-}
-
-export function isRinging() { return ringing; }
-
-/* La notificacion del sistema vive fuera de la pagina: cuando la tocas, el
-   service worker avisa por aqui para callar el aviso. */
-let swListening = false;
-function listenToServiceWorker() {
-  if (swListening || !('serviceWorker' in navigator)) return;
-  swListening = true;
-  navigator.serviceWorker.addEventListener('message', event => {
-    const type = event.data?.type;
-    if (type === 'STOP_ALARM') stopAlarm();
-    if (type === 'OPEN_TIMER' && location.hash !== '#/h/temporizador') location.hash = '#/h/temporizador';
-  });
-}
-
-/** Arranca el aviso y lo repite hasta que la persona lo apaga. */
-function startAlarm() {
-  ringing = true;
-  ringCount = 0;
-  ring();
-  notifySystem();
-  showAlarmBanner();
-
-  // El tope se mira en cada ciclo, NO dentro de ring(): si se comprobara
-  // ahi, el primer aviso apagaria la alarma antes de terminar de montarla.
-  const limit = ringLimit();
-  clearInterval(ringTimer);
-  ringTimer = setInterval(() => {
-    if (ringCount >= limit) { stopAlarm(); return; }
-    ring();
-  }, RING_EVERY_MS);
-  toast(t('temporizador.done.body', { phase: t(`temporizador.phase.${state.phase}`) }), {
-    kind: 'success', duration: 6000
-  });
-  render?.();
-}
-
-/** Apaga el aviso. Lo llaman el boton, la barra y cualquier accion nueva. */
-function stopAlarm() {
-  if (!ringing) return;
-  ringing = false;
-  clearInterval(ringTimer);
-  ringTimer = 0;
-  try { navigator.vibrate?.(0); } catch { /* no compatible */ }
-  hideAlarmBanner();
-  closeSystemNotification();
-  render?.();
-}
-
-function scheduleAlarm() {
-  clearTimeout(alarmTimer);
-  const ms = leftMs();
-  if (!state.running || ms <= 0) return;
-  alarmTimer = setTimeout(onFinished, ms);
-}
-
-function onFinished() {
-  state.running = false;
-  state.remainingMs = 0;
-  state.finished = true;
-  startAlarm();
-
-  if (state.mode === 'pomodoro') advancePomodoro();
-  save();
-  render?.();
-}
-
-/** Encadena foco -> descanso corto -> … -> descanso largo. */
-function advancePomodoro() {
-  const cfg = settings.get('timer');
-  if (state.phase === 'focus') {
-    const useLong = state.round % cfg.roundsBeforeLongBreak === 0;
-    state.phase = useLong ? 'long' : 'short';
-  } else {
-    if (state.phase === 'short' || state.phase === 'long') state.round += 1;
-    state.phase = 'focus';
-  }
-  state.totalMs = phaseMinutes(state.phase) * 60000;
-  state.remainingMs = state.totalMs;
-  state.finished = false;
-}
-
-/* ---------------- Acciones ---------------- */
-
-function start() {
-  stopAlarm();
-  if (leftMs() <= 0) return;
-  const cfg = settings.get('timer');
-  // Un toque del usuario: los moviles exigen desbloquear el audio asi.
-  audio.unlock();
-  // Y tambien para pedir el permiso de notificaciones, que solo se concede
-  // a raiz de un gesto de la persona.
-  if (cfg.notify && 'Notification' in window && Notification.permission === 'default') {
-    Notification.requestPermission().catch(() => { /* lo decide el navegador */ });
-  }
-  // Ojo al orden: hay que leer lo que queda ANTES de marcarlo en marcha,
-  // porque leftMs() cambia de fuente segun `running`.
-  const pending = leftMs();
-  state.running = true;
-  state.finished = false;
-  state.endsAt = Date.now() + pending;
-  scheduleAlarm();
-  save();
-  render?.();
-}
-
-function pause() {
-  if (!state.running) return;
-  state.remainingMs = leftMs();
-  state.running = false;
-  clearTimeout(alarmTimer);
-  save();
-  render?.();
-}
-
-function reset() {
-  stopAlarm();
-  state.running = false;
-  state.finished = false;
-  clearTimeout(alarmTimer);
-  state.remainingMs = state.totalMs;
-  save();
-  render?.();
-}
-
-/** Fija la duracion en milisegundos (los atajos y el campo a medida pasan por aqui). */
-function setDuration(ms) {
-  stopAlarm();
-  state.running = false;
-  state.finished = false;
-  clearTimeout(alarmTimer);
-  state.totalMs = Math.max(1000, Math.round(ms));
-  state.remainingMs = state.totalMs;
-  save();
-  render?.();
-}
-
-function switchMode(mode) {
-  if (state.mode === mode) return;
-  stopAlarm();
-  state.mode = mode;
-  state.running = false;
-  state.finished = false;
-  clearTimeout(alarmTimer);
-  if (mode === 'pomodoro') {
-    state.phase = 'focus';
-    state.round = 1;
-    state.totalMs = phaseMinutes('focus') * 60000;
-  } else {
-    state.phase = 'cuenta';
-    state.totalMs = 25 * 60000;
-  }
-  state.remainingMs = state.totalMs;
-  save();
-}
-
-/* ---------------- Pintado ---------------- */
-
-function formatClock(ms) {
-  const total = Math.ceil(ms / 1000);
-  const hours = Math.floor(total / 3600);
-  const minutes = Math.floor((total % 3600) / 60);
-  const seconds = total % 60;
-  const pad = n => String(n).padStart(2, '0');
-  return hours > 0 ? `${hours}:${pad(minutes)}:${pad(seconds)}` : `${pad(minutes)}:${pad(seconds)}`;
-}
 
 const RADIUS = 46;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
@@ -469,7 +132,7 @@ function buildPanel(panel) {
     }
   }
 
-  render = () => {
+  pintarPanel = () => {
     const ms = leftMs();
     const total = Math.max(1, state.totalMs);
     time.textContent = formatClock(ms);
@@ -487,7 +150,7 @@ function buildPanel(panel) {
     startBtn.lastChild.textContent = state.running ? t('temporizador.pause') : t('temporizador.start');
     startBtn.disabled = ms <= 0 && !state.running;
     resetBtn.lastChild.textContent = t('temporizador.reset');
-    stopAlarmBtn.hidden = !ringing;
+    stopAlarmBtn.hidden = !isRinging();
 
     // Los campos a medida siguen al temporizador salvo mientras se escriben.
     if (state.mode === 'cuenta' && document.activeElement !== minInput && document.activeElement !== secInput) {
@@ -515,7 +178,7 @@ function buildPanel(panel) {
     }
   };
 
-  render();
+  pintarPanel();
 }
 
 /* ---------------- Aviso sobre las notificaciones ----------------
@@ -605,6 +268,51 @@ function buildNotificationBox() {
   return box;
 }
 
+
+/* ---------------- Cronometro ---------------- */
+
+function buildCrono(panel) {
+  const time = h('p.timer__time.tnum', { role: 'timer', 'aria-live': 'off' });
+  const estado = h('p.timer__phase');
+  const lista = h('ol.crono__vueltas');
+  const aviso = h('p.small.muted', { 'aria-live': 'polite' });
+
+  const startBtn = button('', { variant: 'primary', icon: 'timer', onClick: cronoToggle });
+  const lapBtn = button('', {
+    icon: 'checklist',
+    onClick: () => { if (!cronoLap()) aviso.textContent = t('temporizador.crono.tope', { n: MAX_VUELTAS }); }
+  });
+  const resetBtn = button('', { icon: 'refresh', onClick: () => { cronoReset(); aviso.textContent = ''; } });
+
+  pintarCrono = () => {
+    time.textContent = formatCrono(cronoMs());
+    time.setAttribute('aria-label', t('temporizador.crono.transcurrido', { time: formatCrono(cronoMs()) }));
+    estado.textContent = t(crono.running ? 'temporizador.state.running' : 'temporizador.state.paused');
+    startBtn.lastChild.textContent = crono.running ? t('temporizador.pause') : t('temporizador.start');
+    lapBtn.lastChild.textContent = t('temporizador.crono.vuelta');
+    lapBtn.disabled = !crono.running || crono.vueltas.length >= MAX_VUELTAS;
+    resetBtn.lastChild.textContent = t('temporizador.reset');
+    resetBtn.disabled = crono.running || (cronoMs() === 0 && !crono.vueltas.length);
+
+    clear(lista);
+    for (const v of vueltasConParcial()) {
+      lista.appendChild(h('li.crono__vuelta',
+        h('span.small.muted', { text: t('temporizador.crono.numero', { n: v.n }) }),
+        h('span.tnum.grow', { text: formatCrono(v.parcial) }),
+        h('span.small.muted.tnum', { text: formatCrono(v.total) })
+      ));
+    }
+  };
+
+  panel.append(
+    h('div.timer__display', h('div.timer__inner', time, estado)),
+    h('div.row', { style: { justifyContent: 'center' } }, startBtn, lapBtn, resetBtn),
+    aviso,
+    lista
+  );
+  pintarCrono();
+}
+
 /* ---------------- Módulo de herramienta ---------------- */
 
 export default {
@@ -612,6 +320,7 @@ export default {
 
   mount(container) {
     restore();
+    restoreCrono();
     listenToServiceWorker();
 
     const view = h('div.page',
@@ -626,9 +335,12 @@ export default {
       active: state.mode,
       items: [
         { id: 'cuenta', label: t('temporizador.tab.countdown'), render: buildPanel },
-        { id: 'pomodoro', label: t('temporizador.tab.pomodoro'), render: buildPanel }
+        { id: 'pomodoro', label: t('temporizador.tab.pomodoro'), render: buildPanel },
+        { id: 'crono', label: t('temporizador.tab.crono'), render: buildCrono }
       ],
       onChange: id => {
+        // El cronometro es otra cosa: no cambia el modo del temporizador.
+        if (id === 'crono') return;
         switchMode(id);
         // Si el panel ya estaba pintado, se reconstruye para el modo nuevo;
         // si no, de eso se encarga el propio componente de pestañas.
@@ -649,15 +361,28 @@ export default {
       if (changed.includes('timer')) notificationBox.refresh();
     });
 
+    // Aqui ya estan todos los controles: la minibarra sobra.
+    this._silencio = silenciar('temporizador');
+
+    // Una sola suscripcion al servicio: el repintado llega de ahi.
+    desuscribir = subscribe(() => { pintarPanel?.(); pintarCrono?.(); });
+
+    // Y un refresco propio mientras algo corre, para que el reloj avance.
     ticker = setInterval(() => {
-      if (state.running) render?.();
-    }, 250);
+      if (state.running) pintarPanel?.();
+      if (crono.running) pintarCrono?.();
+    }, 100);
   },
 
   unmount() {
     clearInterval(ticker);
     ticker = 0;
-    render = null;
+    desuscribir?.();
+    desuscribir = null;
+    pintarPanel = null;
+    pintarCrono = null;
+    this._silencio?.();
+    this._silencio = null;
     this._offSettings?.();
     this._offSettings = null;
     // Ojo: el aviso (alarmTimer) NO se cancela, para que suene aunque

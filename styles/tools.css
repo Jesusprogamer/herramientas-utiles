@@ -866,3 +866,79 @@
 .horario__celda--libre { background: var(--c-surface); border-left-color: var(--c-border); }
 .horario__celda .select, .horario__celda .input { font-size: var(--fs-sm); }
 .horario__ahora-linea { margin: 0; display: flex; align-items: center; gap: var(--sp-2); }
+
+/* ---------- Minibarra del temporizador ---------- */
+.minibar {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--sp-3) + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  width: min(100% - var(--sp-4) * 2, 560px);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2);
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  background: var(--c-surface-2);
+  box-shadow: 0 6px 24px rgb(0 0 0 / .28);
+}
+.minibar__abrir {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  padding: var(--sp-2) var(--sp-3);
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--c-text);
+  cursor: pointer;
+  text-align: left;
+}
+.minibar__abrir:hover { background: var(--c-surface-3); }
+.minibar__abrir:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--c-accent-ring);
+}
+.minibar__nombre {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--c-text-muted); font-size: var(--fs-sm);
+}
+.minibar__reloj {
+  margin-left: auto;
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+}
+.minibar__mas {
+  flex: 0 0 auto;
+  padding: 0 var(--sp-2);
+  border-radius: 999px;
+  background: var(--c-accent-soft);
+  color: var(--c-accent);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+}
+/* La barra flota sobre el contenido: se le deja sitio para no tapar nada. */
+body.has-minibar .page { padding-bottom: 5.5rem; }
+
+/* ---------- Cronómetro ---------- */
+.crono__vueltas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-1);
+  max-height: 16rem;
+  overflow-y: auto;
+}
+.crono__vuelta {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+}
