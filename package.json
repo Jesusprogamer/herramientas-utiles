@@ -1,6 +1,6 @@
 {
   "name": "a-mano",
-  "version": "2.12.0",
+  "version": "2.13.0",
   "private": true,
   "type": "module",
   "description": "Herramientas utiles para el dia a dia. PWA sin frameworks ni paso de compilacion.",
