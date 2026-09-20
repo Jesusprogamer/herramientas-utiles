@@ -136,6 +136,10 @@
     "calculadora": {
       "name": "Calculadora paso a paso",
       "desc": "Científica, ecuaciones, fracciones, porcentajes y estadística, explicando cada paso."
+    },
+    "graficas": {
+      "name": "Gráficas de funciones",
+      "desc": "Dibuja y explora funciones con zoom y tabla de valores."
     }
   },
   "settings": {
@@ -1393,5 +1397,28 @@
       "est.varianza": "Varianza = suma de (x − media)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
       "est.desviacion": "Desviación típica = √{varianza} = {desviacion}."
     }
+  },
+  "graf": {
+    "funcion": "Función {n}",
+    "anadir": "Añadir función",
+    "quitar": "Quitar función",
+    "mostrar": "Mostrar función",
+    "ocultar": "Ocultar función",
+    "lienzo": "Gráfica vacía: escribe una función para verla.",
+    "lienzoCon": "Gráfica de {funciones}. Se ve de x = {x0} a x = {x1} y de y = {y0} a y = {y1}.",
+    "lectura": "{f} → x = {x}, y = {y}",
+    "lecturaSinValor": "En x = {x} la función no tiene valor.",
+    "error": "No se entiende «{f}»: {motivo}",
+    "acercar": "Acercar",
+    "alejar": "Alejar",
+    "ajustarY": "Ajustar alto",
+    "ajustado": "Alto ajustado a lo que se ve.",
+    "nadaQueAjustar": "No hay ninguna función visible que ajustar.",
+    "reiniciar": "Vista inicial",
+    "png": "Imagen PNG",
+    "csv": "Tabla CSV",
+    "descargada": "Descarga preparada.",
+    "tabla": "Tabla de valores",
+    "ayuda": "Usa x como variable: x^2, sin(x), 1/x. Arrastra para mover la gráfica y usa la rueda o los botones para acercar. Con el teclado: flechas para mover, + y − para el zoom."
   }
 }

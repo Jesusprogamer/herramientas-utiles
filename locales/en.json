@@ -136,6 +136,10 @@
     "calculadora": {
       "name": "Step-by-step calculator",
       "desc": "Scientific, equations, fractions, percentages and statistics, showing every step."
+    },
+    "graficas": {
+      "name": "Function graphs",
+      "desc": "Draw and explore functions with zoom and a table of values."
     }
   },
   "settings": {
@@ -1393,5 +1397,28 @@
       "est.varianza": "Variance = sum of (x − mean)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
       "est.desviacion": "Standard deviation = √{varianza} = {desviacion}."
     }
+  },
+  "graf": {
+    "funcion": "Function {n}",
+    "anadir": "Add function",
+    "quitar": "Remove function",
+    "mostrar": "Show function",
+    "ocultar": "Hide function",
+    "lienzo": "Empty graph: type a function to see it.",
+    "lienzoCon": "Graph of {funciones}. Showing x = {x0} to x = {x1} and y = {y0} to y = {y1}.",
+    "lectura": "{f} → x = {x}, y = {y}",
+    "lecturaSinValor": "At x = {x} the function has no value.",
+    "error": "Can't read “{f}”: {motivo}",
+    "acercar": "Zoom in",
+    "alejar": "Zoom out",
+    "ajustarY": "Fit height",
+    "ajustado": "Height fitted to what's on screen.",
+    "nadaQueAjustar": "There's no visible function to fit.",
+    "reiniciar": "Reset view",
+    "png": "PNG image",
+    "csv": "CSV table",
+    "descargada": "Download ready.",
+    "tabla": "Table of values",
+    "ayuda": "Use x as the variable: x^2, sin(x), 1/x. Drag to move the graph and use the wheel or the buttons to zoom. With the keyboard: arrows to move, + and − to zoom."
   }
 }
