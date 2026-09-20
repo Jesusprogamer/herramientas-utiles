@@ -61,6 +61,20 @@ function section(titleKey, tools, { count = false } = {}) {
 
 export default function home({ outlet }) {
   const results = h('div.stack');
+  /* Recuadro de la agenda: se carga aparte para no pesar en el arranque y
+     desaparece solo cuando no hay ningun examen proximo. */
+  const widgets = h('div.stack');
+
+  async function pintarWidgets() {
+    clear(widgets);
+    try {
+      const { default: agendaWidget } = await import('../tools/agenda/widget.js');
+      const caja = agendaWidget();
+      if (caja) widgets.appendChild(caja);
+    } catch (err) {
+      console.warn('[inicio] el recuadro de la agenda no se ha podido cargar', err);
+    }
+  }
 
   const input = h('input.input', {
     type: 'search',
@@ -179,10 +193,12 @@ export default function home({ outlet }) {
       h('p.page__lead', { text: t('app.tagline') })
     ),
     h('div.home__search', h('div.search', searchIcon, input, clearBtn)),
+    widgets,
     results
   ));
 
   paint();
+  pintarWidgets();
 
   const offFav = on('favorites:change', paint);
   const offTools = on('tools:change', paint);
@@ -190,7 +206,9 @@ export default function home({ outlet }) {
     input.placeholder = t('home.searchPlaceholder');
     input.setAttribute('aria-label', t('home.searchLabel'));
     paint();
+    pintarWidgets();
   });
+  const offAsig = on('asignaturas:change', pintarWidgets);
 
-  return () => { offFav(); offTools(); offLang(); };
+  return () => { offFav(); offTools(); offLang(); offAsig(); };
 }

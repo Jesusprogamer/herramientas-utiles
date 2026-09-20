@@ -132,6 +132,38 @@
     "equipos": {
       "name": "Sorteo de equipos",
       "desc": "Reparte nombres en equipos equilibrados al azar."
+    },
+    "calculadora": {
+      "name": "Calculadora paso a paso",
+      "desc": "Científica, ecuaciones, fracciones, porcentajes y estadística, explicando cada paso."
+    },
+    "graficas": {
+      "name": "Gráficas de funciones",
+      "desc": "Dibuja y explora funciones con zoom y tabla de valores."
+    },
+    "bases": {
+      "name": "Conversor de bases",
+      "desc": "Pasa números entre binario, octal, decimal, hexadecimal y cualquier base de 2 a 36."
+    },
+    "tabla": {
+      "name": "Tabla periódica",
+      "desc": "Los 118 elementos, con sus datos y un buscador."
+    },
+    "formulario": {
+      "name": "Formulario",
+      "desc": "Fórmulas de geometría, física y química, con la incógnita despejada."
+    },
+    "notas": {
+      "name": "Calculadora de notas",
+      "desc": "Media ponderada por asignatura y cuánto te hace falta para llegar."
+    },
+    "agenda": {
+      "name": "Agenda de exámenes",
+      "desc": "Apunta tus exámenes, mira cuánto falta y pásalos al calendario."
+    },
+    "horario": {
+      "name": "Horario de clase",
+      "desc": "Tu semana con las asignaturas, las aulas y lo que toca ahora."
     }
   },
   "settings": {
@@ -1186,5 +1218,872 @@
       "message": "Todas sus herramientas están ocultas desde Ajustes.",
       "action": "Ver todas"
     }
+  },
+  "calc": {
+    "tab": {
+      "cientifica": "Científica",
+      "lineal": "1.er grado",
+      "cuadratica": "2.º grado",
+      "sistema": "Sistemas",
+      "fracciones": "Fracciones",
+      "mcd": "MCD y mcm",
+      "factorizar": "Factorizar",
+      "regla": "Regla de 3",
+      "porcentajes": "Porcentajes",
+      "potencias": "Potencias",
+      "estadistica": "Estadística"
+    },
+    "explicar": "Explicar paso a paso",
+    "explicarDesc": "Enseña cómo se llega al resultado, no solo el resultado.",
+    "nivel": {
+      "label": "Nivel de detalle",
+      "breve": "Breve",
+      "detallado": "Detallado"
+    },
+    "pasos": "Cómo se resuelve",
+    "pasosOcultos": "… {n} pasos intermedios ocultos (pon «Detallado» para verlos)",
+    "copyResult": "Copiar el resultado",
+    "copySteps": "Copiar la explicación",
+    "sinPasos": "No hay explicación que copiar",
+    "ejemplo": "Ejemplo",
+    "historial": "Últimos cálculos",
+    "nota": "Los cálculos se hacen con fracciones exactas y solo se pasan a decimal al final.",
+    "cientifica": {
+      "label": "Expresión",
+      "placeholder": "Por ejemplo: 2+3×4 o sqrt(16)",
+      "angulo": "Ángulos",
+      "grados": "Grados",
+      "radianes": "Radianes",
+      "borrar": "Borrar",
+      "limpiar": "Limpiar",
+      "guardar": "Guardar en el historial"
+    },
+    "lineal": {
+      "a": "a (coeficiente de x)",
+      "b": "b (término independiente)",
+      "c": "c (resultado)",
+      "infinitas": "Infinitas soluciones",
+      "ninguna": "Sin solución"
+    },
+    "cuadratica": {
+      "a": "a (coeficiente de x²)",
+      "b": "b (coeficiente de x)",
+      "c": "c (término independiente)",
+      "sinReales": "No hay soluciones reales",
+      "unaDoble": "Solución doble"
+    },
+    "sistema": {
+      "a1": "a₁",
+      "b1": "b₁",
+      "c1": "c₁",
+      "a2": "a₂",
+      "b2": "b₂",
+      "c2": "c₂",
+      "metodo": "Método",
+      "metodo.reduccion": "Reducción",
+      "metodo.sustitucion": "Sustitución",
+      "metodo.cramer": "Cramer",
+      "ninguna": "Sin solución",
+      "infinitas": "Infinitas soluciones"
+    },
+    "fracciones": {
+      "a": "Primera fracción",
+      "b": "Segunda fracción",
+      "formato": "Se escribe como 3/4, o también 0,75",
+      "op": "Operación",
+      "op.suma": "Sumar",
+      "op.resta": "Restar",
+      "op.multiplicacion": "Multiplicar",
+      "op.division": "Dividir"
+    },
+    "mcd": {
+      "a": "Primer número",
+      "b": "Segundo número"
+    },
+    "factor": {
+      "n": "Número",
+      "divisores": "{n} divisores: {lista}"
+    },
+    "regla": {
+      "a": "Si esto…",
+      "b": "…es esto",
+      "c": "¿Y esto?",
+      "tipo": "Tipo",
+      "tipo.directa": "Directa",
+      "tipo.inversa": "Inversa"
+    },
+    "pct": {
+      "tipo": "Qué calcular",
+      "tipo.deQue": "Cuánto es un % de…",
+      "tipo.queporcentaje": "Qué porcentaje es…",
+      "tipo.aumentar": "Aumentar un %",
+      "tipo.descontar": "Descontar un %",
+      "a": "Primer valor",
+      "b": "Segundo valor"
+    },
+    "pot": {
+      "base": "Base",
+      "exp": "Exponente",
+      "expHint": "Escribe «sqrt» como exponente para la raíz cuadrada"
+    },
+    "est": {
+      "datos": "Datos",
+      "placeholder": "4, 8, 15, 16, 23, 42",
+      "tipo": "Tipo de muestra",
+      "tipo.poblacional": "Población (n)",
+      "tipo.muestral": "Muestra (n−1)",
+      "resumen": "Media {media} · Mediana {mediana} · σ {desviacion}",
+      "detalle": "{n} datos · mín {min} · máx {max} · rango {rango} · moda {moda} · Q1 {q1} · Q3 {q3} · varianza {varianza}",
+      "sinModa": "sin moda"
+    },
+    "error": {
+      "entreCero": "No se puede dividir entre cero",
+      "ceros": "Los dos números no pueden ser cero",
+      "cero": "El número no puede ser cero",
+      "totalCero": "El total no puede ser cero",
+      "raizNegativa": "No hay raíz cuadrada real de un número negativo",
+      "sinDatos": "Escribe algún dato",
+      "general": "Revisa los datos"
+    },
+    "paso": {
+      "expr": "{paso}  →  {resto}",
+      "lineal.inicio": "Partimos de {a}x + ({b}) = {c}.",
+      "lineal.despeja": "Pasamos {b} al otro lado: {a}x = {resto}.",
+      "lineal.divide": "Dividimos entre {a}: x = {resto} ÷ {a} = {x}.",
+      "lineal.infinitas": "Los dos lados son iguales: cualquier valor de x vale.",
+      "lineal.ninguna": "Queda una igualdad falsa: no hay ninguna solución.",
+      "cuadratica.inicio": "Partimos de {a}x² + ({b})x + ({c}) = 0.",
+      "cuadratica.discriminante": "Discriminante: Δ = b² − 4ac = ({b})² − 4·({a})·({c}) = {d}.",
+      "cuadratica.doble": "Δ = 0, así que hay una única solución doble: x = {x}.",
+      "cuadratica.raizExacta": "√{d} = {raiz}, que es exacta.",
+      "cuadratica.raizSimplificada": "√{d} = {fuera}√{dentro}.",
+      "cuadratica.dos": "x = (−b ± √Δ) ÷ 2a da x₁ = {x1} y x₂ = {x2}.",
+      "cuadratica.dosDecimal": "x = (−b ± √Δ) ÷ 2a da x₁ ≈ {x1} y x₂ ≈ {x2}.",
+      "cuadratica.negativo": "Δ = {d} es negativo: no hay soluciones reales.",
+      "cuadratica.complejas": "Las soluciones son complejas: x = {re} ± {im}i.",
+      "sistema.inicio": "Sistema: {a1}x + {b1}y = {c1} y {a2}x + {b2}y = {c2}.",
+      "sistema.infinitas": "Las dos ecuaciones son la misma recta: hay infinitas soluciones.",
+      "sistema.ninguna": "Las dos rectas son paralelas: no hay solución.",
+      "sistema.cramerDet": "Determinante principal: Δ = {det}.",
+      "sistema.cramerX": "x = Δx ÷ Δ = {detX} ÷ {det} = {x}.",
+      "sistema.cramerY": "y = Δy ÷ Δ = {detY} ÷ {det} = {y}.",
+      "sistema.despejaX": "Despejamos x en la primera: x = ({c1} + {b1}y) ÷ {a1}.",
+      "sistema.sustituye": "Sustituimos esa x en la segunda ecuación.",
+      "sistema.multiplica": "Multiplicamos la primera por {m1} y la segunda por {m2} para igualar los coeficientes de x.",
+      "sistema.resta": "Restamos las dos ecuaciones para que desaparezca la x.",
+      "sistema.resultadoY": "Queda y = {y}.",
+      "sistema.resultadoX": "Y sustituyendo, x = {x}.",
+      "fracciones.inicio": "Operación: {a} {op} {b}.",
+      "fracciones.comun": "Denominador común: el mcm de los dos es {m}.",
+      "fracciones.igualadas": "Con ese denominador: {a} {op} {b}.",
+      "fracciones.operados": "Operamos los numeradores: {n}/{d}.",
+      "fracciones.multiplica": "Se multiplica arriba con arriba y abajo con abajo: ({n}) / ({d}).",
+      "fracciones.invierte": "Dividir entre {b} es multiplicar por {inv}.",
+      "fracciones.simplificada": "Simplificado: {r} (≈ {decimal}).",
+      "fracciones.simplificaInicio": "Partimos de {f}.",
+      "fracciones.divideAmbos": "Dividimos arriba y abajo entre su MCD, que es {g}.",
+      "fracciones.yaSimple": "Ya está simplificada del todo.",
+      "mcd.inicio": "Buscamos el MCD de {a} y {b} con el algoritmo de Euclides.",
+      "mcd.division": "{a} = {b} × {q} + {r}.",
+      "mcd.resultado": "El último resto distinto de cero da el MCD = {g}.",
+      "mcd.mcm": "Y el mcm sale de mcm = ({a} × {b}) ÷ MCD = {m}.",
+      "factor.inicio": "Descomponemos {n} dividiendo entre primos.",
+      "factor.divide": "{n} ÷ {p} = {r}.",
+      "factor.resultado": "{n} = {f}.",
+      "factor.esPrimo": "{n} solo se divide entre 1 y entre sí mismo: es primo.",
+      "factor.uno": "El 1 no tiene factores primos.",
+      "regla.inicioDirecta": "Regla de tres directa: si {a} corresponde a {b}, ¿a cuánto corresponde {c}?",
+      "regla.inicioInversa": "Regla de tres inversa: si {a} corresponde a {b}, ¿a cuánto corresponde {c}?",
+      "regla.formulaDirecta": "x = ({b} × {c}) ÷ {a} = {x}.",
+      "regla.formulaInversa": "x = ({a} × {b}) ÷ {c} = {x}.",
+      "regla.resultado": "Resultado: x = {x} (≈ {decimal}).",
+      "pct.deQueInicio": "Queremos el {p} % de {n}.",
+      "pct.deQuePaso": "{p} ÷ 100 × {n} = {r}.",
+      "pct.queInicio": "Queremos saber qué porcentaje es {a} de {b}.",
+      "pct.quePaso": "({a} ÷ {b}) × 100 = {r} %.",
+      "pct.aumentaInicio": "Aumentamos {n} un {p} %.",
+      "pct.aumentaPaso": "{n} × (100 + {p}) ÷ 100 = {r}.",
+      "pct.descuentaInicio": "Descontamos un {p} % de {n}.",
+      "pct.descuentaPaso": "{n} × (100 − {p}) ÷ 100 = {r}.",
+      "pct.resultado": "Resultado: {r}.",
+      "pot.inicio": "Calculamos {b} elevado a {e}.",
+      "pot.multiplica": "Multiplicamos {b} por sí mismo {e} veces.",
+      "pot.negativo": "El exponente negativo invierte la base: 1 ÷ ({b} elevado a {e}).",
+      "pot.decimal": "Exponente no entero: se calcula en decimal, {r}.",
+      "pot.resultado": "Resultado: {r} (≈ {decimal}).",
+      "pot.raizInicio": "Calculamos la raíz cuadrada de {n}.",
+      "pot.raizExacta": "√{n} = {r}, exacta.",
+      "pot.raizSimplifica": "√{n} = {fuera}√{dentro}.",
+      "pot.raizDecimal": "En decimal, ≈ {r}.",
+      "est.datos": "Tenemos {n} datos, ordenados: {lista}.",
+      "est.media": "Media = suma ÷ n = {suma} ÷ {n} = {media}.",
+      "est.mediana": "La mediana, el valor central, es {mediana}.",
+      "est.varianza": "Varianza = suma de (x − media)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
+      "est.desviacion": "Desviación típica = √{varianza} = {desviacion}.",
+      "bases": {
+        "division": "{n} ÷ {base} = {cociente}, resto {resto} → dígito {digito}.",
+        "leerAlReves": "Se leen los restos de abajo arriba: {digitos}.",
+        "multiplicacion": "{valor} × {base} → parte entera {digito}, queda {resto}.",
+        "cero": "El cero se escribe igual en todas las bases: 0."
+      }
+    }
+  },
+  "graf": {
+    "funcion": "Función {n}",
+    "anadir": "Añadir función",
+    "quitar": "Quitar función",
+    "mostrar": "Mostrar función",
+    "ocultar": "Ocultar función",
+    "lienzo": "Gráfica vacía: escribe una función para verla.",
+    "lienzoCon": "Gráfica de {funciones}. Se ve de x = {x0} a x = {x1} y de y = {y0} a y = {y1}.",
+    "lectura": "{f} → x = {x}, y = {y}",
+    "lecturaSinValor": "En x = {x} la función no tiene valor.",
+    "error": "No se entiende «{f}»: {motivo}",
+    "acercar": "Acercar",
+    "alejar": "Alejar",
+    "ajustarY": "Ajustar alto",
+    "ajustado": "Alto ajustado a lo que se ve.",
+    "nadaQueAjustar": "No hay ninguna función visible que ajustar.",
+    "reiniciar": "Vista inicial",
+    "png": "Imagen PNG",
+    "csv": "Tabla CSV",
+    "descargada": "Descarga preparada.",
+    "tabla": "Tabla de valores",
+    "ayuda": "Usa x como variable: x^2, sin(x), 1/x. Arrastra para mover la gráfica y usa la rueda o los botones para acercar. Con el teclado: flechas para mover, + y − para el zoom."
+  },
+  "bases": {
+    "binario": "Binario (base 2)",
+    "octal": "Octal (base 8)",
+    "decimal": "Decimal (base 10)",
+    "hexadecimal": "Hexadecimal (base 16)",
+    "baseLibre": "Otra base",
+    "baseN": "Base {n}",
+    "enBase": "En base {n}",
+    "copiar": "Copiar el valor en base {base}",
+    "agrupar": "Agrupar el binario de cuatro en cuatro",
+    "agruparDesc": "1111 0000 se lee mejor que 11110000.",
+    "tamano": "Tamaño para el complemento a dos",
+    "nBits": "{n} bits",
+    "bits": "Bits que ocupa",
+    "digitosHex": "Dígitos en hexadecimal",
+    "complemento": "Complemento a dos ({bits} bits)",
+    "noCabe": "No cabe en {bits} bits",
+    "sinBitsConDecimales": "El recuento de bits y el complemento a dos solo se muestran con números enteros.",
+    "cortado": "La parte decimal es periódica en la base de destino: se muestran {n} dígitos.",
+    "ejemplo": "{v} en base {b}",
+    "explicarDesc": "Muestra las divisiones y multiplicaciones sucesivas.",
+    "nota": "La parte entera se calcula con enteros grandes, así que no se pierde precisión por larga que sea. Se aceptan coma o punto decimal, y espacios o guiones bajos para separar.",
+    "error": {
+      "vacio": "Escribe un número.",
+      "base": "Esa base no es válida.",
+      "separadores": "Solo puede haber un separador decimal.",
+      "digito": "«{c}» no es un dígito válido en base {base}."
+    }
+  },
+  "elementos": {
+    "nombre": {
+      "H": "Hidrógeno",
+      "He": "Helio",
+      "Li": "Litio",
+      "Be": "Berilio",
+      "B": "Boro",
+      "C": "Carbono",
+      "N": "Nitrógeno",
+      "O": "Oxígeno",
+      "F": "Flúor",
+      "Ne": "Neón",
+      "Na": "Sodio",
+      "Mg": "Magnesio",
+      "Al": "Aluminio",
+      "Si": "Silicio",
+      "P": "Fósforo",
+      "S": "Azufre",
+      "Cl": "Cloro",
+      "Ar": "Argón",
+      "K": "Potasio",
+      "Ca": "Calcio",
+      "Sc": "Escandio",
+      "Ti": "Titanio",
+      "V": "Vanadio",
+      "Cr": "Cromo",
+      "Mn": "Manganeso",
+      "Fe": "Hierro",
+      "Co": "Cobalto",
+      "Ni": "Níquel",
+      "Cu": "Cobre",
+      "Zn": "Cinc",
+      "Ga": "Galio",
+      "Ge": "Germanio",
+      "As": "Arsénico",
+      "Se": "Selenio",
+      "Br": "Bromo",
+      "Kr": "Criptón",
+      "Rb": "Rubidio",
+      "Sr": "Estroncio",
+      "Y": "Itrio",
+      "Zr": "Circonio",
+      "Nb": "Niobio",
+      "Mo": "Molibdeno",
+      "Tc": "Tecnecio",
+      "Ru": "Rutenio",
+      "Rh": "Rodio",
+      "Pd": "Paladio",
+      "Ag": "Plata",
+      "Cd": "Cadmio",
+      "In": "Indio",
+      "Sn": "Estaño",
+      "Sb": "Antimonio",
+      "Te": "Teluro",
+      "I": "Yodo",
+      "Xe": "Xenón",
+      "Cs": "Cesio",
+      "Ba": "Bario",
+      "La": "Lantano",
+      "Ce": "Cerio",
+      "Pr": "Praseodimio",
+      "Nd": "Neodimio",
+      "Pm": "Prometio",
+      "Sm": "Samario",
+      "Eu": "Europio",
+      "Gd": "Gadolinio",
+      "Tb": "Terbio",
+      "Dy": "Disprosio",
+      "Ho": "Holmio",
+      "Er": "Erbio",
+      "Tm": "Tulio",
+      "Yb": "Iterbio",
+      "Lu": "Lutecio",
+      "Hf": "Hafnio",
+      "Ta": "Tantalio",
+      "W": "Wolframio",
+      "Re": "Renio",
+      "Os": "Osmio",
+      "Ir": "Iridio",
+      "Pt": "Platino",
+      "Au": "Oro",
+      "Hg": "Mercurio",
+      "Tl": "Talio",
+      "Pb": "Plomo",
+      "Bi": "Bismuto",
+      "Po": "Polonio",
+      "At": "Astato",
+      "Rn": "Radón",
+      "Fr": "Francio",
+      "Ra": "Radio",
+      "Ac": "Actinio",
+      "Th": "Torio",
+      "Pa": "Protactinio",
+      "U": "Uranio",
+      "Np": "Neptunio",
+      "Pu": "Plutonio",
+      "Am": "Americio",
+      "Cm": "Curio",
+      "Bk": "Berkelio",
+      "Cf": "Californio",
+      "Es": "Einstenio",
+      "Fm": "Fermio",
+      "Md": "Mendelevio",
+      "No": "Nobelio",
+      "Lr": "Lawrencio",
+      "Rf": "Rutherfordio",
+      "Db": "Dubnio",
+      "Sg": "Seaborgio",
+      "Bh": "Bohrio",
+      "Hs": "Hasio",
+      "Mt": "Meitnerio",
+      "Ds": "Darmstatio",
+      "Rg": "Roentgenio",
+      "Cn": "Copernicio",
+      "Nh": "Nihonio",
+      "Fl": "Flerovio",
+      "Mc": "Moscovio",
+      "Lv": "Livermorio",
+      "Ts": "Teneso",
+      "Og": "Oganesón"
+    },
+    "cat": {
+      "alcalino": "Metal alcalino",
+      "alcalinoterreo": "Metal alcalinotérreo",
+      "transicion": "Metal de transición",
+      "postTransicion": "Metal del bloque p",
+      "metaloide": "Metaloide",
+      "noMetal": "No metal",
+      "halogeno": "Halógeno",
+      "nobleGas": "Gas noble",
+      "lantanido": "Lantánido",
+      "actinido": "Actínido"
+    },
+    "estado": {
+      "solido": "Sólido",
+      "liquido": "Líquido",
+      "gas": "Gas",
+      "previsto": "Previsto"
+    }
+  },
+  "tabla": {
+    "buscar": "Buscar elemento",
+    "buscarAyuda": "Por nombre, símbolo o número atómico.",
+    "sinResultados": "Ningún elemento coincide con «{q}».",
+    "colorear": "Colorear por",
+    "color": {
+      "categoria": "Familia",
+      "estado": "Estado a 20 °C",
+      "electroneg": "Electronegatividad",
+      "masa": "Masa atómica"
+    },
+    "leyenda": "Leyenda",
+    "sinDato": "Sin dato",
+    "celda": "{z} {simbolo} {nombre}, {familia}",
+    "cerrar": "Cerrar la ficha",
+    "anterior": "Elemento anterior",
+    "siguiente": "Elemento siguiente",
+    "z": "Número atómico",
+    "masa": "Masa atómica",
+    "familia": "Familia",
+    "grupoPeriodo": "Grupo y periodo",
+    "grupo": "Grupo {g}",
+    "sinGrupo": "Fuera de la rejilla principal",
+    "periodo": "Periodo {p}",
+    "config": "Configuración electrónica",
+    "configPredicha": "predicha, no medida",
+    "electroneg": "Electronegatividad (Pauling)",
+    "ionizacion": "Energía de ionización",
+    "afinidad": "Afinidad electrónica",
+    "radio": "Radio de van der Waals",
+    "fusion": "Punto de fusión",
+    "ebullicion": "Punto de ebullición",
+    "densidad": "Densidad",
+    "oxidacion": "Estados de oxidación",
+    "estado": "Estado a 20 °C",
+    "anio": "Año de descubrimiento",
+    "anioAntiguo": "Conocido desde la Antigüedad",
+    "lantanidos": "Lantánidos",
+    "actinidos": "Actínidos",
+    "fuente": "De dónde salen estos datos",
+    "fuenteTexto": "Los datos vienen de la tabla periódica de PubChem (NCBI, dominio público) y se han comprobado elemento a elemento contra una segunda fuente. El detalle está en docs/fuentes-datos.md del repositorio.",
+    "unidad": {
+      "u": "u",
+      "eV": "eV",
+      "pm": "pm",
+      "K": "K",
+      "gcm3": "g/cm³"
+    },
+    "enC": "{v} °C"
+  },
+  "formulas": {
+    "var": {
+      "A": "Área",
+      "l": "Lado",
+      "b": "Base",
+      "h": "Altura",
+      "r": "Radio",
+      "L": "Longitud",
+      "B": "Base mayor",
+      "c": "Hipotenusa",
+      "a": "Cateto / Aceleración",
+      "V": "Volumen",
+      "A_b": "Área de la base",
+      "d": "Distancia",
+      "v": "Velocidad",
+      "t": "Tiempo",
+      "v0": "Velocidad inicial",
+      "x": "Posición",
+      "x0": "Posición inicial",
+      "g": "Gravedad",
+      "F": "Fuerza",
+      "m": "Masa",
+      "P": "Peso / Potencia",
+      "p": "Presión",
+      "rho": "Densidad",
+      "Ec": "Energía cinética",
+      "Ep": "Energía potencial",
+      "W": "Trabajo",
+      "I": "Intensidad / Interés",
+      "R": "Resistencia",
+      "Q": "Carga",
+      "n": "Moles",
+      "M": "Masa molar",
+      "Mc": "Molaridad",
+      "T": "Temperatura",
+      "C": "Capital",
+      "C_f": "Capital final",
+      "real": "Medida real",
+      "plano": "Medida en el plano",
+      "escala": "Escala",
+      "IMC": "Índice de masa corporal"
+    },
+    "unidad": {
+      "m2": "m²",
+      "m": "m",
+      "m3": "m³",
+      "ms": "m/s",
+      "s": "s",
+      "ms2": "m/s²",
+      "N": "N",
+      "kg": "kg",
+      "Pa": "Pa",
+      "kgm3": "kg/m³",
+      "J": "J",
+      "W": "W",
+      "V": "V",
+      "A": "A",
+      "ohm": "Ω",
+      "C": "C",
+      "g": "g",
+      "mol": "mol",
+      "gmol": "g/mol",
+      "molL": "mol/L",
+      "L": "L",
+      "atm": "atm",
+      "RGas": "atm·L/(mol·K)",
+      "K": "K",
+      "cm": "cm",
+      "kgm2": "kg/m²",
+      "porcentaje": "%",
+      "anos": "años"
+    },
+    "grupo": {
+      "plana": "Geometría plana",
+      "cuerpos": "Cuerpos",
+      "cinematica": "Cinemática",
+      "dinamica": "Dinámica",
+      "energia": "Energía y trabajo",
+      "electricidad": "Electricidad",
+      "quimica": "Química",
+      "proporciones": "Proporciones y dinero"
+    },
+    "areaCuadrado": {
+      "nombre": "Área del cuadrado",
+      "desc": "Todos los lados miden lo mismo."
+    },
+    "areaRectangulo": {
+      "nombre": "Área del rectángulo",
+      "desc": "Base por altura."
+    },
+    "areaTriangulo": {
+      "nombre": "Área del triángulo",
+      "desc": "Base por altura, dividido entre dos."
+    },
+    "areaCirculo": {
+      "nombre": "Área del círculo",
+      "desc": "Pi por el radio al cuadrado."
+    },
+    "longitudCircunferencia": {
+      "nombre": "Longitud de la circunferencia",
+      "desc": "El contorno del círculo."
+    },
+    "areaTrapecio": {
+      "nombre": "Área del trapecio",
+      "desc": "Semisuma de las bases por la altura."
+    },
+    "pitagoras": {
+      "nombre": "Teorema de Pitágoras",
+      "desc": "En un triángulo rectángulo."
+    },
+    "volumenCubo": {
+      "nombre": "Volumen del cubo",
+      "desc": "La arista al cubo."
+    },
+    "volumenPrisma": {
+      "nombre": "Volumen del prisma",
+      "desc": "Área de la base por la altura."
+    },
+    "volumenCilindro": {
+      "nombre": "Volumen del cilindro",
+      "desc": "Área del círculo por la altura."
+    },
+    "volumenEsfera": {
+      "nombre": "Volumen de la esfera",
+      "desc": "Cuatro tercios de pi por el radio al cubo."
+    },
+    "areaEsfera": {
+      "nombre": "Área de la esfera",
+      "desc": "Cuatro veces el área de su círculo máximo."
+    },
+    "volumenCono": {
+      "nombre": "Volumen del cono",
+      "desc": "Un tercio del cilindro con la misma base y altura."
+    },
+    "velocidadMedia": {
+      "nombre": "Velocidad media",
+      "desc": "Distancia recorrida entre tiempo empleado."
+    },
+    "mruv": {
+      "nombre": "Velocidad con aceleración constante",
+      "desc": "Movimiento rectilíneo uniformemente acelerado."
+    },
+    "espacioMruv": {
+      "nombre": "Posición con aceleración constante",
+      "desc": "Dónde está el móvil en cada instante."
+    },
+    "caidaLibre": {
+      "nombre": "Caída libre",
+      "desc": "Altura recorrida al caer sin rozamiento."
+    },
+    "segundaNewton": {
+      "nombre": "Segunda ley de Newton",
+      "desc": "La fuerza es masa por aceleración."
+    },
+    "peso": {
+      "nombre": "Peso",
+      "desc": "La fuerza con la que la gravedad tira de una masa."
+    },
+    "presion": {
+      "nombre": "Presión",
+      "desc": "Fuerza repartida sobre una superficie."
+    },
+    "densidad": {
+      "nombre": "Densidad",
+      "desc": "Masa que cabe en un volumen."
+    },
+    "energiaCinetica": {
+      "nombre": "Energía cinética",
+      "desc": "La que tiene un cuerpo por moverse."
+    },
+    "energiaPotencial": {
+      "nombre": "Energía potencial gravitatoria",
+      "desc": "La que tiene por estar a cierta altura."
+    },
+    "trabajo": {
+      "nombre": "Trabajo",
+      "desc": "Fuerza por distancia recorrida en su dirección."
+    },
+    "potencia": {
+      "nombre": "Potencia",
+      "desc": "Trabajo hecho por unidad de tiempo."
+    },
+    "ohm": {
+      "nombre": "Ley de Ohm",
+      "desc": "Tensión, intensidad y resistencia."
+    },
+    "potenciaElectrica": {
+      "nombre": "Potencia eléctrica",
+      "desc": "Tensión por intensidad."
+    },
+    "carga": {
+      "nombre": "Carga eléctrica",
+      "desc": "Intensidad por tiempo."
+    },
+    "moles": {
+      "nombre": "Moles a partir de la masa",
+      "desc": "Masa entre masa molar."
+    },
+    "molaridad": {
+      "nombre": "Molaridad",
+      "desc": "Moles de soluto por litro de disolución."
+    },
+    "gasesIdeales": {
+      "nombre": "Ley de los gases ideales",
+      "desc": "Relación entre presión, volumen, moles y temperatura."
+    },
+    "interesSimple": {
+      "nombre": "Interés simple",
+      "desc": "El interés se calcula siempre sobre el capital inicial."
+    },
+    "interesCompuesto": {
+      "nombre": "Interés compuesto",
+      "desc": "Los intereses generan más intereses."
+    },
+    "escala": {
+      "nombre": "Escala de un plano",
+      "desc": "De la medida del plano a la real."
+    },
+    "imc": {
+      "nombre": "Índice de masa corporal",
+      "desc": "Masa entre la altura al cuadrado."
+    }
+  },
+  "form": {
+    "buscar": "Buscar fórmula",
+    "buscarAyuda": "Por nombre, variable o fórmula.",
+    "grupo": "Tema",
+    "todos": "Todos los temas",
+    "sinResultados": "Ninguna fórmula coincide con «{q}».",
+    "resultados": "{n} fórmulas",
+    "unaFormula": "1 fórmula",
+    "calcular": "Calcular",
+    "incognita": "¿Qué quieres calcular?",
+    "abrir": "Abrir la calculadora de esta fórmula",
+    "cerrar": "Cerrar",
+    "limpiar": "Limpiar",
+    "copiar": "Copiar el resultado",
+    "favorita": "Guardar en favoritas",
+    "quitarFavorita": "Quitar de favoritas",
+    "favoritas": "Favoritas",
+    "despeje": "Despejada: {expr}",
+    "sustitucion": "Sustituyendo: {expr}",
+    "resultado": "{variable} = {valor}{unidad}",
+    "error": {
+      "faltan": "Rellena todas las casillas menos la que quieres calcular.",
+      "imposible": "Con esos valores no sale un número válido. Revisa los datos.",
+      "positiva": "«{variable}» tiene que ser mayor que cero.",
+      "noDespejable": "Esa variable no se puede despejar en esta fórmula."
+    },
+    "nota": "Las unidades que aparecen son las del sistema internacional: si metes los datos en otras, el resultado saldrá en esas otras.",
+    "valorSugerido": "valor habitual"
+  },
+  "asig": {
+    "titulo": "Tus asignaturas",
+    "nueva": "Nueva asignatura",
+    "nuevaAyuda": "Valen para las notas, la agenda y el horario.",
+    "anadir": "Añadir",
+    "ninguna": "Todavía no has creado ninguna asignatura.",
+    "tope": "Solo caben {n} asignaturas.",
+    "nombreDe": "Nombre de la asignatura",
+    "color": {
+      "label": "Color",
+      "azul": "Azul",
+      "verde": "Verde",
+      "naranja": "Naranja",
+      "rosa": "Rosa",
+      "violeta": "Violeta",
+      "cian": "Cian",
+      "amarillo": "Amarillo",
+      "gris": "Gris"
+    },
+    "colorDe": "Color de {nombre}",
+    "subir": "Subir {nombre}",
+    "bajar": "Bajar {nombre}",
+    "quitar": "Quitar {nombre}"
+  },
+  "notas": {
+    "escala": {
+      "label": "Escala",
+      "diez": "De 0 a 10",
+      "cien": "De 0 a 100"
+    },
+    "objetivo": {
+      "label": "Nota a la que quieres llegar",
+      "conseguido": "Ya tienes el {meta} asegurado, pase lo que pase.",
+      "necesitas": "Para llegar al {meta} necesitas un {n} de media en el {peso} % que queda.",
+      "imposible": "Ya no se puede llegar al {meta}: haría falta un {n}.",
+      "nadaPendiente": "No queda nada por evaluar."
+    },
+    "objetivoAyuda": "Si lo dejas vacío, se usa el aprobado.",
+    "examen": "Examen o trabajo",
+    "examenPlaceholder": "Prueba {n}",
+    "nota": {
+      "label": "Nota"
+    },
+    "notaDe": "Nota de la prueba {n}",
+    "peso": "Peso %",
+    "pesoDe": "Peso de la prueba {n} en porcentaje",
+    "anadir": "Añadir prueba",
+    "quitar": "Quitar la prueba {n}",
+    "repartir": "Repartir pesos a partes iguales",
+    "repartido": "Pesos repartidos.",
+    "sinExamenes": "Sin pruebas todavía.",
+    "sinNotas": "—",
+    "evaluado": "Llevas evaluado el {n} % de la asignatura.",
+    "acumulada": "Contando lo que falta como un cero, vas por {n}.",
+    "pesos": {
+      "falta": "Los pesos suman {n} puntos menos de 100.",
+      "pasa": "Los pesos se pasan {n} puntos de 100."
+    },
+    "general": "Media de todas las asignaturas",
+    "deAsignaturas": "Con notas en {n} asignaturas.",
+    "creaAsignaturas": "Crea una asignatura abajo para empezar a meter notas.",
+    "aviso": "El peso es el porcentaje que vale cada prueba sobre la nota final. Las pruebas sin nota no bajan la media: solo cuentan cuando las rellenas."
+  },
+  "agenda": {
+    "cuando": {
+      "hoy": "Hoy",
+      "manana": "Mañana",
+      "enDias": "En {n} días",
+      "pasado": "Ya pasó"
+    },
+    "aviso": {
+      "label": "Aviso del calendario",
+      "0": "Sin aviso",
+      "60": "Una hora antes",
+      "1440": "Un día antes",
+      "2880": "Dos días antes",
+      "10080": "Una semana antes"
+    },
+    "nuevo": "Nuevo examen",
+    "editando": "Editando el examen",
+    "dia": "Día",
+    "hora": "Hora",
+    "horaAyuda": "Si la dejas vacía se apunta como un día entero.",
+    "titulo": "Qué entra",
+    "tituloAyuda": "Por ejemplo: temas 3 y 4.",
+    "asignatura": "Asignatura",
+    "sinAsignatura": "Sin asignatura",
+    "lugar": "Aula o sitio",
+    "notas": "Notas",
+    "notasPlaceholder": "Lo que quieras recordar.",
+    "anadir": "Añadir a la agenda",
+    "anadido": "Examen añadido.",
+    "guardarCambios": "Guardar los cambios",
+    "guardado": "Cambios guardados.",
+    "faltaFecha": "Pon la fecha del examen.",
+    "faltaTitulo": "Escribe qué entra o elige una asignatura.",
+    "tope": "Solo caben {n} exámenes.",
+    "sinTitulo": "Examen",
+    "marcar": "Marcar como hecho",
+    "desmarcar": "Marcar como pendiente",
+    "editar": "Editar este examen",
+    "quitar": "Quitar este examen",
+    "exportarUno": "Descargar este examen para el calendario",
+    "exportarTodo": "Descargar todos para el calendario",
+    "exportado": "{n} examen(es) listos para el calendario.",
+    "nadaQueExportar": "No hay exámenes que exportar.",
+    "vacia": "Todavía no has apuntado ningún examen. Rellena el formulario de arriba.",
+    "sinProximos": "No tienes exámenes próximos.",
+    "verPasados": "Ver los {n} exámenes que ya pasaron",
+    "proximos": "Próximos exámenes",
+    "verTodos": "Ver la agenda",
+    "avisoAyuda": "Se guarda dentro del archivo, para que avise tu calendario.",
+    "notaIcs": "El archivo .ics se abre con el calendario del móvil o del ordenador (Google Calendar, Apple, Outlook…). Los exámenes se copian ahí: si luego los cambias aquí, hay que volver a descargarlos."
+  },
+  "horario": {
+    "dia": {
+      "1": "Lunes",
+      "2": "Martes",
+      "3": "Miércoles",
+      "4": "Jueves",
+      "5": "Viernes",
+      "6": "Sábado",
+      "0": "Domingo"
+    },
+    "vista": {
+      "label": "Cómo verlo",
+      "dia": "Un día",
+      "semana": "La semana"
+    },
+    "dias": {
+      "label": "Días de la semana",
+      "cinco": "L–V",
+      "seis": "L–S",
+      "siete": "Toda"
+    },
+    "hora": "Hora",
+    "libre": "Libre",
+    "aula": "Aula",
+    "claseEn": "Clase del {dia}, franja {franja}",
+    "aulaEn": "Aula del {dia}, franja {franja}",
+    "queDia": "Qué día quieres ver",
+    "franjas": "Franjas horarias",
+    "desde": "Desde",
+    "hasta": "Hasta",
+    "desdeN": "Hora de inicio de la franja {n}",
+    "hastaN": "Hora de fin de la franja {n}",
+    "quitarFranja": "Quitar la franja {n}",
+    "anadirFranja": "Añadir franja",
+    "topeFranjas": "Solo caben {n} franjas.",
+    "rehacerFranjas": "Volver a las de siempre",
+    "franjasRehechas": "Franjas restablecidas.",
+    "sinFranjas": "No hay ninguna franja horaria. Añade al menos una abajo.",
+    "creaAsignaturas": "Crea tus asignaturas abajo y podrás repartirlas por el horario.",
+    "solape": "Las franjas {a} y {b} se pisan.",
+    "resumen": "Horas por asignatura",
+    "horasSemana": "{h} h a la semana",
+    "ahoraTitulo": "Ahora mismo",
+    "ahora": "Toca {asignatura}, de {desde} a {hasta}.",
+    "luego": "Después: {asignatura}, de {desde} a {hasta}.",
+    "nadaAhora": "Ahora no tienes clase.",
+    "exportar": "Descargar el horario",
+    "exportado": "Horario descargado.",
+    "nota": "El horario se guarda solo en este dispositivo. Las asignaturas son las mismas que usan las notas y la agenda."
   }
 }

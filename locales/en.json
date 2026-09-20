@@ -132,6 +132,38 @@
     "equipos": {
       "name": "Team picker",
       "desc": "Split a list of names into fair, random teams."
+    },
+    "calculadora": {
+      "name": "Step-by-step calculator",
+      "desc": "Scientific, equations, fractions, percentages and statistics, showing every step."
+    },
+    "graficas": {
+      "name": "Function graphs",
+      "desc": "Draw and explore functions with zoom and a table of values."
+    },
+    "bases": {
+      "name": "Base converter",
+      "desc": "Move numbers between binary, octal, decimal, hexadecimal and any base from 2 to 36."
+    },
+    "tabla": {
+      "name": "Periodic table",
+      "desc": "All 118 elements, with their data and a search box."
+    },
+    "formulario": {
+      "name": "Formula book",
+      "desc": "Geometry, physics and chemistry formulas, with the unknown solved for you."
+    },
+    "notas": {
+      "name": "Grade calculator",
+      "desc": "Weighted average per subject, and what you still need to get there."
+    },
+    "agenda": {
+      "name": "Exam diary",
+      "desc": "Write down your exams, see how long is left and send them to your calendar."
+    },
+    "horario": {
+      "name": "Class timetable",
+      "desc": "Your week with subjects, rooms and what's on right now."
     }
   },
   "settings": {
@@ -1186,5 +1218,872 @@
       "message": "All of its tools are hidden in Settings.",
       "action": "Show all"
     }
+  },
+  "calc": {
+    "tab": {
+      "cientifica": "Scientific",
+      "lineal": "Linear",
+      "cuadratica": "Quadratic",
+      "sistema": "Systems",
+      "fracciones": "Fractions",
+      "mcd": "GCD & LCM",
+      "factorizar": "Factorise",
+      "regla": "Proportion",
+      "porcentajes": "Percentages",
+      "potencias": "Powers",
+      "estadistica": "Statistics"
+    },
+    "explicar": "Explain step by step",
+    "explicarDesc": "Shows how the answer is reached, not just the answer.",
+    "nivel": {
+      "label": "Level of detail",
+      "breve": "Brief",
+      "detallado": "Detailed"
+    },
+    "pasos": "How it's solved",
+    "pasosOcultos": "… {n} intermediate steps hidden (switch to “Detailed” to see them)",
+    "copyResult": "Copy the result",
+    "copySteps": "Copy the explanation",
+    "sinPasos": "There's no explanation to copy",
+    "ejemplo": "Example",
+    "historial": "Recent calculations",
+    "nota": "Everything is worked out with exact fractions and only turned into decimals at the end.",
+    "cientifica": {
+      "label": "Expression",
+      "placeholder": "For example: 2+3×4 or sqrt(16)",
+      "angulo": "Angles",
+      "grados": "Degrees",
+      "radianes": "Radians",
+      "borrar": "Delete",
+      "limpiar": "Clear",
+      "guardar": "Save to history"
+    },
+    "lineal": {
+      "a": "a (coefficient of x)",
+      "b": "b (constant)",
+      "c": "c (result)",
+      "infinitas": "Infinitely many solutions",
+      "ninguna": "No solution"
+    },
+    "cuadratica": {
+      "a": "a (coefficient of x²)",
+      "b": "b (coefficient of x)",
+      "c": "c (constant)",
+      "sinReales": "No real solutions",
+      "unaDoble": "Repeated solution"
+    },
+    "sistema": {
+      "a1": "a₁",
+      "b1": "b₁",
+      "c1": "c₁",
+      "a2": "a₂",
+      "b2": "b₂",
+      "c2": "c₂",
+      "metodo": "Method",
+      "metodo.reduccion": "Elimination",
+      "metodo.sustitucion": "Substitution",
+      "metodo.cramer": "Cramer",
+      "ninguna": "No solution",
+      "infinitas": "Infinitely many solutions"
+    },
+    "fracciones": {
+      "a": "First fraction",
+      "b": "Second fraction",
+      "formato": "Write it as 3/4, or as 0.75",
+      "op": "Operation",
+      "op.suma": "Add",
+      "op.resta": "Subtract",
+      "op.multiplicacion": "Multiply",
+      "op.division": "Divide"
+    },
+    "mcd": {
+      "a": "First number",
+      "b": "Second number"
+    },
+    "factor": {
+      "n": "Number",
+      "divisores": "{n} divisors: {lista}"
+    },
+    "regla": {
+      "a": "If this…",
+      "b": "…is this",
+      "c": "then this?",
+      "tipo": "Type",
+      "tipo.directa": "Direct",
+      "tipo.inversa": "Inverse"
+    },
+    "pct": {
+      "tipo": "What to work out",
+      "tipo.deQue": "What's X% of…",
+      "tipo.queporcentaje": "What percentage is…",
+      "tipo.aumentar": "Increase by X%",
+      "tipo.descontar": "Take X% off",
+      "a": "First value",
+      "b": "Second value"
+    },
+    "pot": {
+      "base": "Base",
+      "exp": "Exponent",
+      "expHint": "Type “sqrt” as the exponent for a square root"
+    },
+    "est": {
+      "datos": "Values",
+      "placeholder": "4, 8, 15, 16, 23, 42",
+      "tipo": "Sample type",
+      "tipo.poblacional": "Population (n)",
+      "tipo.muestral": "Sample (n−1)",
+      "resumen": "Mean {media} · Median {mediana} · σ {desviacion}",
+      "detalle": "{n} values · min {min} · max {max} · range {rango} · mode {moda} · Q1 {q1} · Q3 {q3} · variance {varianza}",
+      "sinModa": "no mode"
+    },
+    "error": {
+      "entreCero": "You can't divide by zero",
+      "ceros": "Both numbers can't be zero",
+      "cero": "The number can't be zero",
+      "totalCero": "The total can't be zero",
+      "raizNegativa": "A negative number has no real square root",
+      "sinDatos": "Type some values",
+      "general": "Check the values"
+    },
+    "paso": {
+      "expr": "{paso}  →  {resto}",
+      "lineal.inicio": "We start from {a}x + ({b}) = {c}.",
+      "lineal.despeja": "Move {b} to the other side: {a}x = {resto}.",
+      "lineal.divide": "Divide by {a}: x = {resto} ÷ {a} = {x}.",
+      "lineal.infinitas": "Both sides are identical: any value of x works.",
+      "lineal.ninguna": "We're left with a false statement: there's no solution.",
+      "cuadratica.inicio": "We start from {a}x² + ({b})x + ({c}) = 0.",
+      "cuadratica.discriminante": "Discriminant: Δ = b² − 4ac = ({b})² − 4·({a})·({c}) = {d}.",
+      "cuadratica.doble": "Δ = 0, so there's a single repeated solution: x = {x}.",
+      "cuadratica.raizExacta": "√{d} = {raiz}, which is exact.",
+      "cuadratica.raizSimplificada": "√{d} = {fuera}√{dentro}.",
+      "cuadratica.dos": "x = (−b ± √Δ) ÷ 2a gives x₁ = {x1} and x₂ = {x2}.",
+      "cuadratica.dosDecimal": "x = (−b ± √Δ) ÷ 2a gives x₁ ≈ {x1} and x₂ ≈ {x2}.",
+      "cuadratica.negativo": "Δ = {d} is negative: there are no real solutions.",
+      "cuadratica.complejas": "The solutions are complex: x = {re} ± {im}i.",
+      "sistema.inicio": "System: {a1}x + {b1}y = {c1} and {a2}x + {b2}y = {c2}.",
+      "sistema.infinitas": "Both equations are the same line: infinitely many solutions.",
+      "sistema.ninguna": "The two lines are parallel: no solution.",
+      "sistema.cramerDet": "Main determinant: Δ = {det}.",
+      "sistema.cramerX": "x = Δx ÷ Δ = {detX} ÷ {det} = {x}.",
+      "sistema.cramerY": "y = Δy ÷ Δ = {detY} ÷ {det} = {y}.",
+      "sistema.despejaX": "Solve the first for x: x = ({c1} + {b1}y) ÷ {a1}.",
+      "sistema.sustituye": "Substitute that x into the second equation.",
+      "sistema.multiplica": "Multiply the first by {m1} and the second by {m2} to match the x coefficients.",
+      "sistema.resta": "Subtract the two equations so x cancels out.",
+      "sistema.resultadoY": "That leaves y = {y}.",
+      "sistema.resultadoX": "And substituting back, x = {x}.",
+      "fracciones.inicio": "Operation: {a} {op} {b}.",
+      "fracciones.comun": "Common denominator: the LCM of the two is {m}.",
+      "fracciones.igualadas": "With that denominator: {a} {op} {b}.",
+      "fracciones.operados": "Work out the numerators: {n}/{d}.",
+      "fracciones.multiplica": "Multiply top by top and bottom by bottom: ({n}) / ({d}).",
+      "fracciones.invierte": "Dividing by {b} is the same as multiplying by {inv}.",
+      "fracciones.simplificada": "Simplified: {r} (≈ {decimal}).",
+      "fracciones.simplificaInicio": "We start from {f}.",
+      "fracciones.divideAmbos": "Divide top and bottom by their GCD, which is {g}.",
+      "fracciones.yaSimple": "It's already in lowest terms.",
+      "mcd.inicio": "We look for the GCD of {a} and {b} using Euclid's algorithm.",
+      "mcd.division": "{a} = {b} × {q} + {r}.",
+      "mcd.resultado": "The last non-zero remainder gives GCD = {g}.",
+      "mcd.mcm": "And the LCM comes from LCM = ({a} × {b}) ÷ GCD = {m}.",
+      "factor.inicio": "We break {n} down by dividing by primes.",
+      "factor.divide": "{n} ÷ {p} = {r}.",
+      "factor.resultado": "{n} = {f}.",
+      "factor.esPrimo": "{n} divides only by 1 and itself: it's prime.",
+      "factor.uno": "1 has no prime factors.",
+      "regla.inicioDirecta": "Direct proportion: if {a} matches {b}, what matches {c}?",
+      "regla.inicioInversa": "Inverse proportion: if {a} matches {b}, what matches {c}?",
+      "regla.formulaDirecta": "x = ({b} × {c}) ÷ {a} = {x}.",
+      "regla.formulaInversa": "x = ({a} × {b}) ÷ {c} = {x}.",
+      "regla.resultado": "Result: x = {x} (≈ {decimal}).",
+      "pct.deQueInicio": "We want {p}% of {n}.",
+      "pct.deQuePaso": "{p} ÷ 100 × {n} = {r}.",
+      "pct.queInicio": "We want to know what percentage {a} is of {b}.",
+      "pct.quePaso": "({a} ÷ {b}) × 100 = {r}%.",
+      "pct.aumentaInicio": "We increase {n} by {p}%.",
+      "pct.aumentaPaso": "{n} × (100 + {p}) ÷ 100 = {r}.",
+      "pct.descuentaInicio": "We take {p}% off {n}.",
+      "pct.descuentaPaso": "{n} × (100 − {p}) ÷ 100 = {r}.",
+      "pct.resultado": "Result: {r}.",
+      "pot.inicio": "We work out {b} to the power of {e}.",
+      "pot.multiplica": "Multiply {b} by itself {e} times.",
+      "pot.negativo": "A negative exponent flips the base: 1 ÷ ({b} to the power of {e}).",
+      "pot.decimal": "Non-integer exponent: worked out as a decimal, {r}.",
+      "pot.resultado": "Result: {r} (≈ {decimal}).",
+      "pot.raizInicio": "We work out the square root of {n}.",
+      "pot.raizExacta": "√{n} = {r}, exactly.",
+      "pot.raizSimplifica": "√{n} = {fuera}√{dentro}.",
+      "pot.raizDecimal": "As a decimal, ≈ {r}.",
+      "est.datos": "We have {n} values, in order: {lista}.",
+      "est.media": "Mean = sum ÷ n = {suma} ÷ {n} = {media}.",
+      "est.mediana": "The median, the middle value, is {mediana}.",
+      "est.varianza": "Variance = sum of (x − mean)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
+      "est.desviacion": "Standard deviation = √{varianza} = {desviacion}.",
+      "bases": {
+        "division": "{n} ÷ {base} = {cociente}, remainder {resto} → digit {digito}.",
+        "leerAlReves": "Read the remainders bottom to top: {digitos}.",
+        "multiplicacion": "{valor} × {base} → whole part {digito}, {resto} left.",
+        "cero": "Zero is written the same in every base: 0."
+      }
+    }
+  },
+  "graf": {
+    "funcion": "Function {n}",
+    "anadir": "Add function",
+    "quitar": "Remove function",
+    "mostrar": "Show function",
+    "ocultar": "Hide function",
+    "lienzo": "Empty graph: type a function to see it.",
+    "lienzoCon": "Graph of {funciones}. Showing x = {x0} to x = {x1} and y = {y0} to y = {y1}.",
+    "lectura": "{f} → x = {x}, y = {y}",
+    "lecturaSinValor": "At x = {x} the function has no value.",
+    "error": "Can't read “{f}”: {motivo}",
+    "acercar": "Zoom in",
+    "alejar": "Zoom out",
+    "ajustarY": "Fit height",
+    "ajustado": "Height fitted to what's on screen.",
+    "nadaQueAjustar": "There's no visible function to fit.",
+    "reiniciar": "Reset view",
+    "png": "PNG image",
+    "csv": "CSV table",
+    "descargada": "Download ready.",
+    "tabla": "Table of values",
+    "ayuda": "Use x as the variable: x^2, sin(x), 1/x. Drag to move the graph and use the wheel or the buttons to zoom. With the keyboard: arrows to move, + and − to zoom."
+  },
+  "bases": {
+    "binario": "Binary (base 2)",
+    "octal": "Octal (base 8)",
+    "decimal": "Decimal (base 10)",
+    "hexadecimal": "Hexadecimal (base 16)",
+    "baseLibre": "Another base",
+    "baseN": "Base {n}",
+    "enBase": "In base {n}",
+    "copiar": "Copy the base {base} value",
+    "agrupar": "Group binary in fours",
+    "agruparDesc": "1111 0000 reads better than 11110000.",
+    "tamano": "Width for two's complement",
+    "nBits": "{n} bits",
+    "bits": "Bits used",
+    "digitosHex": "Hexadecimal digits",
+    "complemento": "Two's complement ({bits} bits)",
+    "noCabe": "Doesn't fit in {bits} bits",
+    "sinBitsConDecimales": "Bit count and two's complement only show for whole numbers.",
+    "cortado": "The fractional part repeats forever in the target base: {n} digits are shown.",
+    "ejemplo": "{v} in base {b}",
+    "explicarDesc": "Shows the successive divisions and multiplications.",
+    "nota": "The whole part is computed with big integers, so nothing is lost however long the number is. Comma or dot both work as the decimal mark, and spaces or underscores can be used as separators.",
+    "error": {
+      "vacio": "Type a number.",
+      "base": "That base isn't valid.",
+      "separadores": "There can only be one decimal separator.",
+      "digito": "“{c}” isn't a valid digit in base {base}."
+    }
+  },
+  "elementos": {
+    "nombre": {
+      "H": "Hydrogen",
+      "He": "Helium",
+      "Li": "Lithium",
+      "Be": "Beryllium",
+      "B": "Boron",
+      "C": "Carbon",
+      "N": "Nitrogen",
+      "O": "Oxygen",
+      "F": "Fluorine",
+      "Ne": "Neon",
+      "Na": "Sodium",
+      "Mg": "Magnesium",
+      "Al": "Aluminum",
+      "Si": "Silicon",
+      "P": "Phosphorus",
+      "S": "Sulfur",
+      "Cl": "Chlorine",
+      "Ar": "Argon",
+      "K": "Potassium",
+      "Ca": "Calcium",
+      "Sc": "Scandium",
+      "Ti": "Titanium",
+      "V": "Vanadium",
+      "Cr": "Chromium",
+      "Mn": "Manganese",
+      "Fe": "Iron",
+      "Co": "Cobalt",
+      "Ni": "Nickel",
+      "Cu": "Copper",
+      "Zn": "Zinc",
+      "Ga": "Gallium",
+      "Ge": "Germanium",
+      "As": "Arsenic",
+      "Se": "Selenium",
+      "Br": "Bromine",
+      "Kr": "Krypton",
+      "Rb": "Rubidium",
+      "Sr": "Strontium",
+      "Y": "Yttrium",
+      "Zr": "Zirconium",
+      "Nb": "Niobium",
+      "Mo": "Molybdenum",
+      "Tc": "Technetium",
+      "Ru": "Ruthenium",
+      "Rh": "Rhodium",
+      "Pd": "Palladium",
+      "Ag": "Silver",
+      "Cd": "Cadmium",
+      "In": "Indium",
+      "Sn": "Tin",
+      "Sb": "Antimony",
+      "Te": "Tellurium",
+      "I": "Iodine",
+      "Xe": "Xenon",
+      "Cs": "Cesium",
+      "Ba": "Barium",
+      "La": "Lanthanum",
+      "Ce": "Cerium",
+      "Pr": "Praseodymium",
+      "Nd": "Neodymium",
+      "Pm": "Promethium",
+      "Sm": "Samarium",
+      "Eu": "Europium",
+      "Gd": "Gadolinium",
+      "Tb": "Terbium",
+      "Dy": "Dysprosium",
+      "Ho": "Holmium",
+      "Er": "Erbium",
+      "Tm": "Thulium",
+      "Yb": "Ytterbium",
+      "Lu": "Lutetium",
+      "Hf": "Hafnium",
+      "Ta": "Tantalum",
+      "W": "Tungsten",
+      "Re": "Rhenium",
+      "Os": "Osmium",
+      "Ir": "Iridium",
+      "Pt": "Platinum",
+      "Au": "Gold",
+      "Hg": "Mercury",
+      "Tl": "Thallium",
+      "Pb": "Lead",
+      "Bi": "Bismuth",
+      "Po": "Polonium",
+      "At": "Astatine",
+      "Rn": "Radon",
+      "Fr": "Francium",
+      "Ra": "Radium",
+      "Ac": "Actinium",
+      "Th": "Thorium",
+      "Pa": "Protactinium",
+      "U": "Uranium",
+      "Np": "Neptunium",
+      "Pu": "Plutonium",
+      "Am": "Americium",
+      "Cm": "Curium",
+      "Bk": "Berkelium",
+      "Cf": "Californium",
+      "Es": "Einsteinium",
+      "Fm": "Fermium",
+      "Md": "Mendelevium",
+      "No": "Nobelium",
+      "Lr": "Lawrencium",
+      "Rf": "Rutherfordium",
+      "Db": "Dubnium",
+      "Sg": "Seaborgium",
+      "Bh": "Bohrium",
+      "Hs": "Hassium",
+      "Mt": "Meitnerium",
+      "Ds": "Darmstadtium",
+      "Rg": "Roentgenium",
+      "Cn": "Copernicium",
+      "Nh": "Nihonium",
+      "Fl": "Flerovium",
+      "Mc": "Moscovium",
+      "Lv": "Livermorium",
+      "Ts": "Tennessine",
+      "Og": "Oganesson"
+    },
+    "cat": {
+      "alcalino": "Alkali metal",
+      "alcalinoterreo": "Alkaline earth metal",
+      "transicion": "Transition metal",
+      "postTransicion": "Post-transition metal",
+      "metaloide": "Metalloid",
+      "noMetal": "Nonmetal",
+      "halogeno": "Halogen",
+      "nobleGas": "Noble gas",
+      "lantanido": "Lanthanide",
+      "actinido": "Actinide"
+    },
+    "estado": {
+      "solido": "Solid",
+      "liquido": "Liquid",
+      "gas": "Gas",
+      "previsto": "Expected"
+    }
+  },
+  "tabla": {
+    "buscar": "Search element",
+    "buscarAyuda": "By name, symbol or atomic number.",
+    "sinResultados": "No element matches “{q}”.",
+    "colorear": "Colour by",
+    "color": {
+      "categoria": "Family",
+      "estado": "State at 20 °C",
+      "electroneg": "Electronegativity",
+      "masa": "Atomic mass"
+    },
+    "leyenda": "Legend",
+    "sinDato": "No data",
+    "celda": "{z} {simbolo} {nombre}, {familia}",
+    "cerrar": "Close the card",
+    "anterior": "Previous element",
+    "siguiente": "Next element",
+    "z": "Atomic number",
+    "masa": "Atomic mass",
+    "familia": "Family",
+    "grupoPeriodo": "Group and period",
+    "grupo": "Group {g}",
+    "sinGrupo": "Outside the main grid",
+    "periodo": "Period {p}",
+    "config": "Electron configuration",
+    "configPredicha": "predicted, not measured",
+    "electroneg": "Electronegativity (Pauling)",
+    "ionizacion": "Ionisation energy",
+    "afinidad": "Electron affinity",
+    "radio": "Van der Waals radius",
+    "fusion": "Melting point",
+    "ebullicion": "Boiling point",
+    "densidad": "Density",
+    "oxidacion": "Oxidation states",
+    "estado": "State at 20 °C",
+    "anio": "Year discovered",
+    "anioAntiguo": "Known since antiquity",
+    "lantanidos": "Lanthanides",
+    "actinidos": "Actinides",
+    "fuente": "Where this data comes from",
+    "fuenteTexto": "The data comes from the PubChem periodic table (NCBI, public domain) and has been checked element by element against a second source. The details are in docs/fuentes-datos.md in the repository.",
+    "unidad": {
+      "u": "u",
+      "eV": "eV",
+      "pm": "pm",
+      "K": "K",
+      "gcm3": "g/cm³"
+    },
+    "enC": "{v} °C"
+  },
+  "formulas": {
+    "var": {
+      "A": "Area",
+      "l": "Side",
+      "b": "Base",
+      "h": "Height",
+      "r": "Radius",
+      "L": "Length",
+      "B": "Longer base",
+      "c": "Hypotenuse",
+      "a": "Leg / Acceleration",
+      "V": "Volume",
+      "A_b": "Base area",
+      "d": "Distance",
+      "v": "Speed",
+      "t": "Time",
+      "v0": "Initial speed",
+      "x": "Position",
+      "x0": "Initial position",
+      "g": "Gravity",
+      "F": "Force",
+      "m": "Mass",
+      "P": "Weight / Power",
+      "p": "Pressure",
+      "rho": "Density",
+      "Ec": "Kinetic energy",
+      "Ep": "Potential energy",
+      "W": "Work",
+      "I": "Current / Interest",
+      "R": "Resistance",
+      "Q": "Charge",
+      "n": "Moles",
+      "M": "Molar mass",
+      "Mc": "Molarity",
+      "T": "Temperature",
+      "C": "Principal",
+      "C_f": "Final amount",
+      "real": "Real measurement",
+      "plano": "Measurement on the plan",
+      "escala": "Scale",
+      "IMC": "Body mass index"
+    },
+    "unidad": {
+      "m2": "m²",
+      "m": "m",
+      "m3": "m³",
+      "ms": "m/s",
+      "s": "s",
+      "ms2": "m/s²",
+      "N": "N",
+      "kg": "kg",
+      "Pa": "Pa",
+      "kgm3": "kg/m³",
+      "J": "J",
+      "W": "W",
+      "V": "V",
+      "A": "A",
+      "ohm": "Ω",
+      "C": "C",
+      "g": "g",
+      "mol": "mol",
+      "gmol": "g/mol",
+      "molL": "mol/L",
+      "L": "L",
+      "atm": "atm",
+      "RGas": "atm·L/(mol·K)",
+      "K": "K",
+      "cm": "cm",
+      "kgm2": "kg/m²",
+      "porcentaje": "%",
+      "anos": "years"
+    },
+    "grupo": {
+      "plana": "Plane geometry",
+      "cuerpos": "Solids",
+      "cinematica": "Kinematics",
+      "dinamica": "Dynamics",
+      "energia": "Energy and work",
+      "electricidad": "Electricity",
+      "quimica": "Chemistry",
+      "proporciones": "Ratios and money"
+    },
+    "areaCuadrado": {
+      "nombre": "Area of a square",
+      "desc": "Every side is the same length."
+    },
+    "areaRectangulo": {
+      "nombre": "Area of a rectangle",
+      "desc": "Base times height."
+    },
+    "areaTriangulo": {
+      "nombre": "Area of a triangle",
+      "desc": "Base times height, divided by two."
+    },
+    "areaCirculo": {
+      "nombre": "Area of a circle",
+      "desc": "Pi times the radius squared."
+    },
+    "longitudCircunferencia": {
+      "nombre": "Circumference",
+      "desc": "The outline of the circle."
+    },
+    "areaTrapecio": {
+      "nombre": "Area of a trapezium",
+      "desc": "Average of the bases times the height."
+    },
+    "pitagoras": {
+      "nombre": "Pythagorean theorem",
+      "desc": "In a right-angled triangle."
+    },
+    "volumenCubo": {
+      "nombre": "Volume of a cube",
+      "desc": "The edge cubed."
+    },
+    "volumenPrisma": {
+      "nombre": "Volume of a prism",
+      "desc": "Base area times height."
+    },
+    "volumenCilindro": {
+      "nombre": "Volume of a cylinder",
+      "desc": "Circle area times height."
+    },
+    "volumenEsfera": {
+      "nombre": "Volume of a sphere",
+      "desc": "Four thirds of pi times the radius cubed."
+    },
+    "areaEsfera": {
+      "nombre": "Surface area of a sphere",
+      "desc": "Four times the area of its great circle."
+    },
+    "volumenCono": {
+      "nombre": "Volume of a cone",
+      "desc": "A third of the cylinder with the same base and height."
+    },
+    "velocidadMedia": {
+      "nombre": "Average speed",
+      "desc": "Distance covered over time taken."
+    },
+    "mruv": {
+      "nombre": "Speed under constant acceleration",
+      "desc": "Uniformly accelerated straight-line motion."
+    },
+    "espacioMruv": {
+      "nombre": "Position under constant acceleration",
+      "desc": "Where the object is at each moment."
+    },
+    "caidaLibre": {
+      "nombre": "Free fall",
+      "desc": "Height covered while falling without friction."
+    },
+    "segundaNewton": {
+      "nombre": "Newton's second law",
+      "desc": "Force is mass times acceleration."
+    },
+    "peso": {
+      "nombre": "Weight",
+      "desc": "The force gravity pulls a mass with."
+    },
+    "presion": {
+      "nombre": "Pressure",
+      "desc": "Force spread over a surface."
+    },
+    "densidad": {
+      "nombre": "Density",
+      "desc": "Mass that fits in a volume."
+    },
+    "energiaCinetica": {
+      "nombre": "Kinetic energy",
+      "desc": "The energy a body has from moving."
+    },
+    "energiaPotencial": {
+      "nombre": "Gravitational potential energy",
+      "desc": "The energy it has from being at a height."
+    },
+    "trabajo": {
+      "nombre": "Work",
+      "desc": "Force times the distance covered along it."
+    },
+    "potencia": {
+      "nombre": "Power",
+      "desc": "Work done per unit of time."
+    },
+    "ohm": {
+      "nombre": "Ohm's law",
+      "desc": "Voltage, current and resistance."
+    },
+    "potenciaElectrica": {
+      "nombre": "Electrical power",
+      "desc": "Voltage times current."
+    },
+    "carga": {
+      "nombre": "Electric charge",
+      "desc": "Current times time."
+    },
+    "moles": {
+      "nombre": "Moles from mass",
+      "desc": "Mass over molar mass."
+    },
+    "molaridad": {
+      "nombre": "Molarity",
+      "desc": "Moles of solute per litre of solution."
+    },
+    "gasesIdeales": {
+      "nombre": "Ideal gas law",
+      "desc": "How pressure, volume, moles and temperature relate."
+    },
+    "interesSimple": {
+      "nombre": "Simple interest",
+      "desc": "Interest is always worked out on the starting amount."
+    },
+    "interesCompuesto": {
+      "nombre": "Compound interest",
+      "desc": "Interest earns more interest."
+    },
+    "escala": {
+      "nombre": "Scale of a plan",
+      "desc": "From the measurement on the plan to the real one."
+    },
+    "imc": {
+      "nombre": "Body mass index",
+      "desc": "Mass over height squared."
+    }
+  },
+  "form": {
+    "buscar": "Search formula",
+    "buscarAyuda": "By name, variable or formula.",
+    "grupo": "Topic",
+    "todos": "All topics",
+    "sinResultados": "No formula matches “{q}”.",
+    "resultados": "{n} formulas",
+    "unaFormula": "1 formula",
+    "calcular": "Calculate",
+    "incognita": "What do you want to work out?",
+    "abrir": "Open this formula's calculator",
+    "cerrar": "Close",
+    "limpiar": "Clear",
+    "copiar": "Copy the result",
+    "favorita": "Save to favourites",
+    "quitarFavorita": "Remove from favourites",
+    "favoritas": "Favourites",
+    "despeje": "Solved for it: {expr}",
+    "sustitucion": "Substituting: {expr}",
+    "resultado": "{variable} = {valor}{unidad}",
+    "error": {
+      "faltan": "Fill in every box except the one you want to work out.",
+      "imposible": "Those values don't give a valid number. Check the data.",
+      "positiva": "“{variable}” has to be greater than zero.",
+      "noDespejable": "That variable can't be solved for in this formula."
+    },
+    "nota": "The units shown are the SI ones: if you enter the data in others, the result comes out in those others.",
+    "valorSugerido": "usual value"
+  },
+  "asig": {
+    "titulo": "Your subjects",
+    "nueva": "New subject",
+    "nuevaAyuda": "They're used by grades, the exam diary and the timetable.",
+    "anadir": "Add",
+    "ninguna": "You haven't created any subjects yet.",
+    "tope": "Only {n} subjects fit.",
+    "nombreDe": "Subject name",
+    "color": {
+      "label": "Colour",
+      "azul": "Blue",
+      "verde": "Green",
+      "naranja": "Orange",
+      "rosa": "Pink",
+      "violeta": "Purple",
+      "cian": "Cyan",
+      "amarillo": "Yellow",
+      "gris": "Grey"
+    },
+    "colorDe": "Colour for {nombre}",
+    "subir": "Move {nombre} up",
+    "bajar": "Move {nombre} down",
+    "quitar": "Remove {nombre}"
+  },
+  "notas": {
+    "escala": {
+      "label": "Scale",
+      "diez": "0 to 10",
+      "cien": "0 to 100"
+    },
+    "objetivo": {
+      "label": "Mark you're aiming for",
+      "conseguido": "You've already secured {meta}, whatever happens.",
+      "necesitas": "To reach {meta} you need an average of {n} in the remaining {peso} %.",
+      "imposible": "{meta} is out of reach now: you'd need {n}.",
+      "nadaPendiente": "There's nothing left to be marked on."
+    },
+    "objetivoAyuda": "Leave it empty to use the pass mark.",
+    "examen": "Test or assignment",
+    "examenPlaceholder": "Test {n}",
+    "nota": {
+      "label": "Mark"
+    },
+    "notaDe": "Mark for test {n}",
+    "peso": "Weight %",
+    "pesoDe": "Weight of test {n} as a percentage",
+    "anadir": "Add test",
+    "quitar": "Remove test {n}",
+    "repartir": "Split weights evenly",
+    "repartido": "Weights split evenly.",
+    "sinExamenes": "No tests yet.",
+    "sinNotas": "—",
+    "evaluado": "You've been marked on {n} % of the subject.",
+    "acumulada": "Counting what's left as a zero, you're at {n}.",
+    "pesos": {
+      "falta": "The weights add up to {n} points short of 100.",
+      "pasa": "The weights go {n} points over 100."
+    },
+    "general": "Average across all subjects",
+    "deAsignaturas": "With marks in {n} subjects.",
+    "creaAsignaturas": "Create a subject below to start adding marks.",
+    "aviso": "The weight is the percentage each test is worth of the final mark. Tests with no mark don't drag the average down: they only count once you fill them in."
+  },
+  "agenda": {
+    "cuando": {
+      "hoy": "Today",
+      "manana": "Tomorrow",
+      "enDias": "In {n} days",
+      "pasado": "Already gone"
+    },
+    "aviso": {
+      "label": "Calendar reminder",
+      "0": "No reminder",
+      "60": "An hour before",
+      "1440": "A day before",
+      "2880": "Two days before",
+      "10080": "A week before"
+    },
+    "nuevo": "New exam",
+    "editando": "Editing the exam",
+    "dia": "Day",
+    "hora": "Time",
+    "horaAyuda": "Leave it empty to save it as an all-day event.",
+    "titulo": "What's on it",
+    "tituloAyuda": "For example: units 3 and 4.",
+    "asignatura": "Subject",
+    "sinAsignatura": "No subject",
+    "lugar": "Room or place",
+    "notas": "Notes",
+    "notasPlaceholder": "Anything you want to remember.",
+    "anadir": "Add to the diary",
+    "anadido": "Exam added.",
+    "guardarCambios": "Save changes",
+    "guardado": "Changes saved.",
+    "faltaFecha": "Set the date of the exam.",
+    "faltaTitulo": "Write what's on it or pick a subject.",
+    "tope": "Only {n} exams fit.",
+    "sinTitulo": "Exam",
+    "marcar": "Mark as done",
+    "desmarcar": "Mark as pending",
+    "editar": "Edit this exam",
+    "quitar": "Remove this exam",
+    "exportarUno": "Download this exam for the calendar",
+    "exportarTodo": "Download them all for the calendar",
+    "exportado": "{n} exam(s) ready for the calendar.",
+    "nadaQueExportar": "There are no exams to export.",
+    "vacia": "You haven't written down any exams yet. Fill in the form above.",
+    "sinProximos": "You have no exams coming up.",
+    "verPasados": "Show the {n} exams that have passed",
+    "proximos": "Exams coming up",
+    "verTodos": "Open the diary",
+    "avisoAyuda": "It's saved inside the file, so your calendar does the reminding.",
+    "notaIcs": "The .ics file opens with your phone's or computer's calendar (Google Calendar, Apple, Outlook…). The exams are copied there: if you change them here afterwards, you need to download them again."
+  },
+  "horario": {
+    "dia": {
+      "1": "Monday",
+      "2": "Tuesday",
+      "3": "Wednesday",
+      "4": "Thursday",
+      "5": "Friday",
+      "6": "Saturday",
+      "0": "Sunday"
+    },
+    "vista": {
+      "label": "How to show it",
+      "dia": "One day",
+      "semana": "The week"
+    },
+    "dias": {
+      "label": "Days of the week",
+      "cinco": "Mon–Fri",
+      "seis": "Mon–Sat",
+      "siete": "All"
+    },
+    "hora": "Time",
+    "libre": "Free",
+    "aula": "Room",
+    "claseEn": "Class on {dia}, slot {franja}",
+    "aulaEn": "Room on {dia}, slot {franja}",
+    "queDia": "Which day to show",
+    "franjas": "Time slots",
+    "desde": "From",
+    "hasta": "To",
+    "desdeN": "Start time of slot {n}",
+    "hastaN": "End time of slot {n}",
+    "quitarFranja": "Remove slot {n}",
+    "anadirFranja": "Add slot",
+    "topeFranjas": "Only {n} slots fit.",
+    "rehacerFranjas": "Back to the usual ones",
+    "franjasRehechas": "Slots reset.",
+    "sinFranjas": "There are no time slots. Add at least one below.",
+    "creaAsignaturas": "Create your subjects below and you'll be able to place them on the timetable.",
+    "solape": "Slots {a} and {b} overlap.",
+    "resumen": "Hours per subject",
+    "horasSemana": "{h} h a week",
+    "ahoraTitulo": "Right now",
+    "ahora": "{asignatura} is on, from {desde} to {hasta}.",
+    "luego": "Next: {asignatura}, from {desde} to {hasta}.",
+    "nadaAhora": "You have no class right now.",
+    "exportar": "Download the timetable",
+    "exportado": "Timetable downloaded.",
+    "nota": "The timetable is saved on this device only. The subjects are the same ones used by grades and the exam diary."
   }
 }

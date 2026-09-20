@@ -435,3 +435,434 @@
 .nc--violeta { color: var(--nc-violeta); }
 .nc--rosa { color: var(--nc-rosa); }
 .nc--gris { color: var(--nc-gris); }
+
+/* ---------- Calculadora paso a paso ---------- */
+.steps {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+}
+.steps__title {
+  margin: 0 0 var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.steps__list {
+  margin: 0;
+  padding-left: 1.35em;
+  display: grid;
+  gap: var(--sp-2);
+}
+.steps__item {
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.steps__item::marker { color: var(--c-accent); font-weight: var(--fw-bold); }
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--sp-2);
+}
+.keypad__key {
+  min-height: 46px;
+  padding: var(--sp-2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  cursor: pointer;
+  transition: background var(--t-fast), border-color var(--t-fast);
+}
+.keypad__key:hover { background: var(--c-surface-3); border-color: var(--c-text-faint); }
+.keypad__key:active { transform: translateY(1px); }
+.keypad__key:focus-visible {
+  outline: none; border-color: var(--c-accent);
+  box-shadow: 0 0 0 3px var(--c-accent-ring);
+}
+.keypad__key--wide { grid-column: span 2; }
+@media (max-width: 380px) {
+  .keypad { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .keypad__key { transition: none; }
+  .keypad__key:active { transform: none; }
+}
+
+/* ---------- Gráficas ---------- */
+/* Tres trazos con suficiente contraste entre sí y con el fondo, en los dos temas. */
+:root[data-theme="dark"] {
+  --gr-1: #6aa6ff; --gr-2: #ffb454; --gr-3: #58d68d;
+}
+:root[data-theme="light"] {
+  --gr-1: #1d4ed8; --gr-2: #a1520a; --gr-3: #0f7a43;
+}
+.grafica {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--c-surface);
+}
+.grafica__canvas {
+  display: block;
+  width: 100%;
+  height: 300px;
+  touch-action: none;
+  cursor: crosshair;
+}
+.grafica__canvas:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: -2px;
+}
+.grafica__lectura { margin: 0; min-height: 1.4em; color: var(--c-text-muted); font-size: var(--fs-sm); }
+.grafica__fila { align-items: flex-end; }
+.grafica__color {
+  width: 14px; height: 14px; border-radius: 50%;
+  flex: 0 0 auto; margin-bottom: 14px;
+}
+@media (min-width: 720px) {
+  .grafica__canvas { height: 400px; }
+}
+
+/* ---------- Tablas de datos ---------- */
+.tabla-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: var(--fs-sm);
+}
+.tabla th, .tabla td {
+  padding: var(--sp-2) var(--sp-3);
+  text-align: right;
+  border-bottom: 1px solid var(--c-border-soft);
+  white-space: nowrap;
+}
+.tabla thead th {
+  text-align: right;
+  color: var(--c-text-muted);
+  font-weight: var(--fw-bold);
+  border-bottom: 1px solid var(--c-border);
+}
+.tabla tbody th { text-align: left; color: var(--c-text-muted); font-weight: var(--fw-normal); }
+
+/* ---------- Bases numéricas ---------- */
+.bases__fila { align-items: flex-end; }
+.datos {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-2) var(--sp-4);
+  align-items: baseline;
+}
+.datos dt { color: var(--c-text-muted); font-size: var(--fs-sm); }
+.datos dd { margin: 0; overflow-wrap: anywhere; }
+
+/* ---------- Tabla periódica ---------- */
+/* Los tonos de familia se definen por tema para que el texto siempre contraste. */
+:root[data-theme="dark"] {
+  --pt-alcalino: #7a3b2e; --pt-alcalinoterreo: #7a5c1f; --pt-transicion: #2f4f72;
+  --pt-postTransicion: #3d4f5c; --pt-metaloide: #40614a; --pt-noMetal: #2f6152;
+  --pt-halogeno: #5a3a70; --pt-nobleGas: #6b2f52; --pt-lantanido: #6a4a24;
+  --pt-actinido: #6a2f3c; --pt-sindato: #33384a;
+  --pt-solido: #33455e; --pt-liquido: #1f5f66; --pt-gas: #5c4a22; --pt-previsto: #3a3a4a;
+  --pt-escala-0: #1d2a45; --pt-escala-1: #6ea8ff;
+}
+:root[data-theme="light"] {
+  --pt-alcalino: #ffd9cc; --pt-alcalinoterreo: #ffedc2; --pt-transicion: #d6e6ff;
+  --pt-postTransicion: #dde5ec; --pt-metaloide: #d4ecd9; --pt-noMetal: #cdece1;
+  --pt-halogeno: #e6d8f5; --pt-nobleGas: #fbd7e7; --pt-lantanido: #f5e3c4;
+  --pt-actinido: #f8d5da; --pt-sindato: #e8eaf0;
+  --pt-solido: #dbe6f6; --pt-liquido: #cdeaed; --pt-gas: #f6ecc9; --pt-previsto: #e6e6ec;
+  --pt-escala-0: #eaf1ff; --pt-escala-1: #2b6fd6;
+}
+
+.page--ancha { max-width: none; }
+
+.pt__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: var(--sp-2); }
+.pt__envoltorio { min-width: 760px; display: grid; gap: var(--sp-3); }
+
+.pt {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 3px;
+}
+.pt__linea {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 3px;
+}
+.pt__banda { display: grid; gap: var(--sp-1); }
+.pt__banda-titulo { margin: 0; font-size: var(--fs-sm); color: var(--c-text-muted); }
+.pt__bloques { display: grid; gap: var(--sp-2); padding-left: calc((100% / 18) * 2 + 6px); }
+
+.pt__celda {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 1px;
+  aspect-ratio: 1;
+  padding: 2px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: var(--pt-sindato);
+  color: var(--c-text);
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden;
+  transition: transform var(--t-fast), border-color var(--t-fast);
+}
+.pt__celda:hover { transform: scale(1.08); z-index: 2; border-color: var(--c-text); }
+.pt__celda:focus-visible { outline: none; border-color: var(--c-accent); box-shadow: 0 0 0 3px var(--c-accent-ring); z-index: 3; }
+.pt__celda--activa { border-color: var(--c-accent); box-shadow: 0 0 0 2px var(--c-accent-ring); z-index: 2; }
+.pt__celda--apagada { opacity: .22; }
+
+.pt__z { font-size: 9px; line-height: 1; font-variant-numeric: tabular-nums; }
+.pt__simbolo { font-size: 15px; font-weight: var(--fw-bold); line-height: 1.1; }
+.pt__nombre {
+  font-size: 8px; line-height: 1.1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.pt__hueco {
+  display: grid; place-items: center;
+  aspect-ratio: 1; border: 1px dashed var(--c-border);
+  border-radius: 5px; font-size: 10px; color: var(--c-text-faint);
+}
+
+.pt__celda--alcalino { background: var(--pt-alcalino); }
+.pt__celda--alcalinoterreo { background: var(--pt-alcalinoterreo); }
+.pt__celda--transicion { background: var(--pt-transicion); }
+.pt__celda--postTransicion { background: var(--pt-postTransicion); }
+.pt__celda--metaloide { background: var(--pt-metaloide); }
+.pt__celda--noMetal { background: var(--pt-noMetal); }
+.pt__celda--halogeno { background: var(--pt-halogeno); }
+.pt__celda--nobleGas { background: var(--pt-nobleGas); }
+.pt__celda--lantanido { background: var(--pt-lantanido); }
+.pt__celda--actinido { background: var(--pt-actinido); }
+.pt__celda--sindato { background: var(--pt-sindato); }
+.pt__celda--solido { background: var(--pt-solido); }
+.pt__celda--liquido { background: var(--pt-liquido); }
+.pt__celda--gas { background: var(--pt-gas); }
+.pt__celda--previsto { background: var(--pt-previsto); }
+.pt__celda--escala {
+  background: color-mix(in srgb, var(--pt-escala-1) calc(var(--p) * 100%), var(--pt-escala-0));
+}
+
+.pt__leyenda-lista { list-style: none; margin: var(--sp-2) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-4); }
+.pt__leyenda-item { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); }
+.pt__muestra { width: 16px; height: 16px; border-radius: 4px; flex: 0 0 auto; }
+.pt__barra {
+  width: 90px; height: 14px; border-radius: 4px; flex: 0 0 auto;
+  background: linear-gradient(to right, var(--pt-escala-0), var(--pt-escala-1));
+}
+
+.pt__ficha {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-4);
+}
+.pt__ficha-simbolo {
+  display: grid; place-items: center;
+  width: 64px; height: 64px; flex: 0 0 auto;
+  border-radius: var(--r-md);
+  font-size: var(--fs-2xl); font-weight: var(--fw-bold);
+}
+.pt__ficha-nombre { margin: 0; font-size: var(--fs-xl); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pt__celda { transition: none; }
+  .pt__celda:hover { transform: none; }
+}
+
+/* ---------- Formulario ---------- */
+.form__tarjeta {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.form__nombre { margin: 0; font-size: var(--fs-lg); }
+.form__expr {
+  margin: var(--sp-1) 0;
+  font-size: var(--fs-lg);
+  color: var(--c-accent);
+  overflow-wrap: anywhere;
+}
+.form__tema {
+  flex: 1 1 auto;
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+.form__calc {
+  display: grid;
+  gap: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--c-border-soft);
+}
+.form__campos {
+  display: grid;
+  gap: var(--sp-3);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+.form__resultado {
+  margin: 0;
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-surface-3);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.form__resultado--error {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-normal);
+  color: var(--c-text-muted);
+}
+
+/* ---------- Asignaturas (notas, agenda y horario) ---------- */
+:root[data-theme="dark"] {
+  --asig-azul: #3b6fb5; --asig-verde: #2c7a52; --asig-naranja: #9a5a1c;
+  --asig-rosa: #a33a72; --asig-violeta: #6b4bb5; --asig-cian: #1a6f7d;
+  --asig-amarillo: #8a6a12; --asig-gris: #4a5162;
+}
+:root[data-theme="light"] {
+  --asig-azul: #cfe0fb; --asig-verde: #cceadb; --asig-naranja: #f8e0c4;
+  --asig-rosa: #f8d4e6; --asig-violeta: #e0d7f8; --asig-cian: #cbe8ed;
+  --asig-amarillo: #f5e9bf; --asig-gris: #e0e3ea;
+}
+.asig--azul { --asig: var(--asig-azul); }
+.asig--verde { --asig: var(--asig-verde); }
+.asig--naranja { --asig: var(--asig-naranja); }
+.asig--rosa { --asig: var(--asig-rosa); }
+.asig--violeta { --asig: var(--asig-violeta); }
+.asig--cian { --asig: var(--asig-cian); }
+.asig--amarillo { --asig: var(--asig-amarillo); }
+.asig--gris { --asig: var(--asig-gris); }
+
+.asig__punto {
+  width: 12px; height: 12px; border-radius: 50%;
+  flex: 0 0 auto; background: var(--asig, var(--c-text-faint));
+}
+.asig__tarjeta {
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--asig, var(--c-border));
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.asig__nombre { margin: 0; font-size: var(--fs-lg); overflow-wrap: anywhere; }
+.asig__vacia { color: var(--c-text-muted); }
+
+/* ---------- Notas ---------- */
+.notas__fila {
+  display: grid;
+  grid-template-columns: 1fr 5rem 5rem auto;
+  gap: var(--sp-2);
+  align-items: end;
+}
+.notas__resumen {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border-radius: var(--r-md);
+  background: var(--c-surface-3);
+}
+.notas__media {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
+}
+.notas__media--aprobada { color: var(--nc-verde); }
+.notas__media--suspensa { color: var(--nc-rojo); }
+.notas__barra {
+  height: 8px; border-radius: 4px; overflow: hidden;
+  background: var(--c-surface);
+}
+.notas__barra span { display: block; height: 100%; background: var(--c-accent-solid); }
+@media (max-width: 460px) {
+  .notas__fila { grid-template-columns: 1fr 4.5rem 4.5rem auto; }
+}
+
+/* ---------- Agenda de exámenes ---------- */
+.widget {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.widget__titulo { margin: 0; font-size: var(--fs-lg); flex: 1 1 auto; }
+.widget__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.widget__item { display: flex; align-items: center; gap: var(--sp-3); }
+.widget__nombre { margin: 0; font-weight: var(--fw-bold); overflow-wrap: anywhere; }
+.widget__cuenta {
+  flex: 0 0 auto;
+  padding: 2px var(--sp-2);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  background: var(--c-surface-3);
+  color: var(--c-text-muted);
+}
+.widget__cuenta--hoy { background: var(--nc-rojo); color: var(--c-surface); }
+.widget__cuenta--pronto { background: var(--nc-naranja); color: var(--c-surface); }
+
+.agenda__dia { margin: var(--sp-3) 0 0; font-weight: var(--fw-bold); }
+.agenda__examen--hecho { opacity: .6; }
+.agenda__examen--hecho .asig__nombre { text-decoration: line-through; }
+
+/* ---------- Horario ---------- */
+.horario__scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.horario {
+  display: grid;
+  grid-template-columns: 4.5rem repeat(var(--dias, 1), minmax(9rem, 1fr));
+  gap: 4px;
+  min-width: fit-content;
+}
+.horario__esquina, .horario__cabecera {
+  padding: var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--c-text-muted);
+  text-align: center;
+}
+.horario__cabecera--hoy { color: var(--c-accent); }
+.horario__franja {
+  display: grid;
+  align-content: center;
+  padding: var(--sp-2) 0;
+  text-align: center;
+  font-size: var(--fs-sm);
+}
+.horario__celda {
+  border: 1px solid var(--c-border);
+  border-left: 4px solid var(--asig, var(--c-border));
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--asig, transparent) 22%, var(--c-surface-2));
+  padding: var(--sp-2);
+  display: grid;
+  gap: var(--sp-2);
+  align-content: start;
+}
+.horario__celda--libre { background: var(--c-surface); border-left-color: var(--c-border); }
+.horario__celda .select, .horario__celda .input { font-size: var(--fs-sm); }
+.horario__ahora-linea { margin: 0; display: flex; align-items: center; gap: var(--sp-2); }

@@ -2,7 +2,7 @@
    Alcance relativo: funciona igual en la raiz de un dominio que en
    https://usuario.github.io/repositorio/ */
 
-const APP_VERSION = '2.4.0';          // sincronizar con src/core/version.js
+const APP_VERSION = '2.7.0';          // sincronizar con src/core/version.js
 const CACHE_NAME = `amano-v${APP_VERSION}`;
 
 /* Esqueleto de la app: se guarda en la instalacion para que arranque
@@ -47,6 +47,18 @@ const PRECACHE = [
   './src/views/home.js',
   './src/views/settings.js',
   './src/views/info.js',
+  './src/lib/steps.js',
+  './src/lib/fraction.js',
+  './src/lib/expr.js',
+  './src/lib/plot.js',
+  './src/lib/bases.js',
+  './src/lib/elementos.js',
+  './src/lib/grades.js',
+  './src/lib/agenda.js',
+  './src/lib/ics.js',
+  './src/lib/schedule.js',
+  './src/core/subjects.js',
+  './src/ui/subjects-ui.js',
   './src/tools/listas/rich.js',
   './src/tools/temporizador/index.js',
   './src/tools/temporizador/alarms.js',
@@ -55,6 +67,19 @@ const PRECACHE = [
   './src/tools/contrasenas/index.js',
   './src/tools/contador-texto/index.js',
   './src/tools/porcentajes/index.js',
+  './src/tools/calculadora/index.js',
+  './src/tools/graficas/index.js',
+  './src/tools/bases/index.js',
+  './src/tools/tabla/index.js',
+  './src/data/elements.js',
+  './src/data/formulas.js',
+  './src/tools/formulario/index.js',
+  './src/tools/formulario/pure.js',
+  './src/tools/notas/index.js',
+  './src/tools/agenda/index.js',
+  './src/tools/agenda/store.js',
+  './src/tools/agenda/widget.js',
+  './src/tools/horario/index.js',
   './src/tools/monedas/index.js',
   './src/tools/zonas-horarias/index.js',
   './src/tools/azar/index.js',

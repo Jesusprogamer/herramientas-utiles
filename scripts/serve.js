@@ -7,11 +7,16 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');
 const PORT = Number(process.argv[2]) || 4173;
+
+/* GitHub Pages comprime el texto antes de mandarlo. Aqui se hace igual
+   para que lo que se mide en local se parezca a lo publicado. */
+const COMPRIMIBLES = new Set(['.html', '.js', '.mjs', '.css', '.json', '.webmanifest', '.svg', '.txt']);
 
 const TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -48,12 +53,24 @@ http.createServer((req, res) => {
       });
       return;
     }
-    res.writeHead(200, {
-      'content-type': TYPES[path.extname(filePath).toLowerCase()] || 'application/octet-stream',
+    const ext = path.extname(filePath).toLowerCase();
+    const cabeceras = {
+      'content-type': TYPES[ext] || 'application/octet-stream',
       'cache-control': 'no-cache',
       'service-worker-allowed': '/'
-    });
-    fs.createReadStream(filePath).pipe(res);
+    };
+    const aceptaGzip = /\bgzip\b/.test(req.headers['accept-encoding'] || '');
+    const stream = fs.createReadStream(filePath);
+
+    if (aceptaGzip && COMPRIMIBLES.has(ext)) {
+      cabeceras['content-encoding'] = 'gzip';
+      cabeceras.vary = 'Accept-Encoding';
+      res.writeHead(200, cabeceras);
+      stream.pipe(zlib.createGzip()).pipe(res);
+      return;
+    }
+    res.writeHead(200, cabeceras);
+    stream.pipe(res);
   });
 }).listen(PORT, () => {
   console.log(`A mano -> http://localhost:${PORT}`);
