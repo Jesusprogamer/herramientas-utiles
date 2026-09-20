@@ -799,3 +799,33 @@
 @media (max-width: 460px) {
   .notas__fila { grid-template-columns: 1fr 4.5rem 4.5rem auto; }
 }
+
+/* ---------- Agenda de exámenes ---------- */
+.widget {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+  padding: var(--sp-4);
+  display: grid;
+  gap: var(--sp-3);
+}
+.widget__titulo { margin: 0; font-size: var(--fs-lg); flex: 1 1 auto; }
+.widget__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-3); }
+.widget__item { display: flex; align-items: center; gap: var(--sp-3); }
+.widget__nombre { margin: 0; font-weight: var(--fw-bold); overflow-wrap: anywhere; }
+.widget__cuenta {
+  flex: 0 0 auto;
+  padding: 2px var(--sp-2);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  white-space: nowrap;
+  background: var(--c-surface-3);
+  color: var(--c-text-muted);
+}
+.widget__cuenta--hoy { background: var(--nc-rojo); color: var(--c-surface); }
+.widget__cuenta--pronto { background: var(--nc-naranja); color: var(--c-surface); }
+
+.agenda__dia { margin: var(--sp-3) 0 0; font-weight: var(--fw-bold); }
+.agenda__examen--hecho { opacity: .6; }
+.agenda__examen--hecho .asig__nombre { text-decoration: line-through; }

@@ -156,6 +156,10 @@
     "notas": {
       "name": "Grade calculator",
       "desc": "Weighted average per subject, and what you still need to get there."
+    },
+    "agenda": {
+      "name": "Exam diary",
+      "desc": "Write down your exams, see how long is left and send them to your calendar."
     }
   },
   "settings": {
@@ -1976,5 +1980,56 @@
     "deAsignaturas": "With marks in {n} subjects.",
     "creaAsignaturas": "Create a subject below to start adding marks.",
     "aviso": "The weight is the percentage each test is worth of the final mark. Tests with no mark don't drag the average down: they only count once you fill them in."
+  },
+  "agenda": {
+    "cuando": {
+      "hoy": "Today",
+      "manana": "Tomorrow",
+      "enDias": "In {n} days",
+      "pasado": "Already gone"
+    },
+    "aviso": {
+      "label": "Calendar reminder",
+      "0": "No reminder",
+      "60": "An hour before",
+      "1440": "A day before",
+      "2880": "Two days before",
+      "10080": "A week before"
+    },
+    "nuevo": "New exam",
+    "editando": "Editing the exam",
+    "dia": "Day",
+    "hora": "Time",
+    "horaAyuda": "Leave it empty to save it as an all-day event.",
+    "titulo": "What's on it",
+    "tituloAyuda": "For example: units 3 and 4.",
+    "asignatura": "Subject",
+    "sinAsignatura": "No subject",
+    "lugar": "Room or place",
+    "notas": "Notes",
+    "notasPlaceholder": "Anything you want to remember.",
+    "anadir": "Add to the diary",
+    "anadido": "Exam added.",
+    "guardarCambios": "Save changes",
+    "guardado": "Changes saved.",
+    "faltaFecha": "Set the date of the exam.",
+    "faltaTitulo": "Write what's on it or pick a subject.",
+    "tope": "Only {n} exams fit.",
+    "sinTitulo": "Exam",
+    "marcar": "Mark as done",
+    "desmarcar": "Mark as pending",
+    "editar": "Edit this exam",
+    "quitar": "Remove this exam",
+    "exportarUno": "Download this exam for the calendar",
+    "exportarTodo": "Download them all for the calendar",
+    "exportado": "{n} exam(s) ready for the calendar.",
+    "nadaQueExportar": "There are no exams to export.",
+    "vacia": "You haven't written down any exams yet. Fill in the form above.",
+    "sinProximos": "You have no exams coming up.",
+    "verPasados": "Show the {n} exams that have passed",
+    "proximos": "Exams coming up",
+    "verTodos": "Open the diary",
+    "avisoAyuda": "It's saved inside the file, so your calendar does the reminding.",
+    "notaIcs": "The .ics file opens with your phone's or computer's calendar (Google Calendar, Apple, Outlook…). The exams are copied there: if you change them here afterwards, you need to download them again."
   }
 }

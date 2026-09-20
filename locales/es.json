@@ -156,6 +156,10 @@
     "notas": {
       "name": "Calculadora de notas",
       "desc": "Media ponderada por asignatura y cuánto te hace falta para llegar."
+    },
+    "agenda": {
+      "name": "Agenda de exámenes",
+      "desc": "Apunta tus exámenes, mira cuánto falta y pásalos al calendario."
     }
   },
   "settings": {
@@ -1976,5 +1980,56 @@
     "deAsignaturas": "Con notas en {n} asignaturas.",
     "creaAsignaturas": "Crea una asignatura abajo para empezar a meter notas.",
     "aviso": "El peso es el porcentaje que vale cada prueba sobre la nota final. Las pruebas sin nota no bajan la media: solo cuentan cuando las rellenas."
+  },
+  "agenda": {
+    "cuando": {
+      "hoy": "Hoy",
+      "manana": "Mañana",
+      "enDias": "En {n} días",
+      "pasado": "Ya pasó"
+    },
+    "aviso": {
+      "label": "Aviso del calendario",
+      "0": "Sin aviso",
+      "60": "Una hora antes",
+      "1440": "Un día antes",
+      "2880": "Dos días antes",
+      "10080": "Una semana antes"
+    },
+    "nuevo": "Nuevo examen",
+    "editando": "Editando el examen",
+    "dia": "Día",
+    "hora": "Hora",
+    "horaAyuda": "Si la dejas vacía se apunta como un día entero.",
+    "titulo": "Qué entra",
+    "tituloAyuda": "Por ejemplo: temas 3 y 4.",
+    "asignatura": "Asignatura",
+    "sinAsignatura": "Sin asignatura",
+    "lugar": "Aula o sitio",
+    "notas": "Notas",
+    "notasPlaceholder": "Lo que quieras recordar.",
+    "anadir": "Añadir a la agenda",
+    "anadido": "Examen añadido.",
+    "guardarCambios": "Guardar los cambios",
+    "guardado": "Cambios guardados.",
+    "faltaFecha": "Pon la fecha del examen.",
+    "faltaTitulo": "Escribe qué entra o elige una asignatura.",
+    "tope": "Solo caben {n} exámenes.",
+    "sinTitulo": "Examen",
+    "marcar": "Marcar como hecho",
+    "desmarcar": "Marcar como pendiente",
+    "editar": "Editar este examen",
+    "quitar": "Quitar este examen",
+    "exportarUno": "Descargar este examen para el calendario",
+    "exportarTodo": "Descargar todos para el calendario",
+    "exportado": "{n} examen(es) listos para el calendario.",
+    "nadaQueExportar": "No hay exámenes que exportar.",
+    "vacia": "Todavía no has apuntado ningún examen. Rellena el formulario de arriba.",
+    "sinProximos": "No tienes exámenes próximos.",
+    "verPasados": "Ver los {n} exámenes que ya pasaron",
+    "proximos": "Próximos exámenes",
+    "verTodos": "Ver la agenda",
+    "avisoAyuda": "Se guarda dentro del archivo, para que avise tu calendario.",
+    "notaIcs": "El archivo .ics se abre con el calendario del móvil o del ordenador (Google Calendar, Apple, Outlook…). Los exámenes se copian ahí: si luego los cambias aquí, hay que volver a descargarlos."
   }
 }
