@@ -140,6 +140,10 @@
     "graficas": {
       "name": "Gráficas de funciones",
       "desc": "Dibuja y explora funciones con zoom y tabla de valores."
+    },
+    "bases": {
+      "name": "Conversor de bases",
+      "desc": "Pasa números entre binario, octal, decimal, hexadecimal y cualquier base de 2 a 36."
     }
   },
   "settings": {
@@ -1395,7 +1399,13 @@
       "est.media": "Media = suma ÷ n = {suma} ÷ {n} = {media}.",
       "est.mediana": "La mediana, el valor central, es {mediana}.",
       "est.varianza": "Varianza = suma de (x − media)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
-      "est.desviacion": "Desviación típica = √{varianza} = {desviacion}."
+      "est.desviacion": "Desviación típica = √{varianza} = {desviacion}.",
+      "bases": {
+        "division": "{n} ÷ {base} = {cociente}, resto {resto} → dígito {digito}.",
+        "leerAlReves": "Se leen los restos de abajo arriba: {digitos}.",
+        "multiplicacion": "{valor} × {base} → parte entera {digito}, queda {resto}.",
+        "cero": "El cero se escribe igual en todas las bases: 0."
+      }
     }
   },
   "graf": {
@@ -1420,5 +1430,34 @@
     "descargada": "Descarga preparada.",
     "tabla": "Tabla de valores",
     "ayuda": "Usa x como variable: x^2, sin(x), 1/x. Arrastra para mover la gráfica y usa la rueda o los botones para acercar. Con el teclado: flechas para mover, + y − para el zoom."
+  },
+  "bases": {
+    "binario": "Binario (base 2)",
+    "octal": "Octal (base 8)",
+    "decimal": "Decimal (base 10)",
+    "hexadecimal": "Hexadecimal (base 16)",
+    "baseLibre": "Otra base",
+    "baseN": "Base {n}",
+    "enBase": "En base {n}",
+    "copiar": "Copiar el valor en base {base}",
+    "agrupar": "Agrupar el binario de cuatro en cuatro",
+    "agruparDesc": "1111 0000 se lee mejor que 11110000.",
+    "tamano": "Tamaño para el complemento a dos",
+    "nBits": "{n} bits",
+    "bits": "Bits que ocupa",
+    "digitosHex": "Dígitos en hexadecimal",
+    "complemento": "Complemento a dos ({bits} bits)",
+    "noCabe": "No cabe en {bits} bits",
+    "sinBitsConDecimales": "El recuento de bits y el complemento a dos solo se muestran con números enteros.",
+    "cortado": "La parte decimal es periódica en la base de destino: se muestran {n} dígitos.",
+    "ejemplo": "{v} en base {b}",
+    "explicarDesc": "Muestra las divisiones y multiplicaciones sucesivas.",
+    "nota": "La parte entera se calcula con enteros grandes, así que no se pierde precisión por larga que sea. Se aceptan coma o punto decimal, y espacios o guiones bajos para separar.",
+    "error": {
+      "vacio": "Escribe un número.",
+      "base": "Esa base no es válida.",
+      "separadores": "Solo puede haber un separador decimal.",
+      "digito": "«{c}» no es un dígito válido en base {base}."
+    }
   }
 }

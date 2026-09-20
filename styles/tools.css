@@ -552,3 +552,15 @@
   border-bottom: 1px solid var(--c-border);
 }
 .tabla tbody th { text-align: left; color: var(--c-text-muted); font-weight: var(--fw-normal); }
+
+/* ---------- Bases numéricas ---------- */
+.bases__fila { align-items: flex-end; }
+.datos {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--sp-2) var(--sp-4);
+  align-items: baseline;
+}
+.datos dt { color: var(--c-text-muted); font-size: var(--fs-sm); }
+.datos dd { margin: 0; overflow-wrap: anywhere; }

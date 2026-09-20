@@ -140,6 +140,10 @@
     "graficas": {
       "name": "Function graphs",
       "desc": "Draw and explore functions with zoom and a table of values."
+    },
+    "bases": {
+      "name": "Base converter",
+      "desc": "Move numbers between binary, octal, decimal, hexadecimal and any base from 2 to 36."
     }
   },
   "settings": {
@@ -1395,7 +1399,13 @@
       "est.media": "Mean = sum ÷ n = {suma} ÷ {n} = {media}.",
       "est.mediana": "The median, the middle value, is {mediana}.",
       "est.varianza": "Variance = sum of (x − mean)² ÷ {tipo} = {suma} ÷ {divisor} = {varianza}.",
-      "est.desviacion": "Standard deviation = √{varianza} = {desviacion}."
+      "est.desviacion": "Standard deviation = √{varianza} = {desviacion}.",
+      "bases": {
+        "division": "{n} ÷ {base} = {cociente}, remainder {resto} → digit {digito}.",
+        "leerAlReves": "Read the remainders bottom to top: {digitos}.",
+        "multiplicacion": "{valor} × {base} → whole part {digito}, {resto} left.",
+        "cero": "Zero is written the same in every base: 0."
+      }
     }
   },
   "graf": {
@@ -1420,5 +1430,34 @@
     "descargada": "Download ready.",
     "tabla": "Table of values",
     "ayuda": "Use x as the variable: x^2, sin(x), 1/x. Drag to move the graph and use the wheel or the buttons to zoom. With the keyboard: arrows to move, + and − to zoom."
+  },
+  "bases": {
+    "binario": "Binary (base 2)",
+    "octal": "Octal (base 8)",
+    "decimal": "Decimal (base 10)",
+    "hexadecimal": "Hexadecimal (base 16)",
+    "baseLibre": "Another base",
+    "baseN": "Base {n}",
+    "enBase": "In base {n}",
+    "copiar": "Copy the base {base} value",
+    "agrupar": "Group binary in fours",
+    "agruparDesc": "1111 0000 reads better than 11110000.",
+    "tamano": "Width for two's complement",
+    "nBits": "{n} bits",
+    "bits": "Bits used",
+    "digitosHex": "Hexadecimal digits",
+    "complemento": "Two's complement ({bits} bits)",
+    "noCabe": "Doesn't fit in {bits} bits",
+    "sinBitsConDecimales": "Bit count and two's complement only show for whole numbers.",
+    "cortado": "The fractional part repeats forever in the target base: {n} digits are shown.",
+    "ejemplo": "{v} in base {b}",
+    "explicarDesc": "Shows the successive divisions and multiplications.",
+    "nota": "The whole part is computed with big integers, so nothing is lost however long the number is. Comma or dot both work as the decimal mark, and spaces or underscores can be used as separators.",
+    "error": {
+      "vacio": "Type a number.",
+      "base": "That base isn't valid.",
+      "separadores": "There can only be one decimal separator.",
+      "digito": "“{c}” isn't a valid digit in base {base}."
+    }
   }
 }
