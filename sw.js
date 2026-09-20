@@ -76,6 +76,7 @@ const PRECACHE = [
   './src/lib/quiz/elements.js',
   './src/ui/quiz.js',
   './src/tools/tabla/quiz.js',
+  './src/lib/lookup.js',
   './src/ui/report-dialog.js',
   './src/core/subject-delete.js',
   './src/lib/trash.js',
