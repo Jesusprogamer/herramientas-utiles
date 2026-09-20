@@ -163,7 +163,6 @@ export function abrir({ alCerrar } = {}) {
   };
 
   const pasoListo = () => h('div.stack',
-    h('p', { text: t('bienvenida.listo.texto') }),
     h('p.small.muted', { text: t('bienvenida.listo.ajustes') })
   );
 

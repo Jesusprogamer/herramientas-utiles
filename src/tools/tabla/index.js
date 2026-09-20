@@ -242,25 +242,63 @@ export default {
       }
     });
 
+    /* Modo test: se carga solo al pedirlo, no pesa en la herramienta. */
+    const zonaTest = h('div');
+    let limpiarTest = null;
+    let enTest = false;
+
+    const volverATabla = () => {
+      limpiarTest?.();
+      limpiarTest = null;
+      enTest = false;
+      clear(zonaTest);
+      tabla.hidden = false;
+      botonTest.hidden = false;
+    };
+
+    const botonTest = button(t('quiz.abrir'), {
+      variant: 'primary', icon: 'checklist',
+      onClick: async () => {
+        if (enTest) return;
+        enTest = true;
+        const { default: modoTest } = await import('./quiz.js');
+        tabla.hidden = true;
+        botonTest.hidden = true;
+        clear(zonaTest);
+        limpiarTest = modoTest(zonaTest, {
+          nombreDe: nombre,
+          etiquetaDe: (que, clave) => t(`elementos.${que}.${clave}`),
+          favoritos: [],
+          alSalir: volverATabla
+        });
+      }
+    });
+
+    const tabla = h('div.stack',
+      busqueda,
+      modo,
+      aviso,
+      ficha,
+      h('div.pt__scroll', h('div.pt__envoltorio', rejilla, bloques)),
+      leyenda,
+      notice(t('tabla.fuenteTexto'), { kind: 'info', title: t('tabla.fuente') })
+    );
+
     container.appendChild(h('div.page.page--ancha',
       h('header.page__header',
         h('h1.page__title', { text: t('tools.tabla.name') }),
         h('p.page__lead', { text: t('tools.tabla.desc') })
       ),
-      h('div.stack',
-        busqueda,
-        modo,
-        aviso,
-        ficha,
-        h('div.pt__scroll', h('div.pt__envoltorio', rejilla, bloques)),
-        leyenda,
-        notice(t('tabla.fuenteTexto'), { kind: 'info', title: t('tabla.fuente') })
-      )
+      h('div.stack', h('div.row', botonTest), zonaTest, tabla)
     ));
 
     pintarRejilla();
     pintarLeyenda();
+    this._limpiar = () => limpiarTest?.();
   },
 
-  unmount() {}
+  unmount() {
+    this._limpiar?.();
+    this._limpiar = null;
+  }
 };

@@ -834,3 +834,38 @@
 .papelera__que { margin: 0; overflow-wrap: anywhere; }
 .toast--undo { border-left: 3px solid var(--c-accent); }
 
+
+/* ---------- Modo test ---------- */
+.quiz__tipos, .quiz__opciones { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.quiz__opciones { flex-direction: column; }
+.quiz__opciones .btn { justify-content: flex-start; }
+.quiz__barra {
+  height: 8px; border-radius: 4px; overflow: hidden;
+  background: var(--c-surface-3);
+}
+.quiz__barra span { display: block; height: 100%; background: var(--c-accent-solid); transition: width var(--t-fast); }
+.quiz__enunciado { margin: 0; font-size: var(--fs-lg); font-weight: var(--fw-bold); }
+.quiz__comentario { margin: 0; min-height: 1.4em; font-weight: var(--fw-bold); }
+.quiz__nota { margin: 0; font-size: var(--fs-3xl, 2rem); font-weight: var(--fw-bold); }
+.quiz__fallos, .quiz__sesiones { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+.quiz__fallo {
+  padding: var(--sp-3);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface-2);
+}
+.quiz__fallo p { margin: 0; }
+.quiz__pct { font-weight: var(--fw-bold); font-variant-numeric: tabular-nums; }
+.quiz__avanzadas, .quiz__valencias, .quiz__historial {
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3);
+  background: var(--c-surface-2);
+}
+.quiz__avanzadas summary, .quiz__valencias summary, .quiz__historial summary {
+  cursor: pointer; font-weight: var(--fw-bold);
+}
+.quiz__valencias .stack { max-height: 18rem; overflow-y: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .quiz__barra span { transition: none; }
+}
