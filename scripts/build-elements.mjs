@@ -109,7 +109,9 @@ export const ELEMENTS = Object.freeze(`;
 
 writeFileSync(
   new URL('../src/data/elements.js', import.meta.url),
-  `${cabecera}${JSON.stringify(salida, null, 2)}\n);\n\nexport const byZ = z => ELEMENTS[z - 1] || null;\nexport const bySymbol = s =>\n  ELEMENTS.find(e => e.symbol.toLowerCase() === String(s).toLowerCase()) || null;\n`
+  // Un elemento por linea: se lee bien en un diff y pesa la mitad que
+  // el JSON con sangria.
+  `${cabecera}[\n${salida.map(e => `  ${JSON.stringify(e)}`).join(',\n')}\n]);\n\nexport const byZ = z => ELEMENTS[z - 1] || null;\nexport const bySymbol = s =>\n  ELEMENTS.find(e => e.symbol.toLowerCase() === String(s).toLowerCase()) || null;\n`
 );
 
 console.log(`${salida.length} elementos escritos`);

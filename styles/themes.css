@@ -16,7 +16,9 @@
 
   --c-text:        #e9ecf2;
   --c-text-muted:  #a3abbb;
-  --c-text-faint:  #767f90;
+  /* 4,6:1 incluso sobre la superficie mas clara del tema: el texto tenue
+     sigue siendo legible, no solo decorativo. */
+  --c-text-faint:  #8b93a4;
 
   --c-danger:      #ff7b72;
   --c-danger-solid:#c0392f;
@@ -45,7 +47,8 @@
 
   --c-text:        #14171d;
   --c-text-muted:  #5a6273;
-  --c-text-faint:  #767f90;
+  /* 4,5:1 incluso sobre la superficie mas oscura del tema. */
+  --c-text-faint:  #616977;
 
   --c-danger:      #b3261e;
   --c-danger-solid:#b3261e;

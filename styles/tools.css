@@ -625,7 +625,7 @@
 .pt__celda--activa { border-color: var(--c-accent); box-shadow: 0 0 0 2px var(--c-accent-ring); z-index: 2; }
 .pt__celda--apagada { opacity: .22; }
 
-.pt__z { font-size: 9px; line-height: 1; opacity: .75; font-variant-numeric: tabular-nums; }
+.pt__z { font-size: 9px; line-height: 1; font-variant-numeric: tabular-nums; }
 .pt__simbolo { font-size: 15px; font-weight: var(--fw-bold); line-height: 1.1; }
 .pt__nombre {
   font-size: 8px; line-height: 1.1;

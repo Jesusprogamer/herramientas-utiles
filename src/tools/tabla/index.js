@@ -55,7 +55,11 @@ export default {
     function crearCelda(e) {
       const celda = h('button.pt__celda', {
         type: 'button',
-        'aria-label': t('tabla.celda', { nombre: nombre(e), simbolo: e.symbol, z: e.z }),
+        // El nombre accesible empieza por lo que se ve escrito en la celda,
+        // para que el control por voz funcione con lo que hay en pantalla.
+        'aria-label': t('tabla.celda', {
+          z: e.z, simbolo: e.symbol, nombre: nombre(e), familia: t(`elementos.cat.${e.category}`)
+        }),
         onClick: () => abrir(e.z)
       });
       celda.append(

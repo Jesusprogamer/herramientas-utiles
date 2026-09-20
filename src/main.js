@@ -7,7 +7,6 @@ import { markSvg } from './core/accents.js';
 import * as registry from './core/registry.js';
 import * as router from './core/router.js';
 import * as pwa from './core/pwa.js';
-import * as account from './core/account.js';
 import * as audio from './core/audio.js';
 import { on } from './core/events.js';
 import { h, clear, $ } from './ui/dom.js';
@@ -17,7 +16,6 @@ import { toast } from './ui/toast.js';
 import { t } from './core/i18n.js';
 
 import home from './views/home.js';
-import settingsView from './views/settings.js';
 import { privacy, licenses, notFound, toolPlaceholder } from './views/info.js';
 
 /* ---------------- Barra superior ---------------- */
@@ -124,8 +122,12 @@ async function toolRoute(ctx) {
   if (!tool) return notFound(ctx);
   if (!tool.ready) return toolPlaceholder(ctx);
   try {
-    await ensureToolStyles();
-    const mod = await import(`./tools/${tool.id}/index.js`);
+    // Los estilos y el modulo se piden a la vez: uno no depende del otro,
+    // y asi la herramienta pinta un viaje de red antes.
+    const [, mod] = await Promise.all([
+      ensureToolStyles(),
+      import(`./tools/${tool.id}/index.js`)
+    ]);
     const view = mod.default;
     const cleanup = await view.mount(ctx.outlet, {
       t, settings, storage, registry, i18n, navigate: router.navigate
@@ -144,7 +146,12 @@ async function toolRoute(ctx) {
 
 function registerRoutes() {
   router.register('/', home);
-  router.register('/ajustes', settingsView);
+  /* Ajustes es la vista mas grande y casi nadie la abre nada mas entrar:
+     se carga cuando hace falta, no en el arranque. */
+  router.register('/ajustes', async ctx => {
+    const { default: settingsView } = await import('./views/settings.js');
+    return settingsView(ctx);
+  });
   router.register('/privacidad', privacy);
   router.register('/licencias', licenses);
   router.register('/h/:id', toolRoute);
@@ -215,7 +222,13 @@ async function boot() {
   pwa.registerServiceWorker();
 
   // La cuenta es opcional: si no esta configurada, esto no hace nada.
-  account.init().catch(err => console.warn('[app] cuenta no disponible', err));
+  /* La cuenta (opcional) no hace falta para pintar: se carga en cuanto el
+     navegador esta libre. */
+  const arrancarCuenta = () => import('./core/account.js')
+    .then(m => m.init())
+    .catch(err => console.warn('[app] cuenta no disponible', err));
+  if ('requestIdleCallback' in window) requestIdleCallback(arrancarCuenta, { timeout: 3000 });
+  else setTimeout(arrancarCuenta, 1200);
 }
 
 boot().catch(err => {

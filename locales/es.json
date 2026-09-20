@@ -1633,7 +1633,7 @@
     },
     "leyenda": "Leyenda",
     "sinDato": "Sin dato",
-    "celda": "{nombre}, símbolo {simbolo}, número atómico {z}",
+    "celda": "{z} {simbolo} {nombre}, {familia}",
     "cerrar": "Cerrar la ficha",
     "anterior": "Elemento anterior",
     "siguiente": "Elemento siguiente",

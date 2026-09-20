@@ -1633,7 +1633,7 @@
     },
     "leyenda": "Legend",
     "sinDato": "No data",
-    "celda": "{nombre}, symbol {simbolo}, atomic number {z}",
+    "celda": "{z} {simbolo} {nombre}, {familia}",
     "cerrar": "Close the card",
     "anterior": "Previous element",
     "siguiente": "Next element",
